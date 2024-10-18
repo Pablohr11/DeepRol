@@ -1,0 +1,9 @@
+#leftBar {
+    background-color: #F2F4F3;
+    width: 250px;
+    height: calc(100vh - 150px);
+}
+
+#leftBar.dark {
+    background-color: #202020;
+}
