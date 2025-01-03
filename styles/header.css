@@ -3,5 +3,47 @@
     background-color: #690500;
     height:100px;
     margin: 0px;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
 }
 
+#centerPanel {
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+
+#rightPanel {
+    display: grid;
+    align-content: center;
+    justify-content: right;
+    padding: 20px;
+}
+
+#accountButton {
+    display: grid;
+    align-content: center;
+    justify-content: center ;
+    width: 45px;
+    height: 45px;
+    -webkit-border-radius: 27px;
+    border-radius: 27px;
+    background: #690500;
+    -webkit-box-shadow: 5px 5px 11px #4b0400, -5px -5px 11px #870600;
+    box-shadow: 5px 5px 11px #4b0400, -5px -5px 11px #870600, inset 5px 5px 11px #870600, inset -5px -5px 11px #4b0400;
+}
+
+.accountButtonPressed {
+    box-shadow: 5px 5px 11px #4b0400, -5px -5px 11px #870600 !important;
+}
+
+#accountButton img {
+    width: 25px;
+    height: 25px;
+}
+
+#logo {
+    height: 70px;
+    width: 70px;
+
+}

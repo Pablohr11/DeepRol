@@ -13,13 +13,24 @@
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/leftColumn.css">
     <link rel="stylesheet" href="styles/footer.css">
+    <script defer src="scripts/header.js"></script>
 </head>
 <body>
-    <div id="header"></div>
+    <?php 
+        include("sections/_partials/header.php")
+    ?>
     <div id="content">
-        <div id="leftBar" class="dark"></div>
+        <div id="leftBar" class="dark">
+            <?php 
+                include("sections/_partials/leftColumn.php")
+            ?>
+        </div>
         <div id="mainContent" class="dark"></div>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+        <?php 
+            include("sections/_partials/footer.php")
+        ?>
+    </div>
 </body>
 </html>

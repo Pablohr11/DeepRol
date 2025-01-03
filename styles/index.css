@@ -13,3 +13,7 @@ body {
     
     height: calc(100vh - 150px);
 }
+
+.title {
+    font-family: system-ui;
+}

@@ -3,3 +3,16 @@
     width: 100vw;
     height: 50px;
 }
+
+#footerContent {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+    color: #6b6b6b
+}
+
+#footerSpecialSpan {
+    color: #8b8b8b
+}
