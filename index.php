@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/footer.css">
     <script defer src="scripts/header.js"></script>
 </head>
-<body onload="init()">
+<body>
     <?php 
         include("sections/_partials/header.php")
     ?>
@@ -30,22 +30,22 @@
             
             <div id="partidas" class="mainContentScreen">
                 <?php
-                include("sections/personajes.php")
+                    // include("sections/personajes.php")
                 ?>
             </div>
             <div id="personajes" class="mainContentScreen">
                 <?php
-                include("sections/personajes.php")
+                    include("sections/personajes.php")
                 ?>
             </div>
             <div id="habilidades" class="mainContentScreen">
                 <?php
-                include("sections/personajes.php")
+                    // include("sections/personajes.php")
                 ?>
             </div>
             <div id="apuntes" class="mainContentScreen">
                 <?php
-                include("sections/personajes.php")
+                    // include("sections/personajes.php")
                 ?>
             </div>
             
@@ -58,12 +58,24 @@
     </div>
 
 <script defer>
-    function init() {
-        var divPartidas = document.querySelector("#partidas");
-        var divPersonajes = document.querySelector("#personajes");
-        var divHabilidades = document.querySelector("#habilidades");
-        var divApuntes = document.querySelector("#apuntes");
-        console.log(divPartidas);
+    function hideMain() {
+        var divPartidas = document.querySelector("#partidas").style.display="none";
+        var divPersonajes = document.querySelector("#personajes").style.display="none";
+        var divHabilidades = document.querySelector("#habilidades").style.display="none";
+        var divApuntes = document.querySelector("#apuntes").style.display="none";
+        // console.log(divPartidas);
+
+        // document.getElementById("Partidas").addEventListener('click', function() {
+
+        // })
+    }
+
+    function changeMain(id) {
+        hideMain();
+        
+        var targetContainerId = id.toLowerCase();
+        console.log(document.getElementById(targetContainerId));
+        document.getElementById(targetContainerId).style.display = "block";
     }
 </script>
 

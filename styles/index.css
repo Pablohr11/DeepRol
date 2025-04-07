@@ -18,6 +18,6 @@ body {
     font-family: system-ui;
 }
 
-#mainContent div{
+.mainContentScreen {
     display: none;
 }
