@@ -1,6 +1,7 @@
 <?php
 
 
+
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,7 @@
     <link rel="stylesheet" href="styles/footer.css">
     <script defer src="scripts/header.js"></script>
 </head>
-<body>
+<body onload="init()">
     <?php 
         include("sections/_partials/header.php")
     ?>
@@ -25,12 +26,46 @@
                 include("sections/_partials/leftColumn.php")
             ?>
         </div>
-        <div id="mainContent" class="dark"></div>
+        <div id="mainContent" class="dark">
+            
+            <div id="partidas" class="mainContentScreen">
+                <?php
+                include("sections/personajes.php")
+                ?>
+            </div>
+            <div id="personajes" class="mainContentScreen">
+                <?php
+                include("sections/personajes.php")
+                ?>
+            </div>
+            <div id="habilidades" class="mainContentScreen">
+                <?php
+                include("sections/personajes.php")
+                ?>
+            </div>
+            <div id="apuntes" class="mainContentScreen">
+                <?php
+                include("sections/personajes.php")
+                ?>
+            </div>
+            
+        </div>
     </div>
     <div id="footer">
         <?php 
             include("sections/_partials/footer.php")
         ?>
     </div>
+
+<script defer>
+    function init() {
+        var divPartidas = document.querySelector("#partidas");
+        var divPersonajes = document.querySelector("#personajes");
+        var divHabilidades = document.querySelector("#habilidades");
+        var divApuntes = document.querySelector("#apuntes");
+        console.log(divPartidas);
+    }
+</script>
+
 </body>
 </html>
