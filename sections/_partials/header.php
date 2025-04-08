@@ -2,6 +2,6 @@
     <div></div>
     <div id="centerPanel"><img id="logo" src="../../resources/imgs/logo.png"></div>
     <div id="rightPanel">
-        <div id="accountButton"><img src="../../resources/imgs/account.png"></div>
+        <div id="accountButton"><a href="login.php"><img src="../../resources/imgs/account.png"></a></div>
     </div>
 </div>
