@@ -33,10 +33,9 @@
 			display: grid;
 			height: 250px;
 			margin: 10px;
-			border-top-left-radius: 10px;
-			border-top-right-radius: 10px;
 			overflow: hidden;
 			grid-template-rows: 200px auto;
+			border-radius: 10px 10px 5px 5px;
 		}
 		
 		.charOption img {
@@ -47,7 +46,7 @@
 		}
 
 		.charOption h2 {
-			background-color: #690500;
+			background-color: #653d14;
 			margin: 0px;
 		    display: grid;
 		    justify-content: center;

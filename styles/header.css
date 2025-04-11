@@ -1,6 +1,6 @@
 #header {
     width: 100vw;
-    background-color: #690500;
+    background-color: #653d14;
     height:100px;
     margin: 0px;
     display: grid;
@@ -28,13 +28,13 @@
     height: 45px;
     -webkit-border-radius: 27px;
     border-radius: 27px;
-    background: #690500;
+    background: #653d14;
     -webkit-box-shadow: 5px 5px 11px #4b0400, -5px -5px 11px #870600;
-    box-shadow: 5px 5px 11px #4b0400, -5px -5px 11px #870600, inset 5px 5px 11px #870600, inset -5px -5px 11px #4b0400;
+    box-shadow: 5px 5px 11px #3b240c, -5px -5px 11px #814e1a, inset 5px 5px 11px #814e1a, inset -5px -5px 11px #3b240c;
 }
 
 .accountButtonPressed {
-    box-shadow: 5px 5px 11px #4b0400, -5px -5px 11px #870600 !important;
+    box-shadow: 5px 5px 11px #3b240c, -5px -5px 11px #814e1a !important;
 }
 
 #accountButton img {
