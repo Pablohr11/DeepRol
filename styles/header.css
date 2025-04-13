@@ -31,6 +31,7 @@
     background: #653d14;
     -webkit-box-shadow: 5px 5px 11px #4b0400, -5px -5px 11px #870600;
     box-shadow: 5px 5px 11px #3b240c, -5px -5px 11px #814e1a, inset 5px 5px 11px #814e1a, inset -5px -5px 11px #3b240c;
+    cursor: pointer;
 }
 
 .accountButtonPressed {
@@ -44,5 +45,4 @@
 
 #logo {
     height: 70px;
-    width: 70px;
 }
