@@ -1,6 +1,19 @@
 <?php
-
-	
+	require_once("classes/DbConnector.php");
+	//var_dump($_POST);
+	$db = DbConector::singleton();
+	if (isset($_POST["submitInput"])) {	
+		if ($_POST["submitInput"] == "Iniciar Sesion") {
+			if($db->checkLogin(strtoupper($_POST["user"]), $_POST["password"])) {
+				setcookie("logged", true, time()+60*60*24*30);
+				setcookie("userInitial", $_POST["user"][0], time()+60*60*24*30);
+				header("Location: /");
+				die();
+			}
+		} else {
+			echo("b");
+		}
+	}
 
 ?>
 
@@ -21,10 +34,10 @@
     ?>
 	<div id="formContainer">
 		<div class="loginOption">
-			<form>
+			<form action="" method="post">
 				<img id="formLogo" src="./resources/logos/logo_no_bg.png" alt="">
 				<div class="formInputContainer">
-					<span>Usuario</span>
+					<span id="userSpan">Usuario</span>
 					<input type="text" id="formName" class="formTextField"  name="user">
 				</div>
 				<div class="formInputContainer">
@@ -32,10 +45,10 @@
 					<input type="text" id="formPwd" class="formTextField" name="password">		
 				</div>
 				<div class="formLinkContainer">
-					<a href="#">Crear cuenta</a>
+					<span id="changeFormButton">Crear cuenta</span>
 				</div>
 				<div class="formSubmitContainer">
-					<input type="submit" value="Iniciar Sesion">
+					<input type="submit" value="Iniciar Sesion" id="submitInput" name="submitInput">
 				</div>
 			</form>
 		</div>

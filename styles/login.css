@@ -101,6 +101,7 @@ form input[type="text"] {
     background-color: rgb(0 0 0 / 40%);
     border: 2px solid #b77d3b;
     padding: 10px;
+    cursor: pointer;
 }
 
 .formSubmitContainer {
@@ -113,12 +114,15 @@ form input[type="text"] {
 }
 
 
-.formLinkContainer a {
+.formLinkContainer span {
     text-align: center;
     color: #b77d3b;
     font-size: medium;
     text-transform: uppercase;
     text-decoration: none;
+    background-color: #00000000;
+    border: none;
+    cursor: pointer;
 }
 
 .formSubmitContainer input {
