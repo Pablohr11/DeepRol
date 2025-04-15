@@ -1,0 +1,20 @@
+{
+    "name": "pablohr11/deeprol",
+    "description": "DeepRol platform",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Pablohr11\\Deeprol\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "pablohr11"
+        }
+    ],
+    "require": {
+        "darkgoldblade01/dnd-5e-api": "dev-master"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

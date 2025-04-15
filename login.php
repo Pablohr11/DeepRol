@@ -2,10 +2,13 @@
 	require_once("classes/DbConnector.php");
 	//var_dump($_POST);
 	$db = DbConector::singleton();
+
+	
 	if (isset($_POST["submitInput"])) {	
+		$checkLoginResult = $db->checkLogin(strtoupper($_POST["user"]), $_POST["password"]);
 		if ($_POST["submitInput"] == "Iniciar Sesion") {
-			if($db->checkLogin(strtoupper($_POST["user"]), $_POST["password"])) {
-				setcookie("logged", true, time()+60*60*24*30);
+			if($checkLoginResult != 0) {
+				setcookie("logged", $checkLoginResult, time()+60*60*24*30);
 				setcookie("userInitial", $_POST["user"][0], time()+60*60*24*30);
 				header("Location: /");
 				die();

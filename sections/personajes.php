@@ -1,12 +1,19 @@
 <?php
-    $fichas = (scandir("./resources/fichas"));
 
-    array_shift($fichas);
-    array_shift($fichas);
+	require_once("classes/DbConnector.php");
+	$db = DbConector::singleton();
+
+    $fichas = (scandir("./resources/fichas"));
+    array_shift($fichas); array_shift($fichas);
 
     $imgs = (scandir("./resources/chars"));
-    array_shift($imgs);
-    array_shift($imgs);
+    array_shift($imgs); array_shift($imgs);
+
+	$chars = [];
+
+	if (isset($_COOKIE["logged"]) && $_COOKIE["logged"] != 0) {
+		$chars = $db->getChars($_COOKIE["logged"]);
+	}
 ?>
 <!DOCTYPE html>
 
@@ -76,10 +83,10 @@
 </head>
 <body>
 	<div class="charactersDiv">
-		<?php foreach ($fichas as $key => $ficha): ?>
-			<div class="charOption" id="<?=$ficha?>" onclick="showCharacter(this.id)">
-				<img src="./resources/chars/<?=$imgs[$key]?>">
-				<h2><?=explode(".",$ficha)[0]?></h2>
+		<?php foreach ($chars as $key => $char): ?>
+			<div class="charOption" id="<?=$char["name"]?>" onclick="showCharacter(this)" pdfName='<?=$char["pdf_path"]?>'>
+				<img src="./resources/chars/<?=$char["image_path"]?>">
+				<h2><?=$char["name"]?></h2>
 			</div>			
 		<?php endforeach ?>
 
@@ -104,7 +111,7 @@
     	function showCharacter(trigger) {
     		console.log(trigger);
 
-    		document.getElementById("embed").src = "./resources/fichas/"+trigger;
+    		document.getElementById("embed").src = "./resources/fichas/"+trigger.getAttribute("pdfName");
 
     		console.log(document.getElementById("embed").src);
 

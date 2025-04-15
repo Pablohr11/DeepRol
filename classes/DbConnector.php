@@ -27,7 +27,7 @@ class DbConector {
 
     public function checkLogin($user, $passwd) {
         try {
-            $consulta = $this->db->prepare("select username, password from usuario where username = :username");
+            $consulta = $this->db->prepare("select ID_usuario, username, password from usuario where username = :username");
             
             $consulta->bindParam(":username",$user, PDO::PARAM_STR);
             
@@ -35,7 +35,7 @@ class DbConector {
             $data = $consulta->fetch(PDO::FETCH_ASSOC);
             
             if ($data["password"] == $passwd) {
-                return true;
+                return $data["ID_usuario"];
             }
 
             return false;
@@ -68,5 +68,18 @@ class DbConector {
         }
         
         return false;
+    }
+    public function getChars($id_user) {
+        try {
+            $consulta = $this->db->prepare("SELECT * FROM chars where id_user = :user_id");
+
+            $consulta->bindParam(":user_id", $id_user, PDO::PARAM_INT);
+
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 }

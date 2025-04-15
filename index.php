@@ -1,5 +1,6 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
 
 
 ?>
@@ -30,7 +31,7 @@
             
             <div id="partidas" class="mainContentScreen">
                 <?php
-                    // include("sections/personajes.php")
+                    include("sections/partidas.php")
                 ?>
             </div>
             <div id="personajes" class="mainContentScreen">
