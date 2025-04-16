@@ -28,15 +28,15 @@ require_once __DIR__ . '/vendor/autoload.php';
             ?>
         </div>
         <div id="mainContent" class="dark">
-            
-            <div id="partidas" class="mainContentScreen">
+            <iframe src="" frameborder="0" name="mainIframe" id="mainIframe"></iframe>
+            <!-- <div id="partidas" class="mainContentScreen">
                 <?php
-                    include("sections/partidas.php")
+                    // include("sections/partidas.php")
                 ?>
             </div>
             <div id="personajes" class="mainContentScreen">
                 <?php
-                    include("sections/personajes.php")
+                    // include("sections/personajes.php")
                 ?>
             </div>
             <div id="habilidades" class="mainContentScreen">
@@ -48,7 +48,7 @@ require_once __DIR__ . '/vendor/autoload.php';
                 <?php
                     // include("sections/personajes.php")
                 ?>
-            </div>
+            </div> -->
             
         </div>
     </div>
@@ -72,11 +72,18 @@ require_once __DIR__ . '/vendor/autoload.php';
     }
 
     function changeMain(id) {
-        hideMain();
+        // hideMain();
+
+        var personajesSRC = "sections/personajes.php";
+        var personajeSRC = "sections/personaje.php";
         
         var targetContainerId = id.toLowerCase();
+        console.log(id);
+
+        document.getElementById("mainIframe").src = personajesSRC;
+
         console.log(document.getElementById(targetContainerId));
-        document.getElementById(targetContainerId).style.display = "block";
+        // document.getElementById(targetContainerId).style.display = "block";
     }
 </script>
 

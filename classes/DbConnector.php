@@ -82,4 +82,23 @@ class DbConector {
             echo $e->getMessage();
         }
     }
+
+    public function insertSpell($spellData) {
+        try {
+            $consulta = $this->db->prepare("INSERT INTO conjuros values(null, :nombre, :descr, :duracion, :concentracion, :casteo, :spell_level, :rango)");
+            
+            $consulta->bindParam(":nombre", $spellData->name, PDO::PARAM_STR);
+            $consulta->bindParam(":descr", $spellData->desc, PDO::PARAM_STR);
+            $consulta->bindParam(":duracion", $spellData->duration , PDO::PARAM_STR);
+            $consulta->bindParam(":concentracion", $spellData->concentration  , PDO::PARAM_STR);
+            $consulta->bindParam(":casteo", $spellData->casting_time , PDO::PARAM_STR);
+            $consulta->bindParam(":spell_level", $spellData->level , PDO::PARAM_STR);
+            $consulta->bindParam(":rango", $spellData->range , PDO::PARAM_STR);
+
+            $results = $consulta->execute();
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

@@ -1,12 +1,12 @@
 <?php
 
-	require_once("classes/DbConnector.php");
+	require_once("../classes/DbConnector.php");
 	$db = DbConector::singleton();
 
-    $fichas = (scandir("./resources/fichas"));
+    $fichas = (scandir("../resources/fichas"));
     array_shift($fichas); array_shift($fichas);
 
-    $imgs = (scandir("./resources/chars"));
+    $imgs = (scandir("../resources/chars"));
     array_shift($imgs); array_shift($imgs);
 
 	$chars = [];
@@ -85,7 +85,7 @@
 	<div class="charactersDiv">
 		<?php foreach ($chars as $key => $char): ?>
 			<div class="charOption" id="<?=$char["name"]?>" onclick="showCharacter(this)" pdfName='<?=$char["pdf_path"]?>'>
-				<img src="./resources/chars/<?=$char["image_path"]?>">
+				<img src="../resources/chars/<?=$char["image_path"]?>">
 				<h2><?=$char["name"]?></h2>
 			</div>			
 		<?php endforeach ?>
@@ -111,7 +111,7 @@
     	function showCharacter(trigger) {
     		console.log(trigger);
 
-    		document.getElementById("embed").src = "./resources/fichas/"+trigger.getAttribute("pdfName");
+    		document.getElementById("embed").src = "../resources/fichas/"+trigger.getAttribute("pdfName");
 
     		console.log(document.getElementById("embed").src);
 
