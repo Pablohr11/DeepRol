@@ -83,6 +83,20 @@ class DbConector {
         }
     }
 
+    public function getChar($id_char) {
+        try {
+            $consulta = $this->db->prepare("SELECT * FROM chars where id_char = :char_id");
+
+            $consulta->bindParam(":char_id", $id_char, PDO::PARAM_INT);
+
+            $results = $consulta->execute();
+            $data = $consulta->fetch();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
     public function insertSpell($spellData) {
         try {
             $consulta = $this->db->prepare("INSERT INTO conjuros values(null, :nombre, :descr, :duracion, :concentracion, :casteo, :spell_level, :rango)");

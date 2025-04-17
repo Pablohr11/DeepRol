@@ -1,0 +1,20 @@
+#charDiv {
+    display: grid;
+    grid-template-columns: 250px auto;
+    grid-gap: 20px
+}
+
+#fullBodyImg {
+    width: 100%;
+    border-radius: 5px;
+}
+
+#charDiv h2 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #b77d3b;
+}
+
+#charSubTitle {
+    color: #5b5b5b
+}
