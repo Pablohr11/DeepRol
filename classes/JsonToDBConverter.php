@@ -2,7 +2,7 @@
 
 require_once("DbConnector.php");
 $jv = new JsonToDBConverter();
-// $jv->insertJsonIntoDb("test", "../data/spells.json");
+$jv->insertJsonIntoDb("test", "../data/spells.json");
 
 class JsonToDBConverter 
 {

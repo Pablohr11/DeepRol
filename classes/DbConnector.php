@@ -99,7 +99,7 @@ class DbConector {
 
     public function insertSpell($spellData) {
         try {
-            $consulta = $this->db->prepare("INSERT INTO conjuros values(null, :nombre, :descr, :duracion, :concentracion, :casteo, :spell_level, :rango)");
+            $consulta = $this->db->prepare("INSERT INTO conjuros values(null, :nombre, :descr, :duracion, :concentracion, :casteo, :spell_level, :rango, :clases, :escuela)");
             
             $consulta->bindParam(":nombre", $spellData->name, PDO::PARAM_STR);
             $consulta->bindParam(":descr", $spellData->desc, PDO::PARAM_STR);
@@ -108,11 +108,119 @@ class DbConector {
             $consulta->bindParam(":casteo", $spellData->casting_time , PDO::PARAM_STR);
             $consulta->bindParam(":spell_level", $spellData->level , PDO::PARAM_STR);
             $consulta->bindParam(":rango", $spellData->range , PDO::PARAM_STR);
+            $consulta->bindParam(":clases", $spellData->class , PDO::PARAM_STR);
+            $consulta->bindParam(":escuela", $spellData->school , PDO::PARAM_STR);
 
             $results = $consulta->execute();
             return $results;
         } catch (PDOException $e) {
             echo $e->getMessage();
+        }
+    }
+
+    public function getSpellsIds($id_char) {
+        try {
+            $consulta = $this->db->prepare("SELECT spells FROM spellset where id_char = :char_id");
+
+            $consulta->bindParam(":char_id", $id_char, PDO::PARAM_INT);
+
+            $results = $consulta->execute();
+            $data = $consulta->fetch();
+            return $data["spells"];
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getSpells($ids, $diffOrder = null) {
+        try {
+            if ($diffOrder == null) {
+                $consulta = $this->db->prepare("SELECT * FROM conjuros where id_spell in ($ids) ORDER BY `conjuros`.`level` ASC");
+            } else {
+                $consulta = $this->db->prepare("SELECT * FROM conjuros where id_spell in ($ids)  ORDER BY 
+                CASE
+                    WHEN casteo = '1 acción adicional' THEN 0
+                    WHEN casteo = '1 acción' THEN 1
+                    WHEN casteo = '1 reacción' THEN 2
+                    ELSE 3
+                END");
+            }
+            
+           
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getAllSpells($filters=null) {
+        try {
+
+            if ($filters != null) {
+                $consulta = $this->db->prepare("SELECT * FROM conjuros where ".$filters."  ORDER BY 
+                CASE
+                    WHEN level = 'Truco' THEN 0
+                    WHEN level = 'Nivel 1' THEN 1
+                    WHEN level = 'Nivel 2' THEN 2
+                    WHEN level = 'Nivel 3' THEN 3
+                    WHEN level = 'Nivel 4' THEN 4
+                    WHEN level = 'Nivel 5' THEN 5
+                    WHEN level = 'Nivel 6' THEN 6
+                    WHEN level = 'Nivel 7' THEN 7
+                    WHEN level = 'Nivel 8' THEN 8
+                    WHEN level = 'Nivel 9' THEN 9
+                    ELSE 10
+                END");
+            } else {
+                $consulta = $this->db->prepare("SELECT * FROM conjuros ORDER BY 
+                CASE
+                    WHEN level = 'Truco' THEN 0
+                    WHEN level = 'Nivel 1' THEN 1
+                    WHEN level = 'Nivel 2' THEN 2
+                    WHEN level = 'Nivel 3' THEN 3
+                    WHEN level = 'Nivel 4' THEN 4
+                    WHEN level = 'Nivel 5' THEN 5
+                    WHEN level = 'Nivel 6' THEN 6
+                    WHEN level = 'Nivel 7' THEN 7
+                    WHEN level = 'Nivel 8' THEN 8
+                    WHEN level = 'Nivel 9' THEN 9
+                    ELSE 10
+                END");
+            }
+
+
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function addSpell($id_char, $id_spell) {
+        $spellsIds = $this->getSpellsIds($id_char);
+        $newSpellList = ($this->addSpellIdToList($id_spell, $spellsIds));
+        
+        
+        $consulta = $this->db->prepare("UPDATE `spellset` SET `spells` = :spellList WHERE `spellset`.`id_char` = :id_char;");
+        
+        
+        $consulta->bindParam(":id_char", $id_char, PDO::PARAM_STR);
+        $consulta->bindParam(":spellList", $newSpellList, PDO::PARAM_STR);
+        
+        $results = $consulta->execute();
+    }
+
+
+    public function addSpellIdToList($id_spell, $spellList) {
+        // var_dump($spellList);
+        if (strlen($spellList) == 0) {
+            return $id_spell;
+        } else {
+            return $spellList.", ".$id_spell;
         }
     }
 }

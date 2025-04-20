@@ -9,12 +9,23 @@
     border-radius: 5px;
 }
 
-#charDiv h2 {
+#charDiv h1 {
     margin-top: 0;
     margin-bottom: 5px;
+}
+
+#charDiv h1, #charDiv h2, #charDiv h3  {
     color: #b77d3b;
 }
 
 #charSubTitle {
     color: #5b5b5b
+}
+
+.spellsInfo {
+    color: #b2b2b2;
+    margin: 10px 0;
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
 }

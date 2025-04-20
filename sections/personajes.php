@@ -54,17 +54,9 @@
     	function showCharacter(trigger) {
     		console.log(trigger);
 
-			window.location.replace("./personaje.php?id=1");
+			var charIdToShow = trigger.getAttribute("charId");
 
-    		// document.getElementById("embed").src = "../resources/fichas/"+trigger.getAttribute("pdfName");
-
-    		// console.log(document.getElementById("embed").src);
-
-    		// document.getElementById("embedContainer").style.display = "block";
-
-    		// document.getElementById("closeEmbed").addEventListener('click', function() {
-    		// 	document.getElementById("embedContainer").style.display = "none";
-    		// })
+			window.location.replace("./personaje.php?id="+charIdToShow);
     	}
 
 

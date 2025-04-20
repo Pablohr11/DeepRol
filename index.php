@@ -28,28 +28,7 @@
             ?>
         </div>
         <div id="mainContent" class="dark">
-            <iframe src="" frameborder="0" name="mainIframe" id="mainIframe"></iframe>
-            <!-- <div id="partidas" class="mainContentScreen">
-                <?php
-                    // include("sections/partidas.php")
-                ?>
-            </div>
-            <div id="personajes" class="mainContentScreen">
-                <?php
-                    // include("sections/personajes.php")
-                ?>
-            </div>
-            <div id="habilidades" class="mainContentScreen">
-                <?php
-                    // include("sections/personajes.php")
-                ?>
-            </div>
-            <div id="apuntes" class="mainContentScreen">
-                <?php
-                    // include("sections/personajes.php")
-                ?>
-            </div> -->
-            
+            <iframe src="" frameborder="0" name="mainIframe" id="mainIframe"></iframe>            
         </div>
     </div>
     <div id="footer">
@@ -74,13 +53,31 @@
     function changeMain(id) {
         // hideMain();
 
+        var partidasSRC = "sections/personajes.php";
         var personajesSRC = "sections/personajes.php";
-        var personajeSRC = "sections/personaje.php";
+        var habilidadesSRC = "sections/allSpells.php";
+        var apuntesSRC = "sections/personajes.php";
         
         var targetContainerId = id.toLowerCase();
         console.log(id);
 
-        document.getElementById("mainIframe").src = personajesSRC;
+        switch (id) {
+            case "Partidas":
+                document.getElementById("mainIframe").src = partidasSRC;        
+                break;
+            case "Personajes":
+                document.getElementById("mainIframe").src = personajesSRC;        
+                break;
+            case "Habilidades":
+                document.getElementById("mainIframe").src = habilidadesSRC;        
+                break;
+            case "Apuntes":
+                document.getElementById("mainIframe").src = apuntesSRC;        
+                break;
+            default:
+                break;
+        }
+        // document.getElementById("mainIframe").src = personajesSRC;
 
         console.log(document.getElementById(targetContainerId));
         // document.getElementById(targetContainerId).style.display = "block";

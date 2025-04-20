@@ -6,10 +6,10 @@ $db = DbConector::singleton();
 
 
 if (isset($_GET["id"])) {
-    $charData = $db->getChar($_GET["id"]);
-
-    // var_dump($charData);
-
+    $charId = $_GET["id"];
+    $charData = $db->getChar($charId);
+    $spellsIds = str_replace('"', '',$db->getSpellsIds($charId));
+    $charSpells = $db->getSpells($spellsIds, "yes");
 }
 
 ?>
@@ -19,7 +19,12 @@ if (isset($_GET["id"])) {
 <div id="charDiv">
     <img src="../resources/chars/draelith_cuerpo_completo.png" id="fullBodyImg" alt="">
     <div class="charInfo">
-        <h2><?=$charData["name"]?></h2>
+        <h1><?=$charData["name"]?></h1>
         <span id="charSubTitle"><?=$charData["raza"]?> / <?=$charData["clase"]?> (<?=$charData["nivel"]?>)</span>
+        <h3>Conjuros</h3>
+        <?php foreach ($charSpells as $key => $spell) { ?>
+            <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=$spell["name"]?> - <?=$spell["level"]?> - <?=$spell["casteo"]?></a>
+        <?php } ?>
+        <a href="allSpells.php?classFilter=<?=strtolower($charData["clase"])?>">Añadir Conjuro</a>
     </div>
 </div>
