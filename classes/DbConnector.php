@@ -112,6 +112,7 @@ class DbConector {
             $consulta->bindParam(":escuela", $spellData->school , PDO::PARAM_STR);
 
             $results = $consulta->execute();
+            echo($results);
             return $results;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -126,7 +127,11 @@ class DbConector {
 
             $results = $consulta->execute();
             $data = $consulta->fetch();
-            return $data["spells"];
+            if (isset($data["spells"])) {
+                return $data["spells"];
+            } else {
+                return "";
+            }
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -134,16 +139,21 @@ class DbConector {
 
     public function getSpells($ids, $diffOrder = null) {
         try {
-            if ($diffOrder == null) {
-                $consulta = $this->db->prepare("SELECT * FROM conjuros where id_spell in ($ids) ORDER BY `conjuros`.`level` ASC");
+            if ($ids != null) {
+
+                if ($diffOrder == null) {
+                    $consulta = $this->db->prepare("SELECT * FROM conjuros where id_spell in ($ids) ORDER BY `conjuros`.`level` ASC");
+                } else {
+                    $consulta = $this->db->prepare("SELECT * FROM conjuros where id_spell in ($ids)  ORDER BY 
+                    CASE
+                        WHEN casteo = '1 acción adicional' THEN 0
+                        WHEN casteo = '1 acción' THEN 1
+                        WHEN casteo = '1 reacción' THEN 2
+                        ELSE 3
+                    END");
+                }
             } else {
-                $consulta = $this->db->prepare("SELECT * FROM conjuros where id_spell in ($ids)  ORDER BY 
-                CASE
-                    WHEN casteo = '1 acción adicional' THEN 0
-                    WHEN casteo = '1 acción' THEN 1
-                    WHEN casteo = '1 reacción' THEN 2
-                    ELSE 3
-                END");
+                return [];
             }
             
            
