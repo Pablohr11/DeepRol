@@ -12,6 +12,15 @@ if (isset($_GET["id"])) {
     $charSpells = $db->getSpells($spellsIds, "yes");
 }
 
+if (isset($charSpells) && $charSpells != null) {
+    foreach ($charSpells as $spell) {
+        $grouped[$spell['level']][] = $spell;
+    }
+    // echo("<pre>");
+    // var_dump($grouped);
+    // echo("</pre>");
+}
+
 ?>
 
 <link rel="stylesheet" href="../styles/char.css">
@@ -24,10 +33,34 @@ if (isset($_GET["id"])) {
     <div class="charInfo">
         <h1><?=$charData["name"]?></h1>
         <span id="charSubTitle"><?=$charData["raza"]?> / <?=$charData["clase"]?> (<?=$charData["nivel"]?>)</span>
-        <h3>Conjuros</h3>
-        <?php foreach ($charSpells as $key => $spell) { ?>
-            <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=$spell["name"]?> - <?=$spell["level"]?> - <?=$spell["casteo"]?></a>
+        <h2>Conjuros</h2>
+        <!-- <?php foreach ($charSpells as $key => $spell) { ?>
+            <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=$spell["name"]?> - <?=$spell["casteo"]?></a>
+        <?php } ?> -->
+
+        <div class="tabs" id="tabs">
+            <?php foreach ($grouped as $level => $spells): ?>
+                <div class="tab" data-tab="level<?=$level?>">
+                    <?php //$level == 0 ? 'Trucos' : 'Nivel ' . $level ?>
+                    <?= $level ?>
+                </div>
+            <?php endforeach; ?>
+                <div >
+                    <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>">Añadir Conjuro</a>
+                </div>
+        </div>
+
+        <?php foreach ($grouped as $key => $group) { ?>
+            <div class="spellList" id="level-<?=$key?>">
+
+                <?php foreach ($group as $keySpell => $spell) { ?>
+                    <?php //var_dump($spell)  ?>
+                    <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=$spell["name"]?> - <?=$spell["casteo"]?></a>
+                <?php } ?>
+        
+            </div>
         <?php } ?>
+
         <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>">Añadir Conjuro</a>
     </div>
 	<div id="embedContainer">
@@ -53,5 +86,22 @@ if (isset($_GET["id"])) {
         document.getElementById("embedContainer").style.display = "none"
     })
 
+    const tabs = document.querySelectorAll('.tab');
+    const lists = document.querySelectorAll('.spellList');
+
+    function activateTab(index) {
+        tabs.forEach(tab => tab.classList.remove('active'));
+        lists.forEach(list => list.classList.remove('active'));
+
+        tabs[index].classList.add('active');
+        lists[index].classList.add('active');
+    }
+
+    tabs.forEach((tab, i) => {
+        tab.addEventListener('click', () => activateTab(i));
+    });
+
+    // Activar la primera pestaña por defecto
+    activateTab(0);
 
 </script>

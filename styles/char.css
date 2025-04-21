@@ -28,6 +28,7 @@
     cursor: pointer;
     display: block;
     text-decoration: none;
+    align-content: end;
 }
 
 #showPdfButton {
@@ -69,3 +70,77 @@
     cursor: pointer;
 }
 
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.tab {
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 6px 6px 0 0;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.3s ease;
+    border:1px solid #653d14;
+    border-style: solid solid none solid;
+    color: #b77d3b;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+.tab:hover {
+    background-color: #653d14;
+}
+
+.tab.active {
+    background-color: #292929;
+    color: #fff;
+}
+
+.spellList {
+    display: none;
+    padding: 15px;
+    border-radius: 0 5px 5px 0;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    max-width: 1200px;
+    margin-bottom: 5px;
+    background-color: #292929;
+    height: 225px;
+}
+
+.spellList.active {
+    display: grid;
+    grid-template-columns: 400px 400px 400px;
+    grid-template-rows: 45px 45px 45px 45px 45px;
+    /* row-gap: 10px; */
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.spellList a {
+    height: 24px;
+}
+
+.spellList {
+    --sb-track-color: #353535;
+    --sb-thumb-color: #b77d3b;
+    --sb-size: 10px;
+  }
+  
+  .spellList::-webkit-scrollbar {
+    width: var(--sb-size);
+  }
+  
+  .spellList::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+    border-radius: 2px;
+  }
+  
+  .spellList::-webkit-scrollbar-thumb {
+    background: var(--sb-thumb-color);
+    border-radius: 2px;
+  }
+  
