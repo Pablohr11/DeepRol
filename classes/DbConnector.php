@@ -211,9 +211,11 @@ class DbConector {
     }
 
     public function addSpell($id_char, $id_spell) {
+        
         $spellsIds = $this->getSpellsIds($id_char);
         $newSpellList = ($this->addSpellIdToList($id_spell, $spellsIds));
         
+        // echo $spellsIds;
         
         $consulta = $this->db->prepare("UPDATE `spellset` SET `spells` = :spellList WHERE `spellset`.`id_char` = :id_char;");
         
@@ -227,8 +229,9 @@ class DbConector {
 
     public function addSpellIdToList($id_spell, $spellList) {
         // var_dump($spellList);
+        // echo("'".strval($id_spell)."'");
         if (strlen($spellList) == 0) {
-            return $id_spell;
+            return "'".strval($id_spell)."'";
         } else {
             return $spellList.", ".$id_spell;
         }

@@ -29,3 +29,43 @@
     display: block;
     text-decoration: none;
 }
+
+#showPdfButton {
+    margin-top: 10px;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #b77d3b;
+    border: 2px solid #653d14;
+    cursor: pointer;
+}
+
+#embedContainer {
+    display: none;
+    position: fixed;
+    top:1%;
+    left: 17%;
+    width: 82%;
+    height: 94%;
+}
+
+#embedTopBar {
+    display: grid;
+    justify-content: end;
+    background-color: #202020;
+    padding: 5px 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#closeEmbed {
+    display: grid;
+    background-color: #690500;
+    width: 20px;
+    height: 20px;
+    justify-content: center;
+    align-content: center;
+    border-radius: 20px;
+    cursor: pointer;
+}
+

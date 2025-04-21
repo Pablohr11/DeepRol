@@ -6,7 +6,6 @@ $db = DbConector::singleton();
 
 $spells = $db->getAllSpells();
 
-$charId = $_COOKIE["logged"];
 
 $prevPathParameters = "allSpells.php";
 
@@ -33,12 +32,18 @@ if (isset($_GET["submit"]) || isset($_GET["nameFilter"]) && ($_GET["nameFilter"]
     $spells = $db->getAllSpells($filtros);
     
 }
+if (isset($spells[0]["level"])) {
+    $currentLevel = $spells[0]["level"];
+}
 
-$currentLevel = $spells[0]["level"];
+if (isset($_GET["id_char"])) {
 
-
-
-$spellList = explode( ", ",$db->getSpellsIds($charId));
+    $charId = $_GET["id_char"];
+    $prevPathParameters .= "--id_char=".$charId;
+    $spellList = explode( ", ",$db->getSpellsIds($charId));
+} else {
+    $spellList = [];
+}
 
 ?>
 
@@ -47,6 +52,9 @@ $spellList = explode( ", ",$db->getSpellsIds($charId));
 <div id="allSpellsContainer">
     <h2>Filtros</h2>
     <form id="filtros" method="get">
+        <?php if (isset($charId)) { ?>
+            <input type="hidden" name="id_char" value="<?=$charId?>">
+        <?php } ?>
         <input type="text" name="nameFilter">
         <div id="classesFilterDiv">
             <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>
@@ -80,15 +88,21 @@ $spellList = explode( ", ",$db->getSpellsIds($charId));
     </form>
     <span class="spell">TOTAL: <?= count($spells) ?></span>
     <dl>
-        <dt><h2><?=$currentLevel?></h2></dt>
+        <dt>
+            <?php if (isset($currentLevel)) { ?> 
+                <h2><?=$currentLevel?></h2>
+            <?php } ?>
+        </dt>
         <?php foreach ($spells as $key => $spell) {
             if ($spell["level"] == $currentLevel) { ?>
             <dd>
-                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
-                    <span class="addSpell" >✓</span>
-                <?php } else { ?>
-                    <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                <?php if (isset($charId)) { ?>
+                    <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
+                        <span class="addSpell" >✓</span>
+                    <?php } else { ?>
+                        <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                    <?php } ?>
                 <?php } ?>
             </dd>
             <?php } else {?>
@@ -96,11 +110,13 @@ $spellList = explode( ", ",$db->getSpellsIds($charId));
                 <dt><h2><?=$currentLevel?></h2></dt>
                 <!-- <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&id_char=<?=$charId?>"></a> -->
                 <dd>
-                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
-                    <span class="addSpell" >✓</span>
-                <?php } else { ?>
-                    <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"  class="addSpell"> + </a>
+                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                <?php if (isset($charId)) { ?>
+                    <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
+                        <span class="addSpell" >✓</span>
+                    <?php } else { ?>
+                        <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                    <?php } ?>
                 <?php } ?>
                 </dd>
                 <?php }
