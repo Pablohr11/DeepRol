@@ -48,45 +48,48 @@ if (isset($_GET["id_char"])) {
 ?>
 
 <link rel="stylesheet" href="../styles/allSpells.css">
+<link rel="stylesheet" href="../styles/index.css">
 
 <div id="allSpellsContainer">
-    <h2>Filtros</h2>
-    <form id="filtros" method="get">
-        <?php if (isset($charId)) { ?>
-            <input type="hidden" name="id_char" value="<?=$charId?>">
-        <?php } ?>
-        <input type="text" name="nameFilter">
-        <div id="classesFilterDiv">
-            <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>
-            <label for="bardo">Bardo</label>
-            
-            <input type="radio" id="brujo" value="brujo" name="classFilter" <?php if($classFilter == "brujo") echo("checked") ?>>
-            <label for="brujo">Brujo</label>
-            
-            <input type="radio" id="clerigo" value="clerigo" name="classFilter" <?php if($classFilter == "clerigo") echo("checked") ?>>
-            <label for="clerigo">Clerigo</label>
-            
-            <input type="radio" id="druida" value="druida" name="classFilter" <?php if($classFilter == "druida") echo("checked") ?>>
-            <label for="druida">Druida</label>
-            
-            <input type="radio" id="explorador" value="explorador" name="classFilter" <?php if($classFilter == "explorador") echo("checked") ?>>
-            <label for="explorador">Explorador</label>
-            
-            <input type="radio" id="hechicero" value="hechicero" name="classFilter" <?php if($classFilter == "hechicero") echo("checked") ?>>
-            <label for="hechicero">Hechicero</label>
-            
-            <input type="radio" id="rituale" value="rituale" name="classFilter" <?php if($classFilter == "rituale") echo("checked") ?>>
-            <label for="rituale">Lanzador</label>
-            
-            <input type="radio" id="mago" value="mago" name="classFilter" <?php if($classFilter == "mago") echo("checked") ?>>
-            <label for="mago">Mago</label>
-            
-            <input type="radio" id="paladin" value="paladin" name="classFilter" <?php if($classFilter == "paladin") echo("checked") ?>>
-            <label for="paladin">Paladin</label>
-        </div>
-        <input type="submit" value="Filtrar" name="submit">
-    </form>
-    <span class="spell">TOTAL: <?= count($spells) ?></span>
+    <div class="stickyDiv">
+        <h2>Filtros</h2>
+        <form id="filtros" method="get">
+            <?php if (isset($charId)) { ?>
+                <input type="hidden" name="id_char" value="<?=$charId?>">
+            <?php } ?>
+            <input type="text" name="nameFilter">
+            <div id="classesFilterDiv">
+                <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>
+                <label for="bardo">Bardo</label>
+                
+                <input type="radio" id="brujo" value="brujo" name="classFilter" <?php if($classFilter == "brujo") echo("checked") ?>>
+                <label for="brujo">Brujo</label>
+                
+                <input type="radio" id="clerigo" value="clerigo" name="classFilter" <?php if($classFilter == "clerigo") echo("checked") ?>>
+                <label for="clerigo">Clerigo</label>
+                
+                <input type="radio" id="druida" value="druida" name="classFilter" <?php if($classFilter == "druida") echo("checked") ?>>
+                <label for="druida">Druida</label>
+                
+                <input type="radio" id="explorador" value="explorador" name="classFilter" <?php if($classFilter == "explorador") echo("checked") ?>>
+                <label for="explorador">Explorador</label>
+                
+                <input type="radio" id="hechicero" value="hechicero" name="classFilter" <?php if($classFilter == "hechicero") echo("checked") ?>>
+                <label for="hechicero">Hechicero</label>
+                
+                <input type="radio" id="rituale" value="rituale" name="classFilter" <?php if($classFilter == "rituale") echo("checked") ?>>
+                <label for="rituale">Lanzador</label>
+                
+                <input type="radio" id="mago" value="mago" name="classFilter" <?php if($classFilter == "mago") echo("checked") ?>>
+                <label for="mago">Mago</label>
+                
+                <input type="radio" id="paladin" value="paladin" name="classFilter" <?php if($classFilter == "paladin") echo("checked") ?>>
+                <label for="paladin">Paladin</label>
+            </div>
+            <input type="submit" value="Filtrar" name="submit">
+        </form>
+    </div>
+    <span class="spell first" id="firstSpell">TOTAL: <?= count($spells) ?></span>
     <dl>
         <dt>
             <?php if (isset($currentLevel)) { ?> 
@@ -96,14 +99,16 @@ if (isset($_GET["id_char"])) {
         <?php foreach ($spells as $key => $spell) {
             if ($spell["level"] == $currentLevel) { ?>
             <dd>
-                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
                 <?php if (isset($charId)) { ?>
+                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
                     <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
                         <span class="addSpell" >✓</span>
                     <?php } else { ?>
                         <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
                     <?php } ?>
-                <?php } ?>
+                <?php } else { ?>
+                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                <?php }  ?>
             </dd>
             <?php } else {?>
                 <?php $currentLevel = $spell["level"] ?>                

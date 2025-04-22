@@ -23,6 +23,7 @@ if (isset($charSpells) && $charSpells != null) {
 
 ?>
 
+<link rel="stylesheet" href="../styles/index.css">
 <link rel="stylesheet" href="../styles/char.css">
 
 <div id="charDiv">
@@ -45,8 +46,8 @@ if (isset($charSpells) && $charSpells != null) {
                     <?= $level ?>
                 </div>
             <?php endforeach; ?>
-                <div >
-                    <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>">Añadir Conjuro</a>
+                <div class="tab">
+                    <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>" title="Añadir Conjuro">+</a>
                 </div>
         </div>
 
@@ -61,7 +62,7 @@ if (isset($charSpells) && $charSpells != null) {
             </div>
         <?php } ?>
 
-        <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>">Añadir Conjuro</a>
+        <!-- <a href="allSpells.php?id_char=<?php//echo($charId)?>&classFilter=<?php//echo(strtolower($charData["clase"]))?>">Añadir Conjuro</a> -->
     </div>
 	<div id="embedContainer">
 		<div id="embedTopBar">

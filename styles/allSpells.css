@@ -1,3 +1,11 @@
+body {
+    margin: 0;
+}
+
+#allSpellsContainer {
+    padding-top: 125px;
+}
+
 #allSpellsContainer h1, #allSpellsContainer h2, #allSpellsContainer h3  {
     color: #b77d3b;
 }
@@ -22,6 +30,7 @@ dd {
 #filtros {
     display: grid;
     grid-template-columns: auto auto auto;
+    padding: 0 10px;
 }
 
 input[type="text"], input[type="submit"] {
@@ -83,4 +92,25 @@ span.addSpell {
 
 input[type="submit"] {
     cursor: pointer;
+}
+
+.stickyDiv {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: #202020;
+    margin: 0;
+    padding: 0 5px;
+}
+
+.allSpellsContainer .spell.first {
+    margin-top: 200px;   
+}
+
+.span.spell.first, dl {
+    margin: 0 5px;
+}
+
+#firstSpell {
+    margin: 0 5px;
 }
