@@ -32,6 +32,9 @@
 				<h2 class="charName"><?=$char["name"]?></h2>
 			</div>			
 		<?php endforeach ?>
+		<div class="addChar">
+			<a href="#">+</>
+		</div>		
 
 	</div>
 

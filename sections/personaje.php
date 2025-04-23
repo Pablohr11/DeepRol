@@ -16,10 +16,8 @@ if (isset($charSpells) && $charSpells != null) {
     foreach ($charSpells as $spell) {
         $grouped[$spell['level']][] = $spell;
     }
-    // echo("<pre>");
-    // var_dump($grouped);
-    // echo("</pre>");
 }
+
 
 ?>
 
@@ -46,9 +44,9 @@ if (isset($charSpells) && $charSpells != null) {
                     <?= $level ?>
                 </div>
             <?php endforeach; ?>
-                <div class="tab">
-                    <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>" title="Añadir Conjuro">+</a>
-                </div>
+                <!-- <div class="tab"> -->
+                    <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>" class="tab"  title="Añadir Conjuro">+</a>
+                <!-- </div> -->
         </div>
 
         <?php foreach ($grouped as $key => $group) { ?>
@@ -80,7 +78,8 @@ if (isset($charSpells) && $charSpells != null) {
 
 <script>
     document.getElementById("showPdfButton").addEventListener('click', function() {
-        document.getElementById("embedContainer").style.display = "block"
+        document.getElementById("embedContainer").style.display = "block";
+
     })
 
     document.getElementById("closeEmbed").addEventListener('click', function() {

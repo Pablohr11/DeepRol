@@ -5,11 +5,17 @@ require_once("../classes/DbConnector.php");
 $db = DbConector::singleton();
 
 $spellId = $_GET["id_spell"];
-$prevPath = $_GET["prevPath"];
 
 $spellData = $db->getSpells($spellId)[0];
 
 // var_dump($spellData);
+
+
+$prevPath = $_GET["prevPath"];
+
+if (strpos($prevPath, "--") != -1) {
+    $prevPath = str_replace("--", "&", $prevPath);
+}
 
 ?>
 

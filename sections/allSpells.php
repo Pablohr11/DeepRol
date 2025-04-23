@@ -52,7 +52,14 @@ if (isset($_GET["id_char"])) {
 
 <div id="allSpellsContainer">
     <div class="stickyDiv">
-        <h2>Filtros</h2>
+        <div class="subDiv">
+            <h2>Filtros</h2>
+            <?php if (isset($charId)) { ?>
+                <div>
+                    <a href="personaje.php?id=<?=$charId?>">← VOLVER</a>
+                </div>
+            <?php } ?>
+        </div>
         <form id="filtros" method="get">
             <?php if (isset($charId)) { ?>
                 <input type="hidden" name="id_char" value="<?=$charId?>">
@@ -90,6 +97,7 @@ if (isset($_GET["id_char"])) {
         </form>
     </div>
     <span class="spell first" id="firstSpell">TOTAL: <?= count($spells) ?></span>
+    
     <dl>
         <dt>
             <?php if (isset($currentLevel)) { ?> 

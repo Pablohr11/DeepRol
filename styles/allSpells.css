@@ -108,9 +108,29 @@ input[type="submit"] {
 }
 
 .span.spell.first, dl {
-    margin: 0 5px;
+    margin: 0 10px;
 }
 
 #firstSpell {
     margin: 0 5px;
+}
+
+.subDiv {
+    display: flex;
+    justify-content: space-between;
+    color: #b77d3b;
+}
+.subDiv a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #b77d3b;
+}
+.subDiv a:visited {
+    color: #b77d3b;
+}
+
+
+.subDiv div {
+    align-content: center;
+    padding-right: 10px;
 }
