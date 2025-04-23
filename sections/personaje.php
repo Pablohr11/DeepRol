@@ -54,7 +54,7 @@ if (isset($charSpells) && $charSpells != null) {
 
                 <?php foreach ($group as $keySpell => $spell) { ?>
                     <?php //var_dump($spell)  ?>
-                    <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=$spell["name"]?> - <?=$spell["casteo"]?></a>
+                    <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
                 <?php } ?>
         
             </div>

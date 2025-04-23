@@ -109,14 +109,14 @@
     max-width: 1060px;
     margin-bottom: 5px;
     background-color: #292929;
-    height: 180px;
+    height: 215px;
 }
 .spellList.active {
     display: grid;
     grid-template-columns: 350px 350px 350px;
     grid-template-rows: repeat(5, 34px); 
     /* row-gap: 10px; */
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 }
 @media (max-width: 1400px) {
