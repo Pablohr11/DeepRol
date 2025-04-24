@@ -6,6 +6,9 @@ $db = DbConector::singleton();
 
 $spells = $db->getAllSpells();
 
+$spellsLevels = $db->getAllSpellsLevels();
+
+
 
 $prevPathParameters = "allSpells.php";
 
@@ -30,7 +33,9 @@ if (isset($_GET["submit"]) || isset($_GET["nameFilter"]) && ($_GET["nameFilter"]
     }
     
     $spells = $db->getAllSpells($filtros);
-    
+    $spellsLevels = $db->getAllSpellsLevels($filtros);
+
+    // $spellsLevels = 
 }
 if (isset($spells[0]["level"])) {
     $currentLevel = $spells[0]["level"];
@@ -45,6 +50,11 @@ if (isset($_GET["id_char"])) {
     $spellList = [];
 }
 
+array_shift($spellsLevels);
+// echo("<pre>");
+// var_dump($spellsLevels);
+// echo("</pre>");
+// die();
 ?>
 
 <link rel="stylesheet" href="../styles/allSpells.css">
@@ -96,7 +106,15 @@ if (isset($_GET["id_char"])) {
             <input type="submit" value="Filtrar" name="submit">
         </form>
     </div>
-    <span class="spell first" id="firstSpell">TOTAL: <?= count($spells) ?></span>
+    <div class="subDiv2">
+        <span class="spell first" id="firstSpell">TOTAL: <?= count($spells) ?></span>
+        <div id="classesFilterDiv">
+            <?php foreach ($spellsLevels as  $spellLevel) { ?>
+                <button onclick="autoScroll('<?=$spellLevel['level']?>')"><?=$spellLevel["level"]?></button>
+            <?php }  ?>
+            <!-- <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>             -->
+        </div>
+    </div>
     
     <dl>
         <dt>
@@ -120,7 +138,7 @@ if (isset($_GET["id_char"])) {
             </dd>
             <?php } else {?>
                 <?php $currentLevel = $spell["level"] ?>                
-                <dt><h2><?=$currentLevel?></h2></dt>
+                <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
                 <!-- <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&id_char=<?=$charId?>"></a> -->
                 <dd>
                 <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
@@ -136,6 +154,8 @@ if (isset($_GET["id_char"])) {
         } ?>
     </dl>
     <?php ?>
+
+    <button onclick="scrollUp()" id="volverArriba">↑</button>
 </div>
 
 <script>
@@ -145,4 +165,14 @@ if (isset($_GET["id_char"])) {
             nameFilterInput.removeAttribute('name');
         }
     });
+
+    function autoScroll(idToScrollTo) {
+        if (document.getElementById(idToScrollTo)) {
+            window.scrollTo(0,(document.getElementById(idToScrollTo).getBoundingClientRect().top-135));
+        }
+    }
+    function scrollUp() {
+        window.scrollTo(0,0);
+
+    }
 </script>

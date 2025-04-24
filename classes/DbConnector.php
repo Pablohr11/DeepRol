@@ -208,6 +208,49 @@ class DbConector {
                 END");
             }
 
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getAllSpellsLevels($filters=null) {
+        try {
+
+            if ($filters != null) {
+                $consulta = $this->db->prepare("SELECT distinct level FROM conjuros where ".$filters."  ORDER BY 
+                CASE
+                    WHEN level = 'Truco' THEN 0
+                    WHEN level = 'Nivel 1' THEN 1
+                    WHEN level = 'Nivel 2' THEN 2
+                    WHEN level = 'Nivel 3' THEN 3
+                    WHEN level = 'Nivel 4' THEN 4
+                    WHEN level = 'Nivel 5' THEN 5
+                    WHEN level = 'Nivel 6' THEN 6
+                    WHEN level = 'Nivel 7' THEN 7
+                    WHEN level = 'Nivel 8' THEN 8
+                    WHEN level = 'Nivel 9' THEN 9
+                    ELSE 10
+                END");
+            } else {
+                $consulta = $this->db->prepare("SELECT distinct level FROM conjuros ORDER BY 
+                CASE
+                    WHEN level = 'Truco' THEN 0
+                    WHEN level = 'Nivel 1' THEN 1
+                    WHEN level = 'Nivel 2' THEN 2
+                    WHEN level = 'Nivel 3' THEN 3
+                    WHEN level = 'Nivel 4' THEN 4
+                    WHEN level = 'Nivel 5' THEN 5
+                    WHEN level = 'Nivel 6' THEN 6
+                    WHEN level = 'Nivel 7' THEN 7
+                    WHEN level = 'Nivel 8' THEN 8
+                    WHEN level = 'Nivel 9' THEN 9
+                    ELSE 10
+                END");
+            }
+
 
             $results = $consulta->execute();
             $data = $consulta->fetchAll();
