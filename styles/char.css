@@ -74,6 +74,7 @@
 .tabs {
     display: flex;
     flex-wrap: wrap-reverse;
+    max-width: 1090px;
 }
 
 
@@ -167,12 +168,10 @@
 a.tab {
     text-decoration: none;
     color: #b77d3b;
+    padding: 9px 20.25px;
+    font-size: 18px;
 }
 
 .tab a:visited {
     color: #b77d3b;
 }
-
-.tab:has(a) {
-    padding: 10 24px;
-}   
