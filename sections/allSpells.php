@@ -155,7 +155,6 @@ array_shift($spellsLevels);
     </dl>
     <?php ?>
 
-    <!-- <button onclick="scrollUp()" id="volverArriba">↑</button> -->
     <button onclick="scrollUp()" id="volverArriba" class="hidden"><?=$arrowUpSvg?></button>
 </div>
 
@@ -178,7 +177,6 @@ array_shift($spellsLevels);
     }
 
     window.addEventListener('scroll', function() {
-        console.log(window.scrollY);
         
         var targetButton = document.getElementById("volverArriba");
         
