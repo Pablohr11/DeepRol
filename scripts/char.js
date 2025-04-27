@@ -51,18 +51,39 @@ function setPdfFields(pdfPath) {
                 }
             });
         }
-        var modsArray = ["STR","DEX","CON","INT","WIS","CHA", "ST Charisma", "Passive"]
-        // console.log("📝 Campos del formulario:");
-        // console.log(formFields.filter(item => item.valor.includes("+1")));
+        var modsArray = ["STR","DEX","CON","INT","WIS","CHA", "ST Charisma", "Passive", "ProfBonus", "HPMax", "AC", "ST Strength", "ST Dexterity", "ST Constitution", "ST Intelligence", "ST Wisdom", "ST Charisma", "Acrobatics", "Animal", "Arcana", "Athletics", "Deception", "History", "Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception", "Performance", "Persuasion", "Religion", "SleightofHand", "Stealth", "Survival"]
+
+        // console.log(formFields.filter(item => item.nombreCampo.includes("mod")));
         console.log(formFields);
 
         var fields = formFields.filter(item => modsArray.includes(item.nombreCampo) || item.nombreCampo.includes("mod"));
-        console.log(fields);
         fields.forEach(field => {
+            field.nombreCampo = field.nombreCampo.trim();
+            field.nombreCampo = field.nombreCampo.replace(" ", "-");
+            // console.log(field);
             if (document.getElementById(field.nombreCampo)) {
                 document.getElementById(field.nombreCampo).innerText = field.valor
             };
         });
+        updateSTChecks(formFields.filter(item => item.nombreCampo.includes("mod")));
 
+    });
+
+    
+}
+
+function updateSTChecks(fields) {
+    var STs = ["ST-Strength", "ST-Dexterity", "ST-Constitution", "ST-Intelligence", "ST-Wisdom", "ST-Charisma"];
+    // console.log(fields)
+
+    fields.forEach((statMod, index) => {
+        // console.log(document.getElementById(STs[index]));
+        // console.log(statMod.valor);
+        if (document.getElementById(STs[index]).innerText != statMod.valor) {
+            stDiv = document.getElementById(STs[index]);
+            stDiv.parentElement.querySelector('input[type="radio"]').disabled = false;
+            stDiv.parentElement.querySelector('input[type="radio"]').checked = true;
+            stDiv.parentElement.querySelector('input[type="radio"]').disabled = true;
+        }
     });
 }

@@ -20,7 +20,7 @@
 }
 
 #charSubTitle {
-    color: #5b5b5b
+    color: #b2b2b2
 }
 
 .spellsInfo {
@@ -212,7 +212,7 @@ a.tab {
 
 .charStatContainer {
     width: fit-content;
-    background-color: #292929;
+    background-color: #202020;
     color: #d9ac79;
 }
 
@@ -248,4 +248,253 @@ a.tab {
 .charStats {
     display: flex;
     gap: 20px;
+}
+
+.additionalStats {
+    display: flex;
+    margin-top: 30px;
+    gap: 30px;
+}
+
+span#Passive, span#ProfBonus, .stValue {
+    position: relative;
+    /* top: -10px; */
+    left: 7px;
+    padding: 8px 13px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    background: #292929;
+    width: fit-content;
+    border: 1px solid #b77d3b;
+    font-size: 22px;
+    border-radius: 20px;
+}
+
+.stValue {
+    font-size: 18px;
+    left: 8px;
+    padding: 5px 13px !important;
+}
+
+.stInfo {
+    padding: 2px 30px !important;
+    width: 40%;
+    text-align: center;
+}
+
+#ppasInfo, #profInfo, .stInfo {
+    border: 1px solid #b77d3b;
+    border-style: solid solid solid none;
+    padding: 5px 30px;
+    align-self: center;
+    height: fit-content;
+    border-radius: 0 10px 10px 0;
+    background-color: #292929;
+}
+
+#pPasContainer, #profContainer {
+    display: flex;
+    padding: 5px 0px;
+    overflow: visible;
+    align-content: center;
+    color: #d9ac79;
+}
+#pPasContainer *, #profContainer *{
+    background-color: #292929;
+}   
+
+.armorStat {
+    clip-path: polygon(50% 0%, 79% 7%, 100% 8%, 98% 50%, 84% 82%, 50% 100%, 16% 82%, 2% 50%, 0 8%, 21% 7%);
+    clip-path: polygon(50% 0%, 79% 7%, 100% 8%, 98% 50%, 79% 78%, 50% 100%, 21% 78%, 2% 50%, 0 8%, 21% 7%);
+    background-color: #b77d3b;
+    padding: 1px;
+    width: 70px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 98%;
+    grid-template-rows: 98%;
+}
+
+.armorStat div {
+    clip-path: inherit;
+    background-color: #202020;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    text-align: center;
+}
+.armorStat div h3 {
+    margin: 0;
+    margin-top: -4px;
+    line-height: 0.8;
+    padding: 13px 0 0 0;
+    font-size: 12px;
+    font-family: 'EB Garamond';
+}
+.armorStat div .stat {
+    font-size: 35px;
+    text-align: center;
+    color: #d9ac79;
+    margin-top: -14px;
+}
+
+
+.healthStat {
+    /* clip-path: polygon(50% 0%, 79% 7%, 100% 8%, 98% 50%, 84% 82%, 50% 100%, 16% 82%, 2% 50%, 0 8%, 21% 7%);
+    clip-path: polygon(50% 0%, 79% 7%, 100% 8%, 98% 50%, 79% 78%, 50% 100%, 21% 78%, 2% 50%, 0 8%, 21% 7%); */
+    /* clip-path: path("M 100 30 C 100 0, 180 0, 180 60 C 180 120, 100 160, 100 200 C 100 160, 20 120, 20 60 C 20 0, 100 0, 100 30 Z"); */
+    clip-path: polygon(
+        50% 100%,
+        35% 90%,
+        20% 75%,
+        10% 60%,
+        5% 40%,
+        5% 25%,
+        15% 10%,
+        30% 5%,
+        40% 10%,
+        50% 18%,
+        60% 10%,
+        70% 5%,
+        85% 10%,
+        95% 25%,
+        95% 40%,
+        90% 60%,
+        80% 75%,
+        65% 90%
+      );
+    background-color: #b77d3b;
+    padding: 1px;
+    width: 85px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    grid-template-columns: 98%;
+    grid-template-rows: 98%;
+}
+
+.healthStat div {
+    clip-path: inherit;
+    background-color: #202020;
+    height: 100%;
+    display: grid;
+    grid-template-rows: auto auto;
+    text-align: center;
+}
+.healthStat div h3 {
+    margin: 0;
+    margin-top: -4px;
+    line-height: 0.8;
+    padding: 24px 0 0 0;
+    font-size: 12px;
+    font-family: 'EB Garamond';
+}
+.healthStat div .stat {
+    font-size: 35px;
+    text-align: center;
+    color: #d9ac79;
+    margin-top: -20px;
+}
+
+.headerDisplay {
+    display: flex;
+    flex-direction: column;
+    gap: 12px
+}
+
+.HPACDiv {
+    height: 88px;
+    display: flex;
+    gap: 20px
+}
+
+#stContainer {
+    display: grid;
+    grid-template-columns: 100%;
+    color: #d9ac79;
+    row-gap: 5px;
+}
+
+#stContainer h3 {
+    margin: 10px 0 2px
+}
+
+.stDiv {
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"][disabled]{
+    appearance: none; /* Remove default ugly browser styling */
+    background-color: #653d14; /* Coral color when checked and disabled */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+}
+
+input[type="radio"][disabled]:checked {
+    appearance: none; /* Remove default ugly browser styling */
+    background-color: #653d14; /* Coral color when checked and disabled */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: relative;
+}
+
+input[type="radio"][disabled]:checked::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    background: #bb7d3b;
+    border-radius: 50%;
+}
+
+#sheetButtons {
+    display: flex;
+    gap: 5px
+}
+
+#topContent {
+    display: flex;
+    gap: 100px;
+}
+
+#skillsDiv {
+    margin-top: 20px;
+    max-height: 400px;
+}
+
+#skillsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.skillDiv {
+    display: flex;
+    align-items: center;
+}
+
+.skillDiv * {
+    background-color: #292929;
+}
+
+.skillsContainerCol {
+    display: grid;
+    gap: 5px;
+    color: #d9ac79;
+}
+
+.skillDiv .stInfo {
+    width: 100px;
+}
+
+.stDiv .stValue {
+    width: 20px;
 }

@@ -26,98 +26,253 @@ if (isset($charSpells) && $charSpells != null) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 <script src="../scripts/char.js" ></script>
 <div id="charDiv">
+    <!-- //? LEFT CONTAINER  -->
     <div>
         <img src="../resources/chars/draelith_cuerpo_completo.png" id="fullBodyImg" alt="">
-        <button id="showPdfButton">Ver Ficha</button>
-    </div>
-    <div class="charInfo">
-        <h1><?=$charData["name"]?></h1>
-        <span id="charSubTitle"><?=$charData["raza"]?> / <?=$charData["clase"]?> (<?=$charData["nivel"]?>)</span>
-
-        <h2>Caracteristicas</h2>
-        <div class="charStats">
-            <div class="charStatContainer">
-                <div class="decorator">
-                    <div class="textHidden leftCorner">a</div>
-                    <div class="textHidden center">a</div>
-                    <div class="textHidden rightCorner">a</div>
-                </div>
-                <div class="charStat">
-                    <h3>Fuerza</h3>
-                    <span class="stat" id="STR">10</span>
-                    <span class="modifier" id="STRmod">0</span>
-                </div>
-            </div>
-            <div class="charStatContainer">
-                <div class="decorator">
-                    <div class="textHidden leftCorner">a</div>
-                    <div class="textHidden center">a</div>
-                    <div class="textHidden rightCorner">a</div>
-                </div>
-                <div class="charStat">
-                    <h3>Destreza</h3>
-                    <span class="stat" id="DEX">10</span>
-                    <span class="modifier" id="DEXmod">0</span>
-                </div>
-            </div>
-            <div class="charStatContainer">
-                <div class="decorator">
-                    <div class="textHidden leftCorner">a</div>
-                    <div class="textHidden center">a</div>
-                    <div class="textHidden rightCorner">a</div>
-                </div>
-                <div class="charStat">
-                    <h3>Constitucion</h3>
-                    <span class="stat" id="CON">10</span>
-                    <span class="modifier" id="CONmod">0</span>
-                </div>
-            </div>
-            <div class="charStatContainer">
-                <div class="decorator">
-                    <div class="textHidden leftCorner">a</div>
-                    <div class="textHidden center">a</div>
-                    <div class="textHidden rightCorner">a</div>
-                </div>
-                <div class="charStat">
-                    <h3>Inteligencia</h3>
-                    <span class="stat" id="INT">10</span>
-                    <span class="modifier" id="INTmod">0</span>
-                </div>
-            </div>
-            <div class="charStatContainer">
-                <div class="decorator">
-                    <div class="textHidden leftCorner">a</div>
-                    <div class="textHidden center">a</div>
-                    <div class="textHidden rightCorner">a</div>
-                </div>
-                <div class="charStat">
-                    <h3>Sabiduria</h3>
-                    <span class="stat" id="WIS">10</span>
-                    <span class="modifier" id="WISmod">0</span>
-                </div>
-            </div>
-            <div class="charStatContainer">
-                <div class="decorator">
-                    <div class="textHidden leftCorner">a</div>
-                    <div class="textHidden center">a</div>
-                    <div class="textHidden rightCorner">a</div>
-                </div>
-                <div class="charStat">
-                    <h3>Carisma</h3>
-                    <span class="stat" id="CHA">10</span>
-                    <span class="modifier" id="ST Charisma">0</span>
-                </div>
-            </div>
-            
-        </div>    
-
-            <div id="pPasContainer">
-                <span id="Passive"></span>
-            </div>
-        <div>
-            <h3>Tiradas de salvación</h3>
+        <div id="sheetButtons">
+            <button id="showPdfButton">Ver Ficha</button>
+            <button id="showPdfButton">Actualizar Ficha</button>
         </div>
+        <div id="stContainer">
+            <h3>Tiradas de salvación</h3>
+            <div class="stDiv">
+                <span class="stValue"  id="ST-Strength">+2</span>
+                <span class="stInfo">Fuerza</span>
+            </div>
+            <div class="stDiv">
+                <span class="stValue"  id="ST-Dexterity">+2</span>
+                <span class="stInfo">Destreza</span>
+            </div>
+            <div class="stDiv">
+                <span class="stValue"  id="ST-Constitution">+2</span>
+                <span class="stInfo">Constitucion</span>
+            </div>
+            <div class="stDiv">
+                <span class="stValue"  id="ST-Intelligence">+2</span>
+                <span class="stInfo">Inteligencia</span>
+            </div>
+            <div class="stDiv">
+                <span class="stValue"  id="ST-Wisdom">+2</span>
+                <span class="stInfo">Sabiduria</span>
+            </div>
+            <div class="stDiv">
+                <span class="stValue"  id="ST-Charisma">+2</span>
+                <span class="stInfo">Carisma</span>
+            </div>
+        </div>
+    </div>
 
+    <!-- //? MAIN CONTENT -->
+    <div class="charInfo">
+        <div id="topContent">
+            <div>
+                <div class="headerDisplay">
+                    <div>
+                        <h1><?=$charData["name"]?></h1>
+                        <span id="charSubTitle"><?=$charData["raza"]?> / <?=$charData["clase"]?> (<?=$charData["nivel"]?>)</span>
+                    </div>
+                    <div class="HPACDiv">
+                        <div class="armorStat">
+                            <div>
+                                <h3>Clase de armadura</h3>
+                                <span class="stat" id="AC">14</span>
+                            </div>
+                        </div>
+                        <div class="healthStat">
+                            <div>
+                                <h3>Puntos Vida</h3>
+                                <span class="stat" id="HPMax">35</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Caracteristicas</h2>
+                <div class="charStats">
+                    <div class="charStatContainer">
+                        <div class="decorator">
+                            <div class="textHidden leftCorner">a</div>
+                            <div class="textHidden center">a</div>
+                            <div class="textHidden rightCorner">a</div>
+                        </div>
+                        <div class="charStat">
+                            <h3>Fuerza</h3>
+                            <span class="stat" id="STR">10</span>
+                            <span class="modifier" id="STRmod">0</span>
+                        </div>
+                    </div>
+                    <div class="charStatContainer">
+                        <div class="decorator">
+                            <div class="textHidden leftCorner">a</div>
+                            <div class="textHidden center">a</div>
+                            <div class="textHidden rightCorner">a</div>
+                        </div>
+                        <div class="charStat">
+                            <h3>Destreza</h3>
+                            <span class="stat" id="DEX">10</span>
+                            <span class="modifier" id="DEXmod">0</span>
+                        </div>
+                    </div>
+                    <div class="charStatContainer">
+                        <div class="decorator">
+                            <div class="textHidden leftCorner">a</div>
+                            <div class="textHidden center">a</div>
+                            <div class="textHidden rightCorner">a</div>
+                        </div>
+                        <div class="charStat">
+                            <h3>Constitucion</h3>
+                            <span class="stat" id="CON">10</span>
+                            <span class="modifier" id="CONmod">0</span>
+                        </div>
+                    </div>
+                    <div class="charStatContainer">
+                        <div class="decorator">
+                            <div class="textHidden leftCorner">a</div>
+                            <div class="textHidden center">a</div>
+                            <div class="textHidden rightCorner">a</div>
+                        </div>
+                        <div class="charStat">
+                            <h3>Inteligencia</h3>
+                            <span class="stat" id="INT">10</span>
+                            <span class="modifier" id="INTmod">0</span>
+                        </div>
+                    </div>
+                    <div class="charStatContainer">
+                        <div class="decorator">
+                            <div class="textHidden leftCorner">a</div>
+                            <div class="textHidden center">a</div>
+                            <div class="textHidden rightCorner">a</div>
+                        </div>
+                        <div class="charStat">
+                            <h3>Sabiduria</h3>
+                            <span class="stat" id="WIS">10</span>
+                            <span class="modifier" id="WISmod">0</span>
+                        </div>
+                    </div>
+                    <div class="charStatContainer">
+                        <div class="decorator">
+                            <div class="textHidden leftCorner">a</div>
+                            <div class="textHidden center">a</div>
+                            <div class="textHidden rightCorner">a</div>
+                        </div>
+                        <div class="charStat">
+                            <h3>Carisma</h3>
+                            <span class="stat" id="CHA">10</span>
+                            <span class="modifier" id="CHamod">0</span>
+                        </div>
+                    </div>
+                    <!-- <div class="armorStat">
+                        <div>
+                            <h3>Clase de armadura</h3>
+                            <span class="stat" id="AC">14</span>
+                        </div>
+                    </div>
+                    <div class="healthStat">
+                        <div>
+                            <h3>Puntos de vida</h3>
+                            <span class="stat" id="HPMax">35</span>
+                        </div>
+                    </div> -->
+                    
+                </div>    
+                <div class="additionalStats">
+                    <div id="pPasContainer">
+                        <span id="Passive"></span>
+                        <span id="ppasInfo">Percepción Pasiva</span>
+                    </div>
+                    <div id="profContainer">
+                        <span id="ProfBonus"></span>
+                        <span id="profInfo">Bono de competencia</span>
+                    </div>
+                </div>
+            <!-- <div>
+                <h3>Tiradas de salvación</h3>
+            </div> -->
+
+            </div>
+
+            <div id="skillsDiv">
+                <h2>Habilidades</h2>
+                <div id="skillsContainer">
+                    <div class="skillsContainerCol">
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Acrobatics">+2</span>
+                            <span class="stInfo">Acrobacias</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Animal">+2</span>
+                            <span class="stInfo">Trato Animal</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Arcana">+2</span>
+                            <span class="stInfo">C. Arcano</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Athletics">+2</span>
+                            <span class="stInfo">Atletismo</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Deception">+2</span>
+                            <span class="stInfo">Engaño</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="History">+2</span>
+                            <span class="stInfo">Historia</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Insight">+2</span>
+                            <span class="stInfo">Perspicacia</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Intimidation">+2</span>
+                            <span class="stInfo">Intimidacion</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Investigation">+2</span>
+                            <span class="stInfo">Investigacion</span>
+                        </div>
+                    </div>
+                    <div class="skillsContainerCol">
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Medicine">+2</span>
+                            <span class="stInfo">Medicina</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Nature">+2</span>
+                            <span class="stInfo">Naturaleza</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Perception">+2</span>
+                            <span class="stInfo">Percepcion</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Performance">+2</span>
+                            <span class="stInfo">Interpretacion</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Persuasion">+2</span>
+                            <span class="stInfo">Persuasion</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Religion">+2</span>
+                            <span class="stInfo">Religion</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="SleightofHand">+2</span>
+                            <span class="stInfo">Juego de manos</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Stealth">+2</span>
+                            <span class="stInfo">Sigilo</span>
+                        </div>
+                        <div class="skillDiv">
+                            <span class="stValue"  id="Survival">+2</span>
+                            <span class="stInfo">Supervivencia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <h2>Conjuros</h2>
 
         <div class="tabs" id="tabs">
