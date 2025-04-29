@@ -69,7 +69,9 @@ if (isset($charSpells) && $charSpells != null) {
                 <div class="headerDisplay">
                     <div>
                         <h1><?=$charData["name"]?></h1>
-                        <span id="charSubTitle"><?=$charData["raza"]?> / <?=$charData["clase"]?> (<?=$charData["nivel"]?>)</span>
+                        <span id="charSubTitle">
+                            <span id="Race"></span> / <span id="ClassLevel"></span> / <span id="Background"></span>
+                        </span>
                     </div>
                     <div class="HPACDiv">
                         <div class="armorStat">
@@ -160,20 +162,7 @@ if (isset($charSpells) && $charSpells != null) {
                             <span class="stat" id="CHA">10</span>
                             <span class="modifier" id="CHamod">0</span>
                         </div>
-                    </div>
-                    <!-- <div class="armorStat">
-                        <div>
-                            <h3>Clase de armadura</h3>
-                            <span class="stat" id="AC">14</span>
-                        </div>
-                    </div>
-                    <div class="healthStat">
-                        <div>
-                            <h3>Puntos de vida</h3>
-                            <span class="stat" id="HPMax">35</span>
-                        </div>
-                    </div> -->
-                    
+                    </div>                   
                 </div>    
                 <div class="additionalStats">
                     <div id="pPasContainer">
@@ -185,10 +174,6 @@ if (isset($charSpells) && $charSpells != null) {
                         <span id="profInfo">Bono de competencia</span>
                     </div>
                 </div>
-            <!-- <div>
-                <h3>Tiradas de salvación</h3>
-            </div> -->
-
             </div>
 
             <div id="skillsDiv">
@@ -212,61 +197,61 @@ if (isset($charSpells) && $charSpells != null) {
                             <span class="stInfo">Atletismo</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Deception">+2</span>
+                            <span class="stValue"  id="Deception"></span>
                             <span class="stInfo">Engaño</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="History">+2</span>
+                            <span class="stValue"  id="History"></span>
                             <span class="stInfo">Historia</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Insight">+2</span>
+                            <span class="stValue"  id="Insight"></span>
                             <span class="stInfo">Perspicacia</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Intimidation">+2</span>
+                            <span class="stValue"  id="Intimidation"></span>
                             <span class="stInfo">Intimidacion</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Investigation">+2</span>
+                            <span class="stValue"  id="Investigation"></span>
                             <span class="stInfo">Investigacion</span>
                         </div>
                     </div>
                     <div class="skillsContainerCol">
                         <div class="skillDiv">
-                            <span class="stValue"  id="Medicine">+2</span>
+                            <span class="stValue"  id="Medicine"></span>
                             <span class="stInfo">Medicina</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Nature">+2</span>
+                            <span class="stValue"  id="Nature"></span>
                             <span class="stInfo">Naturaleza</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Perception">+2</span>
+                            <span class="stValue"  id="Perception"></span>
                             <span class="stInfo">Percepcion</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Performance">+2</span>
+                            <span class="stValue"  id="Performance"></span>
                             <span class="stInfo">Interpretacion</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Persuasion">+2</span>
+                            <span class="stValue"  id="Persuasion"></span>
                             <span class="stInfo">Persuasion</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Religion">+2</span>
+                            <span class="stValue"  id="Religion"></span>
                             <span class="stInfo">Religion</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="SleightofHand">+2</span>
+                            <span class="stValue"  id="SleightofHand"></span>
                             <span class="stInfo">Juego de manos</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Stealth">+2</span>
+                            <span class="stValue"  id="Stealth"></span>
                             <span class="stInfo">Sigilo</span>
                         </div>
                         <div class="skillDiv">
-                            <span class="stValue"  id="Survival">+2</span>
+                            <span class="stValue"  id="Survival"></span>
                             <span class="stInfo">Supervivencia</span>
                         </div>
                     </div>
