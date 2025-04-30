@@ -58,12 +58,16 @@ function setPdfFields(pdfPath) {
 
         var fields = formFields.filter(item => modsArray.includes(item.nombreCampo) || item.nombreCampo.includes("mod"));
         // console.log(fields);
+        var originalName = "";
+
         fields.forEach(field => {
+            originalName = field.nombreCampo;
             field.nombreCampo = field.nombreCampo.trim();
             field.nombreCampo = field.nombreCampo.replace(" ", "-");
             // console.log(field);
             if (document.getElementById(field.nombreCampo)) {
-                document.getElementById(field.nombreCampo).innerText = field.valor
+                document.getElementById(field.nombreCampo).innerText = field.valor;
+                document.getElementById(field.nombreCampo).setAttribute("dataframe-name", originalName)
             } else {
                 console.error("no ta"+field.nombreCampo)
             };

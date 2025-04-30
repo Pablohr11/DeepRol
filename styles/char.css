@@ -25,7 +25,7 @@
 
 .spellsInfo {
     color: #b2b2b2;
-    margin: 10px 0;
+    margin: 3px 0;
     cursor: pointer;
     display: block;
     text-decoration: none;
@@ -103,7 +103,7 @@
 
 .spellList {
     display: none;
-    padding: 15px;
+    padding: 0px 15px;
     border-radius: 0 0 5px 0;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
@@ -115,13 +115,11 @@
 .spellList.active {
     display: grid;
     grid-template-columns: 350px 350px 350px;
-    grid-template-rows: repeat(5, 34px); 
-    /* row-gap: 10px; */
+    grid-template-rows: repeat(6, 34px);
     overflow-y: auto;
     overflow-x: hidden;
 }
 @media (max-width: 1400px) {
-    /* … */
     .spellList {
         max-width: 696px;
     }
@@ -143,6 +141,7 @@
 
 .spellList a {
     height: 24px;
+    align-self: center;
 }
 
 .spellList {

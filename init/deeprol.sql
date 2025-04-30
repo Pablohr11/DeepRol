@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-04-2025 a las 14:49:07
--- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.2.12
+-- Tiempo de generación: 30-04-2025 a las 23:51:56
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 7.4.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,8 +44,8 @@ CREATE TABLE `chars` (
 --
 
 INSERT INTO `chars` (`id_char`, `id_user`, `name`, `raza`, `nivel`, `clase`, `pdf_path`, `image_path`, `full_body_image_path`) VALUES
-(1, 1, 'Draelith', 'Tieflin', 5, 'Druida', 'Pablo.pdf', 'pablo2.png', 'draelith_cuerpo_completo.png'),
-(3, 1, 'Prythos', 'Tieflin', 2, 'Brujo', 'Nope', 'nope', 'Nope');
+(1, 1, 'Draelith', 'Elfo de los bosques', 5, 'Druida', 'Pablo.pdf', 'pablo2.png', 'draelith_cuerpo_completo.png'),
+(3, 1, 'Prythos', 'Tieflin', 2, 'Brujo', 'guerrero.pdf', 'nope', 'Nope');
 
 -- --------------------------------------------------------
 
@@ -506,8 +506,8 @@ CREATE TABLE `spellset` (
 --
 
 INSERT INTO `spellset` (`id_spellset`, `id_char`, `spells`) VALUES
-(1, 1, '5, 8, 12, 14, 14, 15, 31, 36, 40, 20, 180, 56'),
-(2, 3, '\'2\'');
+(1, 1, '5, 8, 12, 14, 14, 15, 31, 36, 40, 20, 180, 56, 182, 151, 19, 23, 26, 28, 30, 37, 42, 46, 50, 60, 103, 134, 57, 59, 64, 66, 68, 72, 73, 77, 82, 86, 87, 263, 271, 351, 359, 376, 404, 99, 91'),
+(2, 3, '\'2\', 3, 2, 78, 9');
 
 -- --------------------------------------------------------
 
