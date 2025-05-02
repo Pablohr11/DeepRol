@@ -33,7 +33,9 @@
 			</div>			
 		<?php endforeach ?>
 		<div class="addChar">
-			<a href="#">+</>
+			<a href="./addPersonajes.php">
+				<span class="flexCenter">+</span>
+			</a>
 		</div>		
 
 	</div>
