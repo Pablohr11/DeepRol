@@ -7,42 +7,40 @@
         $errores = [];
 
         if(!isset($_POST["nombrePersonaje"]) || trim($_POST["nombrePersonaje"]) == ""){
-            $errores['nombre'] = "El nombre no puede estar vacio";
-        }else{
-            $nombre = $_POST["nombrePersonaje"];
+            $errores['nombrePersonaje'] = "El nombre no puede estar vacio";
         }
 
         if(!isset($_POST["razaPersonaje"]) || trim($_POST["razaPersonaje"]) == ""){
-            $errores['raza'] = "La raza no puede estar vacia";
-        }else{
-            $raza = $_POST["razaPersonaje"];
+            $errores['razaPersonaje'] = "La raza no puede estar vacia";
         }
 
-        if(!isset($_POST["imagenPerfilPersonaje"])){
-            $errores['imagenPerfil'] = "La imagen de perfil no puede estar vacia";
-        }else{
-            $imagenPerfil = $_POST["imagenPerfilPersonaje"];
+        if(!isset($_FILES["imagenPerfilPersonaje"]) || $_FILES["imagenPerfilPersonaje"]["error"] != 0){
+            $errores['imagenPerfilPersonaje'] = "La imagen de perfil no puede estar vacia";
+        }else if($_FILES["imagenPerfilPersonaje"]["type"] != "image/png" &&
+                $_FILES["imagenPerfilPersonaje"]["type"] != "image/jpeg" &&
+                $_FILES["imagenPerfilPersonaje"]["type"] != "image/jpg"){
+                $errores['imagenPerfilPersonaje'] = "La imagen de perfil debe ser un PNG, un JPEG o un JPG";
+        }
+        
+
+        if(!isset($_FILES["imagenCompletaPersonaje"]) || $_FILES["imagenCompletaPersonaje"]["error"] != 0){
+            $errores['imagenCompletaPersonaje'] = "La imagen completa del personaje no puede estar vacia";
+        }else if($_FILES["imagenCompletaPersonaje"]["type"] != "image/png" &&
+                $_FILES["imagenCompletaPersonaje"]["type"] != "image/jpeg" &&
+                $_FILES["imagenCompletaPersonaje"]["type"] != "image/jpg"){
+                $errores['imagenCompletaPersonaje'] = "La imagen de perfil debe ser un PNG, un JPEG o un JPG";
         }
 
-        if(!isset($_POST["imagenCompletaPersonaje"])){
-            $errores['imagenCompleta'] = "La imagen completa del personaje no puede estar vacia";
-        }else{
-            $imagenCompleta = $_POST["imagenCompletaPersonaje"];
-        }
-
-        if(!isset($_POST["fichaPersonaje"])){
+        if(!isset($_FILES["fichaPersonaje"]) || $_FILES["fichaPersonaje"]["error"] != 0){
             $errores['fichaPersonaje'] = "La ficha no puede estar vacia";
-        }else{
-            $ficha = $_POST["fichaPersonaje"];
+        }else if($_FILES["fichaPersonaje"]["type"] != "application/pdf"){
+                $errores['fichaPersonaje'] = "La ficha debe ser un PDF";
         }
 
         if(empty($errores)){
             echo "subiendo personaje";
             print_r($_POST);
             print_r($_FILES);
-        }else{
-            echo "<script>alert('Error: " . implode(", ", $errores) . "');</script>";
-            print_r($_POST);
         }
     }
 
@@ -59,32 +57,59 @@
 <body>
     <div id="bodyContainer" class="flexCenter">
         <div id="formContainer">
-            <form action="" method="post">
+            <form action="" method="post" enctype="multipart/form-data" >
                 <div id="formLogoContainer" class="flexCenter">
                     <img id="formLogo" src="../resources/imgs/logo.png" alt="">
                 </div>
                 <div id="formFieldsContainer">
                     <div class="formInputContainer">
-                        <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" placeholder="Nombre del Personaje">
+                        <fieldset>
+                            <legend>Nombre del Personaje</legend>
+                            <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
+                        </fieldset>
+                        <?php if(isset($errores['nombrePersonaje'])){ ?>
+                            <p class='errorMessage'> <?=$errores['nombrePersonaje']?></p> 
+                        <?php } ?>
                     </div>
 
                     <div class="formInputContainer">
-                        <input type="text" id="formName" class="formTextField"  name="razaPersonaje" placeholder="Raza del Personaje">
+                        <fieldset>
+                            <legend>Raza del Personaje</legend>
+                            <input type="text" id="formName" class="formTextField"  name="razaPersonaje" value="<?php if(isset($_POST["razaPersonaje"])){ echo $_POST["razaPersonaje"]; } ?>">
+                        </fieldset>
+                        <?php if(isset($errores['razaPersonaje'])){ ?>
+                            <p class='errorMessage'> <?=$errores['razaPersonaje']?></p>
+                        <?php } ?>
                     </div>
 
                     <div class="formInputContainer fileInputContainer">
-					    <span>Imagen de perfil del Personaje</span>
-                        <input type="file" id="formName" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje">
+                        <fieldset>
+                            <legend>Imagen de perfil del Personaje</legend>
+                            <input type="file" id="formName" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
+                        </fieldset>
+                        <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
+                            <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
+                        <?php } ?>
                     </div>
 
                     <div class="formInputContainer fileInputContainer">
-                        <span>Imagen completa del Personaje</span>
-                        <input type="file" id="formName" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
+                        <fieldset>
+                            <legend>Imagen completa del Personaje</legend>
+                            <input type="file" id="formName" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
+                        </fieldset>
+                        <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
+                            <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
+                        <?php } ?>
                     </div>
 
                     <div class="formInputContainer fileInputContainer inputFicha">
-                        <span>Ficha del Personaje</span>
-                        <input type="file" id="formName" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
+                        <fieldset>
+                            <legend>Ficha del Personaje</legend>
+                            <input type="file" id="formName" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
+                        </fieldset>
+                        <?php if(isset($errores["fichaPersonaje"])){ ?>
+                            <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
+                        <?php } ?>
                     </div>
                 </div>
                 <div class="formSubmitContainer">
