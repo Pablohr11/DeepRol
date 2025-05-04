@@ -5,8 +5,8 @@
 
 	
 	if (isset($_POST["submitInput"])) {	
-		$checkLoginResult = $db->checkLogin(strtoupper($_POST["user"]), $_POST["password"]);
 		if ($_POST["submitInput"] == "Iniciar Sesion") {
+			$checkLoginResult = $db->checkLogin(strtoupper($_POST["user"]), $_POST["password"]);
 			if($checkLoginResult != 0) {
 				setcookie("logged", $checkLoginResult, time()+60*60*24*30);
 				setcookie("userInitial", $_POST["user"][0], time()+60*60*24*30);

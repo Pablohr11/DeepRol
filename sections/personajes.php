@@ -23,6 +23,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<link rel="stylesheet" href="../styles/personajes.css">
+    <script defer src="../scripts/personajes.js"></script>
 </head>
 <body>
 	<div class="charactersDiv">
@@ -33,38 +34,25 @@
 			</div>			
 		<?php endforeach ?>
 		<div class="addChar">
-			<a href="./addPersonajes.php">
+            <video id="background-video"  loop muted>
+				<source src="../resources/vids/book.mp4" type="video/mp4">
+			</video>
+			<a id="addCharButton" href="./addPersonajes.php">
 				<span class="flexCenter">+</span>
 			</a>
 		</div>		
 
 	</div>
+<script type="text/javascript">
+	function showCharacter(trigger) {
+		console.log(trigger);
 
-	<div id="embedContainer">
-		<div id="embedTopBar">
-			<span id="closeEmbed">X</span>
-		</div>
-		<embed
-			id="embed"
-	        src="./resources/fichas/Pablo.pdf"
-	        type="application/pdf"
-	        width="100%"
-	        height="100%"
-	        title="Embedded PDF Viewer"
-	    />
-	</div>
-	    
+		var charIdToShow = trigger.getAttribute("charId");
 
-    <script type="text/javascript">
-    	function showCharacter(trigger) {
-    		console.log(trigger);
-
-			var charIdToShow = trigger.getAttribute("charId");
-
-			window.location.replace("./personaje.php?id="+charIdToShow);
-    	}
+		window.location.replace("./personaje.php?id="+charIdToShow);
+	}
 
 
-    </script>
+</script>
 </body>
 </html>

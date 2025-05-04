@@ -8,7 +8,7 @@
 
 ?>
 
-<div id="header">
+<div id="header" class="flicker">
     <div></div>
     <div id="centerPanel"><a href="/"><img id="logo" src="../../resources/logos/logo_no_bg.png"></a></div>
     <div id="rightPanel">
