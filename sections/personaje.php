@@ -27,8 +27,8 @@ if (isset($charSpells) && $charSpells != null) {
 <script src="../scripts/char.js" ></script>
 <div class="mist"></div>
 <div class="contenedor-linterna">
-  <div class="linterna"></div>
-  <div class="haz-de-luz"></div>
+  <div class="linterna" id="linterna"></div>
+  <div class="haz-de-luz" id="haz-de-luz"></div>
 </div>
 
     <div id="charDiv">
@@ -310,23 +310,29 @@ if (isset($charSpells) && $charSpells != null) {
     setPdfFields("../resources/fichas/<?=$charData["pdf_path"]?>");
 
     const card = document.querySelector('.card');
-const personaje = document.querySelector('.personaje');
+    const personaje = document.querySelector('.personaje');
 
-card.addEventListener('mousemove', (e) => {
-  const rect = card.getBoundingClientRect();
-  const x = e.clientX - rect.left; // posición X dentro del contenedor
-  const y = e.clientY - rect.top;  // posición Y dentro del contenedor
+    card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // posición X dentro del contenedor
+    const y = e.clientY - rect.top;  // posición Y dentro del contenedor
 
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
 
-  const rotateX = -(y - centerY) / 15;
-  const rotateY = (x - centerX) / 15;
+    const rotateX = -(y - centerY) / 15;
+    const rotateY = (x - centerX) / 15;
 
-  personaje.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-});
+    personaje.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
 
-card.addEventListener('mouseleave', () => {
-  personaje.style.transform = 'rotateX(0deg) rotateY(0deg)';
-});
+    card.addEventListener('mouseleave', () => {
+    personaje.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+
+    document.getElementById("linterna").addEventListener('click', function() {
+        document.getElementById("linterna").classList.toggle("linterna_off");
+        document.getElementById("haz-de-luz").classList.toggle("haz-de-luz_off");
+        
+    });
 </script>

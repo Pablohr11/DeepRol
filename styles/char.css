@@ -573,67 +573,75 @@ input[type="radio"][disabled]:checked::after {
 
   .contenedor-linterna {
     position: fixed;
-    top: -5px;
+    top: -12px;
     right: 40px;
     width: 64px;
     height: 64px;
     z-index: 10;
-    pointer-events: none;
   }
   
   .linterna {
-    width: 100px;
-    height: 100px;
-    background-image: url('../resources/imgs/linterna.png');
+    width: 72px;
+    height: 124px;
+    background-image: url('../resources/imgs/linterna_on.png');
     background-size: cover;
     z-index: 2;
     position: relative;
   }
+
   
+  .linterna_off {
+    background-image: url('../resources/imgs/linterna_off.png') !important;
+  }
+
   .haz-de-luz {
     position: fixed;
     top: 60px;
-    right: 70px;
-    width: 1800px;
     height: 1800px;
+    width: 3600px;
+    right: 1800px;
     background: radial-gradient(
-      circle at right top,
-      rgba(255, 170, 80, 0.45) 0%,
-      rgba(255, 130, 60, 0.35) 30%,
-      rgba(120, 60, 20, 0.15) 65%,
-      rgba(0, 0, 0, 0) 95%
-    );
+        circle at right top,
+        rgba(255, 204, 128, 0.35) 0%,
+        rgba(232, 174, 100, 0.32) 8%,
+        rgba(210, 144, 90, 0.30) 16%,
+        rgba(190, 110, 70, 0.27) 24%,
+        rgba(160, 90, 50, 0.22) 32%,
+        rgba(130, 70, 35, 0.18) 40%,
+        rgba(100, 50, 25, 0.14) 48%,
+        rgba(70, 35, 20, 0.10) 56%,
+        rgba(40, 20, 10, 0.08) 64%,
+        rgba(20, 10, 5, 0.05) 72%,
+        rgba(10, 5, 2, 0.03) 85%,
+        rgba(0, 0, 0, 0) 100%
+      );
+      
+      
     transform: translate(50%, -50%);
-    animation: luz-calida-fluida 10s ease-in-out infinite;
+    animation: luz-calida-fluida 3s ease-in-out infinite;
     mix-blend-mode: screen;
     pointer-events: none;
-    filter: blur(28px);
+    filter: blur(30px);
     z-index: 1;
+  }
+  
+
+  
+  .haz-de-luz_off {
+    display: none;
   }
   
   
   @keyframes luz-calida-fluida {
-    0% {
-      opacity: 0.16;
-      transform: translate(50%, -50%) scale(1);
-    }
-    25% {
-      opacity: 0.22;
-      transform: translate(48%, -52%) scale(1.03);
-    }
-    50% {
-      opacity: 0.26;
-      transform: translate(51%, -49%) scale(1.08);
-    }
-    75% {
-      opacity: 0.21;
-      transform: translate(49%, -51%) scale(0.97);
-    }
-    100% {
-      opacity: 0.18;
-      transform: translate(50%, -50%) scale(1);
-    }
+    0%   { transform: translate(50%, -50%) scale(1); opacity: 0.18; }
+    25%  { transform: translate(50.5%, -50.3%) scale(1.03); opacity: 0.25; }
+    50%  { transform: translate(49.8%, -49.9%) scale(1.06); opacity: 0.22; }
+    75%  { transform: translate(50.3%, -50.1%) scale(1.01); opacity: 0.2; }
+    100% { transform: translate(50%, -50%) scale(1); opacity: 0.18; }
   }
+  
+  
+  
   
   
   .card {
