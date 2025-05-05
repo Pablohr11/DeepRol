@@ -501,7 +501,7 @@ input[type="radio"][disabled]:checked::after {
     width: 20px;
 }
 
-.skillDiv:hover .stValue, .stDiv:hover .stValue {
+.stValue:hover, .highlightable:hover, .modifier:hover {
     box-shadow: 0 0 8px rgba(255,153,51,0.3);
     transform: scale(1.05);
   }
@@ -636,4 +636,51 @@ input[type="radio"][disabled]:checked::after {
   }
   
   
+  .card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+  }
   
+  .personaje {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .stat, .stValue, #profContainer, #pPasContainer {
+    cursor: default;
+  }
+
+  .spellList {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.spellList.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.spellList.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes escribirTitulo {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  #charDiv h1, h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: escribirTitulo 1.5s steps(20) forwards;
+  }

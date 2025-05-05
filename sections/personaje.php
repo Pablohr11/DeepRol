@@ -34,7 +34,9 @@ if (isset($charSpells) && $charSpells != null) {
     <div id="charDiv">
         <!-- //? LEFT CONTAINER  -->
         <div>
-            <img src="../resources/chars/draelith_cuerpo_completo.png" id="fullBodyImg" alt="">
+            <div class="card">
+                <img src="../resources/chars/draelith_cuerpo_completo.png" id="fullBodyImg" alt="" class="personaje">
+            </div>
             <div id="sheetButtons">
                 <button id="showPdfButton">Ver Ficha</button>
                 <button id="showPdfButton">Actualizar Ficha</button>
@@ -172,11 +174,11 @@ if (isset($charSpells) && $charSpells != null) {
                     </div>    
                     <div class="additionalStats">
                         <div id="pPasContainer">
-                            <span id="Passive"></span>
+                            <span id="Passive" class="highlightable"></span>
                             <span id="ppasInfo">Percepción Pasiva</span>
                         </div>
                         <div id="profContainer">
-                            <span id="ProfBonus"></span>
+                            <span id="ProfBonus" class="highlightable"></span>
                             <span id="profInfo">Bono de competencia</span>
                         </div>
                     </div>
@@ -306,4 +308,25 @@ if (isset($charSpells) && $charSpells != null) {
 
 <script>
     setPdfFields("../resources/fichas/<?=$charData["pdf_path"]?>");
+
+    const card = document.querySelector('.card');
+const personaje = document.querySelector('.personaje');
+
+card.addEventListener('mousemove', (e) => {
+  const rect = card.getBoundingClientRect();
+  const x = e.clientX - rect.left; // posición X dentro del contenedor
+  const y = e.clientY - rect.top;  // posición Y dentro del contenedor
+
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+
+  const rotateX = -(y - centerY) / 15;
+  const rotateY = (x - centerX) / 15;
+
+  personaje.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
+
+card.addEventListener('mouseleave', () => {
+  personaje.style.transform = 'rotateX(0deg) rotateY(0deg)';
+});
 </script>

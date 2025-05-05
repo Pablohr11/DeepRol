@@ -1,33 +1,66 @@
 
-window.addEventListener("load", (event) => {
-
-    document.getElementById("showPdfButton").addEventListener('click', function() {
+window.addEventListener("load", () => {
+    // Botones PDF
+    document.getElementById("showPdfButton").addEventListener('click', function () {
         document.getElementById("embedContainer").style.display = "block";
-    
-    })
-    
-    document.getElementById("closeEmbed").addEventListener('click', function() {
-        document.getElementById("embedContainer").style.display = "none"
-    })
-    
+    });
+
+    document.getElementById("closeEmbed").addEventListener('click', function () {
+        document.getElementById("embedContainer").style.display = "none";
+    });
+
+    // Tabs de conjuros
     const tabs = document.querySelectorAll('.tab');
     const lists = document.querySelectorAll('.spellList');
-    
+
     function activateTab(index) {
+        const current = document.querySelector('.spellList.active');
+        const next = lists[index];
+        if (!next) return;
+
+        // Marcar tab activa
         tabs.forEach(tab => tab.classList.remove('active'));
-        lists.forEach(list => list.classList.remove('active'));
-    
         tabs[index].classList.add('active');
-        lists[index].classList.add('active');
+
+        // Si se está cambiando a una pestaña diferente
+        if (current && current !== next) {
+            current.classList.remove('fade-in');
+            current.classList.add('fade-out');
+
+            setTimeout(() => {
+                current.classList.remove('active', 'fade-out');
+                next.classList.add('active', 'fade-in');
+            }, 300);
+
+        } else if (!current) {
+            // Primera vez que se activa algo
+            next.classList.add('active', 'fade-in');
+        } else if (current === next) {
+            // Se clickeó la misma pestaña (opcionalmente refrescar animación)
+            current.classList.remove('fade-in');
+            void current.offsetWidth; // fuerza reflow
+            current.classList.add('fade-in');
+        }
     }
-    
+
     tabs.forEach((tab, i) => {
-        tab.addEventListener('click', () => activateTab(i));
-    });
-    
-    // Activar la primera pestaña por defecto
-    activateTab(0);
+        tab.addEventListener('click', () => {
+          // efecto visual de destello
+          tab.classList.add('spark');
+          setTimeout(() => tab.classList.remove('spark'), 400);
+      
+          localStorage.setItem('activeTabIndex', i);
+          activateTab(i);
+        });
+      });
+      
+      
+
+    // Activar la primera pestaña o la que se guardó en localStorage
+    const savedIndex = parseInt(localStorage.getItem('activeTabIndex'));
+    activateTab(!isNaN(savedIndex) ? savedIndex : 0);
 });
+
 
 function setPdfFields(pdfPath) {
     const url = pdfPath;
