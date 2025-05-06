@@ -14,7 +14,7 @@
 				die();
 			}
 		} else {
-			echo("b");
+			$db->createUser(($_POST["user"]), $_POST["password"]);
 		}
 	}
 

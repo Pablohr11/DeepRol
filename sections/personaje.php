@@ -26,7 +26,8 @@ if (isset($charSpells) && $charSpells != null) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 <script src="../scripts/char.js" ></script>
 <div class="mist"></div>
-<div class="contenedor-linterna">
+<div class="contenedor-linterna" id="contenedor-linterna">
+<div id="gancho"></div>
   <div class="linterna" id="linterna"></div>
   <div class="haz-de-luz" id="haz-de-luz"></div>
 </div>
@@ -335,4 +336,8 @@ if (isset($charSpells) && $charSpells != null) {
         document.getElementById("haz-de-luz").classList.toggle("haz-de-luz_off");
         
     });
+
+    document.getElementById("gancho").addEventListener('click', function() {
+        document.getElementById("contenedor-linterna").classList.add("fallen-contenedor-linterna")
+    })
 </script>

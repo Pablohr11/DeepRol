@@ -54,11 +54,8 @@ window.addEventListener("load", () => {
         });
       });
       
-      
-
-    // Activar la primera pestaña o la que se guardó en localStorage
-    const savedIndex = parseInt(localStorage.getItem('activeTabIndex'));
-    activateTab(!isNaN(savedIndex) ? savedIndex : 0);
+    
+    activateTab(0);
 });
 
 

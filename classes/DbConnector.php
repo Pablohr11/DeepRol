@@ -46,6 +46,14 @@ class DbConector {
         return false;
     }
 
+    public function createUser($user, $password) {
+        $consulta = $this->db->prepare("insert into usuario values(null, :username, :password)");
+
+        $consulta->bindParam(":username",$user, PDO::PARAM_STR);
+        $consulta->bindParam(":password",$password, PDO::PARAM_STR);
+
+        return $consulta->execute();
+    }
     
     public function signIn($parentId) {
         try {
