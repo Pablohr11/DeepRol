@@ -45,7 +45,7 @@
 				</div>
 				<div class="formInputContainer">
 					<span>Contraseña</span>		
-					<input type="text" id="formPwd" class="formTextField" name="password">		
+					<input type="password" id="formPwd" class="formTextField" name="password">		
 				</div>
 				<div class="formLinkContainer">
 					<span id="changeFormButton">Crear cuenta</span>

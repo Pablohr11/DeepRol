@@ -52,68 +52,84 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+	<link rel="stylesheet" href="../styles/index.css">
 	<link rel="stylesheet" href="../styles/form.css">
+    <script defer src="../scripts/form.js"></script>
+
 </head>
-<body>
+<body onload="initForm()">
+    <div class="mist"></div>
     <div id="bodyContainer" class="flexCenter">
         <div id="formContainer">
-            <form action="" method="post" enctype="multipart/form-data" >
+            <form action="" method="post" enctype="multipart/form-data">
                 <div id="formLogoContainer" class="flexCenter">
-                    <img id="formLogo" src="../resources/imgs/logo.png" alt="">
+                    <h1>Nuevo Personaje</h1>
                 </div>
                 <div id="formFieldsContainer">
-                    <div class="formInputContainer">
-                        <fieldset>
-                            <legend>Nombre del Personaje</legend>
-                            <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
-                        </fieldset>
-                        <?php if(isset($errores['nombrePersonaje'])){ ?>
-                            <p class='errorMessage'> <?=$errores['nombrePersonaje']?></p> 
-                        <?php } ?>
+                    <div id="charImgContainer">
+                        <!-- <img src="../resources/imgs/cave.jpg" alt=""> -->
                     </div>
+                    <div class="formSecondDiv">
+                        <div id="nameRaceContainer">
+                            <h2 id="nameField">Nombre</h2><h2> / </h2><h2 id="raceField">Raza</h2>
+                        </div>
+                        <div class="steps">
+                            <div id="step1" class="charStep">
+                                <!-- <div id="nameRaceContainer">
+                                    <h2 id="nameField">Nombre</h2><h2> / </h2><h2 id="raceField">Raza</h2>
+                                </div> -->
+                                <div class="formInputContainer">
+                                    <?php if(isset($errores['nombrePersonaje'])){ ?>
+                                        <p class='errorMessage'> <?=$errores['nombrePersonaje']?></p> 
+                                    <?php } ?>
+                                    <span>Nombre del Personaje</span>
+                                    <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
+                                </div>
+                                    
+                                <div class="formInputContainer">
+                                    <?php if(isset($errores['razaPersonaje'])){ ?>
+                                        <p class='errorMessage'> <?=$errores['razaPersonaje']?></p>
+                                    <?php } ?>
+                                    <span>Raza del Personaje</span>
+                                    <input type="text" id="formRace" class="formTextField"  name="razaPersonaje" value="<?php if(isset($_POST["razaPersonaje"])){ echo $_POST["razaPersonaje"]; } ?>">
+                                </div>
+                                    
+                            </div>
+                            <div id="step2" class="charStep">
+                                <div class="formInputContainer fileInputContainer">
+                                    <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
+                                        <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
+                                    <?php } ?>
+                                    <span>Imagen de perfil del Personaje</span>
+                                    <input type="file" id="formName" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
+                                </div>
+                            </div>
 
-                    <div class="formInputContainer">
-                        <fieldset>
-                            <legend>Raza del Personaje</legend>
-                            <input type="text" id="formName" class="formTextField"  name="razaPersonaje" value="<?php if(isset($_POST["razaPersonaje"])){ echo $_POST["razaPersonaje"]; } ?>">
-                        </fieldset>
-                        <?php if(isset($errores['razaPersonaje'])){ ?>
-                            <p class='errorMessage'> <?=$errores['razaPersonaje']?></p>
-                        <?php } ?>
-                    </div>
-
-                    <div class="formInputContainer fileInputContainer">
-                        <fieldset>
-                            <legend>Imagen de perfil del Personaje</legend>
-                            <input type="file" id="formName" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
-                        </fieldset>
-                        <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
-                            <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
-                        <?php } ?>
-                    </div>
-
-                    <div class="formInputContainer fileInputContainer">
-                        <fieldset>
-                            <legend>Imagen completa del Personaje</legend>
-                            <input type="file" id="formName" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
-                        </fieldset>
-                        <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
-                            <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
-                        <?php } ?>
-                    </div>
-
-                    <div class="formInputContainer fileInputContainer inputFicha">
-                        <fieldset>
-                            <legend>Ficha del Personaje</legend>
-                            <input type="file" id="formName" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
-                        </fieldset>
-                        <?php if(isset($errores["fichaPersonaje"])){ ?>
-                            <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
-                        <?php } ?>
+                            <div id="step3" class="charStep">
+                                <div class="formInputContainer fileInputContainer">
+                                    <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
+                                        <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
+                                    <?php } ?>
+                                    <span>Imagen completa del Personaje</span>
+                                    <input type="file" id="formName" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
+                                </div>
+                            </div>
+                            <div id="step4" class="charStep">
+                                <div class="formInputContainer fileInputContainer inputFicha">
+                                    <?php if(isset($errores["fichaPersonaje"])){ ?>
+                                        <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
+                                    <?php } ?>
+                                    <span>Ficha del Personaje</span>
+                                    <input type="file" id="formName" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="formSubmitContainer">
-                    <input type="submit" value="Darle Vida" id="submitInput" name="submitInput">
+                    <span class="button" id="prevStep">ANTERIOR</span>
+                    <span class="button" id="nextStep">SIGUIENTE</span>
+                    <input type="submit" value="Crear Personaje" id="submitInput" name="submitInput">
                 </div>
             </form>
         </div>
