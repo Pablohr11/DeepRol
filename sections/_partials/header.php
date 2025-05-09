@@ -7,7 +7,9 @@
     } 
 
 ?>
-
+<head>
+    <script src="https://kit.fontawesome.com/e0b95331d1.js" crossorigin="anonymous"></script>
+</head>
 <div id="header" class="flicker">
     <div></div>
     <div id="centerPanel"><a href="/"><img id="logo" src="../../resources/logos/logo_no_bg.png"></a></div>

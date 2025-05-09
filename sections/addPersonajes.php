@@ -55,7 +55,7 @@
 	<link rel="stylesheet" href="../styles/index.css">
 	<link rel="stylesheet" href="../styles/form.css">
     <script defer src="../scripts/form.js"></script>
-
+    <script src="https://kit.fontawesome.com/e0b95331d1.js" crossorigin="anonymous"></script>
 </head>
 <body onload="initForm()">
     <div class="mist"></div>
@@ -67,11 +67,11 @@
                 </div>
                 <div id="formFieldsContainer">
                     <div id="charImgContainer">
-                        <!-- <img src="../resources/imgs/cave.jpg" alt=""> -->
+                        <img src="" alt="" id="formImage">
                     </div>
                     <div class="formSecondDiv">
                         <div id="nameRaceContainer">
-                            <h2 id="nameField">Nombre</h2><h2> / </h2><h2 id="raceField">Raza</h2>
+                            <i class="fa-regular fa-user fa-xl"></i><h2 id="nameField">Nombre</h2><h2> / </h2><h2 id="raceField">Raza</h2>
                         </div>
                         <div class="steps">
                             <div id="step1" class="charStep">
@@ -96,31 +96,34 @@
                                     
                             </div>
                             <div id="step2" class="charStep">
+                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h3>Imagen de perfil de personaje</h3></div>
                                 <div class="formInputContainer fileInputContainer">
                                     <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
                                         <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
                                     <?php } ?>
-                                    <span>Imagen de perfil del Personaje</span>
-                                    <input type="file" id="formName" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
+                                    <label  for="formSmallImage" class="custom-file-upload">Seleccionar imagen de perfil</label>
+                                    <input type="file" id="formSmallImage" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
                                 </div>
                             </div>
 
                             <div id="step3" class="charStep">
+                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h3>Imagen de general de personaje</h3></div>
                                 <div class="formInputContainer fileInputContainer">
                                     <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
                                         <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
                                     <?php } ?>
-                                    <span>Imagen completa del Personaje</span>
-                                    <input type="file" id="formName" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
+                                    <label  for="formBodyImage" class="custom-file-upload">Seleccionar imagen general</label>
+                                    <input type="file"  id="formBodyImage" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
                                 </div>
                             </div>
                             <div id="step4" class="charStep">
+                                <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h3>Ficha de personaje</h3></div>
                                 <div class="formInputContainer fileInputContainer inputFicha">
                                     <?php if(isset($errores["fichaPersonaje"])){ ?>
                                         <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
                                     <?php } ?>
-                                    <span>Ficha del Personaje</span>
-                                    <input type="file" id="formName" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
+                                    <label for="formPdf" class="custom-file-upload">Seleccionar ficha del Personaje</label>
+                                    <input type="file" id="formPdf" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
                                 </div>
                             </div>
                         </div>
@@ -134,5 +137,40 @@
             </form>
         </div>
     </div>
+    <script>
+        const input = document.getElementById('formSmallImage');
+        const input2 = document.getElementById('formBodyImage');
+        const preview = document.getElementById('formImage');
+
+        input.addEventListener('change', () => {
+        const file = input.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                preview.src = e.target.result;
+                preview.parentElement.classList.add("charImgClean");
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '';
+            alert('Please select a valid image file.');
+        }
+        });
+
+        input2.addEventListener('change', () => {
+        const file = input2.files[0];
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                preview.src = e.target.result;
+                preview.parentElement.classList.add("charImgClean");
+            };
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '';
+            alert('Please select a valid image file.');
+        }
+        });
+    </script>
 </body>
 </html>
