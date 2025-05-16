@@ -2,10 +2,20 @@
 
 	require_once("../classes/DbConnector.php");
 	$db = DbConector::singleton();
+    if (!$_COOKIE["logged"]) {
+        header("location: login.php");
+    } else {
+        $idUser = $_COOKIE["logged"];
+    }
+
 
     if(isset($_POST["submitInput"])){
         $errores = [];
 
+        $targetDir = "../resources/chars/".$_POST["nombrePersonaje"]."/";
+        $targetSmallImageFile = $targetDir . "imagenPequeña".getFileExtension(basename($_FILES["imagenPerfilPersonaje"]["name"]));
+        $targetBigImageFile = $targetDir . "imagenGeneral".getFileExtension(basename($_FILES["imagenPerfilPersonaje"]["name"]));
+        $targetPdfFile = $targetDir . "ficha.pdf";
         if(!isset($_POST["nombrePersonaje"]) || trim($_POST["nombrePersonaje"]) == ""){
             $errores['nombrePersonaje'] = "El nombre no puede estar vacio";
         }
@@ -38,12 +48,26 @@
         }
 
         if(empty($errores)){
-            echo "subiendo personaje";
-            print_r($_POST);
-            print_r($_FILES);
+            // print_r($_POST);
+            $db->createChar(
+                $idUser,
+                $_POST["nombrePersonaje"],
+                $_POST["razaPersonaje"],
+                "imagenPequeña".getFileExtension(basename($_FILES["imagenPerfilPersonaje"]["name"])),
+                "imagenGeneral".getFileExtension(basename($_FILES["imagenPerfilPersonaje"]["name"]))
+            );
+            mkdir("../resources/chars/".$_POST["nombrePersonaje"]);
+            move_uploaded_file($_FILES["imagenPerfilPersonaje"]["tmp_name"], $targetSmallImageFile);
+            move_uploaded_file($_FILES["imagenCompletaPersonaje"]["tmp_name"], $targetBigImageFile);
+            move_uploaded_file($_FILES["fichaPersonaje"]["tmp_name"], $targetPdfFile);
         }
     }
 
+    function getFileExtension($fileName) {
+        $extensionDot = strpos($fileName ,".");
+        $extension = substr($fileName, $extensionDot);
+        return $extension;
+    }
 ?>
 <!DOCTYPE html>
 

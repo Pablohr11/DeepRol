@@ -294,4 +294,22 @@ class DbConector {
             return $spellList.", ".$id_spell;
         }
     }
+
+    public function createChar(
+        $idUser,
+        $nombrePersonaje,
+        $razaPersonaje,
+        $imagenPequeña,
+        $imagenGeneral
+    ) {
+        $consulta = $this->db->prepare("insert into chars values(null, :userId, :charName, :charRace, 'ficha.pdf', :smallImage, :bigImage)");
+
+        $consulta->bindParam("userId", $idUser, PDO::PARAM_INT);
+        $consulta->bindParam("charName", $nombrePersonaje, PDO::PARAM_STR);
+        $consulta->bindParam("charRace", $razaPersonaje, PDO::PARAM_STR);
+        $consulta->bindParam("smallImage", $imagenPequeña, PDO::PARAM_STR);
+        $consulta->bindParam("bigImage", $imagenGeneral, PDO::PARAM_STR);
+
+        $results = $consulta->execute();
+    }
 }

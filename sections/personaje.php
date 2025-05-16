@@ -16,6 +16,8 @@ if (isset($charSpells) && $charSpells != null) {
     foreach ($charSpells as $spell) {
         $grouped[$spell['level']][] = $spell;
     }
+} else {
+    $grouped = null;
 }
 
 
@@ -36,7 +38,7 @@ if (isset($charSpells) && $charSpells != null) {
         <!-- //? LEFT CONTAINER  -->
         <div>
             <div class="card">
-                <img src="../resources/chars/draelith_cuerpo_completo.png" id="fullBodyImg" alt="" class="personaje">
+                <img src="../resources/chars/<?=$charData["name"]?>/<?=$charData["full_body_image_path"]?>" id="fullBodyImg" alt="" class="personaje">
             </div>
             <div id="sheetButtons">
                 <button id="showPdfButton">Ver Ficha</button>
@@ -270,35 +272,36 @@ if (isset($charSpells) && $charSpells != null) {
             <h2>Conjuros</h2>
 
             <div class="tabs" id="tabs">
-                <?php foreach ($grouped as $level => $spells): ?>
-                    <div class="tab" data-tab="level<?=$level?>">
-                        <?php //$level == 0 ? 'Trucos' : 'Nivel ' . $level ?>
-                        <?= $level ?>
-                    </div>
-                <?php endforeach; ?>
-                    
-                <a href="allSpells.php?id_char=<?=$charId?>&classFilter=<?=strtolower($charData["clase"])?>" class="tab"  title="Añadir Conjuro">+</a>
+                <?php if ($grouped) { ?> 
+                    <?php foreach ($grouped as $level => $spells): ?>
+                        <div class="tab" data-tab="level<?=$level?>">
+                            <?php //$level == 0 ? 'Trucos' : 'Nivel ' . $level ?>
+                            <?= $level ?>
+                        </div>
+                    <?php endforeach; ?>
+                <?php } ?>
+                <a href="allSpells.php?id_char=<?=$charId?>" class="tab"  title="Añadir Conjuro">+</a>
                 
             </div>
+            <?php if ($grouped) { ?> 
+                <?php foreach ($grouped as $key => $group) { ?>
+                    <div class="spellList" id="level-<?=$key?>">
 
-            <?php foreach ($grouped as $key => $group) { ?>
-                <div class="spellList" id="level-<?=$key?>">
-
-                    <?php foreach ($group as $keySpell => $spell) { ?>
-                        <?php //var_dump($spell)  ?>
-                        <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
-                    <?php } ?>
-            
-                </div>
+                        <?php foreach ($group as $keySpell => $spell) { ?>
+                            <?php //var_dump($spell)  ?>
+                            <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
+                        <?php } ?>
+                
+                    </div>
+                <?php } ?>
             <?php } ?>
-
         </div>
         <div id="embedContainer">
             <div id="embedTopBar">
                 <span id="closeEmbed">X</span>
             </div>
             <embed id="embed"
-                src="../resources/fichas/<?=$charData["pdf_path"]?>"
+                src="../resources/chars/<?=$charData["name"]?>/ficha.pdf"
                 type="application/pdf"
                 width="100%"
                 height="100%"
@@ -308,7 +311,7 @@ if (isset($charSpells) && $charSpells != null) {
     </div>
 
 <script>
-    setPdfFields("../resources/fichas/<?=$charData["pdf_path"]?>");
+    setPdfFields("../resources/chars//<?=$charData["name"]?>/ficha.pdf");
 
     const card = document.querySelector('.card');
     const personaje = document.querySelector('.personaje');

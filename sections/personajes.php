@@ -29,7 +29,7 @@
 	<div class="charactersDiv">
 		<?php foreach ($chars as $key => $char): ?>
 			<div class="charOption" id="<?=$char["name"]?>" charId=<?=$char["id_char"] ?> onclick="showCharacter(this)" pdfName='<?=$char["pdf_path"]?>'>
-				<img src="../resources/chars/<?=$char["image_path"]?>">
+				<img src="../resources/chars/<?=$char["name"]?>/<?=$char["image_path"]?>">
 				<h2 class="charName"><?=$char["name"]?></h2>
 			</div>			
 		<?php endforeach ?>
