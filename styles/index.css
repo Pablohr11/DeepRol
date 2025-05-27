@@ -22,6 +22,10 @@ h2, h3 {
   font-family: "Uncial Antiqua", system-ui;
 }
 
+h1, h2, h3 {
+    color: #b77d3b;
+}
+
 #content {
     display: grid;
     grid-template-columns: 250px 100%;

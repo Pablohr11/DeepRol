@@ -1,0 +1,12 @@
+h1 {
+    margin-left: 10px;
+}
+
+#notesContainer {
+    margin: 20px;
+}
+
+.noteTitle {
+    text-decoration: none;
+    color: #b77d3b;
+}

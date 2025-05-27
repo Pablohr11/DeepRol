@@ -56,7 +56,7 @@
         var partidasSRC = "sections/personajes.php";
         var personajesSRC = "sections/personajes.php";
         var habilidadesSRC = "sections/allSpells.php";
-        var apuntesSRC = "sections/personajes.php";
+        var apuntesSRC = "sections/notes.php";
         
         var targetContainerId = id.toLowerCase();
         console.log(id);

@@ -312,4 +312,30 @@ class DbConector {
 
         $results = $consulta->execute();
     }
+
+    public function getNotes($userId) {
+        try {
+            $consulta = $this->db->prepare("SELECT * FROM notes where ID_User like :userId");
+
+            $consulta->bindParam("userId", $userId, PDO::PARAM_INT);
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getNote($noteId) {
+        try {
+            $consulta = $this->db->prepare("SELECT * FROM notes where ID like :noteId");
+
+            $consulta->bindParam("noteId", $noteId, PDO::PARAM_INT);
+            $results = $consulta->execute();
+            $data = $consulta->fetch();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }
