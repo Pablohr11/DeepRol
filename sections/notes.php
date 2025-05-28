@@ -3,6 +3,10 @@ require_once("../classes/DbConnector.php");
 //var_dump($_POST);
 $db = DbConector::singleton();
 
+if (!$_COOKIE["logged"]) {
+    header("Location: ../login.php");
+}
+
 $notes = $db->getNotes($_COOKIE["logged"]);
 
 // var_dump($notes);

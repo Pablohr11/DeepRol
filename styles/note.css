@@ -1,3 +1,40 @@
-#editor {
+body {
+    margin: 0 20px;
+}
+
+#editorContainer {
     width: 80%;
+    max-width: 880px;
+    margin: auto;
+}
+
+#editorContainer *{
+    border: none;
+    stroke: #b77d3b;
+}
+
+.ql-toolbar {
+    border-radius: 20px 20px 0 0;
+    background: #121212;
+}
+
+.ql-editor {
+    background: #202020;
+    color: azure;
+    background-image: url("../resources/imgs/fondo.png");
+    background-size: cover;
+    height: 400px !important;
+}
+
+.ql-editor {
+    color: #3b2f2f;
+    border-radius: 0 0 20px 20px;
+}
+
+.ql-editor p {
+    font-size: 15px;
+}
+
+.ql-picker-label::before {
+    color: #b77d3b;
 }
