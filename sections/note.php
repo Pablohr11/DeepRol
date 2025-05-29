@@ -28,37 +28,83 @@ $noteInfo = $db->getNote($_GET["id"]);
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 </head>
 <body>
-    <h1><?=$noteInfo["Nombre"]?></h1>
     <div id="editorContainer">
+      <div class="subDiv">
+          <h1><?=$noteInfo["Nombre"]?></h1>
+          <div style="display: grid;align-content: center;">
+              <a href="notes.php">← VOLVER</a>
+          </div>
+        </div>
+        <div id="toolbar"></div>
         <div id="editor">
             <?=$noteInfo["Value"]?>
         </div>
+        <!-- <button onclick="console.log(document.querySelector('.ql-editor').innerHTML)">Guardar</button> -->
     </div>
 
-    <button onclick="console.log(document.querySelector('.ql-editor').innerHTML)">Guardar</button>
 </body>
 <script>
-    // const {
-    //     ClassicEditor,
-    //     Essentials,
-    //     Bold,
-    //     Italic,
-    //     Font,
-    //     Paragraph
-    // } = CKEDITOR;
-    // import '../styles/editor.css';
-    var editor;
-    // ClassicEditor
-    //     .create( document.querySelector( '#editor' ) )
-    //     .then( newEditor => {
-    //     editor = newEditor;
-    //     } )
-    //     .catch( error => {
-    //         console.error( error );
-    //     } );
 
+const toolbarOptions = [
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'font': [] }],
+  ['bold', 'italic', 'underline', 'strike', 'blockquote'],        // toggled buttons
+  ['link', 'image'],
+
+  [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
+  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+
+
+  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+  ['clean']                                         // remove formatting button
+];
   const quill = new Quill('#editor', {
+    modules: {
+      toolbar: toolbarOptions
+    },
     theme: 'snow'
   });
+
+      // Crear botón personalizado
+    const customButton = document.createElement('button');
+    customButton.innerHTML = 'Guardar';
+    customButton.setAttribute('type', 'button');
+    customButton.classList.add('ql-custom-button');
+
+    // Agregar el botón al toolbar
+    const toolbar = document.querySelector('div[role=toolbar]');
+    const wrapper = document.createElement('span');
+    wrapper.classList.add('ql-formats');
+    wrapper.appendChild(customButton);
+    toolbar.appendChild(wrapper);
+
+    // Lógica del botón
+    customButton.addEventListener('click', function () {
+        saveNote();
+    });
+
+    function saveNote() {
+  const noteId = 1;
+  const value = document.querySelector('.ql-editor').innerHTML;
+
+  fetch('http://localhost:8080/src/savenote.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `noteId=${encodeURIComponent(noteId)}&value=${encodeURIComponent(value)}`
+  })
+  .then(response => {
+    if (!response.ok) throw new Error('Error en la respuesta del servidor');
+    return response.text(); // o .json() si esperas JSON
+  })
+  .then(data => {
+    console.log('Nota guardada exitosamente:', data);
+  })
+  .catch(error => {
+    console.error('Error al guardar la nota:', error);
+  });
+}
 </script>
 </html>

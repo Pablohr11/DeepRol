@@ -338,4 +338,17 @@ class DbConector {
             echo $e->getMessage();
         }
     }
+
+    public function saveNote($noteId, $noteValue) {
+        try {
+            $consulta = $this->db->prepare("UPDATE notes SET Value = :noteValue WHERE ID = :noteId");
+
+            $consulta->bindParam("noteId", $noteId, PDO::PARAM_INT);
+            $consulta->bindParam("noteValue", $noteValue, PDO::PARAM_STR);
+            $results = $consulta->execute();
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 }

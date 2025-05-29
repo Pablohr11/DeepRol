@@ -38,3 +38,28 @@ body {
 .ql-picker-label::before {
     color: #b77d3b;
 }
+
+.ql-toolbar.ql-snow .ql-formats {
+    margin-right: 2px !important;
+}
+
+.ql-custom-button {
+    background-color: #b77d3b !important;
+    width: 100% !important;
+    border-radius: 5px;
+}
+
+
+.subDiv {
+    display: flex;
+    justify-content: space-between;
+    color: #b77d3b;
+}
+.subDiv a {
+    text-decoration: none;
+    padding: 0 10px;
+    color: #b77d3b;
+}
+.subDiv a:visited {
+    color: #b77d3b;
+}
