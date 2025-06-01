@@ -17,6 +17,6 @@ if (strpos($prevUrl, "--") != -1) {
 
 // echo($prevUrl);
 
-header("Location: ".$prevUrl);
+// header("Location: ".$prevUrl);
 
 ?>

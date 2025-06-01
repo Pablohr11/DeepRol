@@ -21,13 +21,13 @@ body {
 .ql-editor {
     background: #202020;
     color: azure;
-    background-image: url("../resources/imgs/fondo.png");
+    /* background-image: url("../resources/imgs/fondo.png"); */
     background-size: cover;
-    height: 400px !important;
+    height: 666px !important;
 }
 
 .ql-editor {
-    color: #3b2f2f;
+    color: #f3f3f3;
     border-radius: 0 0 20px 20px;
 }
 
@@ -45,6 +45,7 @@ body {
 
 .ql-custom-button {
     background-color: #b77d3b !important;
+    background-color: #ffb057 !important;
     width: 100% !important;
     border-radius: 5px;
 }
@@ -62,4 +63,24 @@ body {
 }
 .subDiv a:visited {
     color: #b77d3b;
+}
+
+.mist {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../resources/imgs/mist.png');
+    background-size: 600px 600px; /* o 100% según el diseño */
+    background-repeat: repeat;
+    opacity: 0.2; /* muy sutil */
+    animation: mover-bruma 120s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes mover-bruma {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
 }

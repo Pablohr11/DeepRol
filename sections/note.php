@@ -5,7 +5,7 @@ require_once("../classes/DbConnector.php");
 $db = DbConector::singleton();
 
 $noteInfo = $db->getNote($_GET["id"]);
-
+$relatedCharName = $db->getCharName($noteInfo["RelatedChar"]);
 ?>
 
 <!DOCTYPE html>
@@ -28,9 +28,11 @@ $noteInfo = $db->getNote($_GET["id"]);
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 </head>
 <body>
+  
+  <div class="mist"></div>
     <div id="editorContainer">
       <div class="subDiv">
-          <h1><?=$noteInfo["Nombre"]?></h1>
+          <h1><?=$noteInfo["Nombre"]?> - <?=$relatedCharName?></h1>
           <div style="display: grid;align-content: center;">
               <a href="notes.php">← VOLVER</a>
           </div>

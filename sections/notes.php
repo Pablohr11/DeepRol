@@ -26,8 +26,9 @@ $notes = $db->getNotes($_COOKIE["logged"]);
 
     <div id="notesContainer">
         <?php foreach ($notes as $key => $note) { ?>
-            <a href="note.php?id=<?=$note["ID"]?>" class="noteTitle"><?=$note["Nombre"]?> - <?=$note["Date"]?></a>
+            <a href="note.php?id=<?=$note["ID"]?>" class="noteTitle"><?=$note["Nombre"]?> - <?= $db->getCharName($note["RelatedChar"])?> - <?=$note["Date"]?></a>
         <?php } ?>
+        <a href="newNote.php">Nueva nota</a>
     </div>
 </body>
 </html>

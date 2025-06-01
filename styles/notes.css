@@ -4,9 +4,12 @@ h1 {
 
 #notesContainer {
     margin: 20px;
+    display: grid;
 }
 
 .noteTitle {
     text-decoration: none;
     color: #b77d3b;
 }
+
+
