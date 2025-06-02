@@ -137,7 +137,7 @@ array_shift($spellsLevels);
                 <?php }  ?>
             </dd>
             <?php } else {?>
-                <?php $currentLevel = $spell["level"] ?>                
+                <?php $currentLevel = $spell["level"] ?>
                 <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
                 <!-- <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&id_char=<?=$charId?>"></a> -->
                 <dd>

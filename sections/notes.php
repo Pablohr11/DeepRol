@@ -5,6 +5,8 @@ $db = DbConector::singleton();
 
 if (!$_COOKIE["logged"]) {
     header("Location: ../login.php");
+} else {
+    $userId = $_COOKIE["logged"];
 }
 
 $notes = $db->getNotes($_COOKIE["logged"]);
@@ -28,7 +30,7 @@ $notes = $db->getNotes($_COOKIE["logged"]);
         <?php foreach ($notes as $key => $note) { ?>
             <a href="note.php?id=<?=$note["ID"]?>" class="noteTitle"><?=$note["Nombre"]?> - <?= $db->getCharName($note["RelatedChar"])?> - <?=$note["Date"]?></a>
         <?php } ?>
-        <a href="newNote.php">Nueva nota</a>
+        <a href="newNote.php?uid=<?=$userId?>">Nueva nota</a>
     </div>
 </body>
 </html>
