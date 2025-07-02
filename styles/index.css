@@ -27,15 +27,31 @@ h1, h2, h3 {
 }
 
 #content {
-    display: grid;
-    grid-template-columns: 250px 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #2e2e2e;
+    padding: 5px;
+    gap: 5px;
+}
+
+#leftBar {
+    width: 40px;
+    border-radius: 8px;
+}
+
+#leftBar.open {
+    min-width: 250px;
+    width: 250px;
+}
+#leftBar.open #leftColumnContent {
+    width: 250px
 }
 
 #mainContent.dark {
     background-color: #2e2e2e;
-    width: calc(100vw - 250px);
-    
-    height: calc(100vh - 150px);
+    width: 100%;
+    border-radius: 8px;
+    height: calc(100vh - 160px);
 }
 
 .title {
@@ -50,6 +66,7 @@ h1, h2, h3 {
     width: 100%;
     height: 100%;
     margin: none;
+    border-radius: 8px;
 }
 
 body {

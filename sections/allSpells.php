@@ -141,7 +141,7 @@ array_shift($spellsLevels);
                 <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
                 <!-- <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&id_char=<?=$charId?>"></a> -->
                 <dd>
-                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
                 <?php if (isset($charId)) { ?>
                     <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
                         <span class="addSpell" >✓</span>

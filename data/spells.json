@@ -114,7 +114,7 @@
       "class": "Druida"
     },
     {
-      "name": "Explosión sobrenatural (Eldritch Blast)",
+      "name": "Descarga sobrenatural (Eldritch Blast)",
       "desc": "Un rayo de energía crepitante se dirige hacia una criatura dentro del alcance. Realiza un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo sufre 1d10 puntos de daño de fuerza.El hechizo crea más de un rayo cuando alcanzas niveles superiores: dos rayos a 5º nivel, tres rayos a 11º nivel y cuatro rayos a 17º nivel. Puedes dirigir los haces al mismo objetivo o a objetivos diferentes. Haz una tirada de ataque distinta para cada rayo.",
       "page": "phb 237",
       "range": "120 pies",
@@ -128,7 +128,7 @@
       "class": "Brujo"
     },
     {
-      "name": "Rayo de fuego (Fire Bolt)",
+      "name": "Descarga de fuego (Fire Bolt)",
       "desc": "Lanzas una mota de fuego a una criatura u objeto dentro de tu alcance. Realiza un ataque de hechizo a distancia contra el objetivo. Si aciertas, el objetivo sufre 1d10 puntos de daño por fuego. Un objeto inflamable alcanzado por este hechizo se incendia si no se lleva puesto o encima.El daño de este conjuro aumenta en 1d10 cuando alcanzas el 5º nivel (2d10), 11º nivel (3d10) y 17º nivel (4d10).",
       "page": "phb 242",
       "range": "120 pies",
@@ -358,7 +358,7 @@
       "class": "Bardo, Hechicero, Brujo, Mago"
     },
     {
-      "name": "Producir llama (Produce Flame)",
+      "name": "Crear llama (Produce Flame)",
       "desc": "Aparece una llama parpadeante en tu mano. La llama permanece allí mientras dura y no te daña ni a ti ni a tu equipo. La llama emite luz brillante en un radio de 3 metros y luz tenue en un radio adicional de 3 metros. El hechizo termina si lo descartas como acción o si lo lanzas de nuevo.También puedes atacar con la llama, aunque al hacerlo finaliza el hechizo. Cuando lanzas este conjuro, o como acción en un turno posterior, puedes lanzar la llama a una criatura en un radio de 30 pies de ti. Haz un ataque de hechizo a distancia. Si aciertas, el objetivo recibe 1d8 puntos de daño por fuego.El daño de este conjuro aumenta en 1d8 cuando alcanzas el 5º nivel (2d8), 11º nivel (3d8) y 17º nivel (4d8).",
       "page": "phb 269",
       "range": "Personal",
@@ -875,7 +875,7 @@
       "class": "Bardo, Clérigo, Clerigo, Druida, Explorador, Hechicero, Mago, Paladín, Paladin, Lanzador de Rituales"
     },
     {
-      "name": "Detectar veneno y enfermedad (Detect Poison and Disease)",
+      "name": "Detectar venenos y enfermedades (Detect Poison and Disease)",
       "desc": "Mientras dure el efecto, puedes detectar la presencia y ubicación de venenos, criaturas venenosas y enfermedades en un radio de 30 pies de ti. También identificas el tipo de veneno, criatura venenosa o enfermedad en cada caso.El conjuro puede atravesar la mayoría de las barreras, pero queda bloqueado por 1 pie de piedra, 1 pulgada de metal común, una fina lámina de plomo o 3 pies de madera o tierra.",
       "page": "phb 231",
       "range": "Personal",
@@ -1747,7 +1747,7 @@
       "patrons": "Fiend"
     },
     {
-      "name": "Distorsión (Blur)",
+      "name": "Contorno borroso (Blur)",
       "desc": "Tu cuerpo se vuelve borroso, cambiante y vacilante para todos los que puedan verte. Mientras dure, cualquier criatura tiene desventaja en las tiradas de ataque contra ti. Un atacante es inmune a este efecto si no depende de la vista, como ocurre con la vista ciega, o si puede ver a través de ilusiones, como ocurre con la vista verdadera.",
       "page": "phb 219",
       "range": "Personal",
@@ -1993,7 +1993,7 @@
       "class": "Paladin"
     },
     {
-      "name": "Encontrar trampas (Find Traps)",
+      "name": "Detectar trampas (Find Traps)",
       "desc": "Percibes la presencia de cualquier trampa dentro del alcance que esté dentro de la línea de visión. Una trampa, a efectos de este hechizo, incluye cualquier cosa que pueda infligir un efecto repentino o inesperado que consideres dañino o indeseable, y que haya sido específicamente concebido como tal por su creador. Por lo tanto, el hechizo detectaría un área afectada por el hechizo de alarma, un glifo de protección o una trampa mecánica, pero no revelaría una debilidad natural en el suelo, un techo inestable o un sumidero oculto.Este hechizo sólo revela la existencia de una trampa. No aprendes la ubicación de cada trampa, pero sí la naturaleza general del peligro que supone una trampa que detectas.",
       "page": "phb 241",
       "range": "120 pies",
@@ -2073,7 +2073,7 @@
       "domains": "Tempest"
     },
     {
-      "name": "Metal ardiente (Heat Metal)",
+      "name": "Calentar Metal (Heat Metal)",
       "desc": "Elige un objeto metálico fabricado, como un arma de metal o una armadura de metal pesado o medio, que puedas ver dentro del alcance. Haces que el objeto brille al rojo vivo. Cualquier criatura en contacto físico con el objeto recibe 2d8 puntos de daño por fuego cuando lanzas el hechizo. Hasta que el hechizo termine, puedes usar una acción adicional en cada uno de tus turnos siguientes para causar este daño de nuevo.Si una criatura sujeta o lleva puesto el objeto y recibe el daño, debe tener éxito en una tirada de salvación de Constitución o soltar el objeto si puede. Si no lo suelta, tiene desventaja en las tiradas de ataque y los chequeos de habilidad hasta el inicio de tu siguiente turno.",
       "higher_level": "Cuando lanzas este hechizo utilizando una ranura de hechizo de 3er nivel o superior, el daño aumenta en 1d8 por cada nivel de ranura superior al 2º.",
       "page": "phb 250",
@@ -2554,7 +2554,7 @@
       "circles": "Forest, Mountain, Underdark"
     },
     {
-      "name": "Crecimiento de espinas (Spike Growth)",
+      "name": "Crecimiento espinoso (Spike Growth)",
       "desc": "El suelo en un radio de 20 pies centrado en un punto dentro del alcance se retuerce y brotan duros pinchos y espinas. La zona se convierte en terreno difícil mientras dure el efecto. Cuando una criatura se mueve hacia la zona o dentro de ella, sufre 2d4 puntos de daño perforante por cada 5 pies que recorre.El desarrollo del terreno se camufla para parecer natural. Cualquier criatura que no ve la zona cuando el hechizo se lanza debe hacer una Sabiduría (Percepción) frente a la copia de seguridad DD su destino o no reconoce la peligrosa naturaleza del terreno antes de entrar.",
       "page": "phb 277",
       "range": "150 pies",
@@ -2794,7 +2794,7 @@
       "patrons": "Great Old One"
     },
     {
-      "name": "Invocar animales (Conjure Animals)",
+      "name": "Conjurar animales (Conjure Animals)",
       "desc": "Invocas espíritus feéricos que adoptan la forma de bestias y aparecen en espacios desocupados que puedes ver dentro de su alcance. Elige una de las siguientes opciones para lo que aparece:- Una bestia de nivel de desafío 2 o inferior- Dos bestias de nivel de desafío 1 o inferior- Cuatro bestias de nivel de desafío 1/2 o inferior- Ocho bestias de nivel de desafío 1/4 o inferior- Cada bestia también se considera fey, y desaparece cuando cae a 0 puntos de golpe o cuando el hechizo termina.Las criaturas invocadas son amistosas contigo y tus compañeros. Tira iniciativa para las criaturas invocadas como grupo, que tiene sus propios turnos. Obedecen cualquier orden verbal que les des (no requieren ninguna acción por tu parte). Si no les das ninguna orden, se defienden de las criaturas hostiles, pero por lo demás no realizan ninguna acción.El DM tiene las estadísticas de las criaturas.",
       "higher_level": "Cuando lanzas este hechizo utilizando ciertas ranuras de hechizo de nivel superior, eliges una de las opciones de invocación anteriores y aparecen más criaturas: el doble con una ranura de 5º nivel, el triple con una de 7º nivel.",
       "page": "phb 225",
@@ -2824,7 +2824,7 @@
       "class": "Explorador"
     },
     {
-      "name": "Contraconjuro (Counterspell)",
+      "name": "Contrahechizo (Counterspell)",
       "desc": "Intentas interrumpir a una criatura que está lanzando un hechizo. Si la criatura está lanzando un hechizo de 3er nivel o inferior, su hechizo falla y no tiene efecto. Si está lanzando un conjuro de 4º nivel o superior, realiza un chequeo de habilidad utilizando tu habilidad de lanzamiento de conjuros. La CD es igual a 10 + el nivel del hechizo. Si tiene éxito, el hechizo de la criatura falla y no tiene efecto.",
       "higher_level": "Cuando lanzas este hechizo utilizando una ranura de hechizo de 4º nivel o superior, el hechizo interrumpido no tiene efecto si su nivel es menor o igual que el nivel de la ranura de hechizo que utilizaste.",
       "page": "phb 228",
@@ -3255,7 +3255,7 @@
       "class": "Lanzador de Rituales, Mago"
     },
     {
-      "name": "Crecimiento de plantas (Plant Growth)",
+      "name": "Crecimiento vegetal (Plant Growth)",
       "desc": "Este hechizo canaliza la vitalidad hacia las plantas dentro de un área específica. Hay dos usos posibles para el hechizo, que otorgan beneficios inmediatos o a largo plazo.Si lanzas este hechizo utilizando 1 acción, elige un punto dentro del alcance. Todas las plantas normales en un radio de 100 pies centrado en ese punto se vuelven espesas y crecen demasiado. Una criatura que se mueva a través del área debe gastar 4 pies de movimiento por cada 1 pie que se mueva.Puedes excluir una o más áreas de cualquier tamaño dentro del área del hechizo para que no se vean afectadas.Si lanzas este hechizo durante más de 8 horas, enriqueces la tierra. Todas las plantas en un radio de media milla centrado en un punto dentro del alcance se enriquecen durante 1 año. Las plantas rinden el doble de lo normal cuando se cosechan.",
       "page": "phb 266",
       "range": "150 pies",
@@ -3671,7 +3671,7 @@
       "domains": "Knowledge"
     },
     {
-      "name": "Invocar elementales menores (Conjure Minor Elementals)",
+      "name": "Conjurar elementales menores (Conjure Minor Elementals)",
       "desc": "Invocas elementales que aparecen en espacios desocupados que puedes ver dentro de tu alcance. Eliges una de las siguientes opciones para lo que aparezca:- Un elemental de nivel de desafío 2 o inferior- Dos elementales de dificultad 1 o inferior- Cuatro elementales de dificultad 1/2 o inferior- Ocho elementales de dificultad 1/4 o inferior.Un elemental invocado por este hechizo desaparece cuando cae a 0 puntos de vida o cuando el hechizo termina.Las criaturas invocadas son amistosas contigo y tus compañeros. Tira iniciativa para las criaturas invocadas como grupo, que tiene sus propios turnos. Obedecen cualquier orden verbal que les des (no requieren ninguna acción por tu parte). Si no les das ninguna orden, se defienden de las criaturas hostiles, pero por lo demás no realizan ninguna acción.El DM tiene las estadísticas de las criaturas.",
       "higher_level": "Cuando lanzas este hechizo utilizando ciertas ranuras de hechizo de nivel superior, eliges una de las opciones de invocación anteriores y aparecen más criaturas: el doble con una ranura de 6º nivel y el triple con una ranura de 8º nivel.",
       "page": "phb 226",
@@ -3686,7 +3686,7 @@
       "class": "Druida, Mago, Lanzador de Rituales"
     },
     {
-      "name": "Invocar seres del bosque (Conjure Woodland Beings)",
+      "name": "Conjurar seres del bosque (Conjure Woodland Beings)",
       "desc": "Invocas criaturas feéricas que aparecen en espacios desocupados que puedes ver dentro de tu alcance. Elige una de las siguientes opciones para lo que aparezca:- Una criatura feérica de nivel de desafío 2 o inferior.- Dos criaturas feéricas de nivel de desafío 1 o inferior- Cuatro criaturas feéricas de nivel de desafío 1/2 o inferior- Ocho criaturas feéricas de nivel de desafío 1/4 o inferiorUna criatura invocada desaparece cuando baja a 0 puntos de vida o cuando termina el hechizo.Las criaturas invocadas son amistosas contigo y tus compañeros. Tira iniciativa por las criaturas invocadas como grupo, que tienen sus propios turnos. Obedecen cualquier orden verbal que les des (no requieren ninguna acción por tu parte). Si no les das ninguna orden, se defienden de las criaturas hostiles, pero por lo demás no realizan ninguna acción.El DM tiene las estadísticas de las criaturas.",
       "higher_level": "Cuando lanzas este hechizo utilizando ciertas ranuras de hechizo de nivel superior, eliges una de las opciones de invocación anteriores y aparecen más criaturas: el doble con una ranura de 6º nivel y el triple con una ranura de 8º nivel.",
       "page": "phb 226",
@@ -3966,7 +3966,7 @@
       "oaths": "Ancients"
     },
     {
-      "name": "Cofre secreto de Leomund (Leomund's Secret Chest)",
+      "name": "Cofre oculto de Leomund (Leomund's Secret Chest)",
       "desc": "Escondes un cofre, y todo su contenido, en el Plano Etéreo. Debes tocar el cofre y la réplica en miniatura que sirve como componente material para el hechizo. El cofre puede contener hasta 12 pies cúbicos de material no viviente (3 pies por 2 pies por 2 pies).Mientras el cofre permanece en el Plano Etéreo, puedes usar una acción y tocar la réplica para recuperar el cofre. Aparece en un espacio desocupado en el suelo a menos de 5 pies de ti. Puedes devolver el cofre al Plano Etéreo utilizando una acción y tocando tanto el cofre como la réplica.Después de 60 días, hay una probabilidad acumulativa del 5% por día de que el efecto del hechizo termine. Este efecto termina si lanzas este hechizo de nuevo, si el cofre réplica más pequeño es destruido, o si eliges terminar el hechizo como una acción. Si el hechizo termina y el cofre más grande está en el Plano Etéreo, se pierde irremediablemente.",
       "page": "phb 254",
       "range": "Toque",
@@ -4204,7 +4204,7 @@
       "class": "Bardo, Hechicero, Mago, Lanzador de Rituales"
     },
     {
-      "name": "Cúpula antivida (Antilife Shell)",
+      "name": "Caparazon antivida (Antilife Shell)",
       "desc": "Una barrera resplandeciente se extiende desde ti en un radio de 10 pies y se mueve contigo, permaneciendo centrada en ti y protegiéndote de criaturas que no sean muertos vivientes o constructos. La barrera dura lo que dura.La barrera impide a las criaturas afectadas atravesarla. Una criatura afectada puede lanzar conjuros o realizar ataques con armas a distancia o de alcance a través de la barrera.Si te mueves de forma que una criatura afectada se vea obligada a atravesar la barrera, el hechizo termina.",
       "page": "phb 213",
       "range": "Personal",
@@ -4346,7 +4346,7 @@
       "circles": "Arctic"
     },
     {
-      "name": "Invocar elemental (Conjure Elemental)",
+      "name": "Conjurar elemental (Conjure Elemental)",
       "desc": "Invocas a un sirviente elemental. Elige un área de aire, tierra, fuego o agua que llene un cubo de 10 pies dentro del alcance. Un elemental de nivel de desafío 5 o inferior apropiado para el área elegida aparece en un espacio desocupado en un radio de 3 metros. Por ejemplo, un elemental de fuego emerge de una hoguera y un elemental de tierra surge del suelo. El elemental desaparece cuando baja a 0 puntos de vida o cuando termina el hechizo.El elemental es amigo tuyo y de tus compañeros mientras dure el hechizo. Tira iniciativa por el elemental, que tiene sus propios turnos. Obedece cualquier orden verbal que le des (no requiere ninguna acción por tu parte). Si no le das ninguna orden, se defiende de las criaturas hostiles, pero no realiza ninguna otra acción.Si pierdes la concentración, el elemental no desaparece. En cambio, pierdes el control del elemental, se vuelve hostil hacia ti y tus compañeros, y puede atacar. Un elemental no controlado no puede ser rechazado por ti, y desaparece 1 hora después de que lo invocaras.El DM tiene las estadísticas del elemental.",
       "higher_level": "Cuando lanzas este hechizo utilizando una ranura de hechizo de 6º nivel o superior, el índice de desafío aumenta en 1 por cada nivel de ranura superior al 5º.",
       "page": "phb 225",
@@ -4620,7 +4620,7 @@
       "circles": "Desert, Grassland, Swamp, Underdark"
     },
     {
-      "name": "Conocimiento de leyenda (Legend Lore)",
+      "name": "Conocer las leyendas (Legend Lore)",
       "desc": "Nombra o describe a una persona, lugar u objeto. El destino trae a la mente una información breve y resumida sobre lo que has nombrado. La información puede presentarse como relatos de historia olvidada o incluso información secreta que nunca ha sido revelada. Si la cosa que has nombrado no es de resonancia legendaria, no obtienes ninguna información. Cuanta más información tengas sobre el objeto, más precisa y detallada será la información que recibas.Lo que aprendes es preciso, pero puede estar oculto en un lenguaje figurado. Por ejemplo, si tienes una misteriosa hacha mágica en la mano, el hechizo puede revelar esta información: \"Ay de los malvados que afecta a sus manos el hacha porque el mango decidir los de maligno Sólo un verdadero hijo de la piedra imán. y amado Moradin podría despertar el verdadero poder de esta hacha, y sólo con la palabra sagrada Rudnogg en los labios \".",
       "page": "phb 254",
       "range": "Personal",
@@ -4981,7 +4981,7 @@
       "class": "Hechicero, Mago, Lanzador de Rituales"
     },
     {
-      "name": "Círculo de la muerte (Circle of Death)",
+      "name": "Círculo de muerte (Circle of Death)",
       "desc": "Una esfera de energía negativa se extiende en un radio de 18 metros desde un punto dentro del alcance. Cada criatura en esa área debe realizar una tirada de salvación de Constitución. Un objetivo recibe 8d6 puntos de daño necrótico si falla la tirada de salvación, o la mitad de daño si tiene éxito.",
       "higher_level": "Cuando lanzas este hechizo utilizando una ranura de hechizo de 7º nivel o superior, el daño aumenta en 2d6 por cada nivel de ranura por encima del 6º.",
       "page": "phb 221",
@@ -4997,7 +4997,7 @@
       "class": "Hechicero, Mago, Brujo, Lanzador de Rituales"
     },
     {
-      "name": "Invocar feérico (Conjure Fey)",
+      "name": "Conjurar feérico (Conjure Fey)",
       "desc": "Invocas a una criatura feérica de nivel de desafío 6 o inferior, o a un espíritu feérico que adopta la forma de una bestia de nivel de desafío 6 o inferior. Aparece en un espacio desocupado que puedas ver dentro de su alcance. La criatura feérica desaparece cuando baja a 0 puntos de vida o cuando termina el hechizo.La criatura feérica es amistosa contigo y tus compañeros mientras dure el hechizo. Tira iniciativa por la criatura, que tiene sus propios turnos. Obedece cualquier orden verbal que le des (no requiere ninguna acción por tu parte), siempre que no infrinja su alineamiento. Si no le das ninguna orden, se defiende de las criaturas hostiles, pero no realiza ninguna otra acción.Si tu concentración se rompe, la criatura feérica no desaparece. En cambio, pierdes el control sobre ella, se vuelve hostil hacia ti y tus compañeros y puede atacar. Una criatura feérica no controlada no puede ser rechazada por ti, y desaparece 1 hora después de que la invocaras.El DM tiene las estadísticas de la criatura feérica.",
       "higher_level": "Cuando lanzas este hechizo utilizando una ranura de hechizo de 7º nivel o superior, el índice de desafío aumenta en 1 por cada nivel de ranura por encima del 6º.",
       "page": "phb 226",
@@ -5027,7 +5027,7 @@
       "class": "Mago, Lanzador de Rituales"
     },
     {
-      "name": "Crear no-muerto (Create Undead)",
+      "name": "Crear muerto viviente (Create Undead)",
       "desc": "Sólo puedes lanzar este hechizo de noche. Elige hasta tres cadáveres de humanoides medianos o pequeños dentro del alcance. Cada cadáver se convierte en un ghoul bajo tu control. (El DM tiene las estadísticas del juego para estas criaturas).Como acción de bonificación en cada uno de tus turnos, puedes comandar mentalmente a cualquier criatura que hayas animado con este hechizo si la criatura está a menos de 120 pies de ti (si controlas múltiples criaturas, puedes comandar a cualquiera o a todas ellas al mismo tiempo, emitiendo la misma orden a cada una). Tú decides qué acción llevará a cabo la criatura y adónde se moverá durante su siguiente turno, o puedes dar una orden general, como vigilar una cámara o un pasillo en particular. Si no das ninguna orden, la criatura sólo se defiende de las criaturas hostiles. Una vez dada una orden, la criatura sigue cumpliéndola hasta completar su tarea.La criatura está bajo tu control durante 24 horas, tras las cuales deja de obedecer cualquier orden que le hayas dado. Para mantener el control de la criatura durante otras 24 horas, debes lanzar este hechizo sobre la criatura antes de que termine el periodo actual de 24 horas. Este uso del hechizo reafirma tu control sobre hasta tres criaturas que hayas animado con este hechizo, en lugar de animar otras nuevas.",
       "higher_level": "Cuando lanzas este hechizo utilizando un espacio de 7º nivel, puedes animar o reafirmar el control sobre cuatro ghouls. Cuando lanzas este conjuro utilizando una casilla de 8º nivel, puedes animar o reafirmar el control sobre cinco ghouls o dos ghasts o wights. Cuando lanzas este hechizo utilizando una casilla de 9º nivel, puedes animar o reafirmar el control sobre seis ghouls, tres ghasts o wights, o dos momias.",
       "page": "phb 229",
@@ -5103,7 +5103,7 @@
       "class": "Bardo, Clerigo, Druida"
     },
     {
-      "name": "Carne a piedra (Flesh to Stone)",
+      "name": "De la carne a la piedra (Flesh to Stone)",
       "desc": "Intentas convertir en piedra a una criatura que puedas ver dentro de tu alcance. Si el cuerpo del objetivo es de carne, la criatura debe realizar una tirada de salvación de Constitución. Si falla, queda inmovilizada y su carne comienza a endurecerse. Si la salvación tiene éxito, la criatura no se ve afectada.Una criatura restringida por este hechizo debe realizar otra tirada de salvación de Constitución al final de cada uno de sus turnos. Si salva con éxito contra este hechizo tres veces, el hechizo termina. Si falla tres veces, se convierte en piedra y queda petrificada mientras dure el hechizo. No es necesario que los éxitos y los fracasos sean consecutivos; lleva la cuenta de ambos hasta que el objetivo consiga tres iguales.Si la criatura se rompe físicamente mientras está petrificada, sufre deformaciones similares si vuelve a su estado original.Si mantienes la concentración en este hechizo durante toda la duración posible, la criatura queda convertida en piedra hasta que se elimine el efecto.",
       "page": "phb 243",
       "range": "60 pies",
@@ -5164,7 +5164,7 @@
       "class": "Bardo, Mago"
     },
     {
-      "name": "Daño (Harm)",
+      "name": "Dañar (Harm)",
       "desc": "Desatas una enfermedad virulenta sobre una criatura que puedas ver dentro de tu alcance. El objetivo debe realizar una tirada de salvación de Constitución. Si falla la tirada de salvación, recibe 14d6 puntos de daño necrótico, o la mitad de daño si la tirada de salvación tiene éxito. El daño no puede reducir los puntos de golpe del objetivo por debajo de 1. Si el objetivo falla la tirada de salvación, sus puntos de golpe máximos se reducen durante 1 hora en una cantidad igual al daño necrótico que recibió. Cualquier efecto que elimine una enfermedad permite que el máximo de puntos de golpe de una criatura vuelva a la normalidad antes de que pase ese tiempo.",
       "page": "phb 249",
       "range": "60 pies",
@@ -6236,7 +6236,7 @@
       "class": "Mago"
     },
     {
-      "name": "Cambio de forma (Shapechange)",
+      "name": "Cambiar de forma (Shapechange)",
       "desc": "Adoptas la forma de una criatura diferente mientras dure el efecto. La nueva forma puede ser de cualquier criatura con un índice de desafío igual o inferior a tu nivel. La criatura no puede ser un constructo ni un no muerto, y debes haber visto ese tipo de criatura al menos una vez. Te transformas en un ejemplar medio de esa criatura, uno sin niveles de clase ni el rasgo Hechicería.Tus estadísticas de juego son reemplazadas por las de la criatura elegida, aunque conservas tu alineamiento y tus puntuaciones de Inteligencia, Sabiduría y Carisma. También conservas todas tus habilidades y tiradas de salvación, además de las de la criatura. Si la criatura tiene la misma competencia que tú y el bonificador que aparece en sus estadísticas es mayor que el tuyo, utiliza el bonificador de la criatura en lugar del tuyo. No puedes utilizar ninguna acción legendaria o de guarida de la nueva forma.Asumes los puntos de golpe y los Dados de Golpe de la nueva forma. Cuando vuelves a tu forma normal, recuperas el número de puntos de golpe que tenías antes de transformarte. Si vuelves a tu forma normal como resultado de una caída a 0 puntos de golpe, cualquier exceso de daño se traslada a tu forma normal. Mientras el exceso de daño no reduzca tu forma normal a 0 puntos de vida, no quedas inconsciente.Conservas los beneficios de cualquier característica de tu clase, raza u otra fuente y puedes utilizarlos, siempre que tu nueva forma sea físicamente capaz de hacerlo. No puedes utilizar ningún sentido especial que tengas (por ejemplo, visión oscura) a menos que tu nueva forma también tenga ese sentido. Sólo puedes hablar si la criatura puede hablar normalmente.Cuando te transformas, puedes elegir si tu equipo cae al suelo, se funde con tu nueva forma o lo lleva puesto. El equipo que lleva puesto funciona normalmente. El DM determina si es práctico para la nueva forma llevar una pieza de equipo, basándose en la forma y tamaño de la criatura. Tu equipo no cambia de forma o tamaño para adaptarse a la nueva forma, y cualquier equipo que la nueva forma no pueda llevar debe caer al suelo o fusionarse con tu nueva forma. El equipo que se fusiona no tiene ningún efecto en ese estado.Durante la duración de este hechizo, puedes usar tu acción para asumir una forma diferente siguiendo las mismas restricciones y reglas para la forma original, con una excepción: si tu nueva forma tiene más puntos de golpe que la actual, tus puntos de golpe permanecen en su valor actual.",
       "page": "phb 274",
       "range": "Personal",

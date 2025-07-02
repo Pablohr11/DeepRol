@@ -16,13 +16,14 @@
     <link rel="stylesheet" href="styles/leftColumn.css">
     <link rel="stylesheet" href="styles/footer.css">
     <script defer src="scripts/header.js"></script>
+    <script defer src="scripts/index.js"></script>
 </head>
 <body>
     <?php 
         include("sections/_partials/header.php")
     ?>
     <div id="content">
-        <div id="leftBar" class="dark">
+        <div id="leftBar" class="dark open">
             <?php 
                 include("sections/_partials/leftColumn.php")
             ?>

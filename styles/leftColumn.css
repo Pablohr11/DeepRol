@@ -1,7 +1,10 @@
+#leftBar.open {
+    width: 250px;
+}
+
 #leftBar {
     background-color: #F2F4F3;
-    width: 250px;
-    height: calc(100vh - 150px);
+    height: calc(100vh - 160px);
 }
 
 #leftBar.dark {
@@ -27,3 +30,19 @@
     cursor: pointer;
 }
 
+#toogleSideBarButton {
+    width: 20px;
+    height: 20px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    border: 2px solid #653d14;
+    background: #b77d3b;
+    BORDER-RADIUS: 5px;
+    margin: 0 auto;
+    cursor: pointer;
+}
+
+#leftBar.open #toogleSideBarButton {
+    margin: 0 0 0 88%;
+}

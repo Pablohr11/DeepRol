@@ -98,12 +98,14 @@ input[type="submit"] {
 }
 
 .stickyDiv {
-    width: 100%;
+    width: calc(100% - 10px);
     position: fixed;
     top: 0px;
     background-color: #202020;
     margin: 0;
-    padding: 0 5px;
+    padding: 0 15px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 
 .allSpellsContainer .spell.first {

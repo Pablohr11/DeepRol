@@ -1,0 +1,92 @@
+
+/* 
+    .selectable-char {
+        display: inline-block;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .selectable-char-img {
+        width: 80px;
+        height: 80px;
+        height: auto;
+        display: block;
+        margin: 0 auto 5px;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="radio"]:checked + .selectable-char-content {
+        background-color: #d0f0ff;
+        border-color: #007acc;
+        box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
+    }
+
+    /* Para envolver el contenido que cambiará visualmente */
+    /* .selectable-char-content {
+        border: 2px solid transparent;
+        border-radius: 8px;
+        padding: 10px;
+        transition: all 0.3s ease;
+    } */
+
+        .selectable-char {
+        display: inline-block;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        padding: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s;
+    }
+
+    .selectable-char-img-wrapper {
+        height: 120px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+
+    .selectable-char-img {
+        max-height: 120px;
+        max-width: 100%;
+        object-fit: contain;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="radio"]:checked + .selectable-char-content {
+        background-color: #b77d3b;
+        border-color: rgb(101, 61, 20);
+        box-shadow: 0 0 10px rgba(101, 61, 20, 0.5);
+    }
+
+    .selectable-char-content {
+        border: 2px solid transparent;
+        border-radius: 8px;
+        padding: 10px;
+        transition: all 0.3s ease;
+
+    }
+
+    #nnForm {
+        max-width: 700px;
+        width: 85%;
+        margin: 30px auto;
+        background-color: #202020;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 14px 14px rgba(32,32,32,1);
+        -webkit-box-shadow: 0px 0px 14px 14px rgba(32,32,32,1);
+        -moz-box-shadow: 0px 0px 14px 14px rgba(32,32,32,1);
+    }
