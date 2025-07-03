@@ -167,3 +167,15 @@ input[type="submit"] {
     transition: 0.3s;
     opacity: 0 !important;
 }
+
+#spellListHehe {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    column-gap: 5px;
+    row-gap: 20px;
+}
+
+.dlConFilete {
+    border-style: hidden solid;
+    padding: 0px 15px;
+}

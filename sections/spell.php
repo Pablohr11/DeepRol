@@ -22,7 +22,7 @@ if (strpos($prevPath, "--") != -1) {
 ?>
 
 <link rel="stylesheet" href="../styles/spell.css">
-
+<div class="mist"></div>
 <div id="spellDiv">
     <div id="spellTitleImageContainer">
         <?php $spellNameCut = strpos($spellData["name"], "(")-1; $cutName = substr($spellData["name"], 0, $spellNameCut) ?>

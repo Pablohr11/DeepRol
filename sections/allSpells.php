@@ -115,46 +115,38 @@ array_shift($spellsLevels);
             <!-- <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>             -->
         </div>
     </div>
-    
-    <dl>
-        <dt>
-            <?php if (isset($currentLevel)) { ?> 
-                <h2><?=$currentLevel?></h2>
-            <?php } ?>
-        </dt>
-        <?php foreach ($spells as $key => $spell) {
-            if ($spell["level"] == $currentLevel) { ?>
-            <dd>
-                <?php if (isset($charId)) { ?>
-                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                    <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
-                        <span class="addSpell" >✓</span>
-                    <?php } else { ?>
-                        <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
-                    <?php } ?>
-                <?php } else { ?>
-                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                <?php }  ?>
-            </dd>
-            <?php } else {?>
-                <?php $currentLevel = $spell["level"] ?>
-                <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
-                <!-- <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&id_char=<?=$charId?>"></a> -->
-                <dd>
-                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                <?php if (isset($charId)) { ?>
-                    <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
-                        <span class="addSpell" >✓</span>
-                    <?php } else { ?>
-                        <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
-                    <?php } ?>
-                <?php } ?>
-                </dd>
-                <?php }
-        } ?>
-    </dl>
-    <?php ?>
+    <!-- >AKI <!-->
+    <div id="spellListHehe">
 
+
+    <?php if (isset($currentLevel)) { ?>
+        <?php $index = 0;  ?>
+        <dl>
+            <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
+       
+        <?php foreach ($spells as $key => $spell) { ?>
+            <?php if($spell["level"] != $currentLevel) {
+                $currentLevel = $spell["level"]; $index++; ?>
+                </dl>
+                <dl <?php if (($index+2)%3==0) { ?>class="dlConFilete"<?php } ?>>
+                    <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
+            <?php } ?>
+            
+            <?php if (isset($charId)) { ?>
+                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
+                    <span class="addSpell" >✓</span>
+                <?php } else { ?>
+                    <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                <?php } ?>
+            <?php } else { ?>
+                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+            <?php }  ?>
+            <br>
+        <?php } ?>
+    <?php } ?>
+    </dl>
+    </div>
     <button onclick="scrollUp()" id="volverArriba" class="hidden"><?=$arrowUpSvg?></button>
 </div>
 
@@ -167,6 +159,8 @@ array_shift($spellsLevels);
     });
 
     function autoScroll(idToScrollTo) {
+        console.log(document.getElementById(idToScrollTo));
+        console.log(idToScrollTo);
         if (document.getElementById(idToScrollTo)) {
             window.scrollTo(0,(document.getElementById(idToScrollTo).getBoundingClientRect().top-135));
         }
