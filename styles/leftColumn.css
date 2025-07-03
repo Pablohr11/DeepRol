@@ -28,11 +28,17 @@
     color: #5b5b5b;
     padding: 10px 10px;
     cursor: pointer;
+    font-size: 16px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    font-family: "Cinzel", serif;
+        color: #b77d3b;
 }
 
-#toogleSideBarButton {
-    width: 20px;
-    height: 20px;
+#toogleSideBarButton, .lbButton {
+    width: 30px;
+    height: 30px;
     display: grid;
     align-content: center;
     justify-content: center;
@@ -44,5 +50,9 @@
 }
 
 #leftBar.open #toogleSideBarButton {
-    margin: 0 0 0 88%;
+    margin: 0 0 0 83%;
+}
+
+.lbButton {
+    display: none;
 }
