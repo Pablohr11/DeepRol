@@ -54,7 +54,7 @@ if (strpos($prevPath, "--") != -1) {
             <p class="spellInfo spelltitle">Tiempo de casteo</p>
             <p class="spellInfo spelltitle">Concentracion</p>
         </div>
-        <div class="tableDiv">
+        <div class="tableDivBottom ">
             <p class="spellInfo"><?=$spellData["duracion"]?></p>
             <p class="spellInfo"><?=$spellData["rango"]?></p>
             <p class="spellInfo"><?=$spellData["casteo"]?></p>

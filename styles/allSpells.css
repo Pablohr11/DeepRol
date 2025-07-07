@@ -57,6 +57,7 @@ input[type="radio"] {
     padding: 0 10px;
     margin: auto;
     width: 95%;
+    padding-top: 12px;
 }
 
 .classesFilterDiv label, .classesFilterDiv button {
@@ -170,12 +171,53 @@ input[type="submit"] {
 
 #spellListHehe {
     display: grid;
-    grid-template-columns: 33% 33% 33%;
+    /* grid-template-columns: 33% 33% 33%; */
     column-gap: 5px;
     row-gap: 20px;
 }
 
-.dlConFilete {
-    border-style: hidden solid;
-    padding: 0px 15px;
+.displayColumns {
+    grid-template-columns: 33% 33% 33%;
+}
+
+.displayList {
+    grid-template-columns: 100%;
+}
+
+.displayColumns .dlConFilete {
+    /* border-style: hidden solid; */
+    padding: 0px 20px;
+}
+
+div#subDiv3 {
+    background: #202020;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: grid;
+    align-items: center;
+    padding: 0 5px 8px;
+    grid-template-columns: 60% 40%;
+    max-width: 210px;
+}
+
+#subDiv3 img {
+    width: 27px;
+    padding: 5px;
+}
+
+#subDiv3 div {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+.selectedDisplay {
+    background-color: #2e2e2e;
+    border-radius: 10px;
+}
+.actualSpellList {
+    display: grid;
+}
+.displayList .actualSpellList {
+    grid-template-columns: 33% 33% 33%;
 }

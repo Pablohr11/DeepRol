@@ -107,7 +107,13 @@ array_shift($spellsLevels);
         </form>
     </div>
     <div class="subDiv2">
-        <span class="spell first" id="firstSpell">TOTAL: <?= count($spells) ?></span>
+        <div id="subDiv3">
+            <span class="spell first" id="firstSpell">TOTAL: <?= count($spells) ?></span>
+            <div>
+                <img id="displayList" src="../resources/imgs/icons/list.png" alt="">
+                <img id="displayColumns" class="selectedDisplay" src="../resources/imgs/icons/columns.png" alt="">
+            </div>
+        </div>
         <div class="classesFilterDiv">
             <?php foreach ($spellsLevels as  $spellLevel) { ?>
                 <button onclick="autoScroll('<?=$spellLevel['level']?>')"><?=$spellLevel["level"]?></button>
@@ -116,35 +122,37 @@ array_shift($spellsLevels);
         </div>
     </div>
     <!-- >AKI <!-->
-    <div id="spellListHehe">
+    <div id="spellListHehe" class="displayColumns">
 
-
+    <dl>
     <?php if (isset($currentLevel)) { ?>
         <?php $index = 0;  ?>
-        <dl>
             <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
-       
-        <?php foreach ($spells as $key => $spell) { ?>
-            <?php if($spell["level"] != $currentLevel) {
-                $currentLevel = $spell["level"]; $index++; ?>
-                </dl>
-                <dl <?php if (($index+2)%3==0) { ?>class="dlConFilete"<?php } ?>>
-                    <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
-            <?php } ?>
-            
-            <?php if (isset($charId)) { ?>
-                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
-                    <span class="addSpell" >✓</span>
-                <?php } else { ?>
-                    <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+            <div class="actualSpellList">
+        
+            <?php foreach ($spells as $key => $spell) { ?>
+                <?php if($spell["level"] != $currentLevel) {
+                    $currentLevel = $spell["level"]; $index++; ?>
+                    </div>
+                    </dl>
+                    <dl <?php if (($index+2)%3==0) { ?>class="dlConFilete"<?php } ?>>
+                        <dt><h2 id="<?=$currentLevel?>"><?=$currentLevel?></h2></dt>
+                        <div class="actualSpellList">
                 <?php } ?>
-            <?php } else { ?>
-                <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-            <?php }  ?>
-            <br>
+                
+                <?php if (isset($charId)) { ?>
+                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                    <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
+                        <span class="addSpell" >✓</span>
+                    <?php } else { ?>
+                        <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                    <?php } ?>
+                <?php } else { ?>
+                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                <?php }  ?>
+            <?php } ?>
         <?php } ?>
-    <?php } ?>
+        </div>
     </dl>
     </div>
     <button onclick="scrollUp()" id="volverArriba" class="hidden"><?=$arrowUpSvg?></button>
@@ -157,6 +165,29 @@ array_shift($spellsLevels);
             nameFilterInput.removeAttribute('name');
         }
     });
+
+    document.getElementById("displayList").addEventListener('click', function() {
+        if(document.getElementById("spellListHehe").classList.contains("displayColumns")) {
+            document.getElementById("spellListHehe").classList.remove("displayColumns");
+            document.getElementById("spellListHehe").classList.add("displayList");
+        }
+        if(document.getElementById("displayColumns").classList.contains("selectedDisplay")) {
+            document.getElementById("displayColumns").classList.remove("selectedDisplay");
+            document.getElementById("displayList").classList.add("selectedDisplay");
+        }
+    })
+
+    document.getElementById("displayColumns").addEventListener('click', function() {
+        if(document.getElementById("spellListHehe").classList.contains("displayList")) {
+            document.getElementById("spellListHehe").classList.add("displayColumns");
+            document.getElementById("spellListHehe").classList.remove("displayList");
+        }
+        if(document.getElementById("displayList").classList.contains("selectedDisplay")) {
+            document.getElementById("displayColumns").classList.add("selectedDisplay");
+            document.getElementById("displayList").classList.remove("selectedDisplay");
+        }
+    })
+
 
     function autoScroll(idToScrollTo) {
         console.log(document.getElementById(idToScrollTo));

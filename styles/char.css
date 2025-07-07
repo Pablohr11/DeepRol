@@ -664,3 +664,12 @@ input[type="radio"][disabled]:checked::after {
     transition: 1s all ease-in;
     transform:translateY(1800px) ;
 }
+.charInfo {
+    width: 100%;
+}
+@media only screen and (max-width: 1465px) {
+    .charInfo {
+        width: 622px;
+    }
+
+}

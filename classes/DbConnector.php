@@ -283,11 +283,13 @@ class DbConector {
     }
 
     public function addSpell($id_char, $id_spell) {
-        
         $spellsIds = $this->getSpellsIds($id_char);
         $newSpellList = ($this->addSpellIdToList($id_spell, $spellsIds));
-        
-        // echo $spellsIds;
+        $consultaHelper = $this->db->prepare("SELECT * FROM `spellset` where id_char = ".$id_char);
+        $data = $consultaHelper->fetchAll();
+        if (count($data) == 0) {
+            $this->createSpellSheet($id_char);
+        }
         
         $consulta = $this->db->prepare("UPDATE `spellset` SET `spells` = :spellList WHERE `spellset`.`id_char` = :id_char;");
         
@@ -296,12 +298,23 @@ class DbConector {
         $consulta->bindParam(":spellList", $newSpellList, PDO::PARAM_STR);
         
         $results = $consulta->execute();
+
+        return $results;
     }
 
+    public function createSpellSheet($id_char) {
+        
+        $consulta = $this->db->prepare("INSERT INTO `spellset` (`id_spellset`, `id_char`, `spells`) VALUES (NULL, :id_char, '');");
+        
+        $consulta->bindParam(":id_char", $id_char, PDO::PARAM_STR);
+        
+        $results = $consulta->execute();
+
+        return $results;
+    }    
 
     public function addSpellIdToList($id_spell, $spellList) {
-        // var_dump($spellList);
-        // echo("'".strval($id_spell)."'");
+
         if (strlen($spellList) == 0) {
             return "'".strval($id_spell)."'";
         } else {
@@ -361,6 +374,18 @@ class DbConector {
             $consulta->bindParam("noteValue", $noteValue, PDO::PARAM_STR);
             $results = $consulta->execute();
             return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getClasses() {
+        try {
+            $consulta = $this->db->prepare("SELECT id, Nombre, short_desc, descr FROM clases");
+
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }

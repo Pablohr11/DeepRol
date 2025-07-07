@@ -8,6 +8,10 @@
         $idUser = $_COOKIE["logged"];
     }
 
+    $classes = $db->getClasses();
+    echo("<pre><div id='helper'");
+    htmlspecialchars(print_r($classes), ENT_QUOTES, 'UTF-8');
+    echo("</div></pre>");
 
     if(isset($_POST["submitInput"])){
         $errores = [];
@@ -90,18 +94,10 @@
                     <h1>Nuevo Personaje</h1>
                 </div>
                 <div id="formFieldsContainer">
-                    <div id="charImgContainer">
-                        <img src="" alt="" id="formImage">
-                    </div>
-                    <div class="formSecondDiv">
-                        <div id="nameRaceContainer">
-                            <i class="fa-regular fa-user fa-xl"></i><h2 id="nameField">Nombre</h2><h2> / </h2><h2 id="raceField">Raza</h2>
-                        </div>
-                        <div class="steps">
-                            <div id="step1" class="charStep">
-                                <!-- <div id="nameRaceContainer">
-                                    <h2 id="nameField">Nombre</h2><h2> / </h2><h2 id="raceField">Raza</h2>
-                                </div> -->
+
+                            <div class="charStep">
+
+                                <!-- //? NOMBRE -->
                                 <div class="formInputContainer">
                                     <?php if(isset($errores['nombrePersonaje'])){ ?>
                                         <p class='errorMessage'> <?=$errores['nombrePersonaje']?></p> 
@@ -109,29 +105,18 @@
                                     <span>Nombre del Personaje</span>
                                     <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
                                 </div>
-                                    
-                                <div class="formInputContainer">
-                                    <?php if(isset($errores['razaPersonaje'])){ ?>
-                                        <p class='errorMessage'> <?=$errores['razaPersonaje']?></p>
-                                    <?php } ?>
-                                    <span>Raza del Personaje</span>
-                                    <input type="text" id="formRace" class="formTextField"  name="razaPersonaje" value="<?php if(isset($_POST["razaPersonaje"])){ echo $_POST["razaPersonaje"]; } ?>">
-                                </div>
-                                    
-                            </div>
-                            <div id="step2" class="charStep">
-                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h3>Imagen de perfil de personaje</h3></div>
-                                <div class="formInputContainer fileInputContainer">
+                                <!-- //? Imagen Perfil -->
+                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de perfil de personaje</h5></div>
+                                    <div class="formInputContainer fileInputContainer">
                                     <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
                                         <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
                                     <?php } ?>
                                     <label  for="formSmallImage" class="custom-file-upload">Seleccionar imagen de perfil</label>
                                     <input type="file" id="formSmallImage" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
                                 </div>
-                            </div>
 
-                            <div id="step3" class="charStep">
-                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h3>Imagen de general de personaje</h3></div>
+                                <!-- //? Imagen Generica -->
+                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de general de personaje</h5></div>
                                 <div class="formInputContainer fileInputContainer">
                                     <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
                                         <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
@@ -139,9 +124,9 @@
                                     <label  for="formBodyImage" class="custom-file-upload">Seleccionar imagen general</label>
                                     <input type="file"  id="formBodyImage" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
                                 </div>
-                            </div>
-                            <div id="step4" class="charStep">
-                                <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h3>Ficha de personaje</h3></div>
+
+                                <!-- //? Ficha -->
+                                <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h5>Ficha de personaje</h5></div>
                                 <div class="formInputContainer fileInputContainer inputFicha">
                                     <?php if(isset($errores["fichaPersonaje"])){ ?>
                                         <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
@@ -149,9 +134,25 @@
                                     <label for="formPdf" class="custom-file-upload">Seleccionar ficha del Personaje</label>
                                     <input type="file" id="formPdf" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
                                 </div>
+
+
+                                    
                             </div>
-                        </div>
-                    </div>
+                            <div  class="charStep">
+                                <div class="formInputContainer">
+                                    <?php if(isset($errores['razaPersonaje'])){ ?>
+                                        <p class='errorMessage'> <?=$errores['razaPersonaje']?></p>
+                                    <?php } ?>
+                                    <span>Raza del Personaje</span>
+                                    <input type="text" id="formRace" class="formTextField"  name="razaPersonaje" value="<?php if(isset($_POST["razaPersonaje"])){ echo $_POST["razaPersonaje"]; } ?>">
+                                </div>
+                            </div>
+
+                            <div  class="charStep">
+
+                            </div>
+
+                    
                 </div>
                 <div class="formSubmitContainer">
                     <span class="button" id="prevStep">ANTERIOR</span>

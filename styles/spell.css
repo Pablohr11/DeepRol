@@ -19,6 +19,7 @@
 #spellDiv h1 {
     margin-top: 0;
     margin-bottom: 5px;
+    font-size: 36px;
 }
 
 #spellDiv h1, #spellDiv h2, #spellDiv h3  {
@@ -55,11 +56,15 @@
 
 .tableDiv{
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+        grid-template-columns: 20% 20% 30% 30%;
     margin: 10px 0 0 0;
 }
-
-.tableDiv p{
+.tableDivBottom{
+    display: grid;
+    grid-template-columns: 20% 20% 30% 30%;
+    margin: 0px 0 10px 0;
+}
+.tableDiv p, .tableDivBottom p{
     margin: 2px 0;
 }
 
@@ -94,6 +99,7 @@
 
 .spelltitle {
     text-transform: uppercase;
+    font-size: 20px;
 }
 
 /* .spellImage {
@@ -127,4 +133,8 @@
 @keyframes mover-bruma {
     0% { background-position: 0 0; }
     100% { background-position: 1000px 1000px; }
+}
+
+div#spellContent p, div#spellContent span {
+    font-size: 18px;
 }
