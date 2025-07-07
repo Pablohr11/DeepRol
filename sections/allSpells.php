@@ -114,11 +114,14 @@ array_shift($spellsLevels);
                 <img id="displayColumns" class="selectedDisplay" src="../resources/imgs/icons/columns.png" alt="">
             </div>
         </div>
-        <div class="classesFilterDiv">
+        <div class="levelFilterDiv">
             <?php foreach ($spellsLevels as  $spellLevel) { ?>
                 <button onclick="autoScroll('<?=$spellLevel['level']?>')"><?=$spellLevel["level"]?></button>
             <?php }  ?>
             <!-- <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>             -->
+        </div>
+        <div id="subDiv4">
+            <button class="spell first" id="firstSpell">Borrar Filtros</button>
         </div>
     </div>
     <!-- >AKI <!-->
