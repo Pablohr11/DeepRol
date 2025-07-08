@@ -104,43 +104,50 @@
                 <div id="formFieldsContainer">
 
                     <div class="charStep">
-                        <h3>Informacion</h3>
                         <!-- //? NOMBRE -->
                         <div class="formInputContainer">
                             <?php if(isset($errores['nombrePersonaje'])){ ?>
                                 <p class='errorMessage'> <?=$errores['nombrePersonaje']?></p> 
                             <?php } ?>
-                            <span>Nombre del Personaje</span>
+                            <h5>Nombre del Personaje</h5>
                             <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
                         </div>
                         <!-- //? Imagen Perfil -->
-                        <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de perfil de personaje</h5></div>
-                            <div class="formInputContainer fileInputContainer">
-                            <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
-                                <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
-                            <?php } ?>
-                            <label  for="formSmallImage" class="custom-file-upload">Seleccionar imagen de perfil</label>
-                            <input type="file" id="formSmallImage" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
+                        <div>
+                            
+                            <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de perfil de personaje</h5></div>
+                                <div class="formInputContainer fileInputContainer">
+                                <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
+                                    <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
+                                <?php } ?>
+                                <label  for="formSmallImage" class="custom-file-upload">Seleccionar imagen de perfil</label>
+                                <input type="file" id="formSmallImage" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
+                            </div>
                         </div>
 
                         <!-- //? Imagen Generica -->
-                        <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de general de personaje</h5></div>
-                        <div class="formInputContainer fileInputContainer">
-                            <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
-                                <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
-                            <?php } ?>
-                            <label  for="formBodyImage" class="custom-file-upload">Seleccionar imagen general</label>
-                            <input type="file"  id="formBodyImage" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
+                        <div>
+
+                            <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de general de personaje</h5></div>
+                            <div class="formInputContainer fileInputContainer">
+                                <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
+                                    <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
+                                <?php } ?>
+                                <label  for="formBodyImage" class="custom-file-upload">Seleccionar imagen general</label>
+                                <input type="file"  id="formBodyImage" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
+                            </div>
                         </div>
 
                         <!-- //? Ficha -->
-                        <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h5>Ficha de personaje</h5></div>
-                        <div class="formInputContainer fileInputContainer inputFicha">
-                            <?php if(isset($errores["fichaPersonaje"])){ ?>
-                                <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
-                            <?php } ?>
-                            <label for="formPdf" class="custom-file-upload">Seleccionar ficha del Personaje</label>
-                            <input type="file" id="formPdf" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
+                        <div>
+                            <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h5>Ficha de personaje</h5></div>
+                            <div class="formInputContainer fileInputContainer inputFicha">
+                                <?php if(isset($errores["fichaPersonaje"])){ ?>
+                                    <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
+                                <?php } ?>
+                                <label for="formPdf" class="custom-file-upload">Seleccionar ficha del Personaje</label>
+                                <input type="file" id="formPdf" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
+                            </div>
                         </div>
 
 

@@ -219,11 +219,11 @@ h3, h5 {
     display: grid;
     /* grid-template-columns: 1fr 1fr; */
 
-    grid-template-columns: 205px auto auto;
+    grid-template-columns: auto auto;
     column-gap: 20px;
     row-gap: 20px;
     overflow: hidden;
-    grid-template-rows:100%;
+    grid-template-rows: 110px calc(100% - 130px);
 }
 
 #formFieldsContainer .inputFicha{
@@ -387,7 +387,7 @@ form input[type="text"], form input[type="password"] {
 #classesList {
     display: grid;
     overflow-y: scroll;
-    grid-template-rows: 96px;
+    grid-template-rows: auto;
     height: fit-content;
 }
 #classesList.selecting {
@@ -397,7 +397,7 @@ form input[type="text"], form input[type="password"] {
     border: 2px solid #653d14;
     border-radius: 8px;
     padding: 8px;
-    margin-bottom: 1rem;
+    margin: 3px 0;
     background-color: #b77d3b;
     cursor: pointer;
     transition: border 0.3s;
@@ -422,7 +422,9 @@ form input[type="text"], form input[type="password"] {
 small {
     font-size: 10px;
 }
-
+.charStep:has(#formName) {grid-area: 1 / 1 / 2 / 3;display: grid;grid-template-columns: 25% 25% 25% 25%; }
+.charStep:has(#classesList) {grid-area: 2 / 1 / 3 / 2;}
+.charStep:has(#razasList) {grid-area: 2 / 2 / 3 / 3;}
 .formInputContainer:has(#classesList) h3 { grid-area: 1 / 1 / 2 / 2; }
 #classesList { grid-area: 2 / 1 / 3 / 2; }
 #classInfo { grid-area: 3 / 1 / 4 / 2; overflow-y: scroll;}
