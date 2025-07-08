@@ -7,11 +7,13 @@
     } else {
         $idUser = $_COOKIE["logged"];
     }
-
-    $classes = $db->getClasses();
-    echo("<pre><div id='helper'");
-    htmlspecialchars(print_r($classes), ENT_QUOTES, 'UTF-8');
-    echo("</div></pre>");
+    $razas = $db->getRazas();
+    $razaSeleccionada = null;
+    $clases = $db->getClasses();
+    $claseSeleccionada = null;
+    // echo("<pre><div id='helper'");
+    // htmlspecialchars(print_r($classes), ENT_QUOTES, 'UTF-8');
+    // echo("</div></pre>");
 
     if(isset($_POST["submitInput"])){
         $errores = [];
@@ -73,6 +75,12 @@
         return $extension;
     }
 ?>
+
+<script>
+    var clases = <?=json_encode($clases)?>;
+    console.log(clases);
+</script>
+
 <!DOCTYPE html>
 
 <html>
@@ -95,68 +103,102 @@
                 </div>
                 <div id="formFieldsContainer">
 
-                            <div class="charStep">
+                    <div class="charStep">
+                        <h3>Informacion</h3>
+                        <!-- //? NOMBRE -->
+                        <div class="formInputContainer">
+                            <?php if(isset($errores['nombrePersonaje'])){ ?>
+                                <p class='errorMessage'> <?=$errores['nombrePersonaje']?></p> 
+                            <?php } ?>
+                            <span>Nombre del Personaje</span>
+                            <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
+                        </div>
+                        <!-- //? Imagen Perfil -->
+                        <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de perfil de personaje</h5></div>
+                            <div class="formInputContainer fileInputContainer">
+                            <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
+                                <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
+                            <?php } ?>
+                            <label  for="formSmallImage" class="custom-file-upload">Seleccionar imagen de perfil</label>
+                            <input type="file" id="formSmallImage" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
+                        </div>
 
-                                <!-- //? NOMBRE -->
-                                <div class="formInputContainer">
-                                    <?php if(isset($errores['nombrePersonaje'])){ ?>
-                                        <p class='errorMessage'> <?=$errores['nombrePersonaje']?></p> 
-                                    <?php } ?>
-                                    <span>Nombre del Personaje</span>
-                                    <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
-                                </div>
-                                <!-- //? Imagen Perfil -->
-                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de perfil de personaje</h5></div>
-                                    <div class="formInputContainer fileInputContainer">
-                                    <?php if(isset($errores["imagenPerfilPersonaje"])){ ?>
-                                        <p class='errorMessage'> <?=$errores['imagenPerfilPersonaje']?></p>
-                                    <?php } ?>
-                                    <label  for="formSmallImage" class="custom-file-upload">Seleccionar imagen de perfil</label>
-                                    <input type="file" id="formSmallImage" class="formTextField"  name="imagenPerfilPersonaje" placeholder="Imagen del Personaje" value>
-                                </div>
+                        <!-- //? Imagen Generica -->
+                        <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de general de personaje</h5></div>
+                        <div class="formInputContainer fileInputContainer">
+                            <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
+                                <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
+                            <?php } ?>
+                            <label  for="formBodyImage" class="custom-file-upload">Seleccionar imagen general</label>
+                            <input type="file"  id="formBodyImage" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
+                        </div>
 
-                                <!-- //? Imagen Generica -->
-                                <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de general de personaje</h5></div>
-                                <div class="formInputContainer fileInputContainer">
-                                    <?php if(isset($errores["imagenCompletaPersonaje"])){ ?>
-                                        <p class='errorMessage'> <?=$errores['imagenCompletaPersonaje']?></p>
-                                    <?php } ?>
-                                    <label  for="formBodyImage" class="custom-file-upload">Seleccionar imagen general</label>
-                                    <input type="file"  id="formBodyImage" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
-                                </div>
-
-                                <!-- //? Ficha -->
-                                <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h5>Ficha de personaje</h5></div>
-                                <div class="formInputContainer fileInputContainer inputFicha">
-                                    <?php if(isset($errores["fichaPersonaje"])){ ?>
-                                        <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
-                                    <?php } ?>
-                                    <label for="formPdf" class="custom-file-upload">Seleccionar ficha del Personaje</label>
-                                    <input type="file" id="formPdf" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
-                                </div>
+                        <!-- //? Ficha -->
+                        <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h5>Ficha de personaje</h5></div>
+                        <div class="formInputContainer fileInputContainer inputFicha">
+                            <?php if(isset($errores["fichaPersonaje"])){ ?>
+                                <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
+                            <?php } ?>
+                            <label for="formPdf" class="custom-file-upload">Seleccionar ficha del Personaje</label>
+                            <input type="file" id="formPdf" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
+                        </div>
 
 
-                                    
+                            
+                    </div>
+                    <div  class="charStep">
+                        <div class="formInputContainer">
+
+                            <h3>Clase</h3>
+                            <div id="classesList" class="selecting">
+                                
+                            <?php foreach ($clases as $clase): ?>
+                                <?php
+                                    $checked = ($claseSeleccionada == $clase['id']) ? 'checked' : '';
+                                    $selectedClass = ($claseSeleccionada == $clase['id']) ? 'selected' : '';
+                                ?>
+                                <label class="clase-option <?= $selectedClass ?>">
+                                    <input type="radio" name="clase_id" value="<?= $clase['id'] ?>" <?= $checked ?> >
+                                    <strong><?= htmlspecialchars($clase['Nombre']) ?></strong><br>
+                                    <small><?= htmlspecialchars($clase['short_desc']) ?></small>
+                                </label>
+                            <?php endforeach; ?>
+                            
                             </div>
-                            <div  class="charStep">
-                                <div class="formInputContainer">
-                                    <?php if(isset($errores['razaPersonaje'])){ ?>
-                                        <p class='errorMessage'> <?=$errores['razaPersonaje']?></p>
-                                    <?php } ?>
-                                    <span>Raza del Personaje</span>
-                                    <input type="text" id="formRace" class="formTextField"  name="razaPersonaje" value="<?php if(isset($_POST["razaPersonaje"])){ echo $_POST["razaPersonaje"]; } ?>">
-                                </div>
-                            </div>
-
-                            <div  class="charStep">
+                            <div id="classInfo">
 
                             </div>
+                        </div>
+                    </div>
 
-                    
+                    <div  class="charStep">
+                        <div class="formInputContainer">
+
+                            <h3>Raza</h3>
+                            <div id="razasList" class="selecting">
+                                
+                            <?php foreach ($razas as $raza): ?>
+                                <?php
+                                    $checked = ($razaSeleccionada == $raza['id']) ? 'checked' : '';
+                                    $selectedClass = ($razaSeleccionada == $raza['id']) ? 'selected' : '';
+                                ?>
+                                <label class="raza-option <?= $selectedClass ?>">
+                                    <input type="radio" name="raza_id" value="<?= $raza['id'] ?>" <?= $checked ?> >
+                                    <strong><?= htmlspecialchars($raza['Nombre']) ?></strong><br>
+                                    <small><?= htmlspecialchars($raza['descr']) ?></small>
+                                </label>
+                            <?php endforeach; ?>
+                            
+                            </div>
+                            <div id="razasInfo">
+
+                            </div>
+                        </div>
+                    </div>              
                 </div>
                 <div class="formSubmitContainer">
-                    <span class="button" id="prevStep">ANTERIOR</span>
-                    <span class="button" id="nextStep">SIGUIENTE</span>
+                    <!-- <span class="button" id="prevStep">ANTERIOR</span>
+                    <span class="button" id="nextStep">SIGUIENTE</span> -->
                     <input type="submit" value="Crear Personaje" id="submitInput" name="submitInput">
                 </div>
             </form>
@@ -196,6 +238,99 @@
             alert('Please select a valid image file.');
         }
         });
+    </script>
+    <script>
+        
+        // const opciones = document.querySelectorAll('.clase-option');
+
+        // opciones.forEach(option => {
+        //     option.addEventListener('click', function() {
+        //         if (option.classList.contains("selected")) {
+        //             document.getElementById("classesList").classList.add("selecting");
+        //             opciones.forEach(opt => opt.classList.remove('selected')); // Quita a todas
+        //             opciones.forEach(opt => opt.style.display = 'block'); // oculta todas
+        //             document.getElementById("classInfo").innerHTML = "";
+
+        //         }
+        //     });
+            
+        //     const radio = option.querySelector('input[type="radio"]');
+
+        //     radio.addEventListener('change', () => {
+        //         document.getElementById("classesList").classList.remove("selecting");
+
+        //         opciones.forEach(opt => {
+        //             opt.classList.remove('selected');
+        //             opt.style.setProperty("display", "none", "important"); // Fuerza ocultar
+        //         });
+
+        //         if (radio.checked) {
+        //             option.classList.add('selected');
+        //             option.style.display = 'block';
+
+        //             const filtro = option.querySelector("strong").innerText;
+        //             const filtrado = clases.find(item => item[1] === filtro);
+
+        //             if (filtrado) {
+        //                 document.getElementById("classInfo").innerHTML = filtrado.rasgos_clase;
+        //                 console.log(filtrado);
+        //             } else {
+        //                 console.warn("Clase no encontrada:", filtro);
+        //             }
+        //         }
+        //     });
+
+            
+        // });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const opciones = document.querySelectorAll('.clase-option');
+    const classInfo = document.getElementById("classInfo");
+    const classesList = document.getElementById("classesList");
+
+    opciones.forEach(option => {
+        const radio = option.querySelector('input[type="radio"]');
+
+        option.addEventListener('click', function(e) {
+            // Previene que el label active el radio automáticamente
+            e.preventDefault();
+
+            if (option.classList.contains("selected")) {
+                // Deselecciona
+                option.classList.remove("selected");
+                radio.checked = false;
+                classInfo.innerHTML = "";
+                classesList.classList.add("selecting");
+
+                // Mostrar todas las opciones
+                opciones.forEach(opt => opt.style.display = "block");
+            } else {
+                // Selecciona esta opción
+                opciones.forEach(opt => {
+                    opt.classList.remove("selected");
+                    opt.style.display = "none";
+                    opt.querySelector('input[type="radio"]').checked = false;
+                });
+
+                option.classList.add("selected");
+                option.style.display = "block";
+                radio.checked = true;
+                classesList.classList.remove("selecting");
+
+                // Ejemplo de mostrar información (ajustalo a tu lógica real)
+                const nombreClase = option.querySelector("strong").innerText;
+                const filtrado = clases.find(item => item[1] === nombreClase); // `clases` debe estar definido en JS
+
+                if (filtrado) {
+                    classInfo.innerHTML = filtrado.rasgos_clase;
+                }
+            }
+        });
+    });
+});
+
+
+
     </script>
 </body>
 </html>

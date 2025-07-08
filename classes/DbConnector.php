@@ -381,7 +381,21 @@ class DbConector {
 
     public function getClasses() {
         try {
-            $consulta = $this->db->prepare("SELECT id, Nombre, short_desc, descr FROM clases");
+            // $consulta = $this->db->prepare("SELECT id, Nombre, short_desc, descr FROM clases");
+            $consulta = $this->db->prepare("SELECT * FROM clases");
+
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getRazas() {
+        try {
+            // $consulta = $this->db->prepare("SELECT id, Nombre, short_desc, descr FROM clases");
+            $consulta = $this->db->prepare("SELECT * FROM razas");
 
             $results = $consulta->execute();
             $data = $consulta->fetchAll();

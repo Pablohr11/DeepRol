@@ -69,22 +69,22 @@ h1, h2, h3 {
     border-radius: 8px;
 }
 
-body {
+* {
     --sb-track-color: #202020;
     --sb-thumb-color: #b77d3b;
     --sb-size: 10px;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
     width: var(--sb-size);
 }
 
-body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track {
     background: var(--sb-track-color);
     border-radius: 2px;
 }
 
-body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     background: var(--sb-thumb-color);
     border-radius: 2px;
 }

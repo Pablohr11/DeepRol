@@ -11,7 +11,7 @@ $spellsLevels = $db->getAllSpellsLevels();
 $arrowUpSvg = '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="20" height="20" viewBox="0 0 20 20" xml:space="preserve"><desc>Created with Fabric.js 5.2.4</desc><defs></defs><g transform="matrix(0 0 0 0 0 0)" id="d8cfbb01-0150-48b1-96f7-edb208d4fe24"></g><g transform="matrix(1 0 0 1 10 10)" id="1bf01d78-b7d1-4e50-b7d3-5d4aae8885d0"><rect style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-rule: nonzero; opacity: 1; visibility: hidden;" vector-effect="non-scaling-stroke" x="-10" y="-10" rx="0" ry="0" width="20" height="20"/></g><g transform="matrix(0.63 0 0 0.63 10.06 10.04)"><path style="stroke: none;stroke-width: 1;stroke-dasharray: none;stroke-linecap: butt;stroke-dashoffset: 0;stroke-linejoin: miter;stroke-miterlimit: 4;fill:#202020;fill-rule: nonzero;opacity: 1;" transform=" translate(-16.5, -14)" d="M 18.221 7.206 L 27.806 16.791 C 28.685000000000002 17.67 28.685000000000002 19.108 27.806 19.986 L 27.006 20.787 C 26.129 21.665 24.69 21.665 23.812 20.787 L 16.497 13.471999999999998 L 9.181999999999999 20.787 C 8.303999999999998 21.665 6.864999999999998 21.665 5.987999999999999 20.787 L 5.187999999999999 19.986 C 4.308999999999999 19.108 4.308999999999999 17.67 5.187999999999999 16.791 L 14.774999999999999 7.2059999999999995 C 15.245999999999999 6.734 15.877999999999998 6.523999999999999 16.497999999999998 6.558999999999999 C 17.115 6.524 17.748 6.734 18.221 7.206 z" stroke-linecap="round"/></g></svg>';
 
 $prevPathParameters = "allSpells.php";
-
+$prevPathWoClassParameters = $prevPathParameters;
 $classFilter = "";
 
 if (isset($_GET["submit"]) || isset($_GET["nameFilter"]) && ($_GET["nameFilter"] != "") || isset($_GET["classFilter"])) {
@@ -45,6 +45,7 @@ if (isset($_GET["id_char"])) {
 
     $charId = $_GET["id_char"];
     $prevPathParameters .= "--id_char=".$charId;
+    $prevPathWoClassParameters .= "--id_char=".$charId;
     $spellList = explode( ", ",$db->getSpellsIds($charId));
 } else {
     $spellList = [];
@@ -121,7 +122,7 @@ array_shift($spellsLevels);
             <!-- <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>             -->
         </div>
         <div id="subDiv4">
-            <button class="spell first" id="firstSpell">Borrar Filtros</button>
+            <button class="spell first" id="firstSpell" onclick="window.location.replace('<?=$prevPathWoClassParameters?>')">Borrar Filtros</button>
         </div>
     </div>
     <!-- >AKI <!-->
