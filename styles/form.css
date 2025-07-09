@@ -501,10 +501,22 @@ small {
     font-size: 12px;
     color: #c7c7c7
 }
-#razasInfo h5 {
+#razasInfo h1 {
+    font-size: 18px;
+}
+#razasInfo h2 {
     font-size: 16px;
 }
 
+#razasInfo ul {
+    padding-left: 10px;
+}
+#razasInfo li {
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 12px;
+    color: #c7c7c7;
+}
 .inputFileContainer {
     display: grid;
     justify-content: center;

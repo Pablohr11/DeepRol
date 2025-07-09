@@ -78,6 +78,7 @@
 
 <script>
     var clases = <?=json_encode($clases)?>;
+    var razas = <?=json_encode($razas)?>;
     console.log(clases);
 </script>
 
@@ -248,47 +249,6 @@
     </script>
     <script>
         
-        // const opciones = document.querySelectorAll('.clase-option');
-
-        // opciones.forEach(option => {
-        //     option.addEventListener('click', function() {
-        //         if (option.classList.contains("selected")) {
-        //             document.getElementById("classesList").classList.add("selecting");
-        //             opciones.forEach(opt => opt.classList.remove('selected')); // Quita a todas
-        //             opciones.forEach(opt => opt.style.display = 'block'); // oculta todas
-        //             document.getElementById("classInfo").innerHTML = "";
-
-        //         }
-        //     });
-            
-        //     const radio = option.querySelector('input[type="radio"]');
-
-        //     radio.addEventListener('change', () => {
-        //         document.getElementById("classesList").classList.remove("selecting");
-
-        //         opciones.forEach(opt => {
-        //             opt.classList.remove('selected');
-        //             opt.style.setProperty("display", "none", "important"); // Fuerza ocultar
-        //         });
-
-        //         if (radio.checked) {
-        //             option.classList.add('selected');
-        //             option.style.display = 'block';
-
-        //             const filtro = option.querySelector("strong").innerText;
-        //             const filtrado = clases.find(item => item[1] === filtro);
-
-        //             if (filtrado) {
-        //                 document.getElementById("classInfo").innerHTML = filtrado.rasgos_clase;
-        //                 console.log(filtrado);
-        //             } else {
-        //                 console.warn("Clase no encontrada:", filtro);
-        //             }
-        //         }
-        //     });
-
-            
-        // });
 
 document.addEventListener("DOMContentLoaded", function() {
     const opciones = document.querySelectorAll('.clase-option');
@@ -330,6 +290,50 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 if (filtrado) {
                     classInfo.innerHTML = filtrado.rasgos_clase;
+                }
+            }
+        });
+    });
+
+    const opcionesR = document.querySelectorAll('.raza-option');
+    const razasInfo = document.getElementById("razasInfo");
+    const razasList = document.getElementById("razasList");
+
+    opcionesR.forEach(option => {
+        const radio = option.querySelector('input[type="radio"]');
+
+        option.addEventListener('click', function(e) {
+            // Previene que el label active el radio automáticamente
+            e.preventDefault();
+
+            if (option.classList.contains("selected")) {
+                // Deselecciona
+                option.classList.remove("selected");
+                radio.checked = false;
+                razasInfo.innerHTML = "";
+                razasList.classList.add("selecting");
+
+                // Mostrar todas las opcionesR
+                opcionesR.forEach(opt => opt.style.display = "block");
+            } else {
+                // Selecciona esta opción
+                opcionesR.forEach(opt => {
+                    opt.classList.remove("selected");
+                    opt.style.display = "none";
+                    opt.querySelector('input[type="radio"]').checked = false;
+                });
+
+                option.classList.add("selected");
+                option.style.display = "block";
+                radio.checked = true;
+                classesList.classList.remove("selecting");
+
+                // Ejemplo de mostrar información (ajustalo a tu lógica real)
+                const nombreRaza = option.querySelector("strong").innerText;
+                const filtrado = razas.find(item => item[1] === nombreRaza); // `clases` debe estar definido en JS
+
+                if (filtrado) {
+                    razasInfo.innerHTML = filtrado.rasgos_raza;
                 }
             }
         });
