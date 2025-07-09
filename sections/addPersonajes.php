@@ -113,7 +113,7 @@
                             <input type="text" id="formName" class="formTextField"  name="nombrePersonaje" value="<?php if(isset($_POST["nombrePersonaje"])){ echo $_POST["nombrePersonaje"]; } ?>">
                         </div>
                         <!-- //? Imagen Perfil -->
-                        <div>
+                        <div class="inputFileContainer">
                             
                             <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de perfil de personaje</h5></div>
                                 <div class="formInputContainer fileInputContainer">
@@ -126,7 +126,7 @@
                         </div>
 
                         <!-- //? Imagen Generica -->
-                        <div>
+                        <div class="inputFileContainer">
 
                             <div class="subtitleContainer"><i class="fa-regular fa-image fa-xl"></i><h5>Imagen de general de personaje</h5></div>
                             <div class="formInputContainer fileInputContainer">
@@ -139,7 +139,7 @@
                         </div>
 
                         <!-- //? Ficha -->
-                        <div>
+                        <div class="inputFileContainer">
                             <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h5>Ficha de personaje</h5></div>
                             <div class="formInputContainer fileInputContainer inputFicha">
                                 <?php if(isset($errores["fichaPersonaje"])){ ?>
