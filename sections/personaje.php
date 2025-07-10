@@ -283,17 +283,30 @@ if (isset($charSpells) && $charSpells != null) {
                 <a href="allSpells.php?id_char=<?=$charId?>" class="tab"  title="Añadir Conjuro">+</a>
                 
             </div>
-            <?php if ($grouped) { ?> 
-                <?php foreach ($grouped as $key => $group) { ?>
-                    <div class="spellList" id="level-<?=$key?>">
+            <?php if ($grouped) { ?>
+                <div id="spellListContainer">
+                    <div>  
+                        <?php foreach ($grouped as $key => $group) { ?>
+                            <div class="spellList" id="level-<?=$key?>">
 
-                        <?php foreach ($group as $keySpell => $spell) { ?>
-                            <?php //var_dump($spell)  ?>
-                            <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
+                                <?php foreach ($group as $keySpell => $spell) { ?>
+                                    <?php //var_dump($spell)  ?>
+                                    <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
+                                <?php } ?>
+                        
+                            </div>
                         <?php } ?>
-                
                     </div>
-                <?php } ?>
+                    <div id="spellCounter">
+                        <h3>Gastado</h3>
+                        <div id="spellCounterInner">
+                            <div class="spellSpace"></div>
+                            <div class="spellSpace"></div>
+                            <div class="spellSpace"></div>
+                            <div class="spellSpace"></div>
+                        </div>
+                    </div>
+                </div>
             <?php } ?>
         </div>
         <div id="embedContainer">

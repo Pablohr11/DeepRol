@@ -1,5 +1,14 @@
 
 window.addEventListener("load", () => {
+
+    var buttons = document.querySelectorAll(".spellspace");
+    buttons = Array.from(buttons);
+    buttons.forEach(function(element) {
+        // Your code here
+        element.addEventListener('click', function() {
+            element.classList.toggle("checked");
+        })
+    });
     // Botones PDF
     document.getElementById("showPdfButton").addEventListener('click', function () {
         document.getElementById("embedContainer").style.display = "block";

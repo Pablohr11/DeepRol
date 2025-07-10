@@ -138,20 +138,6 @@
                                 <input type="file"  id="formBodyImage" class="formTextField"  name="imagenCompletaPersonaje" placeholder="Imagen Completa del Personaje">
                             </div>
                         </div>
-
-                        <!-- //? Ficha -->
-                        <div class="inputFileContainer">
-                            <div class="subtitleContainer"><i class="fa-regular fa-file fa-xl"></i><h5>Ficha de personaje</h5></div>
-                            <div class="formInputContainer fileInputContainer inputFicha">
-                                <?php if(isset($errores["fichaPersonaje"])){ ?>
-                                    <p class='errorMessage'> <?=$errores['fichaPersonaje']?></p>
-                                <?php } ?>
-                                <label for="formPdf" class="custom-file-upload">Seleccionar ficha del Personaje</label>
-                                <input type="file" id="formPdf" class="formTextField"  name="fichaPersonaje" placeholder="Ficha del Personaje">
-                            </div>
-                        </div>
-
-
                             
                     </div>
                     <div  class="charStep">

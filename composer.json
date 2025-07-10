@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "darkgoldblade01/dnd-5e-api": "dev-master"
+        "darkgoldblade01/dnd-5e-api": "dev-master",
+        "mikehaertl/php-pdftk": "^0.13.1"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

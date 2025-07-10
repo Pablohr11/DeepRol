@@ -422,7 +422,7 @@ form input[type="text"], form input[type="password"] {
 small {
     font-size: 10px;
 }
-.charStep:has(#formName) {grid-area: 1 / 1 / 2 / 3;display: grid;grid-template-columns: 25% 25% 25% 25%; }
+.charStep:has(#formName) {grid-area: 1 / 1 / 2 / 3;display: grid;grid-template-columns: 33% 33% 33%; }
 .charStep:has(#classesList) {grid-area: 2 / 1 / 3 / 2;}
 .charStep:has(#razasList) {grid-area: 2 / 2 / 3 / 3;}
 .formInputContainer:has(#classesList) h3 { grid-area: 1 / 1 / 2 / 2; }

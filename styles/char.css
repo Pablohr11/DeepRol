@@ -117,7 +117,8 @@
 }
 .spellList.active {
     display: grid;
-    grid-template-columns: 350px 350px 350px;
+    /* grid-template-columns: 350px 350px 350px; */
+    grid-template-columns: 33% 33% 33%;
     grid-template-rows: repeat(6, 34px);
     overflow-y: auto;
     overflow-x: hidden;
@@ -672,4 +673,40 @@ input[type="radio"][disabled]:checked::after {
         width: 622px;
     }
 
+}
+#spellListContainer {
+    display: grid;
+    grid-template-columns: calc(100% - 90px) 90px;
+    max-width: 1090px;
+}
+
+#spellCounter {
+    background-color: #292929;
+    border-left: 1px solid #653d14;
+    display: grid;
+    color: #b2b2b2;
+    text-align: center;
+    grid-template-rows: 21px auto;
+}
+
+#spellCounter h3 {
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+#spellCounterInner {
+    display: grid;
+    padding: 20px 5px;
+}
+
+.spellSpace {
+    transition: .5s;
+    background-color: #202020;
+    margin: 2px 0;
+    border-radius: 5px;
+}
+
+.spellSpace.checked {
+    transition: .5s;
+    background-color: #653d14;
 }

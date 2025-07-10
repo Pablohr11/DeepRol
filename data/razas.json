@@ -1,0 +1,16 @@
+[
+    {
+      "name": "Draconido",
+      "desc": "Lanzas una burbuja de ácido. Elige una criatura dentro del alcance, o elige dos criaturas dentro del alcance que estén a menos de 5 pies la una de la otra. El objetivo debe tener éxito en una tirada de salvación de destreza o recibir 1d6 puntos de daño por ácido. El daño de este conjuro aumenta en 1d6 cuando alcanzas el 5º nivel (2d6), 11º nivel (3d6) y 17º nivel (4d6).",
+      "page": "phb 211",
+      "range": "60 pies",
+      "components": "V, S",
+      "ritual": "no",
+      "duration": "Instantaneo",
+      "concentration": "no",
+      "casting_time": "1 acción",
+      "level": "Truco",
+      "school": "Conjuracion",
+      "class": "Hechicero, Mago, Lanzador de Rituales"
+    }
+]
