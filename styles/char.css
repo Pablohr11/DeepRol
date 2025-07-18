@@ -621,7 +621,7 @@ input[type="radio"][disabled]:checked::after {
     cursor: default;
   }
 
-  .spellList {
+.spellList {
     transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
@@ -631,6 +631,19 @@ input[type="radio"][disabled]:checked::after {
 }
 
 .spellList.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.spellCounter {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.spellCounter.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.spellCounter.fade-in {
     opacity: 1;
     transform: translateY(0);
 }
@@ -680,23 +693,28 @@ input[type="radio"][disabled]:checked::after {
     max-width: 1090px;
 }
 
-#spellCounter {
+.spellCounter {
     background-color: #292929;
     border-left: 1px solid #653d14;
-    display: grid;
     color: #b2b2b2;
     text-align: center;
-    grid-template-rows: 21px auto;
+    grid-template-rows: 25px 25px auto 25px;
+    display: none;
 }
-
-#spellCounter h3 {
+.spellCounter.active {
+    display: grid;
+}
+.spellCounter h3 {
     margin: 4px 0;
     font-size: 16px;
 }
+.spellCounter h5 {
+    margin: 4px 0;
+}
 
-#spellCounterInner {
+.spellCounterInner {
     display: grid;
-    padding: 20px 5px;
+    padding: 5px 5px 10px;
 }
 
 .spellSpace {
@@ -709,4 +727,22 @@ input[type="radio"][disabled]:checked::after {
 .spellSpace.checked {
     transition: .5s;
     background-color: #653d14;
+}
+
+.counterButtons {
+    display: grid;
+    grid-template-columns: 21px 21px;
+    grid-template-rows: 21px;
+    justify-content: center;
+    gap: 5px;
+}
+
+.counterButtons button {
+    border: 2px solid #b77d3b;
+    background-color: #292929;
+    color: #b77d3b;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 0px;
+    display: grid;
 }

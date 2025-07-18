@@ -9,6 +9,37 @@ window.addEventListener("load", () => {
             element.classList.toggle("checked");
         })
     });
+
+    var addButtons = document.querySelectorAll(".add-counter");
+    addButtons = Array.from(addButtons);
+
+    addButtons.forEach(function(element) {
+        element.addEventListener('click', function() {
+            parentDiv = element.parentElement.parentElement;
+            input = parentDiv.querySelector("input");
+            if (parseInt(input.value) < 4) {
+                input.value = parseInt(input.value) + 1;
+                console.log(parentDiv.querySelector(".counter-"+parseInt(input.value)));
+                parentDiv.querySelector(".counter-"+parseInt(input.value)).classList.toggle("checked")
+            }
+        })
+    });
+
+    var minusButtons = document.querySelectorAll(".minus-counter");
+    minusButtons = Array.from(minusButtons);
+
+    minusButtons.forEach(function(element) {
+        element.addEventListener('click', function() {
+            parentDiv = element.parentElement.parentElement;
+            input = element.parentElement.parentElement.querySelector("input");
+            if (parseInt(input.value) > 0) {
+                console.log(parentDiv.querySelector(".counter-"+parseInt(input.value)));
+                parentDiv.querySelector(".counter-"+parseInt(input.value)).classList.toggle("checked")
+                input.value = parseInt(input.value) - 1;
+            }
+        })
+    });
+
     // Botones PDF
     document.getElementById("showPdfButton").addEventListener('click', function () {
         document.getElementById("embedContainer").style.display = "block";
@@ -21,10 +52,13 @@ window.addEventListener("load", () => {
     // Tabs de conjuros
     const tabs = document.querySelectorAll('.tab');
     const lists = document.querySelectorAll('.spellList');
-
+    const counters = document.querySelectorAll('.spellCounter');
+    
     function activateTab(index) {
         const current = document.querySelector('.spellList.active');
+        const currentCounter = document.querySelector('.spellCounter.active');
         const next = lists[index];
+        const nextCounter = counters[index];
         if (!next) return;
 
         // Marcar tab activa
@@ -36,19 +70,27 @@ window.addEventListener("load", () => {
             current.classList.remove('fade-in');
             current.classList.add('fade-out');
 
+            currentCounter.classList.remove('fade-in');
+            currentCounter.classList.add('fade-out');
             setTimeout(() => {
                 current.classList.remove('active', 'fade-out');
                 next.classList.add('active', 'fade-in');
+                currentCounter.classList.remove('active', 'fade-out');
+                nextCounter.classList.add('active', 'fade-in');
             }, 300);
 
         } else if (!current) {
             // Primera vez que se activa algo
             next.classList.add('active', 'fade-in');
+            nextCounter.classList.add('active', 'fade-in');
         } else if (current === next) {
             // Se clickeó la misma pestaña (opcionalmente refrescar animación)
             current.classList.remove('fade-in');
             void current.offsetWidth; // fuerza reflow
             current.classList.add('fade-in');
+            currentCounter.classList.remove('fade-in');
+            void currentCounter.offsetWidth; // fuerza reflow
+            currentCounter.classList.add('fade-in');
         }
     }
 

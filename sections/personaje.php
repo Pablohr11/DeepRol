@@ -285,27 +285,32 @@ if (isset($charSpells) && $charSpells != null) {
             </div>
             <?php if ($grouped) { ?>
                 <div id="spellListContainer">
-                    <div>  
-                        <?php foreach ($grouped as $key => $group) { ?>
-                            <div class="spellList" id="level-<?=$key?>">
+                    <?php foreach ($grouped as $key => $group) { ?>
+                        <div class="spellList" id="level-<?=$key?>">
 
-                                <?php foreach ($group as $keySpell => $spell) { ?>
-                                    <?php //var_dump($spell)  ?>
-                                    <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
-                                <?php } ?>
-                        
-                            </div>
-                        <?php } ?>
-                    </div>
-                    <div id="spellCounter">
-                        <h3>Gastado</h3>
-                        <div id="spellCounterInner">
-                            <div class="spellSpace"></div>
-                            <div class="spellSpace"></div>
-                            <div class="spellSpace"></div>
-                            <div class="spellSpace"></div>
+                            <?php foreach ($group as $keySpell => $spell) { ?>
+                                <?php //var_dump($spell)  ?>
+                                <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
+                            <?php } ?>
+                    
                         </div>
-                    </div>
+                        <div class="spellCounter" id="spellCounter-<?=$key?>">
+                            <h3>Gastado</h3>
+                            <h5><?=$key?></h5>
+                            <div class="spellCounterInner">
+                                <div class="spellSpace counter-1"></div>
+                                <div class="spellSpace counter-2"></div>
+                                <div class="spellSpace counter-3"></div>
+                                <div class="spellSpace counter-4"></div>
+                            </div>
+                            <div class="counterButtons">
+                                <button class="minus-counter" value="0">-</button>
+                                <input type="hidden" id="valueCounter" value="0">
+                                <button class="add-counter" value=0>+</button>
+                            </div>
+                        </div>
+                    <?php } ?>
+
                 </div>
             <?php } ?>
         </div>
