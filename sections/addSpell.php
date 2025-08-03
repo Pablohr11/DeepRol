@@ -13,7 +13,7 @@ $prevUrl = $_GET["prevPath"];
 if (strpos($prevUrl, "--") != -1) {
     $prevUrl = str_replace("--", "&", $prevUrl);
 }
-if (substr($prevUrl,  13, length: 1) == "&") {
+if (substr($prevUrl,  13, 1) == "&") {
     // $prevUrl = "?".substr($prevUrl, 1);
     $prevUrl[13]='?'; 
 }

@@ -4,8 +4,14 @@ require_once("../classes/DbConnector.php");
 //var_dump($_POST);
 $db = DbConector::singleton();
 
-$noteInfo = $db->getNote($_GET["id"]);
+$noteId = $_GET["id"];
+
+$noteInfo = $db->getNote($noteId);
 $relatedCharName = $db->getCharName($noteInfo["RelatedChar"]);
+
+
+$framed = $_GET["framed"];
+
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +40,7 @@ $relatedCharName = $db->getCharName($noteInfo["RelatedChar"]);
       <div class="subDiv">
           <h1><?=$noteInfo["Nombre"]?> - <?=$relatedCharName?></h1>
           <div style="display: grid;align-content: center;">
-              <a href="notes.php">← VOLVER</a>
+              <a href="notes.php?framed=<?=$framed?>">← VOLVER</a>
           </div>
         </div>
         <div id="toolbar"></div>
@@ -47,26 +53,44 @@ $relatedCharName = $db->getCharName($noteInfo["RelatedChar"]);
 </body>
 <script>
 
+const Font = Quill.import('formats/font');
+
+Font.whitelist = ['sans', 'serif', 'cinzel', 'uncial', 'merriweather', 'librebaskerville', 'ebgaramond'];
+Quill.register(Font, true);
+
 const toolbarOptions = [
-    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-    [{ 'font': [] }],
-  ['bold', 'italic', 'underline', 'strike', 'blockquote'],        // toggled buttons
+  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  [{ 'size': ['small', false, 'large', 'huge'] }],
+  [{ 'font': ['sans', 'serif', 'cinzel', 'uncial', 'merriweather', 'librebaskerville', 'ebgaramond'] }],
+  ['bold', 'italic', 'underline', 'strike', 'blockquote'],
   ['link', 'image'],
-
-  [{ 'list': 'ordered'}, { 'list': 'bullet' }, { 'list': 'check' }],
-  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-
-
-  [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-  ['clean']                                         // remove formatting button
+  [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }],
+  [{ 'script': 'sub' }, { 'script': 'super' }],
+  [{ 'color': [] }, { 'background': [] }],
+  ['clean']
 ];
-  const quill = new Quill('#editor', {
-    modules: {
-      toolbar: toolbarOptions
-    },
-    theme: 'snow'
-  });
+
+const quill = new Quill('#editor', {
+  modules: {
+    toolbar: toolbarOptions
+  },
+  theme: 'snow'
+});
+
+// const fontLabels = {
+//   cinzel: 'Cinzel',
+//   uncial: 'Uncial Antiqua',
+//   merriweather: 'Merriweather',
+//   librebaskerville: 'Libre Baskerville',
+//   ebgaramond: 'EB Garamond'
+// };
+
+// document.querySelectorAll('.ql-font .ql-picker-item').forEach(el => {
+//   const val = el.getAttribute('data-value');
+//   if (fontLabels[val]) {
+//     el.innerText = fontLabels[val];
+//   }
+// });
 
       // Crear botón personalizado
     const customButton = document.createElement('button');
@@ -86,8 +110,8 @@ const toolbarOptions = [
         saveNote();
     });
 
-    function saveNote() {
-  const noteId = 1;
+function saveNote() {
+  const noteId = <?=$noteId?>;
   const value = document.querySelector('.ql-editor').innerHTML;
 
   fetch('http://localhost:8080/src/savenote.php', {

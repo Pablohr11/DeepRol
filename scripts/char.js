@@ -1,4 +1,3 @@
-
 window.addEventListener("load", () => {
 
     var buttons = document.querySelectorAll(".spellspace");
@@ -6,7 +5,12 @@ window.addEventListener("load", () => {
     buttons.forEach(function(element) {
         // Your code here
         element.addEventListener('click', function() {
-            element.classList.toggle("checked");
+            // element.classList.toggle("checked");
+            var prevValue = 0;
+            var currentValue = element.classList.toString().charAt(19);
+            prevValue = element.parentElement.parentElement.querySelector("input").value;
+            element.parentElement.parentElement.querySelector("input").value = currentValue;
+            updateChecks(currentValue, prevValue, element.parentElement);
         })
     });
 
@@ -19,7 +23,7 @@ window.addEventListener("load", () => {
             input = parentDiv.querySelector("input");
             if (parseInt(input.value) < 4) {
                 input.value = parseInt(input.value) + 1;
-                console.log(parentDiv.querySelector(".counter-"+parseInt(input.value)));
+                //  console.log(parentDiv.querySelector(".counter-"+parseInt(input.value)));
                 parentDiv.querySelector(".counter-"+parseInt(input.value)).classList.toggle("checked")
             }
         })
@@ -33,12 +37,32 @@ window.addEventListener("load", () => {
             parentDiv = element.parentElement.parentElement;
             input = element.parentElement.parentElement.querySelector("input");
             if (parseInt(input.value) > 0) {
-                console.log(parentDiv.querySelector(".counter-"+parseInt(input.value)));
                 parentDiv.querySelector(".counter-"+parseInt(input.value)).classList.toggle("checked")
                 input.value = parseInt(input.value) - 1;
             }
         })
     });
+
+
+    var tabButtonsArray = Array.from(document.getElementsByClassName("tabsSelectorH2"));
+     
+    tabButtonsArray.forEach(function(element) {
+        element.addEventListener("click", function() {
+            element.parentElement.querySelector(".selected").classList.remove("selected");
+            element.classList.add("selected");
+            var targetId = element.getAttribute("for");
+
+            if (targetId == "notesTab") {
+                document.getElementById(targetId).style.display = "block";
+                document.getElementById("spellsTab").style.display = "none";
+            } else {
+                document.getElementById(targetId).style.display = "block";
+                document.getElementById("notesTab").style.display = "none";
+            }
+        });
+    });
+
+
 
     // Botones PDF
     document.getElementById("showPdfButton").addEventListener('click', function () {
@@ -47,6 +71,15 @@ window.addEventListener("load", () => {
 
     document.getElementById("closeEmbed").addEventListener('click', function () {
         document.getElementById("embedContainer").style.display = "none";
+    });
+
+    var spellsArray = Array.from(document.getElementsByClassName("spellSpan"));
+
+    spellsArray.forEach(function(spell) {
+       spell.addEventListener('click', function() {
+        var spellId = spell.getAttribute("data-idspell");
+        showEmbededSpell(spellId);
+       });  
     });
 
     // Tabs de conjuros
@@ -110,6 +143,25 @@ window.addEventListener("load", () => {
 });
 
 
+
+function updateChecks(index, prevIndex, parentElement) {
+    var targetClass = "";
+    if (index == prevIndex) {
+        targetClass = ".counter-"+i;
+        parentElement.querySelector(targetClass).toggle("checked");
+    } else if (index > prevIndex) {
+        for (var i = 1; i <= index; i++) {
+            targetClass = ".counter-"+i;
+            parentElement.querySelector(targetClass).classList.add("checked")
+        }
+    } else {
+        for (var i = 4; i > index; i--) {
+            targetClass = ".counter-"+i;
+            parentElement.querySelector(targetClass).classList.remove("checked")
+        }
+    }
+}
+
 function setPdfFields(pdfPath) {
     const url = pdfPath;
 
@@ -135,7 +187,7 @@ function setPdfFields(pdfPath) {
         var modsArray = ["STR","DEX","CON","INT","WIS","CHA", "ST Charisma", "Passive", "ProfBonus", "HPMax", "AC", "ST Strength", "ST Dexterity", "ST Constitution", "ST Intelligence", "ST Wisdom", "ST Charisma", "Acrobatics", "Animal", "Arcana", "Athletics", "Deception ", "History ", "Insight", "Intimidation", "Investigation ", "Medicine", "Nature", "Perception ", "Performance", "Persuasion", "Religion", "SleightofHand", "Stealth ", "Survival", "ClassLevel", "Race ","Background"]
 
         // console.log(formFields.filter(item => item.nombreCampo.includes("mod")));
-        console.log(formFields);
+        // console.log(formFields);
 
         var fields = formFields.filter(item => modsArray.includes(item.nombreCampo) || item.nombreCampo.includes("mod"));
         // console.log(fields);

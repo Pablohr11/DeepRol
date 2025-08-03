@@ -5,5 +5,6 @@
     $noteId = $_POST["noteId"];
     $noteValue = $_POST["value"];
 
-    $db->saveNote($noteId, $noteValue);
+    
+    echo($db->saveNote($noteId, $noteValue));
 ?>

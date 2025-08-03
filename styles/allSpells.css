@@ -176,6 +176,7 @@ input[type="submit"] {
     /* grid-template-columns: 33% 33% 33%; */
     column-gap: 5px;
     row-gap: 20px;
+    height: fit-content;
 }
 
 .displayColumns {

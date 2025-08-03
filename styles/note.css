@@ -23,7 +23,8 @@ body {
     color: azure;
     /* background-image: url("../resources/imgs/fondo.png"); */
     background-size: cover;
-    height: 666px !important;
+    min-height: 400px !important;
+    max-height: 666px !important;
 }
 
 .ql-editor {
@@ -84,3 +85,54 @@ body {
     0% { background-position: 0 0; }
     100% { background-position: 1000px 1000px; }
 }
+
+.ql-snow .ql-picker.ql-font .ql-picker-item[data-value="cinzel"]::before {
+    content: "Cinzel";
+    font-family: 'Cinzel', serif;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="uncial"]::before {
+    content: "Uncial Antiqua";
+    font-family: 'Uncial Antiqua', cursive;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="merriweather"]::before {
+    content: "Merriweather";
+    font-family: 'Merriweather', serif;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="librebaskerville"]::before {
+    content: "Libre Baskerville";
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-item[data-value="ebgaramond"]::before {
+    content: "EB Garamond";
+    font-family: 'EB Garamond', serif;
+  }
+
+  .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="cinzel"]::before {
+    content: "Cinzel";
+    font-family: 'Cinzel', serif;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="uncial"]::before {
+    content: "Uncial Antiqua";
+    font-family: 'Uncial Antiqua', cursive;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="merriweather"]::before {
+    content: "Merriweather";
+    font-family: 'Merriweather', serif;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="librebaskerville"]::before {
+    content: "Libre Baskerville";
+    font-family: 'Libre Baskerville', serif;
+  }
+  
+  .ql-snow .ql-picker.ql-font .ql-picker-label[data-value="ebgaramond"]::before {
+    content: "EB Garamond";
+    font-family: 'EB Garamond', serif;
+  }
+  

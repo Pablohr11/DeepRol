@@ -12,17 +12,32 @@
     z-index: 1000;
 }
 
+body:has(#embedSpellDiv) {
+    margin: 0;
+}
 
-#spellDiv::-webkit-scrollbar {
+#embedSpellDiv {
+    background-color: #202020;
+    padding: 20px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    position: relative;
+    z-index: 1000;
+}
+
+
+#spellDiv::-webkit-scrollbar, #embedSpellDiv::-webkit-scrollbar {
     display: none;
 }
-#spellDiv h1 {
+#spellDiv h1, #embedSpellDiv h1 {
     margin-top: 0;
     margin-bottom: 5px;
     font-size: 36px;
 }
 
-#spellDiv h1, #spellDiv h2, #spellDiv h3  {
+#spellDiv h1, #spellDiv h2, #spellDiv h3, #embedSpellDiv h1, #embedSpellDiv h2, #embedSpellDiv h3  {
     color: #b77d3b;
 }
 

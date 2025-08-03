@@ -12,4 +12,111 @@ h1 {
     color: #b77d3b;
 }
 
+#notesFilter {
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+    padding: 0 10px;
+}
 
+.notesFilterDiv {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 10px;
+    margin: auto;
+    max-width: 95%;
+    width: 100%;
+}
+
+.notesFilterDiv input[type="radio"] {
+    display: none;
+}
+
+.notesFilterDiv label, .notesFilterDiv button {
+    font-size: 16px;
+    flex: 1;
+    text-align: center;
+    padding: 5px 5px;
+    border: 2px solid #653d14;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #b77d3b;
+    color: #653d14;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    width: 100%;
+}
+
+.notesFilterDiv input[type="radio"]:checked + label {
+    background-color: #653d14;
+    color: white;
+    border-color: #b77d3b;
+    color: #b77d3b;    
+}
+
+
+.stickyDiv {
+    width: calc(100% - 10px);
+    position: fixed;
+    top: 0px;
+    background-color: #202020;
+    margin: 0;
+    padding: 0 15px 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+body {
+    padding-top: 140px;
+    background: #252525;
+}
+
+input[type="text"], input[type="submit"] {
+    background-color:#202020;
+    border: 2px solid #101010;
+    color: #b2b2b2;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.charGroupedNotes dt {
+    margin: 5px 10px;
+}
+
+.charGroupedNotesInnerSupDiv {
+    display: flex;
+    gap:10px;
+    align-items: center;
+    margin: 10px 0 0;
+}
+
+.charListImage {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.noteList.displayCols{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.noteList.displayList{
+    display: grid;
+    grid-template-columns: auto;
+}
+.noteList.displayList .actualNotes {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.actualNotes a, .actualNotes a:visited{
+    /* color: #b2b2b2; */
+    text-decoration: none;
+    color: #653d14;
+}
+
+.actualNotes a span, .actualNotes a:visited span{
+    color: #b2b2b2;
+}

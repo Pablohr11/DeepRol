@@ -342,11 +342,11 @@ class DbConector {
 
     public function getNotes($userId) {
         try {
-            $consulta = $this->db->prepare("SELECT * FROM notes where ID_User like :userId");
+            $consulta = $this->db->prepare("SELECT RelatedChar, ID, ID_User,RelatedChar, Nombre, Date, Value FROM notes where ID_User like :userId ORDER BY RelatedChar");
 
             $consulta->bindParam("userId", $userId, PDO::PARAM_INT);
             $results = $consulta->execute();
-            $data = $consulta->fetchAll();
+            $data = $consulta->fetchAll(PDO::FETCH_GROUP);
             return $data;
         } catch (PDOException $e) {
             echo $e->getMessage();
@@ -361,6 +361,25 @@ class DbConector {
             $results = $consulta->execute();
             $data = $consulta->fetch();
             return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function createNote($id_user, $id_char, $name, $date) {
+        try {
+            $consulta = $this->db->prepare("
+                INSERT INTO notes 
+                (ID_User, RelatedChar, Nombre, Date, Value) 
+                VALUES (:id_user, :id_char, :name, :date, '')
+            ");
+
+            $consulta->bindParam(":id_user", $id_user, PDO::PARAM_INT);
+            $consulta->bindParam(":id_char", $id_char, PDO::PARAM_INT);
+            $consulta->bindParam(":name", $name, PDO::PARAM_STR);
+            $consulta->bindParam(":date", $date, PDO::PARAM_STR);
+            $results = $consulta->execute();
+            return $results;
         } catch (PDOException $e) {
             echo $e->getMessage();
         }
@@ -399,6 +418,26 @@ class DbConector {
 
             $results = $consulta->execute();
             $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getNoteChars($userId) {
+        try {
+            // $consulta = $this->db->prepare("SELECT id, Nombre, short_desc, descr FROM clases");
+            $consulta = $this->db->prepare("select id_char,id_char, name, image_path from chars where id_char in (select RelatedChar from notes where ID_User = :userId);");
+
+            $consulta->bindParam("userId", $userId, PDO::PARAM_STR);
+
+
+            $results = $consulta->execute();
+            // if (isset($fetch_group)) {
+            //     $data = $consulta->fetchAll(PDO::FETCH_GROUP);
+            //     return $data;
+            // }
+            $data = $consulta->fetchAll(PDO::FETCH_GROUP);
             return $data;
         } catch (PDOException $e) {
             echo $e->getMessage();

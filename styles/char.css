@@ -45,16 +45,17 @@
     cursor: pointer;
 }
 
-#embedContainer {
+#embedContainer, #embededSpellContainer {
     display: none;
     position: fixed;
     top: 1%;
     left: 20%;
     width: 79%;
     height: 94%;
+    z-index: 15;
 }
 
-#embedTopBar {
+#embedTopBar, #embedSpellTopBar {
     display: grid;
     justify-content: end;
     background-color: #202020;
@@ -63,7 +64,12 @@
     border-top-right-radius: 10px;
 }
 
-#closeEmbed {
+#embedSpellTopBar {
+    justify-content: start;
+    background-color: #814e1a;
+}
+
+#closeEmbed, #closeSpellEmbed {
     display: grid;
     background-color: #690500;
     width: 20px;
@@ -93,6 +99,8 @@
     color: #b77d3b;
     font-size: 17px;
     text-transform: uppercase;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
 }
 
 .tab:hover {
@@ -123,14 +131,14 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
-@media (max-width: 1400px) {
+@media (max-width: 1500px) {
     .spellList {
         max-width: 696px;
     }
 
     
     .spellList.active {
-        grid-template-columns: 350px 350px;
+        grid-template-columns: auto auto;
     }
 
     #embedContainer {
@@ -745,4 +753,50 @@ input[type="radio"][disabled]:checked::after {
     border-radius: 5px;
     padding: 0px;
     display: grid;
+}
+
+#spellIframe {
+    width: 100%;
+    height: 100%;
+}
+
+.tabsSelector {
+    display: grid;
+    grid-template-columns: 130px 20px 180px;
+    width: fit-content;
+    gap: 20px;
+}
+
+.tabsSelector h2 {
+    cursor: pointer;
+}
+
+.tabsSelector .selected {
+    text-decoration: underline;
+}
+
+.tabContainer {
+    display: none;
+    height: 263px !important;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+#spellsTab {
+    display: block;
+}
+
+#notesTab iframe {
+    height: 100%;
+}
+
+.h2separator {
+    color: #b77d3b;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: escribirTitulo 1.5s steps(20) forwards;
+    margin: 20px 0;
+    font-size: 24px;
+    font-family: "Uncial Antiqua", system-ui;
 }

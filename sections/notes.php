@@ -11,7 +11,24 @@ if (!$_COOKIE["logged"]) {
 
 $notes = $db->getNotes($_COOKIE["logged"]);
 
-// var_dump($notes);
+$notesChars = $db->getNoteChars($userId);
+// $notesCharsGrouped = $db->getNoteChars($userId, true);
+
+$currentName = "";
+
+if ($notes != null) {
+    $currentName = $notesChars[key($notesChars  )][0]["name"];
+}
+// echo("<pre>");
+// // var_dump($notesChars);
+// echo("</pre>");
+
+$framed = "false";
+
+if (isset($_GET["framed"]) && $_GET["framed"] == "true") {
+  $framed = "true";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,12 +41,43 @@ $notes = $db->getNotes($_COOKIE["logged"]);
     <link rel="stylesheet" href="../styles/notes.css">
 </head>
 <body>
-    <h1>Apuntes</h1>
-
+    
+    <div class="stickyDiv" <?php if ($framed) {?> style="position:absolute; padding: 0 0px 10px; width:100%"  <?php } ?>>
+        <div id="notesHeader">
+            <h1>Apuntes</h1>
+            <form action="" id="notesFilter">
+                <input type="text" name="nameFilter">
+                <div class="notesFilterDiv">    
+                    <?php foreach ($notesChars as  $noteCharName) { ?>
+                        <input type="radio" id="<?=$noteCharName["name"]?>" value="<?=$noteCharName["id_char"]?>" name="classFilter" <?php //if($classFilter == "paladin") echo("checked") ?>>
+                        <label for="<?=$noteCharName[0]["name"]?>"><?=$noteCharName[0]["name"]?></label>
+                    <?php }  ?>
+                    
+                </div>
+                <input type="submit" value="Filtrar" name="submit">
+        </form>
+        </div>
+    </div>
     <div id="notesContainer">
-        <?php foreach ($notes as $key => $note) { ?>
-            <a href="note.php?id=<?=$note["ID"]?>" class="noteTitle"><?=$note["Nombre"]?> - <?= $db->getCharName($note["RelatedChar"])?> - <?=$note["Date"]?></a>
+        <div class="noteList">
+            
+        <?php foreach ($notes as $key => $note) { ?>            
+            <div class="charGroupedNotes">
+                <div class="charGroupedNotesInnerSupDiv">
+                    <img class="charListImage" src="../resources/chars/<?=$notesChars[$key][0]["name"]?>/<?=$notesChars[$key][0]["image_path"]?>">
+                    <h2><?=$notesChars[$key][0]["name"]?></h2>
+                </div>
+                <div class="actualNotes">
+                    <?php foreach ($note as $key => $actualNote) { ?>
+                        <dt>
+                            <a href="note.php?id=<?=$actualNote["ID"]?>&framed=<?=$framed?>" class="actualNoteTitle"><span><?=$actualNote["Nombre"]?></span> - <?=$actualNote["Date"]?></a>
+                        </dt>
+                    <?php } ?>
+                </div>
+            </div>
         <?php } ?>
+        
+        </div>
         <a href="newNote.php?uid=<?=$userId?>">Nueva nota</a>
     </div>
 </body>

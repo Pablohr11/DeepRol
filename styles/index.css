@@ -4,6 +4,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
 
+.ql-font-cinzel {
+    font-family: 'Cinzel', serif;
+  }
+  .ql-font-uncial {
+    font-family: 'Uncial Antiqua', cursive;
+  }
+  .ql-font-merriweather {
+    font-family: 'Merriweather', serif;
+  }
+  .ql-font-librebaskerville {
+    font-family: 'Libre Baskerville', serif;
+  }
+  .ql-font-ebgaramond {
+    font-family: 'EB Garamond', serif;
+  }
 
 body {
     margin: 0;

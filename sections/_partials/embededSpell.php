@@ -1,6 +1,6 @@
 <?php
 
-require_once("../classes/DbConnector.php");
+require_once("../../classes/DbConnector.php");
 
 $db = DbConector::singleton();
 
@@ -10,21 +10,14 @@ $spellData = $db->getSpells($spellId)[0];
 
 // var_dump($spellData);
 
-$spellSchoolPath = "../resources/imgs/spelltypes/";
-$spellImagePath = "../resources/imgs/spells/";
-
-$prevPath = $_GET["prevPath"];
-
-if (strpos($prevPath, "--") != -1) {
-    $prevPath = str_replace("--", "&", $prevPath);
-}
-
+$spellSchoolPath = "../../resources/imgs/spelltypes/";
+$spellImagePath = "../../resources/imgs/spells/";
 
 ?>
 
-<link rel="stylesheet" href="../styles/spell.css">
+<link rel="stylesheet" href="../../styles/spell.css">
 <div class="mist"></div>
-<div id="spellDiv">
+<div id="embedSpellDiv">
     <div id="spellTitleImageContainer">
         <?php $spellNameCut = strpos($spellData["name"], "(")-1; $cutName = substr($spellData["name"], 0, $spellNameCut) ?>
         <div id="spellNameImageContainer">
@@ -60,7 +53,6 @@ if (strpos($prevPath, "--") != -1) {
         <p class="spellInfo"><span class=" spelltitle">Clase</span><br> <?=$spellData["clases"]?></p>
         <div class="bottomSpellContainer">
             <p class="spellInfo"><span class="spelltitle">Escuela </span><br><?=$spellData["escuela"]?></p>
-            <a href="<?=$prevPath?>">← Volver</a>
         </div>
     </div>
 </div>

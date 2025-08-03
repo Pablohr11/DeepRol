@@ -64,7 +64,7 @@ array_shift($spellsLevels);
 <div id="allSpellsContainer">
     <div class="stickyDiv">
         <div class="subDiv">
-            <h2>Filtros</h2>
+            <h2>Habilidades</h2>
             <?php if (isset($charId)) { ?>
                 <div>
                     <a href="personaje.php?id=<?=$charId?>">← VOLVER</a>
@@ -111,8 +111,8 @@ array_shift($spellsLevels);
         <div id="subDiv3">
             <span class="spell first" id="firstSpell">TOTAL: <?= count($spells) ?></span>
             <div>
-                <img id="displayList" src="../resources/imgs/icons/list.png" alt="">
-                <img id="displayColumns" class="selectedDisplay" src="../resources/imgs/icons/columns.png" alt="">
+                <img id="displayList" class="selectedDisplay" src="../resources/imgs/icons/list.png" alt="">
+                <img id="displayColumns" src="../resources/imgs/icons/columns.png" alt="">
             </div>
         </div>
         <div class="levelFilterDiv">
@@ -126,7 +126,7 @@ array_shift($spellsLevels);
         </div>
     </div>
     <!-- >AKI <!-->
-    <div id="spellListHehe" class="displayColumns">
+    <div id="spellListHehe" class="displayList">
 
     <dl>
     <?php if (isset($currentLevel)) { ?>
@@ -145,12 +145,16 @@ array_shift($spellsLevels);
                 <?php } ?>
                 
                 <?php if (isset($charId)) { ?>
-                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                    <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
-                        <span class="addSpell" >✓</span>
-                    <?php } else { ?>
-                        <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
-                    <?php } ?>
+                    <div>
+                        
+                        <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                        <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
+                            <span class="addSpell" >✓</span>
+                        <?php } else { ?>
+                            <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                        <?php } ?>
+                        
+                    </div>
                 <?php } else { ?>
                     <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
                 <?php }  ?>
