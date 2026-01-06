@@ -4,8 +4,11 @@
 
 class DbConector {
     
-    private const DB_DATA = "mysql:host=localhost;dbname=deeprol";
-    private const USERNAME = "root" ;
+    // private const DB_DATA = "mysql:host=qanr736.deeprol.com;dbname=qanr736;charset=utf8mb4";
+    private const DB_DATA = "mysql:host=localhost;dbname=deeprol;charset=utf8mb4";
+    // private const USERNAME = "qanr736";
+    private const USERNAME = "root";
+    // private const PASSWD = "Jaktuni.calo2@J";
     private const PASSWD = "";
     private $db = "";
 
@@ -286,4 +289,91 @@ class DbConector {
             return $spellList.", ".$id_spell;
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    public function createChar(
+        $idUser,
+        $nombrePersonaje,
+        $razaPersonaje,
+        $imagenPequeña,
+        $imagenGeneral
+    ) {
+        $consulta = $this->db->prepare("insert into chars values(null, :userId, :charName, :charRace, 'ficha.pdf', :smallImage, :bigImage)");
+
+        $consulta->bindParam("userId", $idUser, PDO::PARAM_INT);
+        $consulta->bindParam("charName", $nombrePersonaje, PDO::PARAM_STR);
+        $consulta->bindParam("charRace", $razaPersonaje, PDO::PARAM_STR);
+        $consulta->bindParam("smallImage", $imagenPequeña, PDO::PARAM_STR);
+        $consulta->bindParam("bigImage", $imagenGeneral, PDO::PARAM_STR);
+
+        $results = $consulta->execute();
+    }
+
+    public function getNotes($userId) {
+        try {
+            $consulta = $this->db->prepare("SELECT ID, Nombre, RelatedChar, Date, name, image_path FROM notes as n, chars where  relatedChar = id_char and n.ID_User like :userId order by RelatedChar asc");
+
+            $consulta->bindParam("userId", $userId, PDO::PARAM_INT);
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getNote($noteId) {
+        try {
+            $consulta = $this->db->prepare("SELECT * FROM notes where ID like :noteId");
+
+            $consulta->bindParam("noteId", $noteId, PDO::PARAM_INT);
+            $results = $consulta->execute();
+            $data = $consulta->fetch();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function saveNote($noteId, $noteValue) {
+        try {
+            $consulta = $this->db->prepare("UPDATE notes SET Value = :noteValue WHERE ID = :noteId");
+
+            $consulta->bindParam(":noteId", $noteId, PDO::PARAM_INT);
+            $consulta->bindParam(":noteValue", $noteValue, PDO::PARAM_STR);
+            $results = $consulta->execute();
+
+            return $results;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getClasses() {
+        try {
+            // $consulta = $this->db->prepare("SELECT id, Nombre, short_desc, descr FROM clases");
+            $consulta = $this->db->prepare("SELECT * FROM clases");
+
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    public function getRazas() {
+        try {
+            $consulta = $this->db->prepare("SELECT * FROM razas");
+
+            $results = $consulta->execute();
+            $data = $consulta->fetchAll();
+            // echo '<pre>'; print_r($data); echo '</pre>';
+            return $data;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+>>>>>>> Stashed changes
 }

@@ -1,0 +1,405 @@
+[
+  {
+    "nombre": "Bárbaro",
+    "descripcion": "Un guerrero feroz que canaliza su furia para resistir y golpear con brutalidad.",
+    "dado_golpe": "1d12",
+    "pg_nivel_1": "12 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera", "armadura media", "escudos"],
+      "armas": ["armas simples", "armas marciales"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Fuerza", "Constitución"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Atletismo", "Intimidación", "Naturaleza", "Percepción", "Supervivencia", "Manejo de Animales"]
+      },
+      "equipo": {
+        "op1": ["una gran hacha", "cualquier arma marcial cuerpo a cuerpo"],
+        "op2": ["dos hachas de mano", "cualquier arma simple"],
+        "fijo": ["equipo de explorador", "cuatro jabalinas"]
+      }
+    },
+    "rasgos_clase_nivel_1": [
+      {
+        "nombre": "Ira",
+        "tipo": "bonus",
+        "usos": 2,
+        "recarga": "descanso largo",
+        "descripcion": "Furia temporal: daño extra y resistencia a daño contundente/cortante/perforante (según reglas)."
+      },
+      {
+        "nombre": "Defensa sin armadura",
+        "tipo": "pasivo",
+        "descripcion": "Sin armadura: CA = 10 + mod DEX + mod CON (puedes usar escudo)."
+      }
+    ]
+  },
+  {
+    "nombre": "Bardo",
+    "descripcion": "Un artista mágico que inspira y lanza conjuros a través de su interpretación.",
+    "dado_golpe": "1d8",
+    "pg_nivel_1": "8 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera"],
+      "armas": ["armas simples", "ballesta de mano", "espada larga", "estoque", "espada corta"],
+      "herramientas": ["tres instrumentos musicales (a elegir)"],
+      "salvaciones": ["Destreza", "Carisma"],
+      "habilidades": {
+        "elige": 3,
+        "opciones": [
+          "Acrobacias","Atletismo","Engaño","Historia","Interpretación","Intimidación","Investigación","Juego de Manos",
+          "Medicina","Naturaleza","Percepción","Perspicacia","Persuasión","Religión","Sigilo","Supervivencia","Trato con Animales"
+        ]
+      },
+      "equipo": {
+        "op1": ["un estoque", "una espada larga", "cualquier arma simple"],
+        "op2": ["paquete de diplomático", "paquete de artista"],
+        "op3": ["un laúd", "cualquier instrumento musical"],
+        "fijo": ["armadura de cuero", "una daga"]
+      }
+    },
+    "magia_nivel_1": {
+      "atributo": "Carisma",
+      "trucos_conocidos": 2,
+      "conjuros_nivel_1_conocidos": 4,
+      "espacios_nivel_1": 2
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Lanzamiento de conjuros", "tipo": "pasivo", "descripcion": "Lanza conjuros de bardo (CAR)." },
+      {
+        "nombre": "Inspiración bárdica",
+        "tipo": "bonus",
+        "usos": "modificador de Carisma (mín. 1)",
+        "recarga": "descanso largo",
+        "descripcion": "Otorgas un dado d6 de inspiración a un aliado (según reglas)."
+      }
+    ]
+  },
+  {
+    "nombre": "Clérigo",
+    "descripcion": "Un servidor de lo divino que cura, protege y castiga con poder sagrado.",
+    "dado_golpe": "1d8",
+    "pg_nivel_1": "8 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera", "armadura media", "escudos"],
+      "armas": ["armas simples"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Sabiduría", "Carisma"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Historia", "Perspicacia", "Medicina", "Persuasión", "Religión"]
+      },
+      "equipo": {
+        "op1": ["una maza", "un martillo de guerra (si es competente)"],
+        "op2": ["cota de malla", "armadura de cuero", "cota de escamas"],
+        "op3": ["ballesta ligera y 20 virotes", "cualquier arma simple"],
+        "op4": ["paquete de sacerdote", "paquete de explorador"],
+        "fijo": ["un escudo", "un símbolo sagrado"]
+      }
+    },
+    "magia_nivel_1": {
+      "atributo": "Sabiduría",
+      "trucos_conocidos": 3,
+      "conjuros_preparados": "nivel (1) + mod SAB",
+      "espacios_nivel_1": 2
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Lanzamiento de conjuros", "tipo": "pasivo", "descripcion": "Conjuros de clérigo (SAB), preparados." },
+      {
+        "nombre": "Dominio divino",
+        "tipo": "eleccion",
+        "descripcion": "Eliges un dominio en nivel 1; concede rasgos y conjuros de dominio (según dominio)."
+      }
+    ]
+  },
+  {
+    "nombre": "Druida",
+    "descripcion": "Un guardián de la naturaleza que lanza conjuros primordiales y domina saberes antiguos.",
+    "dado_golpe": "1d8",
+    "pg_nivel_1": "8 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera", "armadura media", "escudos (no de metal)"],
+      "armas": ["clava", "daga", "dardo", "jabalina", "maza", "bastón", "cimitarra", "hoz", "honda", "lanza"],
+      "herramientas": ["kit de herboristería"],
+      "salvaciones": ["Inteligencia", "Sabiduría"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Arcanos", "Trato con Animales", "Perspicacia", "Medicina", "Naturaleza", "Percepción", "Religión", "Supervivencia"]
+      },
+      "equipo": {
+        "op1": ["un escudo de madera", "cualquier arma simple"],
+        "op2": ["una cimitarra", "cualquier arma cuerpo a cuerpo simple"],
+        "fijo": ["armadura de cuero", "paquete de explorador", "un foco druídico"]
+      }
+    },
+    "magia_nivel_1": {
+      "atributo": "Sabiduría",
+      "trucos_conocidos": 2,
+      "conjuros_preparados": "nivel (1) + mod SAB",
+      "espacios_nivel_1": 2
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Druídico", "tipo": "pasivo", "descripcion": "Conoces el idioma secreto druídico." },
+      { "nombre": "Lanzamiento de conjuros", "tipo": "pasivo", "descripcion": "Conjuros de druida (SAB), preparados." }
+    ]
+  },
+  {
+    "nombre": "Guerrero",
+    "descripcion": "Un combatiente entrenado en armas y armaduras, adaptable a muchos estilos.",
+    "dado_golpe": "1d10",
+    "pg_nivel_1": "10 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera", "armadura media", "armadura pesada", "escudos"],
+      "armas": ["armas simples", "armas marciales"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Fuerza", "Constitución"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Acrobacias", "Manejo de Animales", "Atletismo", "Historia", "Perspicacia", "Intimidación", "Percepción", "Supervivencia"]
+      },
+      "equipo": {
+        "op1": ["cota de malla", "armadura de cuero y arco largo con 20 flechas"],
+        "op2": ["un arma marcial y un escudo", "dos armas marciales"],
+        "op3": ["una ballesta ligera y 20 virotes", "dos hachas de mano"],
+        "op4": ["paquete de explorador", "paquete de aventurero"]
+      }
+    },
+    "rasgos_clase_nivel_1": [
+      {
+        "nombre": "Estilo de combate",
+        "tipo": "eleccion",
+        "descripcion": "Eliges un estilo de combate (p. ej. Defensa, Duelos, Gran arma, etc.)."
+      },
+      {
+        "nombre": "Segundo aliento",
+        "tipo": "bonus",
+        "usos": 1,
+        "recarga": "descanso corto o largo",
+        "descripcion": "Te curas 1d10 + nivel de guerrero (1)."
+      }
+    ]
+  },
+  {
+    "nombre": "Monje",
+    "descripcion": "Un artista marcial disciplinado que combate sin armadura usando ki y técnica.",
+    "dado_golpe": "1d8",
+    "pg_nivel_1": "8 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["ninguna"],
+      "armas": ["armas simples", "espadas cortas"],
+      "herramientas": ["un tipo de herramienta de artesano o un instrumento musical (a elegir)"],
+      "salvaciones": ["Fuerza", "Destreza"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Acrobacias", "Atletismo", "Historia", "Perspicacia", "Religión", "Sigilo"]
+      },
+      "equipo": {
+        "op1": ["una espada corta", "cualquier arma simple"],
+        "op2": ["paquete de explorador", "paquete de dungeoneer"],
+        "fijo": ["10 dardos"]
+      }
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Defensa sin armadura", "tipo": "pasivo", "descripcion": "Sin armadura ni escudo: CA = 10 + mod DEX + mod SAB." },
+      { "nombre": "Artes marciales", "tipo": "pasivo", "descripcion": "Golpes desarmados/armas de monje con DEX y daño base (según nivel); permite ataque extra con bonus en ciertas condiciones." }
+    ]
+  },
+  {
+    "nombre": "Paladín",
+    "descripcion": "Un campeón sagrado, juramentado, que combina marcialidad y dones de curación.",
+    "dado_golpe": "1d10",
+    "pg_nivel_1": "10 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera", "armadura media", "armadura pesada", "escudos"],
+      "armas": ["armas simples", "armas marciales"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Sabiduría", "Carisma"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Atletismo", "Perspicacia", "Intimidación", "Medicina", "Persuasión", "Religión"]
+      },
+      "equipo": {
+        "op1": ["un arma marcial y un escudo", "dos armas marciales"],
+        "op2": ["cinco jabalinas", "cualquier arma simple cuerpo a cuerpo"],
+        "op3": ["paquete de sacerdote", "paquete de explorador"],
+        "fijo": ["cota de malla", "un símbolo sagrado"]
+      }
+    },
+    "rasgos_clase_nivel_1": [
+      {
+        "nombre": "Sentido divino",
+        "tipo": "accion",
+        "usos": "1 + mod CAR",
+        "recarga": "descanso largo",
+        "descripcion": "Detectas celestiales, infernales y no muertos cercanos (según reglas)."
+      },
+      {
+        "nombre": "Imposición de manos",
+        "tipo": "accion",
+        "usos": "reserva 5 PG",
+        "recarga": "descanso largo",
+        "descripcion": "Reservorio de curación: 5 puntos por nivel de paladín (5)."
+      }
+    ]
+  },
+  {
+    "nombre": "Explorador",
+    "descripcion": "Un cazador y rastreador experto, especializado en sobrevivir y combatir en lo salvaje.",
+    "dado_golpe": "1d10",
+    "pg_nivel_1": "10 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera", "armadura media", "escudos"],
+      "armas": ["armas simples", "armas marciales"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Fuerza", "Destreza"],
+      "habilidades": {
+        "elige": 3,
+        "opciones": ["Trato con Animales", "Atletismo", "Perspicacia", "Investigación", "Naturaleza", "Percepción", "Sigilo", "Supervivencia"]
+      },
+      "equipo": {
+        "op1": ["cota de escamas", "armadura de cuero"],
+        "op2": ["dos espadas cortas", "dos armas cuerpo a cuerpo simples"],
+        "op3": ["paquete de dungeoneer", "paquete de explorador"],
+        "fijo": ["un arco largo", "un carcaj con 20 flechas"]
+      }
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Enemigo predilecto", "tipo": "eleccion", "descripcion": "Eliges tipo(s) de enemigo; obtienes ventajas de rastreo/conocimiento (según reglas)." },
+      { "nombre": "Explorador nato", "tipo": "eleccion", "descripcion": "Eliges un terreno predilecto; mejoras de viaje y exploración (según reglas)." }
+    ]
+  },
+  {
+    "nombre": "Pícaro",
+    "descripcion": "Un experto en habilidades, sigilo y golpes precisos cuando el enemigo está distraído.",
+    "dado_golpe": "1d8",
+    "pg_nivel_1": "8 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera"],
+      "armas": ["armas simples", "ballesta de mano", "espada larga", "estoque", "espada corta"],
+      "herramientas": ["herramientas de ladrón"],
+      "salvaciones": ["Destreza", "Inteligencia"],
+      "habilidades": {
+        "elige": 4,
+        "opciones": [
+          "Acrobacias","Atletismo","Engaño","Interpretación","Intimidación","Investigación","Juego de Manos",
+          "Percepción","Perspicacia","Persuasión","Sigilo","Supervivencia","Trato con Animales"
+        ]
+      },
+      "equipo": {
+        "op1": ["un estoque", "una espada corta"],
+        "op2": ["un arco corto y un carcaj con 20 flechas", "una espada corta"],
+        "op3": ["paquete de dungeoneer", "paquete de explorador", "paquete de ladrón"],
+        "fijo": ["armadura de cuero", "dos dagas", "herramientas de ladrón"]
+      }
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Pericia", "tipo": "eleccion", "descripcion": "Eliges 2 competencias (habilidades y/o herramientas de ladrón) para doblar tu bonificador." },
+      { "nombre": "Ataque furtivo", "tipo": "pasivo", "descripcion": "1d6 extra una vez por turno si cumples condiciones (ventaja o aliado adyacente, etc.)." },
+      { "nombre": "Jerga de los ladrones", "tipo": "pasivo", "descripcion": "Conoces el argot secreto de los ladrones." }
+    ]
+  },
+  {
+    "nombre": "Hechicero",
+    "descripcion": "Un lanzador innato cuyo poder mágico proviene de su linaje o una fuente interna.",
+    "dado_golpe": "1d6",
+    "pg_nivel_1": "6 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["ninguna"],
+      "armas": ["daga", "dardo", "honda", "bastón", "ballesta ligera"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Constitución", "Carisma"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Arcanos", "Engaño", "Perspicacia", "Intimidación", "Persuasión", "Religión"]
+      },
+      "equipo": {
+        "op1": ["una ballesta ligera y 20 virotes", "cualquier arma simple"],
+        "op2": ["una bolsa de componentes", "un foco arcano"],
+        "op3": ["paquete de dungeoneer", "paquete de explorador"],
+        "fijo": ["dos dagas"]
+      }
+    },
+    "magia_nivel_1": {
+      "atributo": "Carisma",
+      "trucos_conocidos": 4,
+      "conjuros_nivel_1_conocidos": 2,
+      "espacios_nivel_1": 2
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Lanzamiento de conjuros", "tipo": "pasivo", "descripcion": "Conjuros de hechicero (CAR), conocidos." },
+      { "nombre": "Origen hechicero", "tipo": "eleccion", "descripcion": "Eliges un origen en nivel 1; concede rasgos (según origen)." }
+    ]
+  },
+  {
+    "nombre": "Brujo",
+    "descripcion": "Un pactante que obtiene magia a cambio de servir o negociar con un patrón sobrenatural.",
+    "dado_golpe": "1d8",
+    "pg_nivel_1": "8 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["armadura ligera"],
+      "armas": ["armas simples"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Sabiduría", "Carisma"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Arcanos", "Engaño", "Historia", "Intimidación", "Investigación", "Naturaleza", "Religión"]
+      },
+      "equipo": {
+        "op1": ["una ballesta ligera y 20 virotes", "cualquier arma simple"],
+        "op2": ["una bolsa de componentes", "un foco arcano"],
+        "op3": ["paquete de erudito", "paquete de dungeoneer"],
+        "fijo": ["armadura de cuero", "cualquier arma simple", "dos dagas"]
+      }
+    },
+    "magia_nivel_1": {
+      "atributo": "Carisma",
+      "trucos_conocidos": 2,
+      "conjuros_nivel_1_conocidos": 2,
+      "espacios_nivel_1": 1,
+      "nota": "Magia de pacto: el espacio se recupera con descanso corto o largo."
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Patrón sobrenatural", "tipo": "eleccion", "descripcion": "Eliges un patrón en nivel 1; concede rasgos (según patrón)." },
+      { "nombre": "Magia de pacto", "tipo": "pasivo", "descripcion": "Conjuros de brujo (CAR) con pocos espacios que recargan rápido." }
+    ]
+  },
+  {
+    "nombre": "Mago",
+    "descripcion": "Un estudioso de lo arcano que lanza conjuros mediante libros y preparación rigurosa.",
+    "dado_golpe": "1d6",
+    "pg_nivel_1": "6 + modificador de Constitución",
+    "competencias": {
+      "armaduras": ["ninguna"],
+      "armas": ["daga", "dardo", "honda", "bastón", "ballesta ligera"],
+      "herramientas": ["ninguna"],
+      "salvaciones": ["Inteligencia", "Sabiduría"],
+      "habilidades": {
+        "elige": 2,
+        "opciones": ["Arcanos", "Historia", "Perspicacia", "Investigación", "Medicina", "Religión"]
+      },
+      "equipo": {
+        "op1": ["un bastón", "una daga"],
+        "op2": ["una bolsa de componentes", "un foco arcano"],
+        "op3": ["paquete de erudito", "paquete de dungeoneer"],
+        "fijo": ["un libro de conjuros"]
+      }
+    },
+    "magia_nivel_1": {
+      "atributo": "Inteligencia",
+      "trucos_conocidos": 3,
+      "conjuros_en_libro": 6,
+      "conjuros_preparados": "nivel (1) + mod INT",
+      "espacios_nivel_1": 2
+    },
+    "rasgos_clase_nivel_1": [
+      { "nombre": "Lanzamiento de conjuros", "tipo": "pasivo", "descripcion": "Conjuros de mago (INT), preparados desde el libro." },
+      {
+        "nombre": "Recuperación arcana",
+        "tipo": "recurso",
+        "usos": 1,
+        "recarga": "descanso largo",
+        "descripcion": "Tras descanso corto: recuperas espacios con total de niveles hasta la mitad de tu nivel de mago (mín. 1)."
+      }
+    ]
+  }
+]

@@ -25,6 +25,7 @@ if (isset($charSpells) && $charSpells != null) {
 <link rel="stylesheet" href="../styles/char.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
 <script src="../scripts/char.js" ></script>
+<<<<<<< Updated upstream
 <div id="charDiv">
     <!-- //? LEFT CONTAINER  -->
     <div>
@@ -32,6 +33,52 @@ if (isset($charSpells) && $charSpells != null) {
         <div id="sheetButtons">
             <button id="showPdfButton">Ver Ficha</button>
             <button id="showPdfButton">Actualizar Ficha</button>
+=======
+<div class="mist"></div>
+<!-- <div class="contenedor-linterna" id="contenedor-linterna">
+<div id="gancho"></div>
+  <div class="linterna" id="linterna"></div>
+  <div class="haz-de-luz" id="haz-de-luz"></div>
+</div> -->
+
+    <div id="charDiv">
+        <!-- //? LEFT CONTAINER  -->
+        <div class="charControls">
+            <div class="card">
+                <img src="../resources/chars/<?=$charData["name"]?>/<?=$charData["full_body_image_path"]?>" id="fullBodyImg" alt="" class="personaje">
+            </div>
+            <div id="sheetButtons">
+                <button id="showPdfButton">Ver Ficha</button>
+                <button id="showPdfButton">Actualizar Ficha</button>
+            </div>
+            <div id="stContainer">
+                <h3>Tiradas de salvación</h3>
+                <div class="stDiv">
+                    <span class="stValue"  id="ST-Strength">+2</span>
+                    <span class="stInfo">Fuerza</span>
+                </div>
+                <div class="stDiv">
+                    <span class="stValue"  id="ST-Dexterity">+2</span>
+                    <span class="stInfo">Destreza</span>
+                </div>
+                <div class="stDiv">
+                    <span class="stValue"  id="ST-Constitution">+2</span>
+                    <span class="stInfo">Constitucion</span>
+                </div>
+                <div class="stDiv">
+                    <span class="stValue"  id="ST-Intelligence">+2</span>
+                    <span class="stInfo">Inteligencia</span>
+                </div>
+                <div class="stDiv">
+                    <span class="stValue"  id="ST-Wisdom">+2</span>
+                    <span class="stInfo">Sabiduria</span>
+                </div>
+                <div class="stDiv">
+                    <span class="stValue"  id="ST-Charisma">+2</span>
+                    <span class="stInfo">Carisma</span>
+                </div>
+            </div>
+>>>>>>> Stashed changes
         </div>
         <div id="stContainer">
             <h3>Tiradas de salvación</h3>
@@ -43,6 +90,7 @@ if (isset($charSpells) && $charSpells != null) {
                 <span class="stValue"  id="ST-Dexterity">+2</span>
                 <span class="stInfo">Destreza</span>
             </div>
+<<<<<<< Updated upstream
             <div class="stDiv">
                 <span class="stValue"  id="ST-Constitution">+2</span>
                 <span class="stInfo">Constitucion</span>
@@ -58,10 +106,60 @@ if (isset($charSpells) && $charSpells != null) {
             <div class="stDiv">
                 <span class="stValue"  id="ST-Charisma">+2</span>
                 <span class="stInfo">Carisma</span>
+=======
+            <?php if ($grouped) { ?>
+                <div id="spellListContainer">
+                    <?php foreach ($grouped as $key => $group) { ?>
+                        <div class="spellList" id="level-<?=$key?>">
+
+                            <?php foreach ($group as $keySpell => $spell) { ?>
+                                <?php //var_dump($spell)  ?>
+                                <!-- <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a> -->
+                                <a class="spellsInfo" onclick='showEmbedSpell(<?=$spell["id_spell"]?>)'> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
+                            <?php } ?>
+                    
+                        </div>
+                        <div class="spellCounter" id="spellCounter-<?=$key?>">
+                            <h3>Gastado</h3>
+                            <h5><?=$key?></h5>
+                            <div class="spellCounterInner">
+                                <div class="spellSpace counter-1"></div>
+                                <div class="spellSpace counter-2"></div>
+                                <div class="spellSpace counter-3"></div>
+                                <div class="spellSpace counter-4"></div>
+                            </div>
+                            <div class="counterButtons">
+                                <button class="minus-counter" value="0">-</button>
+                                <input type="hidden" id="valueCounter" value="0">
+                                <button class="add-counter" value=0>+</button>
+                            </div>
+                        </div>
+                    <?php } ?>
+
+                </div>
+            <?php } ?>
+        </div>
+        <div id="embedContainer">
+            <div id="embedTopBar">
+                <span id="closeEmbed">X</span>
+>>>>>>> Stashed changes
+            </div>
+        </div>
+        <div id="imgAmpliadaContainer" class="hidden">
+            <div id="imgAmpliadaInnerContainer">
+                <img src="" id="imgAmpliada">
+                <button id="closeImage">X</button>
+            </div>
+        </div>
+        <div id="spellAmpliadoContainer" class="hidden">
+            <div id="spellAmpliadaInnerContainer">
+                <iframe src="" frameborder="0" id="spellIframe"></iframe>
+                <button id="closeSpellIframe">X</button>
             </div>
         </div>
     </div>
 
+<<<<<<< Updated upstream
     <!-- //? MAIN CONTENT -->
     <div class="charInfo">
         <div id="topContent">
@@ -88,6 +186,11 @@ if (isset($charSpells) && $charSpells != null) {
                         </div>
                     </div>
                 </div>
+=======
+
+<script>
+    setPdfFields("../resources/chars//<?=$charData["name"]?>/ficha.pdf");
+>>>>>>> Stashed changes
 
                 <h2>Caracteristicas</h2>
                 <div class="charStats">
@@ -176,6 +279,7 @@ if (isset($charSpells) && $charSpells != null) {
                 </div>
             </div>
 
+<<<<<<< Updated upstream
             <div id="skillsDiv">
                 <h2>Habilidades</h2>
                 <div id="skillsContainer">
@@ -279,10 +383,34 @@ if (isset($charSpells) && $charSpells != null) {
                     <?php //var_dump($spell)  ?>
                     <a class="spellsInfo" href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$_SERVER['REQUEST_URI']?>"> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?> - <?=$spell["casteo"]?></a>
                 <?php } ?>
+=======
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left; // posición X dentro del contenedor
+        const y = e.clientY - rect.top;  // posición Y dentro del contenedor
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = -(y - centerY) / 15;
+        const rotateY = (x - centerX) / 15;
+
+        personaje.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+        personaje.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    });
+
+    document.getElementById("linterna").addEventListener('click', function() {
+        document.getElementById("linterna").classList.toggle("linterna_off");
+        document.getElementById("haz-de-luz").classList.toggle("haz-de-luz_off");
+>>>>>>> Stashed changes
         
             </div>
         <?php } ?>
 
+<<<<<<< Updated upstream
     </div>
 	<div id="embedContainer">
 		<div id="embedTopBar">
@@ -300,4 +428,44 @@ if (isset($charSpells) && $charSpells != null) {
 
 <script>
     setPdfFields("../resources/fichas/<?=$charData["pdf_path"]?>");
+=======
+    document.getElementById("gancho").addEventListener('click', function() {
+        document.getElementById("contenedor-linterna").classList.add("fallen-contenedor-linterna")
+    })
+</script>
+
+<script>
+    const smallImage = document.getElementById("fullBodyImg");
+    const imgAmpliadaContainer = document.getElementById("imgAmpliadaContainer");
+    const imagenAmpliada = document.getElementById("imgAmpliada");
+    const closeImage = document.getElementById("closeImage");
+
+    smallImage.addEventListener('click', function() {
+        imagenAmpliada.setAttribute("src", smallImage.getAttribute("src"));
+        imgAmpliadaContainer.classList.toggle("hidden");
+        imgAmpliadaContainer.classList.toggle("shown");
+    })
+
+    closeImage.addEventListener('click', function() {
+        imgAmpliadaContainer.classList.toggle("hidden");
+        imgAmpliadaContainer.classList.toggle("shown");
+    })
+</script>
+<script>
+    const spellAmpliadoContainer = document.getElementById("spellAmpliadoContainer");
+    const spellIframe = document.getElementById("spellIframe");
+    const closeSpellIframe = document.getElementById("closeSpellIframe");
+
+    function showEmbedSpell(spellId) {
+        spellIframe.setAttribute("src", "spellToEmbed.php?id_spell="+spellId);
+        spellAmpliadoContainer.classList.toggle("hidden");
+        spellAmpliadoContainer.classList.toggle("shown");
+
+
+    }
+    closeSpellIframe.addEventListener('click', function() {
+        spellAmpliadoContainer.classList.toggle("hidden");
+        spellAmpliadoContainer.classList.toggle("shown");
+    })
+>>>>>>> Stashed changes
 </script>

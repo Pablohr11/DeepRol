@@ -126,14 +126,19 @@ array_shift($spellsLevels);
             if ($spell["level"] == $currentLevel) { ?>
             <dd>
                 <?php if (isset($charId)) { ?>
-                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
-                    <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
-                        <span class="addSpell" >✓</span>
-                    <?php } else { ?>
-                        <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
-                    <?php } ?>
+                    <div>
+                        <!-- <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a> -->
+                        <a class="spell" onclick='showEmbedSpell(<?=$spell["id_spell"]?>)'> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?></a>
+                        <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
+                            <span class="addSpell" >✓</span>
+                        <?php } else { ?>
+                            <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                            <!-- <a class="spell" onclick='showEmbedSpell(<?=$spell["id_spell"]?>)'> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?></a> -->
+                        <?php } ?>
+                    </div>
                 <?php } else { ?>
-                    <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
+                    <!-- <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a> -->
+                    <a class="spell" onclick='showEmbedSpell(<?=$spell["id_spell"]?>)'> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?></a>
                 <?php }  ?>
             </dd>
             <?php } else {?>
@@ -156,6 +161,12 @@ array_shift($spellsLevels);
     <?php ?>
 
     <button onclick="scrollUp()" id="volverArriba" class="hidden"><?=$arrowUpSvg?></button>
+</div>
+<div id="spellAmpliadoContainer" class="hidden">
+    <div id="spellAmpliadaInnerContainer">
+        <iframe src="" frameborder="0" id="spellIframe"></iframe>
+        <button id="closeSpellIframe">X</button>
+    </div>
 </div>
 
 <script>
@@ -191,10 +202,27 @@ array_shift($spellsLevels);
         }
     })
     window.addEventListener("load", (event) => {
-        var targetwidth = document.getElementsByClassName("classesFilterDiv")[0].getBoundingClientRect().width;
-        console.log(targetwidth);
-        document.getElementsByClassName("classesFilterDiv")[1].style.width = targetwidth ;
-
+        if (document.getElementsByClassName("classesFilterDiv")[0] != undefined) {
+            var targetwidth = document.getElementsByClassName("classesFilterDiv")[0].getBoundingClientRect().width;
+            document.getElementsByClassName("classesFilterDiv")[1].style.width = targetwidth ;
+        }
     });
 </script>
 
+<script>
+    const spellAmpliadoContainer = document.getElementById("spellAmpliadoContainer");
+    const spellIframe = document.getElementById("spellIframe");
+    const closeSpellIframe = document.getElementById("closeSpellIframe");
+
+    function showEmbedSpell(spellId) {
+        spellIframe.setAttribute("src", "spellToEmbed.php?id_spell="+spellId);
+        spellAmpliadoContainer.classList.toggle("hidden");
+        spellAmpliadoContainer.classList.toggle("shown");
+
+
+    }
+    closeSpellIframe.addEventListener('click', function() {
+        spellAmpliadoContainer.classList.toggle("hidden");
+        spellAmpliadoContainer.classList.toggle("shown");
+    })
+</script>

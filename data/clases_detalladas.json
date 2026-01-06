@@ -1,0 +1,103 @@
+{
+  "nombre": "Bárbaro",
+  "descripcion": "",
+  "dado_golpe": "1d12",
+  "competencias": {
+    "armaduras": ["armadura ligera","armadura media","escudos"],
+    "armas": ["armas simples", "armas marciales"],
+    "Herramientas":["ninguna"],
+    "salvaciones": ["Fuerza", "Constitución"],
+    "habilidades": {
+      "elige": 2,
+      "opciones": ["Atletismo", "Intimidación", "Naturaleza", "Percepción", "Supervivencia", "Manejo de Animales"]
+    },
+    "Equipo":{
+        "op1": ["Una gran hacha","cualquier arma marcial cuerpo a cuerpo"],
+        "op2": ["Dos hachas de mano","Cualquier arma simple"],
+        "op3": "Un equipo de explorador y cuatro jabalinas."
+    }
+  },
+  "rasgos_por_nivel": {
+    "1": {
+        "Furia":"Durante 1 minuto, puedes entrar en furia como acción adicional si no llevas armadura pesada. Mientras estás en furia: Tienes ventaja en pruebas y salvaciones de Fuerza. Haces más daño en ataques cuerpo a cuerpo con Fuerza. Eres resistente al daño contundente, cortante y perforante. No puedes lanzar ni concentrarte en hechizos. La furia termina si no atacas o recibes daño en un turno, si caes inconsciente, o si la cancelas. Tienes usos limitados por descanso largo.",
+        "Defensa sin Armadura":"Mientras no lleves ninguna armadura, tu Clase de Armadura será de 10 + Modificador de Destreza + Modificador de Constitución. Puedes usar un escudo y aun así beneficiarte de este rasgo.",
+        "Bon_competencia":2
+                            },
+    "2": {
+        "Ataque Temerario": "Desde nivel 2, puedes atacar de forma temeraria: ganas ventaja en tu primer ataque cuerpo a cuerpo con Fuerza ese turno, pero los ataques contra ti también tienen ventaja hasta tu próximo turno.", 
+        "Sentido del Peligro": "Desde nivel 2, tienes ventaja en tiradas de salvación de Destreza contra efectos que puedas ver, como trampas o hechizos, siempre que no estés ciego, sordo o incapacitado.",
+        "Bon_competencia":2
+    },
+    "3": {
+        "Bon_competencia":2,
+        "Senda Primaria":["Senda del berserker","Senda del guerrero totémico"]
+    },
+    "4": {
+        "Bon_competencia":2,
+        "Mejora de Puntuación de Característica":true
+    },
+    "5": {
+        "Ataque Extra":"A partir del nivel 5, puedes atacar dos veces, en lugar de una, siempre que uses la acción de Atacar en tu turno.", 
+        "Movimiento Rápido":"A partir del nivel 5, tu velocidad se incrementa en 10 pies (3 metros) mientras no estés usando armadura pesada."},
+    "6": {"Rasgo de Senda":true},
+    "7": {"Instinto Salvaje":"Tienes ventaja en iniciativa. Si te sorprenden y no estás incapacitado, puedes actuar en tu primer turno si entras en furia antes de hacer otra acción."},
+    "8": {"Mejora de Puntuación de Característica":true},
+    "9": {"Crítico Brutal":"Añades 1 dado extra al daño de un golpe crítico cuerpo a cuerpo."},
+    "10": {"Rasgo de Senda":true},
+    "11": {"Furia Implacable":"Si tus PV llegan a 0 mientras estás en furia y no mueres de inmediato, puedes hacer una salvación de Constitución CD 10. Si la pasas, quedas con 1 PV. La CD sube en 5 cada vez que lo usas, y se reinicia a 10 tras un descanso."},
+    "12": {"Mejora de Puntuación de Característica":true},
+    "13": {"Crítico Brutal":"Añades 2 dado extra al daño de un golpe crítico cuerpo a cuerpo."},
+    "14": {"Rasgo de Senda":true},
+    "15": {"Furia Persistente":"Empezando en el nivel 15, tu furia es tan feroz que sólo termina prematuramente si caes inconsciente o decides terminarla."},
+    "16": {"Mejora de Puntuación de Característica":true},
+    "17": {"Crítico Brutal":"Añades 3 dado extra al daño de un golpe crítico cuerpo a cuerpo."},
+    "18": {"Fuerza Indómita":"Empezando en el nivel 18, si tu puntuación total para una prueba de Fuerza es menor a tu puntuación de Fuerza, puedes usarla en lugar de la puntuación total de la tirada."},
+    "19": {"Mejora de Puntuación de Característica":true},
+    "20": {"Campeón Primitivo":"En el nivel 20, encarnas el poder del salvajismo. Tus puntuaciones de Fuerza y Constitución se incrementan en 4. El máximo para esas puntuaciones es ahora 24."}
+  },
+  "arquetipos": [
+    {
+      "nombre": "Senda del berserker",
+      "rasgos_por_nivel": {
+        "3": {
+            "Frenesí": "Al nivel 3, al entrar en frenesí durante tu furia, puedes hacer un ataque cuerpo a cuerpo extra cada turno, pero al terminar la furia ganas un nivel de fatiga."
+        },
+        "6": {
+            "Furia Inconsciente":"Desde nivel 6, en furia no puedes ser encantado ni asustado; si ya lo estabas, se suspende mientras dure la furia."
+        },
+        "10": {
+            "Presencia Intimidante":"Desde nivel 10, puedes usar tu acción para asustar a una criatura cercana (30 pies). Si falla una salvación de Sabiduría, queda asustada hasta tu siguiente turno. Puedes extender el efecto con tu acción. Termina si se aleja 60 pies o más o sale de tu vista. Si supera la tirada, no puedes volver a usar esto contra ella por 24 horas."
+        },
+        "14": {
+            "Represalia":"Desde nivel 14, si una criatura a 5 pies te daña, puedes usar tu reacción para hacerle un ataque cuerpo a cuerpo."
+        }
+      }
+    },
+    {
+      "nombre": "Senda del guerrero totémico",
+      "rasgos_por_nivel": {
+        "3": {
+            "Espíritu Tótem":"Al nivel 3, eliges un tótem animal (oso, águila o lobo) y creas un adorno que lo represente.",
+            "Oso": "Resistencia a todo daño excepto psíquico.",
+            "Águila": "Si no llevas armadura pesada, desventaja en ataques de oportunidad contra ti y puedes hacer Carrera como acción adicional.",
+            "Lobo": "Aliados tienen ventaja en ataques cuerpo a cuerpo contra enemigos a 5 pies de ti."
+        },
+        "6": {
+            "Aspecto de la Bestia":"Ganas un beneficio según el tótem elegido.",
+            "Oso":"Duplicas tu capacidad de carga y tienes ventaja en pruebas de Fuerza para empujar, levantar, tirar o romper.",
+            "Águila":"Ves hasta una milla con claridad, detalles a 30 m, y la luz tenue no afecta tus pruebas de Percepción.",
+            "Lobo":"Puedes rastrear a ritmo rápido y moverte sigilosamente a ritmo normal, mientras viajas."
+        },
+        "10": {
+            "Caminante Espiritual":"Puedes lanzar comunión con la naturaleza como ritual. Un espíritu animal (oso, águila o lobo) aparece para darte la información."
+        },
+        "14": {
+            "Sintonía Totémica":"Ganas un beneficio según el tótem elegido (puede ser diferente a los anteriores)",
+            "Oso":"Oso: Enemigos a 5 pies tienen desventaja al atacar a otros que no sean tú (si pueden verte/oírte y pueden ser asustados).",
+            "Águila": "Obtienes vuelo igual a tu velocidad, pero caes si terminas el turno en el aire sin soporte.",
+            "Lobo": "Al golpear en cuerpo a cuerpo, puedes usar una acción adicional para derribar a una criatura Grande o menor."
+        }
+      }
+    }
+  ]
+}

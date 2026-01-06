@@ -1,0 +1,556 @@
+[
+  {
+    "Enano": {
+      "nombre": "Enano",
+      "descripcion": "Bajos, robustos y resistentes, con fuerte tradición artesanal.",
+      "velocidad": 25,
+      "vision": { "tipo": "oscuridad", "alcance_pies": 60 },
+      "idiomas": { "fijos": ["Común", "Enano"], "elige": 0, "opciones": [] },
+      "rasgos_raciales": [
+        {
+          "nombre": "Velocidad enana",
+          "tipo": "pasivo",
+          "usos": 0,
+          "recarga": "ninguna",
+          "descripcion": "Tu velocidad no se reduce por llevar armadura pesada."
+        },
+        {
+          "nombre": "Resiliencia enana",
+          "tipo": "pasivo",
+          "usos": 0,
+          "recarga": "ninguna",
+          "descripcion": "Ventaja contra veneno y resistencia al daño por veneno."
+        },
+        {
+          "nombre": "Entrenamiento en combate enano",
+          "tipo": "pasivo",
+          "usos": 0,
+          "recarga": "ninguna",
+          "descripcion": "Competencia con hacha de batalla, hacha de mano, martillo ligero y martillo de guerra."
+        },
+        {
+          "nombre": "Competencia con herramientas",
+          "tipo": "eleccion",
+          "usos": 0,
+          "recarga": "ninguna",
+          "descripcion": "Ganas competencia con una herramienta de artesano a elegir: herrero, cervecero o albañil."
+        },
+        {
+          "nombre": "Afinidad con la piedra",
+          "tipo": "pasivo",
+          "usos": 0,
+          "recarga": "ninguna",
+          "descripcion": "Doble competencia en Historia relacionada con piedra."
+        }
+      ],
+      "resistencias": ["veneno"],
+      "competencias": {
+        "armas": ["hacha de batalla", "hacha de mano", "martillo ligero", "martillo de guerra"],
+        "armaduras": [],
+        "herramientas": [],
+        "habilidades": []
+      }
+    },
+    "subrazas": [
+      {
+        "nombre": "Enano de las colinas",
+        "descripcion": "Resistentes y sabios.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 0,
+          "Constitucion": 2,
+          "Inteligencia": 0,
+          "Sabiduria": 1,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [
+          {
+            "nombre": "Dureza enana",
+            "tipo": "pasivo",
+            "usos": 0,
+            "recarga": "ninguna",
+            "descripcion": "Tu máximo de PG aumenta en +1 y vuelve a aumentar en +1 cada vez que subes de nivel."
+          }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Enano de las montañas",
+        "descripcion": "Fuertes y marciales.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 2,
+          "Destreza": 0,
+          "Constitucion": 2,
+          "Inteligencia": 0,
+          "Sabiduria": 0,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [
+          {
+            "nombre": "Entrenamiento con armaduras enano",
+            "tipo": "pasivo",
+            "usos": 0,
+            "recarga": "ninguna",
+            "descripcion": "Competencia con armaduras ligeras y medias."
+          }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": ["armadura ligera", "armadura media"], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Elfo": {
+      "nombre": "Elfo",
+      "descripcion": "Ágiles, longevos y perceptivos.",
+      "velocidad": 30,
+      "vision": { "tipo": "oscuridad", "alcance_pies": 60 },
+      "idiomas": { "fijos": ["Común", "Élfico"], "elige": 0, "opciones": [] },
+      "rasgos_raciales": [
+        { "nombre": "Sentidos agudos", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Competencia en Percepción." },
+        { "nombre": "Linaje feérico", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Ventaja contra ser hechizado e inmunidad al sueño mágico." },
+        { "nombre": "Trance", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "No duermes; meditas 4 horas para un descanso largo." }
+      ],
+      "resistencias": [],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": ["Percepción"] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Alto elfo",
+        "descripcion": "Intelectuales y versátiles.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 2,
+          "Constitucion": 0,
+          "Inteligencia": 1,
+          "Sabiduria": 0,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [
+          { "nombre": "Entrenamiento con armas élficas", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Competencia con espada larga, espada corta, arco largo y arco corto." },
+          { "nombre": "Truco adicional", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Conoces un truco de mago (atributo: Inteligencia)." },
+          { "nombre": "Idioma adicional", "tipo": "eleccion", "usos": 0, "recarga": "ninguna", "descripcion": "Aprendes un idioma adicional a elegir." }
+        ],
+        "competencias_adicionales": { "armas": ["espada larga", "espada corta", "arco largo", "arco corto"], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": true, "atributo": "Inteligencia", "trucos": ["uno a elegir de mago"], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Elfo de los bosques",
+        "descripcion": "Sigilosos y rápidos.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 2,
+          "Constitucion": 0,
+          "Inteligencia": 0,
+          "Sabiduria": 1,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [
+          { "nombre": "Entrenamiento con armas élficas", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Competencia con espada larga, espada corta, arco largo y arco corto." },
+          { "nombre": "Pies ligeros", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Tu velocidad aumenta a 35 pies." },
+          { "nombre": "Máscara de lo salvaje", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Puedes intentar esconderte aunque solo estés ligeramente oscurecido por follaje, lluvia intensa, niebla, etc." }
+        ],
+        "competencias_adicionales": { "armas": ["espada larga", "espada corta", "arco largo", "arco corto"], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Elfo oscuro (Drow)",
+        "descripcion": "Elfos del Underdark con magia innata.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 2,
+          "Constitucion": 0,
+          "Inteligencia": 0,
+          "Sabiduria": 0,
+          "Carisma": 1
+        },
+        "rasgos_subraza": [
+          { "nombre": "Visión en la oscuridad superior", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Tu visión en la oscuridad tiene alcance 120 pies." },
+          { "nombre": "Sensibilidad a la luz solar", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Desventaja en tiradas de ataque y Percepción basada en vista bajo luz solar directa." },
+          { "nombre": "Entrenamiento con armas drow", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Competencia con estoque, espada corta y ballesta de mano." },
+          { "nombre": "Magia drow", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Conoces el truco luces danzantes (atributo: Carisma)." }
+        ],
+        "competencias_adicionales": { "armas": ["estoque", "espada corta", "ballesta de mano"], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": true, "atributo": "Carisma", "trucos": ["luces danzantes"], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Mediano": {
+      "nombre": "Mediano",
+      "descripcion": "Pequeños, afortunados y valientes.",
+      "velocidad": 25,
+      "vision": { "tipo": "normal", "alcance_pies": 0 },
+      "idiomas": { "fijos": ["Común", "Mediano"], "elige": 0, "opciones": [] },
+      "rasgos_raciales": [
+        { "nombre": "Afortunado", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Cuando sacas 1 en un d20, puedes repetirlo y debes usar el nuevo resultado." },
+        { "nombre": "Valiente", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Ventaja en salvaciones contra estar asustado." },
+        { "nombre": "Agilidad mediana", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Puedes moverte a través del espacio de criaturas mayores que tú." }
+      ],
+      "resistencias": [],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Mediano piesligeros",
+        "descripcion": "Discretos y sociables.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 2,
+          "Constitucion": 0,
+          "Inteligencia": 0,
+          "Sabiduria": 0,
+          "Carisma": 1
+        },
+        "rasgos_subraza": [
+          { "nombre": "Sigilo natural", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Puedes intentar esconderte aunque solo estés oculto por una criatura al menos una categoría de tamaño mayor." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Mediano fornido",
+        "descripcion": "Duros y resistentes.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 2,
+          "Constitucion": 1,
+          "Inteligencia": 0,
+          "Sabiduria": 0,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [
+          { "nombre": "Resiliencia fornida", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Ventaja contra veneno y resistencia al daño por veneno." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Humano": {
+      "nombre": "Humano",
+      "descripcion": "Ambiciosos y adaptables.",
+      "velocidad": 30,
+      "vision": { "tipo": "normal", "alcance_pies": 0 },
+      "idiomas": { "fijos": ["Común"], "elige": 1, "opciones": ["cualquiera"] },
+      "rasgos_raciales": [],
+      "resistencias": [],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Humano (estándar)",
+        "descripcion": "La opción clásica del humano.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 1,
+          "Destreza": 1,
+          "Constitucion": 1,
+          "Inteligencia": 1,
+          "Sabiduria": 1,
+          "Carisma": 1
+        },
+        "rasgos_subraza": [
+          { "nombre": "Idioma adicional", "tipo": "eleccion", "usos": 0, "recarga": "ninguna", "descripcion": "Aprendes un idioma adicional a elegir." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Draconido": {
+      "nombre": "Draconido",
+      "descripcion": "Humanoides con sangre de dragón, orgullosos y poderosos.",
+      "velocidad": 30,
+      "vision": { "tipo": "normal", "alcance_pies": 0 },
+      "idiomas": { "fijos": ["Común", "Dracónico"], "elige": 0, "opciones": [] },
+      "rasgos_raciales": [
+        {
+          "nombre": "Arma de aliento",
+          "tipo": "accion",
+          "usos": 1,
+          "recarga": "descanso corto o largo",
+          "descripcion": "Exhalas en cono de 15 pies o línea de 5x30 pies (según ascendencia). Salvación (según ascendencia) CD = 8 + mod CON + bonificador de competencia. Daño 2d6 (según ascendencia), mitad con salvación exitosa."
+        }
+      ],
+      "resistencias": [],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Ascendencia dracónica: negro",
+        "descripcion": "Aliento ácido (línea) y resistencia al ácido.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 2,
+          "Destreza": 0,
+          "Constitucion": 0,
+          "Inteligencia": 0,
+          "Sabiduria": 0,
+          "Carisma": 1
+        },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por ácido." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: azul",
+        "descripcion": "Aliento relámpago (línea) y resistencia al relámpago.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por relámpago." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: laton",
+        "descripcion": "Aliento fuego (línea) y resistencia al fuego.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por fuego." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: bronce",
+        "descripcion": "Aliento relámpago (línea) y resistencia al relámpago.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por relámpago." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: cobre",
+        "descripcion": "Aliento ácido (línea) y resistencia al ácido.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por ácido." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: dorado",
+        "descripcion": "Aliento fuego (cono) y resistencia al fuego.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por fuego." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: verde",
+        "descripcion": "Aliento veneno (cono) y resistencia al veneno.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por veneno." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: plateado",
+        "descripcion": "Aliento frío (cono) y resistencia al frío.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por frío." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: rojo",
+        "descripcion": "Aliento fuego (cono) y resistencia al fuego.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por fuego." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Ascendencia dracónica: blanco",
+        "descripcion": "Aliento frío (cono) y resistencia al frío.",
+        "modificadores_caracteristicas": { "Fuerza": 2, "Destreza": 0, "Constitucion": 0, "Inteligencia": 0, "Sabiduria": 0, "Carisma": 1 },
+        "rasgos_subraza": [
+          { "nombre": "Resistencia dracónica", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por frío." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Gnomo": {
+      "nombre": "Gnomo",
+      "descripcion": "Pequeños e ingeniosos, con talento para lo arcano y lo mecánico.",
+      "velocidad": 25,
+      "vision": { "tipo": "oscuridad", "alcance_pies": 60 },
+      "idiomas": { "fijos": ["Común", "Gnómico"], "elige": 0, "opciones": [] },
+      "rasgos_raciales": [
+        {
+          "nombre": "Astucia gnómica",
+          "tipo": "pasivo",
+          "usos": 0,
+          "recarga": "ninguna",
+          "descripcion": "Ventaja en salvaciones de Inteligencia, Sabiduria y Carisma contra magia."
+        }
+      ],
+      "resistencias": [],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Gnomo del bosque",
+        "descripcion": "Sigilosos, amigos de los animales y maestros de la ilusión.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 1,
+          "Constitucion": 0,
+          "Inteligencia": 2,
+          "Sabiduria": 0,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [
+          { "nombre": "Ilusionista natural", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Conoces el truco ilusión menor (atributo: Inteligencia)." },
+          { "nombre": "Hablar con bestias pequeñas", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Puedes comunicar ideas simples con bestias pequeñas o más pequeñas." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": true, "atributo": "Inteligencia", "trucos": ["ilusión menor"], "conjuros_nivel_1": [] }
+      },
+      {
+        "nombre": "Gnomo de las rocas",
+        "descripcion": "Inventores y artesanos.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 0,
+          "Constitucion": 1,
+          "Inteligencia": 2,
+          "Sabiduria": 0,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [
+          { "nombre": "Conocimiento de artífice", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Doble competencia en Historia sobre objetos mágicos, alquimia o tecnología." },
+          { "nombre": "Manitas", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Competencia con herramientas de manitas; puedes crear pequeños artilugios (según reglas)." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": ["herramientas de manitas"], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Semielfo": {
+      "nombre": "Semielfo",
+      "descripcion": "Versátiles y carismáticos, entre dos mundos.",
+      "velocidad": 30,
+      "vision": { "tipo": "oscuridad", "alcance_pies": 60 },
+      "idiomas": { "fijos": ["Común", "Élfico"], "elige": 1, "opciones": ["cualquiera"] },
+      "rasgos_raciales": [
+        { "nombre": "Linaje feérico", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Ventaja contra ser hechizado e inmunidad al sueño mágico." },
+        { "nombre": "Versatilidad de habilidades", "tipo": "eleccion", "usos": 0, "recarga": "ninguna", "descripcion": "Ganas competencia en 2 habilidades a elegir." }
+      ],
+      "resistencias": [],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Semielfo (estándar)",
+        "descripcion": "La opción clásica del semielfo.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 0,
+          "Constitucion": 0,
+          "Inteligencia": 0,
+          "Sabiduria": 0,
+          "Carisma": 2
+        },
+        "rasgos_subraza": [
+          { "nombre": "Aumento de características", "tipo": "eleccion", "usos": 0, "recarga": "ninguna", "descripcion": "Además de Carisma +2, aumentas dos características a elegir en +1." }
+        ],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": ["2 a elegir"] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Semiorco": {
+      "nombre": "Semiorco",
+      "descripcion": "Duros y temibles, con gran aguante.",
+      "velocidad": 30,
+      "vision": { "tipo": "oscuridad", "alcance_pies": 60 },
+      "idiomas": { "fijos": ["Común", "Orco"], "elige": 0, "opciones": [] },
+      "rasgos_raciales": [
+        { "nombre": "Intimidante", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Competencia en Intimidación." },
+        { "nombre": "Aguante implacable", "tipo": "pasivo", "usos": 1, "recarga": "descanso largo", "descripcion": "Si bajas a 0 PG pero no mueres, puedes quedar a 1 PG en su lugar." },
+        { "nombre": "Ataques salvajes", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "En un crítico con arma cuerpo a cuerpo, tiras un dado de daño adicional del arma." }
+      ],
+      "resistencias": [],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": ["Intimidación"] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Semiorco (estándar)",
+        "descripcion": "La opción clásica del semiorco.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 2,
+          "Destreza": 0,
+          "Constitucion": 1,
+          "Inteligencia": 0,
+          "Sabiduria": 0,
+          "Carisma": 0
+        },
+        "rasgos_subraza": [],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": false, "atributo": "", "trucos": [], "conjuros_nivel_1": [] }
+      }
+    ]
+  },
+
+  {
+    "Tiefling": {
+      "nombre": "Tiefling",
+      "descripcion": "Marcados por linaje infernal, con resistencia al fuego y magia innata.",
+      "velocidad": 30,
+      "vision": { "tipo": "oscuridad", "alcance_pies": 60 },
+      "idiomas": { "fijos": ["Común", "Infernal"], "elige": 0, "opciones": [] },
+      "rasgos_raciales": [
+        { "nombre": "Resistencia infernal", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Resistencia al daño por fuego." },
+        { "nombre": "Legado infernal", "tipo": "pasivo", "usos": 0, "recarga": "ninguna", "descripcion": "Conoces el truco taumaturgia (atributo: Carisma)." }
+      ],
+      "resistencias": ["fuego"],
+      "competencias": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] }
+    },
+    "subrazas": [
+      {
+        "nombre": "Tiefling (estándar)",
+        "descripcion": "La opción clásica del tiefling.",
+        "modificadores_caracteristicas": {
+          "Fuerza": 0,
+          "Destreza": 0,
+          "Constitucion": 0,
+          "Inteligencia": 1,
+          "Sabiduria": 0,
+          "Carisma": 2
+        },
+        "rasgos_subraza": [],
+        "competencias_adicionales": { "armas": [], "armaduras": [], "herramientas": [], "habilidades": [] },
+        "magia_racial": { "tiene": true, "atributo": "Carisma", "trucos": ["taumaturgia"], "conjuros_nivel_1": [] }
+      }
+    ]
+  }
+]

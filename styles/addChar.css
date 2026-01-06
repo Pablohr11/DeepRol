@@ -1,0 +1,16 @@
+#formTitleContainer h1 {
+    margin: 10px 0;
+}
+
+form h5 {
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+.charStep:has(#formName) {
+   grid-template-columns: 25% 25% 25% 25% !important;
+}
+
+.formImage {
+    width: 50px;
+}

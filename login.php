@@ -23,7 +23,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-32">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
     <link rel="stylesheet" href="styles/header.css">

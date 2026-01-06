@@ -1,0 +1,28 @@
+h1 {
+    margin-left: 10px;
+}
+
+#notesContainer {
+    margin: 30px;
+    display: grid;
+}
+
+.noteTitle {
+    text-decoration: none;
+    color: #b77d3b;
+}
+
+.charImg {
+    width: 50px;
+    border-radius: 5px;
+}
+
+.charName {
+    font-size: 40px;
+    font-family: "EB Garamond";
+    font-weight: 600;
+    display: inline-flex;
+    gap: 5px;
+    margin: 10px 0 10px -10px;
+
+}

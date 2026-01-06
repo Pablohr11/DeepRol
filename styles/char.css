@@ -496,4 +496,332 @@ input[type="radio"][disabled]:checked::after {
 
 .stDiv .stValue {
     width: 20px;
+<<<<<<< Updated upstream
+=======
+}
+
+.stValue:hover, .highlightable:hover, .modifier:hover {
+    box-shadow: 0 0 8px rgba(255,153,51,0.3);
+    transform: scale(1.05);
+  }
+
+.mist {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../resources/imgs/mist.png');
+    background-size: 600px 600px; /* o 100% según el diseño */
+    background-repeat: repeat;
+    opacity: 0.3; /* muy sutil */
+    animation: mover-bruma 120s linear infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes mover-bruma {
+    0% { background-position: 0 0; }
+    100% { background-position: 1000px 1000px; }
+}
+
+  .contenedor-linterna {
+    position: fixed;
+    top: -12px;
+    right: 40px;
+    width: 64px;
+    height: 64px;
+    z-index: 10;
+  }
+  
+  .linterna {
+    width: 72px;
+    height: 124px;
+    background-image: url('../resources/imgs/linterna_on.png');
+    background-size: cover;
+    z-index: 2;
+    position: relative;
+  }
+
+  
+  .linterna_off {
+    background-image: url('../resources/imgs/linterna_off.png') !important;
+  }
+
+  .haz-de-luz {
+    position: fixed;
+    top: 900px;
+    height: 3600px;
+    width: 3600px;
+    right: 900px;
+    border-radius: 100%;
+    background: radial-gradient(
+        circle at right top,
+        rgba(255, 204, 128, 0.35) 0%,
+        rgba(232, 174, 100, 0.32) 8%,
+        rgba(210, 144, 90, 0.30) 16%,
+        rgba(190, 110, 70, 0.27) 24%,
+        rgba(160, 90, 50, 0.22) 32%,
+        rgba(130, 70, 35, 0.18) 40%,
+        rgba(100, 50, 25, 0.14) 48%,
+        rgba(70, 35, 20, 0.10) 56%,
+        rgba(40, 20, 10, 0.08) 64%,
+        rgba(20, 10, 5, 0.05) 72%,
+        rgba(10, 5, 2, 0.03) 85%,
+        rgba(0, 0, 0, 0) 100%
+    );
+      
+      
+    transform: translate(50%, -50%);
+    animation: luz-calida-fluida 3s ease-in-out infinite;
+    mix-blend-mode: screen;
+    pointer-events: none;
+    filter: blur(30px);
+    z-index: 1;
+  }
+  
+
+  
+  .haz-de-luz_off {
+    /* display: none; */
+    background: #1818186b;
+    animation: none;
+  }
+  
+  
+  @keyframes luz-calida-fluida {
+    0%   { transform: translate(50%, -50%) scale(1); opacity: 0.18; }
+    25%  { transform: translate(50.5%, -50.3%) scale(1.03); opacity: 0.25; }
+    50%  { transform: translate(49.8%, -49.9%) scale(1.06); opacity: 0.22; }
+    75%  { transform: translate(50.3%, -50.1%) scale(1.01); opacity: 0.2; }
+    100% { transform: translate(50%, -50%) scale(1); opacity: 0.18; }
+  }
+  
+  
+  
+  
+  
+  .card {
+    width: 300px;
+    height: 400px;
+    perspective: 1000px;
+  }
+  
+  .personaje {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.1s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .stat, .stValue, #profContainer, #pPasContainer {
+    cursor: default;
+  }
+
+.spellList {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.spellList.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.spellList.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.spellCounter {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.spellCounter.fade-out {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.spellCounter.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes escribirTitulo {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  
+  #charDiv h1, h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    animation: escribirTitulo 1.5s steps(20) forwards;
+  }
+
+#gancho {
+    width: 32px;
+    height: 16px;
+    position: absolute;
+    left: 18px;
+    top: 12px;
+    z-index: 3;
+}
+
+.fallen-contenedor-linterna {
+    transition: 1s all ease-in;
+    transform:translateY(1800px) ;
+}
+.charInfo {
+    width: 100%;
+}
+@media only screen and (max-width: 1465px) {
+    .charInfo {
+        width: 622px;
+    }
+
+}
+#spellListContainer {
+    display: grid;
+    grid-template-columns: calc(100% - 90px) 90px;
+    max-width: 1090px;
+}
+
+.spellCounter {
+    background-color: #292929;
+    border-left: 1px solid #653d14;
+    color: #b2b2b2;
+    text-align: center;
+    grid-template-rows: 25px 25px auto 25px;
+    display: none;
+}
+.spellCounter.active {
+    display: grid;
+}
+.spellCounter h3 {
+    margin: 4px 0;
+    font-size: 16px;
+}
+.spellCounter h5 {
+    margin: 4px 0;
+}
+
+.spellCounterInner {
+    display: grid;
+    padding: 5px 5px 10px;
+}
+
+.spellSpace {
+    transition: .5s;
+    background-color: #202020;
+    margin: 2px 0;
+    border-radius: 5px;
+}
+
+.spellSpace.checked {
+    transition: .5s;
+    background-color: #653d14;
+}
+
+.counterButtons {
+    display: grid;
+    grid-template-columns: 21px 21px;
+    grid-template-rows: 21px;
+    justify-content: center;
+    gap: 5px;
+}
+
+.counterButtons button {
+    border: 2px solid #b77d3b;
+    background-color: #292929;
+    color: #b77d3b;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 0px;
+    display: grid;
+}
+
+#imgAmpliadaContainer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#spellAmpliadoContainer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+#imgAmpliadaContainer.hidden, #spellAmpliadoContainer.hidden {
+    display: none !important;
+}
+
+#imgAmpliada {
+    height: 100%;
+    border-radius: 10px;
+}
+
+#imgAmpliadaInnerContainer {
+    display: flex;
+}
+
+#fullBodyImg,#closeImage {
+    cursor: pointer;
+}
+
+#closeImage, #closeSpellIframe {
+    transition: .5s;
+    height: 26px;
+    width: 26px;
+    border-radius: 10px;
+    margin: 10px 0 0 -36px;
+    border: 0;
+    font-weight: 600;
+    background: #ffffff94;
+    color: #653d14
+}
+
+#closeSpellIframe {
+    margin: 14px 0px 0px -40px !important;
+}
+
+
+#closeImage:hover, #closeSpellIframe:hover { 
+    transition: .5s;
+    background-color: #ffffff;
+    color: #b77d3b
+}
+
+
+#spellAmpliadaInnerContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#spellAmpliadaInnerContainer iframe {
+    width: calc(100% - 26px);
+    height: 100%;
+}
+
+#charDiv:has(.hidden) .charControls, #charDiv:has(.hidden) .charInfo {
+    transition: .3s;
+}
+#charDiv:has(.shown) .charControls, #charDiv:has(.shown) .charInfo {
+    transition: .3s;
+    opacity: 0.2 !important;
+>>>>>>> Stashed changes
 }
