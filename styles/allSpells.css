@@ -360,5 +360,8 @@ body:has(.hidden) #allSpellsContainer {
 body:has(.shown) #allSpellsContainer {
     transition: .3s;
     opacity: 0.2 !important;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

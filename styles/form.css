@@ -118,7 +118,10 @@ form input[type="text"] {
 }
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 .formInputContainer:has(#classesList), .formInputContainer:has(#razasList), #subRazasStep .formInputContainer  {
     height: 100%;
     grid-template-rows: 60px 96px auto;
@@ -231,16 +234,22 @@ form input[type="text"] {
     margin: 1%;
     display: grid;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
     column-gap: 20px;
     row-gap: 20px;
 =======
+=======
+>>>>>>> Stashed changes
     grid-template-columns: 100%;
     column-gap: 10px;
     row-gap: 10px;
     overflow: hidden;
     grid-template-rows: 126px calc(100% - 136px);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }
 
@@ -587,5 +596,8 @@ small {
     font-size: 12px;
     margin-left: 10px;
     color: #c7c7c7;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 }

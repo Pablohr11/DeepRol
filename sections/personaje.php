@@ -157,8 +157,21 @@ if (isset($charSpells) && $charSpells != null) {
                 <button id="closeSpellIframe">X</button>
             </div>
         </div>
+        <div id="imgAmpliadaContainer" class="hidden">
+            <div id="imgAmpliadaInnerContainer">
+                <img src="" id="imgAmpliada">
+                <button id="closeImage">X</button>
+            </div>
+        </div>
+        <div id="spellAmpliadoContainer" class="hidden">
+            <div id="spellAmpliadaInnerContainer">
+                <iframe src="" frameborder="0" id="spellIframe"></iframe>
+                <button id="closeSpellIframe">X</button>
+            </div>
+        </div>
     </div>
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
     <!-- //? MAIN CONTENT -->
     <div class="charInfo">
@@ -187,6 +200,8 @@ if (isset($charSpells) && $charSpells != null) {
                     </div>
                 </div>
 =======
+=======
+>>>>>>> Stashed changes
 
 <script>
     setPdfFields("../resources/chars//<?=$charData["name"]?>/ficha.pdf");
@@ -467,5 +482,8 @@ if (isset($charSpells) && $charSpells != null) {
         spellAmpliadoContainer.classList.toggle("hidden");
         spellAmpliadoContainer.classList.toggle("shown");
     })
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </script>

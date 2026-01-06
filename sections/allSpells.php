@@ -148,6 +148,7 @@ array_shift($spellsLevels);
                 <dd>
                 <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a>
                 <?php if (isset($charId)) { ?>
+<<<<<<< Updated upstream
                     <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
                         <span class="addSpell" >✓</span>
                     <?php } else { ?>
@@ -157,6 +158,25 @@ array_shift($spellsLevels);
                 </dd>
                 <?php }
         } ?>
+=======
+                    <div>
+                        <!-- <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a> -->
+                        <a class="spell" onclick='showEmbedSpell(<?=$spell["id_spell"]?>)'> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?></a>
+                        <?php if (in_array( $spell["id_spell"], $spellList)) { ?>
+                            <span class="addSpell" >✓</span>
+                        <?php } else { ?>
+                            <a href="addSpell.php?id_spell=<?=$spell["id_spell"]?>&charId=<?=$charId?>&prevPath=<?=$prevPathParameters?>"  class="addSpell"> + </a>
+                            <!-- <a class="spell" onclick='showEmbedSpell(<?=$spell["id_spell"]?>)'> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?></a> -->
+                        <?php } ?>
+                    </div>
+                <?php } else { ?>
+                    <!-- <a href="spell.php?id_spell=<?=$spell["id_spell"]?>&prevPath=<?=$prevPathParameters?>" class="spell"><?=$spell["name"]?></a> -->
+                    <a class="spell" onclick='showEmbedSpell(<?=$spell["id_spell"]?>)'> <?=substr($spell["name"], 0, strpos($spell["name"],"("))?></a>
+                <?php }  ?>
+            <?php } ?>
+        <?php } ?>
+        </div>
+>>>>>>> Stashed changes
     </dl>
     <?php ?>
 

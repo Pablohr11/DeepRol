@@ -28,6 +28,9 @@
     // echo("<pre>");
     // var_dump($razasJson);
     // echo("</pre>");
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
     if(isset($_POST["submitInput"])){
@@ -66,10 +69,13 @@
 
         if(empty($errores)){
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             echo "subiendo personaje";
             print_r($_POST);
             print_r($_FILES);
 =======
+=======
+>>>>>>> Stashed changes
             
             print_r($_POST);
             print_r($razasJson[$_POST["razaPersonaje"]]);
@@ -87,6 +93,9 @@
             // move_uploaded_file($_FILES["fichaPersonaje"]["tmp_name"], $targetPdfFile);
         } else {
             print_r($errores);
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         }
     }
@@ -116,7 +125,10 @@
 	<title></title>
 	<link rel="stylesheet" href="../styles/form.css">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 =======
+=======
+>>>>>>> Stashed changes
 	<link rel="stylesheet" href="../styles/addChar.css">
     <script defer src="../scripts/form.js"></script>
     <script src="https://kit.fontawesome.com/e0b95331d1.js" crossorigin="anonymous"></script>
@@ -126,10 +138,13 @@
     <div id="bodyContainer" class="flexCenter">
         <div id="formContainer">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <form action="" method="post" enctype="multipart/form-data" >
                 <div id="formLogoContainer" class="flexCenter">
                     <img id="formLogo" src="../resources/imgs/logo.png" alt="">
 =======
+=======
+>>>>>>> Stashed changes
             <form action="" method="post" enctype="multipart/form-data">
                 <div id="formTitleContainer" class="flexCenter">
                     <h1>Nuevo Personaje</h1>
@@ -291,6 +306,9 @@
                         </div>        
                         
                     </div>  
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
                 </div>
                 <input type="hidden" id="razaPersonaje" name="razaPersonaje">
@@ -588,6 +606,9 @@ document.addEventListener("DOMContentLoaded", function() {
             subrazasInfo.appendChild(competenciasAdicionalesDiv)
         }
     </script>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 </body>
 </html>
