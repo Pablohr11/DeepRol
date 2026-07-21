@@ -28,7 +28,7 @@
             ?>
         </div>
         <div id="mainContent" class="dark">
-            <iframe src="" frameborder="0" name="mainIframe" id="mainIframe"></iframe>            
+            <iframe src="sections/partidas.php" title="Contenido principal" frameborder="0" name="mainIframe" id="mainIframe"></iframe>
         </div>
     </div>
     <div id="footer">
@@ -53,7 +53,7 @@
     function changeMain(id) {
         // hideMain();
 
-        var partidasSRC = "sections/personajes.php";
+        var partidasSRC = "sections/partidas.php";
         var personajesSRC = "sections/personajes.php";
         var habilidadesSRC = "sections/allSpells.php";
         var apuntesSRC = "sections/personajes.php";

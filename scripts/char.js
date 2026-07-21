@@ -1,5 +1,22 @@
 
+<<<<<<< Updated upstream
 window.addEventListener("load", (event) => {
+=======
+    var buttons = document.querySelectorAll(".spellspace");
+    buttons = Array.from(buttons);
+    buttons.forEach(function(element) {
+        // Your code here
+        element.addEventListener('click', function() {
+            // element.classList.toggle("checked");
+            var prevValue = 0;
+            var match = element.className.match(/counter-(\d+)/);
+            var currentValue = match ? Number(match[1]) : 0;
+            prevValue = element.parentElement.parentElement.querySelector("input").value;
+            element.parentElement.parentElement.querySelector("input").value = currentValue;
+            updateChecks(currentValue, prevValue, element.parentElement);
+        })
+    });
+>>>>>>> Stashed changes
 
     document.getElementById("showPdfButton").addEventListener('click', function() {
         document.getElementById("embedContainer").style.display = "block";
@@ -29,6 +46,29 @@ window.addEventListener("load", (event) => {
     activateTab(0);
 });
 
+<<<<<<< Updated upstream
+=======
+
+
+function updateChecks(index, prevIndex, parentElement) {
+    var targetClass = "";
+    if (index == prevIndex) {
+        targetClass = ".counter-"+index;
+        parentElement.querySelector(targetClass)?.classList.toggle("checked");
+    } else if (index > prevIndex) {
+        for (var i = 1; i <= index; i++) {
+            targetClass = ".counter-"+i;
+            parentElement.querySelector(targetClass).classList.add("checked")
+        }
+    } else {
+        for (var i = 4; i > index; i--) {
+            targetClass = ".counter-"+i;
+            parentElement.querySelector(targetClass).classList.remove("checked")
+        }
+    }
+}
+
+>>>>>>> Stashed changes
 function setPdfFields(pdfPath) {
     const url = pdfPath;
 

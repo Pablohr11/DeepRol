@@ -15,20 +15,19 @@ $prevPathParameters = "allSpells.php";
 $classFilter = "";
 
 if (isset($_GET["submit"]) || isset($_GET["nameFilter"]) && ($_GET["nameFilter"] != "") || isset($_GET["classFilter"])) {
-    $filtros = "";
+    $filtros = [];
     if (isset($_GET["nameFilter"]) && $_GET["nameFilter"] != "") {
-        $filtros .= "name like '%".$_GET["nameFilter"]."%'";
-        $prevPathParameters .= "?nameFilter=".$_GET["nameFilter"];
+        $filtros['name'] = trim($_GET["nameFilter"]);
+        $prevPathParameters .= "?nameFilter=".rawurlencode($_GET["nameFilter"]);
     }
     
     if (isset($_GET["classFilter"])) {
         $classFilter = $_GET["classFilter"];
-        if ($filtros == "") {
-            $filtros .= "clases like '%".$_GET["classFilter"]."%'";
-            $prevPathParameters .= "?classFilter=".$_GET["classFilter"];
+        $filtros['class'] = trim($_GET["classFilter"]);
+        if (!isset($filtros['name'])) {
+            $prevPathParameters .= "?classFilter=".rawurlencode($_GET["classFilter"]);
         } else {
-            $filtros .= " AND clases like '%".$_GET["classFilter"]."%'";
-            $prevPathParameters .= "&classFilter=".$_GET["classFilter"];
+            $prevPathParameters .= "&classFilter=".rawurlencode($_GET["classFilter"]);
         }
     }
     
@@ -50,7 +49,6 @@ if (isset($_GET["id_char"])) {
     $spellList = [];
 }
 
-array_shift($spellsLevels);
 // echo("<pre>");
 // var_dump($spellsLevels);
 // echo("</pre>");
@@ -74,7 +72,7 @@ array_shift($spellsLevels);
             <?php if (isset($charId)) { ?>
                 <input type="hidden" name="id_char" value="<?=$charId?>">
             <?php } ?>
-            <input type="text" name="nameFilter">
+            <input type="text" id="nameFilter" name="nameFilter" value="<?=htmlspecialchars($_GET['nameFilter'] ?? '', ENT_QUOTES, 'UTF-8')?>" placeholder="Buscar conjuro">
             <div class="classesFilterDiv">
                 <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>
                 <label for="bardo">Bardo</label>
@@ -222,10 +220,16 @@ array_shift($spellsLevels);
         }
     })
     window.addEventListener("load", (event) => {
+<<<<<<< Updated upstream
         if (document.getElementsByClassName("classesFilterDiv")[0] != undefined) {
             var targetwidth = document.getElementsByClassName("classesFilterDiv")[0].getBoundingClientRect().width;
             document.getElementsByClassName("classesFilterDiv")[1].style.width = targetwidth ;
         }
+=======
+        var filters = document.getElementsByClassName("classesFilterDiv");
+        if (filters.length > 1) filters[1].style.width = filters[0].getBoundingClientRect().width + 'px';
+
+>>>>>>> Stashed changes
     });
 </script>
 

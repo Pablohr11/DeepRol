@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< Updated upstream
 	require_once("../classes/DbConnector.php");
 	require_once("../src/helper.php");
 	$db = DbConector::singleton();
@@ -10,6 +11,11 @@
     } else {
         $idUser = $_COOKIE["logged"];
     }
+=======
+	require_once __DIR__ . '/../src/bootstrap.php';
+	$db = DbConector::singleton();
+    $idUser = require_login();
+>>>>>>> Stashed changes
     $razas = $db->getRazas();
     $razaSeleccionada = null;
     $clases = $db->getClasses();
@@ -36,11 +42,19 @@
     if(isset($_POST["submitInput"])){
         $errores = [];
 
+<<<<<<< Updated upstream
+=======
+        $safeCharacterName = preg_replace('/[^\pL\pN _-]/u', '', trim($_POST["nombrePersonaje"] ?? ''));
+        $targetDir = "../resources/chars/".$safeCharacterName."/";
+        $targetSmallImageFile = $targetDir . "imagenPequeña".getFileExtension(basename($_FILES["imagenPerfilPersonaje"]["name"]));
+        $targetBigImageFile = $targetDir . "imagenGeneral".getFileExtension(basename($_FILES["imagenCompletaPersonaje"]["name"]));
+        $targetPdfFile = $targetDir . "ficha.pdf";
+>>>>>>> Stashed changes
         if(!isset($_POST["nombrePersonaje"]) || trim($_POST["nombrePersonaje"]) == ""){
             $errores['nombrePersonaje'] = "El nombre no puede estar vacio";
         }
 
-        if(!isset($_POST["razaPersonaje"]) || trim($_POST["razaPersonaje"]) == ""){
+        if(!isset($_POST["raza_id"]) || !ctype_digit((string) $_POST["raza_id"])){
             $errores['razaPersonaje'] = "La raza no puede estar vacia";
         }
 
@@ -67,7 +81,12 @@
                 $errores['fichaPersonaje'] = "La ficha debe ser un PDF";
         }
 
+        if ($safeCharacterName === '' || file_exists($targetDir)) {
+            $errores['nombrePersonaje'] = 'El nombre no es válido o ya existe.';
+        }
+
         if(empty($errores)){
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
             echo "subiendo personaje";
@@ -100,6 +119,27 @@
         }
     }
 
+=======
+            // print_r($_POST);
+            $db->createChar(
+                $idUser,
+                $_POST["nombrePersonaje"],
+                (array_values(array_filter($razas, fn($race) => (int) $race['id'] === (int) $_POST['raza_id']))[0]['Nombre'] ?? ''),
+                "imagenPequeña".getFileExtension(basename($_FILES["imagenPerfilPersonaje"]["name"])),
+                "imagenGeneral".getFileExtension(basename($_FILES["imagenCompletaPersonaje"]["name"]))
+            );
+            mkdir($targetDir, 0755, true);
+            move_uploaded_file($_FILES["imagenPerfilPersonaje"]["tmp_name"], $targetSmallImageFile);
+            move_uploaded_file($_FILES["imagenCompletaPersonaje"]["tmp_name"], $targetBigImageFile);
+            move_uploaded_file($_FILES["fichaPersonaje"]["tmp_name"], $targetPdfFile);
+        }
+    }
+
+    function getFileExtension($fileName) {
+        $extension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        return in_array($extension, ['png', 'jpg', 'jpeg'], true) ? '.'.$extension : '';
+    }
+>>>>>>> Stashed changes
 ?>
 <<<<<<< Updated upstream
 =======

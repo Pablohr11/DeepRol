@@ -1,14 +1,21 @@
 <?php
 
-require_once("../classes/DbConnector.php");
+require_once __DIR__ . '/../src/bootstrap.php';
 //var_dump($_POST);
 $db = DbConector::singleton();
 
 
 if (isset($_GET["id"])) {
+<<<<<<< Updated upstream
     $charId = $_GET["id"];
     $charData = $db->getChar($charId);
     $spellsIds = str_replace('"', '',$db->getSpellsIds($charId));
+=======
+    $charId = (int) $_GET["id"];
+    $charData = $db->getCharForUser($charId, require_login());
+    if (!$charData) { http_response_code(404); exit('Personaje no encontrado.'); }
+    $spellsIds = str_replace('"', '', $db->getSpellsIds($charId));
+>>>>>>> Stashed changes
     $charSpells = $db->getSpells($spellsIds, "yes");
 }
 
@@ -32,6 +39,7 @@ if (isset($charSpells) && $charSpells != null) {
         <img src="../resources/chars/draelith_cuerpo_completo.png" id="fullBodyImg" alt="">
         <div id="sheetButtons">
             <button id="showPdfButton">Ver Ficha</button>
+<<<<<<< Updated upstream
             <button id="showPdfButton">Actualizar Ficha</button>
 =======
 <div class="mist"></div>
@@ -78,6 +86,9 @@ if (isset($charSpells) && $charSpells != null) {
                     <span class="stInfo">Carisma</span>
                 </div>
             </div>
+>>>>>>> Stashed changes
+=======
+            <button id="updatePdfButton" type="button" disabled title="Próximamente">Actualizar ficha</button>
 >>>>>>> Stashed changes
         </div>
         <div id="stContainer">
@@ -460,6 +471,7 @@ if (isset($charSpells) && $charSpells != null) {
         imgAmpliadaContainer.classList.toggle("hidden");
         imgAmpliadaContainer.classList.toggle("shown");
     })
+<<<<<<< Updated upstream
 
     closeImage.addEventListener('click', function() {
         imgAmpliadaContainer.classList.toggle("hidden");
@@ -487,3 +499,6 @@ if (isset($charSpells) && $charSpells != null) {
 =======
 >>>>>>> Stashed changes
 </script>
+=======
+</script>
+>>>>>>> Stashed changes

@@ -1,6 +1,6 @@
 <?php
 
-	require_once("../classes/DbConnector.php");
+	require_once __DIR__ . '/../src/bootstrap.php';
 	$db = DbConector::singleton();
 
     $fichas = (scandir("../resources/fichas"));
@@ -9,11 +9,8 @@
     $imgs = (scandir("../resources/chars"));
     array_shift($imgs); array_shift($imgs);
 
-	$chars = [];
-
-	if (isset($_COOKIE["logged"]) && $_COOKIE["logged"] != 0) {
-		$chars = $db->getChars($_COOKIE["logged"]);
-	}
+	$userId = require_login();
+	$chars = $db->getChars($userId);
 ?>
 <!DOCTYPE html>
 
@@ -27,9 +24,15 @@
 <body>
 	<div class="charactersDiv">
 		<?php foreach ($chars as $key => $char): ?>
+<<<<<<< Updated upstream
 			<div class="charOption" id="<?=$char["name"]?>" charId=<?=$char["id_char"] ?> onclick="showCharacter(this)" pdfName='<?=$char["pdf_path"]?>'>
 				<img src="../resources/chars/<?=$char["image_path"]?>">
 				<h2 class="charName"><?=$char["name"]?></h2>
+=======
+			<div class="charOption" data-char-id="<?=h($char["id_char"])?>" onclick="showCharacter(this)">
+				<img src="../resources/chars/<?=rawurlencode($char["name"])?>/<?=rawurlencode($char["image_path"])?>" alt="">
+				<h2 class="charName"><?=h($char["name"])?></h2>
+>>>>>>> Stashed changes
 			</div>			
 		<?php endforeach ?>
 		<div class="addChar">
@@ -40,6 +43,7 @@
 
 	</div>
 
+<<<<<<< Updated upstream
 	<div id="embedContainer">
 		<div id="embedTopBar">
 			<span id="closeEmbed">X</span>
@@ -54,6 +58,9 @@
 	    />
 	</div>
 	    
+=======
+		var charIdToShow = trigger.dataset.charId;
+>>>>>>> Stashed changes
 
     <script type="text/javascript">
     	function showCharacter(trigger) {

@@ -1,8 +1,24 @@
 <?php
 
+<<<<<<< Updated upstream
   require_once("../classes/DbConnector.php");
 //var_dump($_POST);
   $db = DbConector::singleton();
+=======
+require_once __DIR__ . '/../src/bootstrap.php';
+//var_dump($_POST);
+$db = DbConector::singleton();
+
+$userId = require_login();
+$noteId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+$noteInfo = $noteId ? $db->getNoteForUser($noteId, $userId) : false;
+if (!$noteInfo) { http_response_code(404); exit('Nota no encontrada.'); }
+$relatedCharName = $db->getCharName($noteInfo["RelatedChar"]);
+
+
+$framed = ($_GET["framed"] ?? 'false') === 'true' ? 'true' : 'false';
+>>>>>>> Stashed changes
 
   $noteInfo = $db->getNote($_GET["id"]);
   $relatedCharName = $db->getCharName($noteInfo["RelatedChar"]);
@@ -91,6 +107,7 @@ const toolbarOptions = [
       const value = document.querySelector('.ql-editor').innerHTML;
       console.log(`nota: noteId=${encodeURIComponent(noteId)}&value=${encodeURIComponent(value)}`);
 
+<<<<<<< Updated upstream
       fetch('/src/saveNote.php', {
         method: 'POST',
         headers: {
@@ -110,5 +127,25 @@ const toolbarOptions = [
         console.error('Error al guardar la nota:', error);
       });
     }
+=======
+  fetch('../src/saveNote.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `noteId=${encodeURIComponent(noteId)}&value=${encodeURIComponent(value)}`
+  })
+  .then(response => {
+    if (!response.ok) throw new Error('Error en la respuesta del servidor');
+    return response.text(); // o .json() si esperas JSON
+  })
+  .then(data => {
+    console.log('Nota guardada exitosamente:', data);
+  })
+  .catch(error => {
+    console.error('Error al guardar la nota:', error);
+  });
+}
+>>>>>>> Stashed changes
 </script>
 </html>

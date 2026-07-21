@@ -1,10 +1,23 @@
 <?php
-    require_once("../src/autoload.php");
+    require_once __DIR__ . '/../src/bootstrap.php';
     $db = DbConector::singleton();
 
-    $uid = $_GET["uid"];
+    $uid = require_login();
 
     $chars = $db->getChars($uid);
+<<<<<<< Updated upstream
+=======
+
+    if (isset($_POST["submit"])) {
+        $userId = $uid;
+        $charId = $_POST["personaje"];
+        $noteName = $_POST["noteName"];
+        $noteDate = $_POST["noteDate"];
+        $db->createNote($userId, $charId, $noteName, $noteDate);
+        header("Location: notes.php");
+        exit;
+    }
+>>>>>>> Stashed changes
 ?>
 
 <!DOCTYPE html>
