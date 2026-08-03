@@ -34,7 +34,7 @@ class DbConector {
             $results = $consulta->execute();
             $data = $consulta->fetch(PDO::FETCH_ASSOC);
             
-            if ($data["password"] == $passwd) {
+            if (is_array($data) && isset($data["password"]) && $data["password"] == $passwd) {
                 return $data["ID_usuario"];
             }
 
@@ -101,7 +101,133 @@ class DbConector {
             $data = $consulta->fetch();
             return $data;
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            error_log("DeepRol getChar: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function getCharForUser($id_char, $id_user) {
+        try {
+            $consulta = $this->db->prepare(
+                "SELECT * FROM chars
+                WHERE id_char = :char_id AND id_user = :user_id
+                LIMIT 1"
+            );
+            $consulta->execute([
+                ":char_id" => (int) $id_char,
+                ":user_id" => (int) $id_user,
+            ]);
+
+            return $consulta->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("DeepRol getCharForUser: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function updateCharacterSheetMetadata(
+        $id_char,
+        $id_user,
+        $raza,
+        $subraza,
+        $nivel,
+        $clase,
+        $subclase,
+        $pdf_path,
+        array $classLevels = [],
+        array $languages = []
+    ) {
+        try {
+            $this->db->beginTransaction();
+            $consulta = $this->db->prepare(
+                "UPDATE chars
+                SET raza = :char_race,
+                    subraza = :char_subrace,
+                    nivel = :char_level,
+                    clase = :char_class,
+                    subclase = :char_subclass,
+                    pdf_path = :pdf_path
+                WHERE id_char = :char_id AND id_user = :user_id"
+            );
+
+            $updated = $consulta->execute([
+                ":char_race" => (string) $raza,
+                ":char_subrace" => (string) $subraza,
+                ":char_level" => (int) $nivel,
+                ":char_class" => (string) $clase,
+                ":char_subclass" => (string) $subclase,
+                ":pdf_path" => (string) $pdf_path,
+                ":char_id" => (int) $id_char,
+                ":user_id" => (int) $id_user,
+            ]);
+
+            if (!$updated) {
+                throw new RuntimeException("No se pudo actualizar el personaje.");
+            }
+
+            $this->replaceCharacterProgression(
+                (int) $id_char,
+                $classLevels ?: [[
+                    "class_name" => (string) $clase,
+                    "subclass_name" => (string) $subclase,
+                    "level" => (int) $nivel,
+                    "is_primary" => true,
+                ]],
+                $languages
+            );
+            $this->db->commit();
+            return true;
+        } catch (Throwable $e) {
+            if ($this->db->inTransaction()) {
+                $this->db->rollBack();
+            }
+            error_log("DeepRol updateCharacterSheetMetadata: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    public function getCharacterClasses($id_char): array
+    {
+        try {
+            $consulta = $this->db->prepare(
+                "SELECT class_name, subclass_name, class_level, is_primary, sort_order
+                FROM character_class_levels
+                WHERE id_char = :char_id
+                ORDER BY is_primary DESC, sort_order ASC, id_character_class ASC"
+            );
+            $consulta->execute([":char_id" => (int) $id_char]);
+            return array_map(
+                static function (array $row): array {
+                    return [
+                        "class_name" => (string) $row["class_name"],
+                        "subclass_name" => (string) $row["subclass_name"],
+                        "level" => (int) $row["class_level"],
+                        "is_primary" => (bool) $row["is_primary"],
+                        "sort_order" => (int) $row["sort_order"],
+                    ];
+                },
+                $consulta->fetchAll(PDO::FETCH_ASSOC)
+            );
+        } catch (PDOException $e) {
+            error_log("DeepRol getCharacterClasses: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function getCharacterLanguages($id_char): array
+    {
+        try {
+            $consulta = $this->db->prepare(
+                "SELECT language_name
+                FROM character_languages
+                WHERE id_char = :char_id
+                ORDER BY sort_order ASC, id_character_language ASC"
+            );
+            $consulta->execute([":char_id" => (int) $id_char]);
+            return array_map("strval", $consulta->fetchAll(PDO::FETCH_COLUMN));
+        } catch (PDOException $e) {
+            error_log("DeepRol getCharacterLanguages: " . $e->getMessage());
+            return [];
         }
     }
 
@@ -115,7 +241,8 @@ class DbConector {
             $data = $consulta->fetch();
             return $data[0];
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            error_log("DeepRol getSpellsIds: " . $e->getMessage());
+            return "";
         }
     }
 
@@ -191,7 +318,8 @@ class DbConector {
 
             return $data;
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            error_log("DeepRol getSpells: " . $e->getMessage());
+            return [];
         }
     }
 
@@ -326,30 +454,293 @@ class DbConector {
         $idUser,
         $nombrePersonaje,
         $razaPersonaje,
+        $subrazaPersonaje,
+        $nivelPersonaje,
+        $clasePersonaje,
+        $subclasePersonaje,
+        $pdfPath,
         $imagenPequeña,
-        $imagenGeneral
+        $imagenGeneral,
+        array $classLevels = [],
+        array $languages = []
     ) {
-        $consulta = $this->db->prepare("insert into chars values(null, :userId, :charName, :charRace, 'ficha.pdf', :smallImage, :bigImage)");
+        try {
+            $this->db->beginTransaction();
 
-        $consulta->bindParam("userId", $idUser, PDO::PARAM_INT);
-        $consulta->bindParam("charName", $nombrePersonaje, PDO::PARAM_STR);
-        $consulta->bindParam("charRace", $razaPersonaje, PDO::PARAM_STR);
-        $consulta->bindParam("smallImage", $imagenPequeña, PDO::PARAM_STR);
-        $consulta->bindParam("bigImage", $imagenGeneral, PDO::PARAM_STR);
+            $consulta = $this->db->prepare(
+                "INSERT INTO chars (
+                    id_user,
+                    name,
+                    raza,
+                    subraza,
+                    nivel,
+                    clase,
+                    subclase,
+                    pdf_path,
+                    image_path,
+                    full_body_image_path
+                ) VALUES (
+                    :userId,
+                    :charName,
+                    :charRace,
+                    :charSubrace,
+                    :charLevel,
+                    :charClass,
+                    :charSubclass,
+                    :pdfPath,
+                    :smallImage,
+                    :bigImage
+                )"
+            );
 
-        $results = $consulta->execute();
+            $consulta->execute([
+                ":userId" => (int) $idUser,
+                ":charName" => (string) $nombrePersonaje,
+                ":charRace" => (string) $razaPersonaje,
+                ":charSubrace" => (string) $subrazaPersonaje,
+                ":charLevel" => (int) $nivelPersonaje,
+                ":charClass" => (string) $clasePersonaje,
+                ":charSubclass" => (string) $subclasePersonaje,
+                ":pdfPath" => (string) $pdfPath,
+                ":smallImage" => (string) $imagenPequeña,
+                ":bigImage" => (string) $imagenGeneral,
+            ]);
+
+            $characterId = (int) $this->db->lastInsertId();
+            $spellSheet = $this->db->prepare(
+                "INSERT INTO spellset (id_char, spells) VALUES (:charId, '')"
+            );
+            $spellSheet->execute([":charId" => $characterId]);
+            $this->replaceCharacterProgression(
+                $characterId,
+                $classLevels ?: [[
+                    "class_name" => (string) $clasePersonaje,
+                    "subclass_name" => (string) $subclasePersonaje,
+                    "level" => (int) $nivelPersonaje,
+                    "is_primary" => true,
+                ]],
+                $languages
+            );
+
+            $this->db->commit();
+            return $characterId;
+        } catch (Throwable $exception) {
+            if ($this->db->inTransaction()) {
+                $this->db->rollBack();
+            }
+
+            throw $exception;
+        }
     }
 
-    public function getNotes($userId) {
-        try {
-            $consulta = $this->db->prepare("SELECT RelatedChar, ID, ID_User,RelatedChar, Nombre, Date, Value FROM notes where ID_User like :userId ORDER BY RelatedChar");
+    private function replaceCharacterProgression(
+        int $characterId,
+        array $classLevels,
+        array $languages
+    ): void {
+        $deleteClasses = $this->db->prepare(
+            "DELETE FROM character_class_levels WHERE id_char = :char_id"
+        );
+        $deleteClasses->execute([":char_id" => $characterId]);
 
-            $consulta->bindParam("userId", $userId, PDO::PARAM_INT);
-            $results = $consulta->execute();
+        $insertClass = $this->db->prepare(
+            "INSERT INTO character_class_levels (
+                id_char,
+                class_name,
+                subclass_name,
+                class_level,
+                is_primary,
+                sort_order
+            ) VALUES (
+                :char_id,
+                :class_name,
+                :subclass_name,
+                :class_level,
+                :is_primary,
+                :sort_order
+            )"
+        );
+        foreach (array_values($classLevels) as $index => $classLevel) {
+            if (!is_array($classLevel)) {
+                continue;
+            }
+
+            $insertClass->execute([
+                ":char_id" => $characterId,
+                ":class_name" => trim((string) ($classLevel["class_name"] ?? "")),
+                ":subclass_name" => trim((string) ($classLevel["subclass_name"] ?? "")),
+                ":class_level" => max(1, min(20, (int) ($classLevel["level"] ?? 1))),
+                ":is_primary" => $index === 0 ? 1 : 0,
+                ":sort_order" => $index,
+            ]);
+        }
+
+        $deleteLanguages = $this->db->prepare(
+            "DELETE FROM character_languages WHERE id_char = :char_id"
+        );
+        $deleteLanguages->execute([":char_id" => $characterId]);
+
+        $insertLanguage = $this->db->prepare(
+            "INSERT INTO character_languages (
+                id_char,
+                language_name,
+                sort_order
+            ) VALUES (
+                :char_id,
+                :language_name,
+                :sort_order
+            )"
+        );
+        foreach (array_values(array_unique(array_map("strval", $languages))) as $index => $language) {
+            $language = trim($language);
+            if ($language === "") {
+                continue;
+            }
+
+            $insertLanguage->execute([
+                ":char_id" => $characterId,
+                ":language_name" => $language,
+                ":sort_order" => $index,
+            ]);
+        }
+    }
+
+    public function getNotes($userId, $characterId = null) {
+        try {
+            $query = "
+                SELECT RelatedChar, ID, ID_User, Nombre, Date, Value
+                FROM notes
+                WHERE ID_User = :userId
+            ";
+            $parameters = [":userId" => (int) $userId];
+
+            if ($characterId !== null) {
+                $query .= " AND RelatedChar = :characterId";
+                $parameters[":characterId"] = (int) $characterId;
+            }
+
+            $query .= " ORDER BY RelatedChar, Date DESC, ID DESC";
+            $consulta = $this->db->prepare($query);
+            $results = $consulta->execute($parameters);
             $data = $consulta->fetchAll(PDO::FETCH_GROUP);
             return $data;
         } catch (PDOException $e) {
-            echo $e->getMessage();
+            error_log("DeepRol getNotes: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function searchCharacters($userId, $query, $limit = 6) {
+        try {
+            $limit = max(1, min(50, (int) $limit));
+            $search = "%" . trim((string) $query) . "%";
+            $consulta = $this->db->prepare(
+                "SELECT id_char, name, raza, subraza, nivel, clase, subclase
+                FROM chars
+                WHERE id_user = :userId
+                AND (
+                    name LIKE :searchName
+                    OR raza LIKE :searchRace
+                    OR subraza LIKE :searchSubrace
+                    OR clase LIKE :searchClass
+                    OR subclase LIKE :searchSubclass
+                )
+                ORDER BY
+                    CASE WHEN name LIKE :prefix THEN 0 ELSE 1 END,
+                    name ASC
+                LIMIT {$limit}"
+            );
+            $consulta->execute([
+                ":userId" => (int) $userId,
+                ":searchName" => $search,
+                ":searchRace" => $search,
+                ":searchSubrace" => $search,
+                ":searchClass" => $search,
+                ":searchSubclass" => $search,
+                ":prefix" => trim((string) $query) . "%",
+            ]);
+
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("DeepRol searchCharacters: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function searchSpells($query, $limit = 6) {
+        try {
+            $limit = max(1, min(50, (int) $limit));
+            $search = "%" . trim((string) $query) . "%";
+            $consulta = $this->db->prepare(
+                "SELECT id_spell, name, level, escuela, clases, descr
+                FROM conjuros
+                WHERE
+                    name LIKE :searchName
+                    OR descr LIKE :searchDescription
+                    OR level LIKE :searchLevel
+                    OR escuela LIKE :searchSchool
+                    OR clases LIKE :searchClasses
+                ORDER BY
+                    CASE WHEN name LIKE :prefix THEN 0 ELSE 1 END,
+                    name ASC
+                LIMIT {$limit}"
+            );
+            $consulta->execute([
+                ":searchName" => $search,
+                ":searchDescription" => $search,
+                ":searchLevel" => $search,
+                ":searchSchool" => $search,
+                ":searchClasses" => $search,
+                ":prefix" => trim((string) $query) . "%",
+            ]);
+
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("DeepRol searchSpells: " . $e->getMessage());
+            return [];
+        }
+    }
+
+    public function searchNotes($userId, $query, $limit = 6) {
+        try {
+            $limit = max(1, min(50, (int) $limit));
+            $search = "%" . trim((string) $query) . "%";
+            $consulta = $this->db->prepare(
+                "SELECT
+                    notes.ID,
+                    notes.Nombre,
+                    notes.Value,
+                    notes.Date,
+                    notes.RelatedChar,
+                    chars.name AS character_name
+                FROM notes
+                LEFT JOIN chars
+                    ON chars.id_char = notes.RelatedChar
+                    AND chars.id_user = notes.ID_User
+                WHERE notes.ID_User = :userId
+                AND (
+                    notes.Nombre LIKE :searchName
+                    OR notes.Value LIKE :searchValue
+                    OR chars.name LIKE :searchCharacter
+                )
+                ORDER BY
+                    CASE WHEN notes.Nombre LIKE :prefix THEN 0 ELSE 1 END,
+                    notes.Date DESC,
+                    notes.ID DESC
+                LIMIT {$limit}"
+            );
+            $consulta->execute([
+                ":userId" => (int) $userId,
+                ":searchName" => $search,
+                ":searchValue" => $search,
+                ":searchCharacter" => $search,
+                ":prefix" => trim((string) $query) . "%",
+            ]);
+
+            return $consulta->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            error_log("DeepRol searchNotes: " . $e->getMessage());
+            return [];
         }
     }
 

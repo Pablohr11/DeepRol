@@ -1,105 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Uncial+Antiqua&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Uncial+Antiqua&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+:root {
+    color-scheme: dark;
+    --bg: var(--theme-bg, #080b10);
+    --surface: var(--theme-panel, rgba(17, 23, 32, 0.92));
+    --surface-soft: var(--theme-panel-soft, rgba(21, 28, 38, 0.84));
+    --border: var(--theme-border-soft, rgba(91, 103, 118, 0.17));
+    --border-strong: rgba(var(--theme-accent-rgb, 169, 154, 120), 0.38);
+    --text: var(--theme-text, #f1eee7);
+    --muted: var(--theme-readable-muted, #aaa69d);
+    --purple: var(--theme-accent, #a99a78);
+    --purple-soft: var(--theme-accent-strong, #6d624c);
+    --green: #32d48c;
+    --blue: #4a9dff;
+    --red: #ff536b;
+    --sidebar-collapsed: 78px;
+    --sidebar-open: 230px;
+}
 
-.ql-font-cinzel {
-    font-family: 'Cinzel', serif;
-  }
-  .ql-font-uncial {
-    font-family: 'Uncial Antiqua', cursive;
-  }
-  .ql-font-merriweather {
-    font-family: 'Merriweather', serif;
-  }
-  .ql-font-librebaskerville {
-    font-family: 'Libre Baskerville', serif;
-  }
-  .ql-font-ebgaramond {
-    font-family: 'EB Garamond', serif;
-  }
+* {
+    box-sizing: border-box;
+}
 
-body {
+html {
+    width: 100%;
+    min-width: 320px;
     margin: 0;
 }
 
-* {
-  font-family: "EB Garamond", serif;
+body {
+    margin: 0;
+    color: var(--text);
+    background: #080811;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-h1 {
-    font-family: "Cinzel", serif;
-}
-
-h2, h3 {
-    
-  font-family: "Uncial Antiqua", system-ui;
-}
-
-h1, h2, h3 {
-    color: #b77d3b;
-}
-
-#content {
-    display: flex;
-    flex-direction: row;
-    background-color: #2e2e2e;
-    padding: 5px;
-    gap: 5px;
-}
-
-#leftBar {
-    width: 50px;
-    border-radius: 8px;
-}
-
-#leftBar.open {
-    min-width: 250px;
-    width: 250px;
-}
-#leftBar.open #leftColumnContent {
-    width: 250px
-}
-
-#mainContent.dark {
-    background-color: #2e2e2e;
+body.appRoot {
+    display: grid;
+    grid-template-columns: var(--sidebar-collapsed) minmax(0, 1fr);
     width: 100%;
-    border-radius: 8px;
-    height: calc(100vh - 160px);
+    height: 100vh;
+    overflow: hidden;
+    color: var(--text);
+    background:
+        radial-gradient(circle at 72% -10%, rgba(84, 31, 133, 0.26), transparent 34%),
+        linear-gradient(135deg, #05050c 0%, #090815 55%, #060711 100%);
+    transition: grid-template-columns 220ms ease;
 }
 
-.title {
-    font-family: system-ui;
+body.appRoot:has(#leftBar.open) {
+    grid-template-columns: var(--sidebar-open) minmax(0, 1fr);
 }
 
-.mainContentScreen {
-    display: none;
+button,
+input {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+#appShell {
+    display: grid;
+    grid-template-rows: 74px minmax(0, 1fr);
+    min-width: 0;
+    height: 100vh;
+}
+
+#mainContent {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(255, 255, 255, 0.035);
 }
 
 #mainIframe {
+    display: block;
     width: 100%;
     height: 100%;
-    margin: none;
-    border-radius: 8px;
+    border: 0;
+    background: transparent;
 }
 
 * {
-    --sb-track-color: #202020;
-    --sb-thumb-color: #b77d3b;
-    --sb-size: 10px;
+    scrollbar-width: thin;
+    scrollbar-color: #4c286c #090814;
 }
 
 *::-webkit-scrollbar {
-    width: var(--sb-size);
+    width: 8px;
+    height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--sb-track-color);
-    border-radius: 2px;
+    background: #090814;
 }
 
 *::-webkit-scrollbar-thumb {
-    background: var(--sb-thumb-color);
-    border-radius: 2px;
+    border: 2px solid #090814;
+    border-radius: 999px;
+    background: #4c286c;
+}
+
+@media (max-width: 760px) {
+    body.appRoot,
+    body.appRoot:has(#leftBar.open) {
+        display: block;
+    }
+
+    #appShell {
+        height: 100dvh;
+    }
+
+    #leftBar {
+        position: fixed;
+        z-index: 50;
+        inset: 0 auto 0 0;
+        box-shadow: 18px 0 50px rgba(0, 0, 0, 0.48);
+        transform: translateX(calc(-100% + var(--sidebar-collapsed)));
+    }
+
+    #leftBar.open {
+        transform: translateX(0);
+    }
+
+    #appShell {
+        margin-left: var(--sidebar-collapsed);
+    }
 }

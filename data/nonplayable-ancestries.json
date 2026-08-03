@@ -1,0 +1,370 @@
+{
+  "edition": "D&D 5e (reglas 2014)",
+  "description": "Pueblos, estirpes y familias de criaturas con identidad propia que no forman parte del catálogo normal de creación de personajes.",
+  "entries": [
+    {
+      "name": "Abishai",
+      "category": "Infernal",
+      "sources": ["Mordenkainen", "Mordenkainen Multiverso"],
+      "summary": "Diablos dracónicos ligados a Tiamat y organizados por el color de su linaje.",
+      "variants": ["Negro", "Azul", "Verde", "Rojo", "Blanco"]
+    },
+    {
+      "name": "Ángeles",
+      "category": "Celestial",
+      "sources": ["Monster Manual"],
+      "summary": "Servidores inmortales de poderes divinos que adoptan jerarquías y cometidos distintos.",
+      "variants": ["Deva", "Planetar", "Solar"]
+    },
+    {
+      "name": "Azer",
+      "category": "Elemental",
+      "sources": ["Monster Manual"],
+      "summary": "Artesanos ígneos del Plano del Fuego, forjados en bronce y llama.",
+      "variants": ["Azer"]
+    },
+    {
+      "name": "Bullywug",
+      "category": "Humanoide",
+      "sources": ["Monster Manual"],
+      "summary": "Pueblo anfibio de pantanos, famoso por sus cortes ruidosas y jerarquías cambiantes.",
+      "variants": ["Bullywug", "Caballero bullywug", "Soberano bullywug"]
+    },
+    {
+      "name": "Cambion",
+      "category": "Infernal",
+      "sources": ["Monster Manual"],
+      "summary": "Descendencia de mortales y seres de los Planos Inferiores, marcada por una herencia sobrenatural.",
+      "variants": ["Cambion", "Cambion de Graz'zt", "Cambion de Orcus"]
+    },
+    {
+      "name": "Daelkyr y aberraciones de Eberron",
+      "category": "Aberración",
+      "sources": ["Eberron"],
+      "summary": "Señores alienígenas y criaturas modificadas por su influencia en Khyber.",
+      "variants": ["Daelkyr", "Dolgaunt", "Dolgrim", "Mente de colmena"]
+    },
+    {
+      "name": "Dabus",
+      "category": "Planar",
+      "sources": ["Planescape"],
+      "summary": "Habitantes silenciosos de Sigil que se comunican mediante símbolos suspendidos.",
+      "variants": ["Dabus"]
+    },
+    {
+      "name": "Demodand",
+      "category": "Infernal",
+      "sources": ["Planescape"],
+      "summary": "Carceleros de Carceri, moldeados en castas de aspecto y función diferentes.",
+      "variants": ["Farastu", "Kelubar", "Shator"]
+    },
+    {
+      "name": "Derro",
+      "category": "Humanoide",
+      "sources": ["Mordenkainen", "Mordenkainen Multiverso"],
+      "summary": "Pueblo subterráneo impredecible, dividido entre ciudadanos, sabios y líderes violentos.",
+      "variants": ["Derro", "Derro savant"]
+    },
+    {
+      "name": "Diablos",
+      "category": "Infernal",
+      "sources": ["Monster Manual", "Mordenkainen"],
+      "summary": "Habitantes jerarquizados de los Nueve Infiernos, transformados al ascender o caer de rango.",
+      "variants": ["Lémur", "Diablillo", "Diablo barbado", "Diablo encadenado", "Diablo óseo", "Erinia", "Diablo de hielo", "Diablo astado", "Diablo de la sima"]
+    },
+    {
+      "name": "Dohwar",
+      "category": "Espacial",
+      "sources": ["Spelljammer"],
+      "summary": "Mercaderes telepáticos de aspecto aviar que viajan por el Mar Astral.",
+      "variants": ["Dohwar", "Dohwar mercader"]
+    },
+    {
+      "name": "Dracónidos de Draconia",
+      "category": "Humanoide",
+      "sources": ["Dragonlance"],
+      "summary": "Soldados creados mediante huevos de dragón corrompidos, cada estirpe con dones propios.",
+      "variants": ["Aurak", "Baaz", "Bozak", "Kapak", "Sivak"]
+    },
+    {
+      "name": "Dragones cromáticos",
+      "category": "Dragón",
+      "sources": ["Monster Manual", "Fizban"],
+      "summary": "Grandes linajes dracónicos asociados a energías elementales y territorios concretos.",
+      "variants": ["Negro", "Azul", "Blanco", "Rojo", "Verde", "Cría", "Joven", "Adulto", "Anciano"]
+    },
+    {
+      "name": "Dragones gema",
+      "category": "Dragón",
+      "sources": ["Fizban"],
+      "summary": "Dragones vinculados a fuerzas psiónicas, cristales y perspectivas alejadas del mundo mortal.",
+      "variants": ["Amatista", "Cristal", "Esmeralda", "Zafiro", "Topacio"]
+    },
+    {
+      "name": "Dragones metálicos",
+      "category": "Dragón",
+      "sources": ["Monster Manual", "Fizban"],
+      "summary": "Linajes dracónicos de aliento elemental que suelen mezclarse con culturas mortales.",
+      "variants": ["Bronce", "Cobre", "Oro", "Latón", "Plata", "Cría", "Joven", "Adulto", "Anciano"]
+    },
+    {
+      "name": "Dragones extraplanares",
+      "category": "Dragón",
+      "sources": ["Fizban", "Spelljammer", "Planescape"],
+      "summary": "Estirpes adaptadas a dominios psíquicos, astrales, radiantes o temporales.",
+      "variants": ["Dragón astral", "Dragón lunar", "Dragón solar", "Dragón de fuerza", "Dragón del tiempo"]
+    },
+    {
+      "name": "Drider",
+      "category": "Monstruosidad",
+      "sources": ["Monster Manual", "Mordenkainen"],
+      "summary": "Drow transformados ritualmente en criaturas arácnidas al servicio de Lolth.",
+      "variants": ["Drider", "Drider lanzador de conjuros"]
+    },
+    {
+      "name": "Elementales",
+      "category": "Elemental",
+      "sources": ["Monster Manual", "Mordenkainen Multiverso"],
+      "summary": "Conciencias surgidas de la materia primordial de los Planos Elementales.",
+      "variants": ["Aire", "Agua", "Fuego", "Tierra", "Mirmidón de aire", "Mirmidón de agua", "Mirmidón de fuego", "Mirmidón de tierra"]
+    },
+    {
+      "name": "Firenewt",
+      "category": "Humanoide",
+      "sources": ["Volo", "Mordenkainen Multiverso"],
+      "summary": "Pueblo reptiliano de volcanes y regiones abrasadas, devoto de poderes elementales.",
+      "variants": ["Guerrero", "Brujo de Imix", "Jinete de zancudo gigante"]
+    },
+    {
+      "name": "Fomorian",
+      "category": "Gigante",
+      "sources": ["Monster Manual", "Bigby"],
+      "summary": "Gigantes feéricos deformados por antiguas maldiciones y guerras del Feywild.",
+      "variants": ["Fomorian", "Noble fomorian"]
+    },
+    {
+      "name": "Genios",
+      "category": "Elemental",
+      "sources": ["Monster Manual"],
+      "summary": "Pueblos elementales poderosos cuyas cortes reflejan su plano de origen.",
+      "variants": ["Dao", "Djinni", "Efreeti", "Marid"]
+    },
+    {
+      "name": "Gigantes verdaderos",
+      "category": "Gigante",
+      "sources": ["Monster Manual", "Volo", "Bigby"],
+      "summary": "Linajes regidos por el ordning, con culturas diferenciadas por su relación con el mundo.",
+      "variants": ["Colinas", "Piedra", "Escarcha", "Fuego", "Nubes", "Tormenta"]
+    },
+    {
+      "name": "Gnoll",
+      "category": "Humanoide",
+      "sources": ["Monster Manual", "Volo", "Mordenkainen Multiverso"],
+      "summary": "Manadas humanoides asociadas a Yeenoghu, con cazadores y líderes especializados.",
+      "variants": ["Gnoll", "Cazador", "Desgarrador de carne", "Flind", "Witherling"]
+    },
+    {
+      "name": "Grimlock",
+      "category": "Humanoide",
+      "sources": ["Monster Manual"],
+      "summary": "Pueblo subterráneo sin visión que interpreta el mundo mediante oído y olfato extraordinarios.",
+      "variants": ["Grimlock"]
+    },
+    {
+      "name": "Hadas y cortes feéricas",
+      "category": "Feérico",
+      "sources": ["Monster Manual", "Volo", "Witchlight"],
+      "summary": "Pueblos del Feywild cuyas naturalezas encarnan estaciones, emociones y pactos antiguos.",
+      "variants": ["Dryad", "Korred", "Meenlock", "Redcap", "Quickling", "Eladrin estacional", "Brigganock"]
+    },
+    {
+      "name": "Hags",
+      "category": "Feérico",
+      "sources": ["Monster Manual", "Volo", "Mordenkainen Multiverso"],
+      "summary": "Estirpes de brujas sobrenaturales que forman aquelarres y comercian con desgracias.",
+      "variants": ["Annis", "Bheur", "Marina", "Nocturna", "Verde"]
+    },
+    {
+      "name": "Inspirados y quori",
+      "category": "Aberración",
+      "sources": ["Eberron"],
+      "summary": "Entidades oníricas de Dal Quor y los huéspedes mortales de su imperio.",
+      "variants": ["Inspired", "Hashalaq", "Kalaraq", "Tsucora"]
+    },
+    {
+      "name": "Kraul",
+      "category": "Humanoide",
+      "sources": ["Rávnica"],
+      "summary": "Pueblo insectoide del subsuelo de Rávnica integrado principalmente en el enjambre Golgari.",
+      "variants": ["Kraul guerrero", "Kraul alado", "Kraul death priest"]
+    },
+    {
+      "name": "Kuo-toa",
+      "category": "Humanoide",
+      "sources": ["Monster Manual"],
+      "summary": "Pueblo anfibio capaz de dar forma divina a sus creencias colectivas.",
+      "variants": ["Kuo-toa", "Látigo", "Arcipreste"]
+    },
+    {
+      "name": "Mercane",
+      "category": "Planar",
+      "sources": ["Spelljammer", "Planescape"],
+      "summary": "Comerciantes azules de gran talla que conectan mercados del multiverso.",
+      "variants": ["Mercane"]
+    },
+    {
+      "name": "Merfolk",
+      "category": "Humanoide",
+      "sources": ["Monster Manual", "Theros"],
+      "summary": "Pueblos acuáticos con ciudades, cultos y tradiciones distintas según cada mundo.",
+      "variants": ["Merfolk", "Merrow", "Tritón merfolk de Theros"]
+    },
+    {
+      "name": "Mind flayers",
+      "category": "Aberración",
+      "sources": ["Monster Manual", "Volo", "Mordenkainen Multiverso"],
+      "summary": "Civilización psiónica parasitaria organizada alrededor de cerebros ancianos.",
+      "variants": ["Azotamentes", "Alhoon", "Ulitharid", "Cerebro anciano", "Neothelid"]
+    },
+    {
+      "name": "Modrones",
+      "category": "Constructo",
+      "sources": ["Monster Manual", "Planescape"],
+      "summary": "Manifestaciones geométricas de la ley de Mechanus, ordenadas por rangos numéricos.",
+      "variants": ["Monodrone", "Duodrone", "Tridrone", "Quadrone", "Pentadrone", "Hierarca"]
+    },
+    {
+      "name": "Myconid",
+      "category": "Planta",
+      "sources": ["Monster Manual", "Out of the Abyss"],
+      "summary": "Comunidades fúngicas unidas por esporas y estados de conciencia compartidos.",
+      "variants": ["Brote", "Adulto", "Soberano", "Sirviente de esporas"]
+    },
+    {
+      "name": "Neogi",
+      "category": "Aberración",
+      "sources": ["Volo", "Spelljammer"],
+      "summary": "Comerciantes y saqueadores arácnidos que dominan mentalmente a otras criaturas.",
+      "variants": ["Cría", "Adulto", "Amo neogi", "Gran amo"]
+    },
+    {
+      "name": "Ogro",
+      "category": "Gigante",
+      "sources": ["Monster Manual", "Mordenkainen Multiverso"],
+      "summary": "Gigantes menores que adoptan funciones especializadas en ejércitos y clanes.",
+      "variants": ["Ogro", "Lanzavirotes", "Bruto de cadenas", "Howdah", "Ariete de asedio"]
+    },
+    {
+      "name": "Psurlon",
+      "category": "Aberración",
+      "sources": ["Spelljammer", "Planescape"],
+      "summary": "Pueblo psiónico con aspecto de gusano que conspira desde regiones remotas del Astral.",
+      "variants": ["Psurlon", "Líder psurlon", "Ringer psurlon"]
+    },
+    {
+      "name": "Quaggoth",
+      "category": "Humanoide",
+      "sources": ["Monster Manual"],
+      "summary": "Pueblo peludo de la Infraoscuridad, a menudo sometido por poderes más fuertes.",
+      "variants": ["Quaggoth", "Thonot"]
+    },
+    {
+      "name": "Reigar",
+      "category": "Celestial",
+      "sources": ["Spelljammer"],
+      "summary": "Artistas cósmicos que convierten belleza, creación y destrucción en una misma obsesión.",
+      "variants": ["Reigar"]
+    },
+    {
+      "name": "Rilmani",
+      "category": "Planar",
+      "sources": ["Planescape"],
+      "summary": "Guardianes de la neutralidad absoluta que intervienen cuando el equilibrio planar peligra.",
+      "variants": ["Aurumach", "Cuprilach", "Ferrumach", "Plumach"]
+    },
+    {
+      "name": "Sahuagin",
+      "category": "Humanoide",
+      "sources": ["Monster Manual", "Ghosts of Saltmarsh"],
+      "summary": "Civilización depredadora de las profundidades, organizada en castas religiosas y militares.",
+      "variants": ["Sahuagin", "Sacerdotisa", "Barón", "Malenti", "Campeón de Sekolah"]
+    },
+    {
+      "name": "Scro",
+      "category": "Humanoide",
+      "sources": ["Spelljammer"],
+      "summary": "Imperio marcial de orcos astrales disciplinados y expertos en guerra naval.",
+      "variants": ["Scro guerrero", "Comandante scro"]
+    },
+    {
+      "name": "Slaad",
+      "category": "Aberración",
+      "sources": ["Monster Manual", "Planescape"],
+      "summary": "Entidades del caos de Limbo cuya forma y función se expresan por colores.",
+      "variants": ["Renacuajo", "Rojo", "Azul", "Verde", "Gris", "Muerte"]
+    },
+    {
+      "name": "Ssurran",
+      "category": "Humanoide",
+      "sources": ["Spelljammer"],
+      "summary": "Pueblo reptiliano resistente al calor que habita mundos desérticos y naves solares.",
+      "variants": ["Ssurran", "Ssurran chamán"]
+    },
+    {
+      "name": "Tanarukk",
+      "category": "Infernal",
+      "sources": ["Volo", "Mordenkainen Multiverso"],
+      "summary": "Linaje orco marcado por sangre demoníaca y una fuerza difícil de contener.",
+      "variants": ["Tanarukk"]
+    },
+    {
+      "name": "Troglodita",
+      "category": "Humanoide",
+      "sources": ["Monster Manual"],
+      "summary": "Pueblo reptiliano cavernario adaptado a entornos sin luz y territorios hostiles.",
+      "variants": ["Troglodita", "Campeón de Laogzed"]
+    },
+    {
+      "name": "Trol",
+      "category": "Gigante",
+      "sources": ["Monster Manual", "Mordenkainen", "Bigby"],
+      "summary": "Linajes regenerativos cuyas mutaciones reflejan el entorno y aquello que consumen.",
+      "variants": ["Trol", "Trol de hielo", "Trol espiritual", "Trol pútrido", "Trol venenoso", "Dire troll"]
+    },
+    {
+      "name": "Vampiratas",
+      "category": "No muerto",
+      "sources": ["Spelljammer"],
+      "summary": "Tripulaciones no muertas que conservan rangos y costumbres de sus vidas como corsarios.",
+      "variants": ["Vampirata", "Mago vampirata", "Capitán vampirata"]
+    },
+    {
+      "name": "Vegepygmy",
+      "category": "Planta",
+      "sources": ["Volo", "Mordenkainen Multiverso"],
+      "summary": "Pueblo fúngico surgido de la infección russet, organizado en tribus silenciosas.",
+      "variants": ["Vegepygmy", "Jefe vegepygmy", "Thorny"]
+    },
+    {
+      "name": "Xvart",
+      "category": "Humanoide",
+      "sources": ["Volo", "Mordenkainen Multiverso"],
+      "summary": "Humanoides azules creados a imagen de Raxivort y agrupados en bandas oportunistas.",
+      "variants": ["Xvart", "Brujo de Raxivort"]
+    },
+    {
+      "name": "Yuan-ti",
+      "category": "Humanoide",
+      "sources": ["Monster Manual", "Volo", "Mordenkainen Multiverso"],
+      "summary": "Linajes serpentinos transformados por rituales, con castas que van mucho más allá de la opción jugable.",
+      "variants": ["Sangre pura", "Mestizo", "Abominación", "Anatema", "Broodguard", "Orador mental", "Orador de pesadillas", "Amo del foso"]
+    },
+    {
+      "name": "Yugoloth",
+      "category": "Infernal",
+      "sources": ["Monster Manual", "Mordenkainen Multiverso"],
+      "summary": "Mercenarios de los Planos Inferiores clasificados en numerosos cuerpos y especialidades.",
+      "variants": ["Arcanaloth", "Canoloth", "Dhergoloth", "Hydroloth", "Mezzoloth", "Nycaloth", "Oinoloth", "Yagnoloth"]
+    }
+  ]
+}

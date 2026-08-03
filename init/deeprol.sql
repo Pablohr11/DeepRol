@@ -32,8 +32,10 @@ CREATE TABLE `chars` (
   `id_user` int(3) NOT NULL,
   `name` varchar(50) NOT NULL,
   `raza` varchar(255) NOT NULL,
+  `subraza` varchar(255) NOT NULL DEFAULT '',
   `nivel` int(2) NOT NULL,
   `clase` varchar(255) NOT NULL,
+  `subclase` varchar(255) NOT NULL DEFAULT '',
   `pdf_path` varchar(255) NOT NULL,
   `image_path` varchar(255) NOT NULL,
   `full_body_image_path` varchar(255) NOT NULL

@@ -1,0 +1,432 @@
+{
+  "edition": "D&D 5e (reglas 2014)",
+  "classes": [
+    {
+      "name": "Artifice",
+      "label": "Artífice",
+      "description": "Inventor mágico que canaliza conjuros a través de herramientas y objetos.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Alquimista", "source": "Eberron / Tasha"},
+        {"name": "Armero", "source": "Tasha"},
+        {"name": "Artillero", "source": "Eberron / Tasha"},
+        {"name": "Herrero de Batalla", "source": "Eberron / Tasha"}
+      ]
+    },
+    {
+      "name": "Barbaro",
+      "label": "Bárbaro",
+      "description": "Combatiente de gran resistencia que desata su furia en primera línea.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Senda del Berserker", "source": "Manual del Jugador"},
+        {"name": "Senda del Guerrero Totémico", "source": "Manual del Jugador"},
+        {"name": "Senda del Battlerager", "source": "Costa de la Espada"},
+        {"name": "Senda del Guardián Ancestral", "source": "Xanathar"},
+        {"name": "Senda del Heraldo de la Tormenta", "source": "Xanathar"},
+        {"name": "Senda del Fanático", "source": "Xanathar"},
+        {"name": "Senda de la Bestia", "source": "Tasha"},
+        {"name": "Senda de la Magia Salvaje", "source": "Tasha"},
+        {"name": "Senda del Gigante", "source": "Bigby"}
+      ]
+    },
+    {
+      "name": "Bardo",
+      "label": "Bardo",
+      "description": "Artista y erudito que convierte la inspiración en magia versátil.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Colegio del Conocimiento", "source": "Manual del Jugador"},
+        {"name": "Colegio del Valor", "source": "Manual del Jugador"},
+        {"name": "Colegio del Glamour", "source": "Xanathar"},
+        {"name": "Colegio de las Espadas", "source": "Xanathar"},
+        {"name": "Colegio de los Susurros", "source": "Xanathar"},
+        {"name": "Colegio de la Creación", "source": "Tasha"},
+        {"name": "Colegio de la Elocuencia", "source": "Tasha"},
+        {"name": "Colegio de los Espíritus", "source": "Van Richten"}
+      ]
+    },
+    {
+      "name": "Brujo",
+      "label": "Brujo",
+      "description": "Portador de magia de pacto concedida por una entidad sobrenatural.",
+      "subclassLevel": 1,
+      "subclasses": [
+        {"name": "El Archifey", "source": "Manual del Jugador"},
+        {"name": "El Infernal", "source": "Manual del Jugador"},
+        {"name": "El Gran Antiguo", "source": "Manual del Jugador"},
+        {"name": "El Inmortal", "source": "Costa de la Espada"},
+        {"name": "El Celestial", "source": "Xanathar"},
+        {"name": "El Hexblade", "source": "Xanathar"},
+        {"name": "El Insondable", "source": "Tasha"},
+        {"name": "El Genio", "source": "Tasha"},
+        {"name": "El No Muerto", "source": "Van Richten"}
+      ]
+    },
+    {
+      "name": "Clerigo",
+      "label": "Clérigo",
+      "description": "Canalizador de poder divino al servicio de un dominio sagrado.",
+      "subclassLevel": 1,
+      "subclasses": [
+        {"name": "Dominio del Conocimiento", "source": "Manual del Jugador"},
+        {"name": "Dominio de la Vida", "source": "Manual del Jugador"},
+        {"name": "Dominio de la Luz", "source": "Manual del Jugador"},
+        {"name": "Dominio de la Naturaleza", "source": "Manual del Jugador"},
+        {"name": "Dominio de la Tempestad", "source": "Manual del Jugador"},
+        {"name": "Dominio del Engaño", "source": "Manual del Jugador"},
+        {"name": "Dominio de la Guerra", "source": "Manual del Jugador"},
+        {"name": "Dominio de la Muerte", "source": "Guía del Dungeon Master"},
+        {"name": "Dominio Arcano", "source": "Costa de la Espada"},
+        {"name": "Dominio de la Forja", "source": "Xanathar"},
+        {"name": "Dominio de la Tumba", "source": "Xanathar"},
+        {"name": "Dominio del Orden", "source": "Rávnica / Tasha"},
+        {"name": "Dominio de la Paz", "source": "Tasha"},
+        {"name": "Dominio del Crepúsculo", "source": "Tasha"}
+      ]
+    },
+    {
+      "name": "Druida",
+      "label": "Druida",
+      "description": "Guardián de la naturaleza capaz de conjurar y adoptar formas salvajes.",
+      "subclassLevel": 2,
+      "subclasses": [
+        {"name": "Círculo de la Tierra", "source": "Manual del Jugador"},
+        {"name": "Círculo de la Luna", "source": "Manual del Jugador"},
+        {"name": "Círculo de los Sueños", "source": "Xanathar"},
+        {"name": "Círculo del Pastor", "source": "Xanathar"},
+        {"name": "Círculo de las Esporas", "source": "Rávnica / Tasha"},
+        {"name": "Círculo de las Estrellas", "source": "Tasha"},
+        {"name": "Círculo del Fuego Salvaje", "source": "Tasha"}
+      ]
+    },
+    {
+      "name": "Explorador",
+      "label": "Explorador",
+      "description": "Especialista en supervivencia, rastreo y combate contra amenazas concretas.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Cazador", "source": "Manual del Jugador"},
+        {"name": "Señor de las Bestias", "source": "Manual del Jugador"},
+        {"name": "Acechador de la Penumbra", "source": "Xanathar"},
+        {"name": "Caminante del Horizonte", "source": "Xanathar"},
+        {"name": "Matamonstruos", "source": "Xanathar"},
+        {"name": "Caminante Feérico", "source": "Tasha"},
+        {"name": "Guardián del Enjambre", "source": "Tasha"},
+        {"name": "Guardián de Dragones", "source": "Fizban"}
+      ]
+    },
+    {
+      "name": "Guerrero",
+      "label": "Guerrero",
+      "description": "Maestro de armas adaptable a cualquier estilo y situación de combate.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Campeón", "source": "Manual del Jugador"},
+        {"name": "Maestro de Batalla", "source": "Manual del Jugador"},
+        {"name": "Caballero Arcano", "source": "Manual del Jugador"},
+        {"name": "Caballero del Dragón Púrpura", "source": "Costa de la Espada"},
+        {"name": "Arquero Arcano", "source": "Xanathar"},
+        {"name": "Caballero", "source": "Xanathar"},
+        {"name": "Samurái", "source": "Xanathar"},
+        {"name": "Caballero del Eco", "source": "Wildemount"},
+        {"name": "Guerrero Psíquico", "source": "Tasha"},
+        {"name": "Caballero Rúnico", "source": "Tasha"}
+      ]
+    },
+    {
+      "name": "Hechicero",
+      "label": "Hechicero",
+      "description": "Lanzador cuya magia procede de un linaje o transformación innata.",
+      "subclassLevel": 1,
+      "subclasses": [
+        {"name": "Linaje Dracónico", "source": "Manual del Jugador"},
+        {"name": "Magia Salvaje", "source": "Manual del Jugador"},
+        {"name": "Alma Divina", "source": "Xanathar"},
+        {"name": "Magia de las Sombras", "source": "Xanathar"},
+        {"name": "Hechicería de Tormenta", "source": "Xanathar"},
+        {"name": "Mente Aberrante", "source": "Tasha"},
+        {"name": "Alma Mecánica", "source": "Tasha"},
+        {"name": "Hechicería Lunar", "source": "Dragonlance"}
+      ]
+    },
+    {
+      "name": "Mago",
+      "label": "Mago",
+      "description": "Erudito arcano que aprende, prepara y amplía su repertorio de conjuros.",
+      "subclassLevel": 2,
+      "subclasses": [
+        {"name": "Escuela de Abjuración", "source": "Manual del Jugador"},
+        {"name": "Escuela de Adivinación", "source": "Manual del Jugador"},
+        {"name": "Escuela de Conjuración", "source": "Manual del Jugador"},
+        {"name": "Escuela de Encantamiento", "source": "Manual del Jugador"},
+        {"name": "Escuela de Evocación", "source": "Manual del Jugador"},
+        {"name": "Escuela de Ilusión", "source": "Manual del Jugador"},
+        {"name": "Escuela de Nigromancia", "source": "Manual del Jugador"},
+        {"name": "Escuela de Transmutación", "source": "Manual del Jugador"},
+        {"name": "Canto de Espadas", "source": "Costa de la Espada / Tasha"},
+        {"name": "Magia de Guerra", "source": "Xanathar"},
+        {"name": "Cronurgia", "source": "Wildemount"},
+        {"name": "Graviturgia", "source": "Wildemount"},
+        {"name": "Orden de los Escribas", "source": "Tasha"}
+      ]
+    },
+    {
+      "name": "Monje",
+      "label": "Monje",
+      "description": "Artista marcial que domina su cuerpo y canaliza la energía del ki.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Camino de la Mano Abierta", "source": "Manual del Jugador"},
+        {"name": "Camino de la Sombra", "source": "Manual del Jugador"},
+        {"name": "Camino de los Cuatro Elementos", "source": "Manual del Jugador"},
+        {"name": "Camino de la Muerte Larga", "source": "Costa de la Espada"},
+        {"name": "Camino del Maestro Borracho", "source": "Xanathar"},
+        {"name": "Camino del Kensei", "source": "Xanathar"},
+        {"name": "Camino del Alma Solar", "source": "Xanathar"},
+        {"name": "Camino del Yo Astral", "source": "Tasha"},
+        {"name": "Camino de la Misericordia", "source": "Tasha"},
+        {"name": "Camino del Dragón Ascendente", "source": "Fizban"}
+      ]
+    },
+    {
+      "name": "Paladin",
+      "label": "Paladín",
+      "description": "Guerrero sagrado ligado a un juramento que le concede poder divino.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Juramento de los Ancestros", "source": "Manual del Jugador"},
+        {"name": "Juramento de Devoción", "source": "Manual del Jugador"},
+        {"name": "Juramento de Venganza", "source": "Manual del Jugador"},
+        {"name": "Rompejuramentos", "source": "Guía del Dungeon Master"},
+        {"name": "Juramento de la Corona", "source": "Costa de la Espada"},
+        {"name": "Juramento de Conquista", "source": "Xanathar"},
+        {"name": "Juramento de Redención", "source": "Xanathar"},
+        {"name": "Juramento de Gloria", "source": "Tasha"},
+        {"name": "Juramento de los Vigilantes", "source": "Tasha"}
+      ]
+    },
+    {
+      "name": "Picaro",
+      "label": "Pícaro",
+      "description": "Especialista ágil en precisión, sigilo y resolución creativa de problemas.",
+      "subclassLevel": 3,
+      "subclasses": [
+        {"name": "Ladrón", "source": "Manual del Jugador"},
+        {"name": "Asesino", "source": "Manual del Jugador"},
+        {"name": "Tramposo Arcano", "source": "Manual del Jugador"},
+        {"name": "Inquisitivo", "source": "Xanathar"},
+        {"name": "Mente Maestra", "source": "Xanathar"},
+        {"name": "Explorador", "source": "Xanathar"},
+        {"name": "Espadachín", "source": "Xanathar"},
+        {"name": "Fantasma", "source": "Tasha"},
+        {"name": "Cuchillo del Alma", "source": "Tasha"}
+      ]
+    }
+  ],
+  "races": [
+    {
+      "name": "Draconido",
+      "label": "Dracónido",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Dracónido estándar", "source": "Manual del Jugador"},
+        {"name": "Sangre de dragón", "source": "Wildemount"},
+        {"name": "Ravenita", "source": "Wildemount"},
+        {"name": "Dracónido cromático", "source": "Fizban"},
+        {"name": "Dracónido gema", "source": "Fizban"},
+        {"name": "Dracónido metálico", "source": "Fizban"}
+      ]
+    },
+    {
+      "name": "Elfo",
+      "label": "Elfo",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Alto elfo", "source": "Manual del Jugador"},
+        {"name": "Elfo de los bosques", "source": "Manual del Jugador"},
+        {"name": "Drow", "source": "Manual del Jugador"},
+        {"name": "Eladrin", "source": "Mordenkainen"},
+        {"name": "Elfo marino", "source": "Mordenkainen"},
+        {"name": "Shadar-kai", "source": "Mordenkainen"},
+        {"name": "Elfo pálido", "source": "Wildemount"},
+        {"name": "Elfo astral", "source": "Spelljammer"},
+        {"name": "Marca de la Sombra", "source": "Eberron"}
+      ]
+    },
+    {
+      "name": "Enano",
+      "label": "Enano",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Enano de las colinas", "source": "Manual del Jugador"},
+        {"name": "Enano de las montañas", "source": "Manual del Jugador"},
+        {"name": "Duergar", "source": "Costa de la Espada / Mordenkainen"},
+        {"name": "Marca de la Protección", "source": "Eberron"}
+      ]
+    },
+    {
+      "name": "Gnomo",
+      "label": "Gnomo",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Gnomo de los bosques", "source": "Manual del Jugador"},
+        {"name": "Gnomo de las rocas", "source": "Manual del Jugador"},
+        {"name": "Gnomo de las profundidades", "source": "Costa de la Espada / Mordenkainen"},
+        {"name": "Marca de la Escritura", "source": "Eberron"}
+      ]
+    },
+    {
+      "name": "Humano",
+      "label": "Humano",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Humano estándar", "source": "Manual del Jugador"},
+        {"name": "Humano variante", "source": "Manual del Jugador"},
+        {"name": "Marca de la Detección", "source": "Eberron"},
+        {"name": "Marca del Manejo", "source": "Eberron"},
+        {"name": "Marca de la Creación", "source": "Eberron"},
+        {"name": "Marca del Paso", "source": "Eberron"},
+        {"name": "Marca del Centinela", "source": "Eberron"}
+      ]
+    },
+    {
+      "name": "Mediano",
+      "label": "Mediano",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Piesligeros", "source": "Manual del Jugador"},
+        {"name": "Fornido", "source": "Manual del Jugador"},
+        {"name": "Fantasmal", "source": "Costa de la Espada"},
+        {"name": "Lotusden", "source": "Wildemount"},
+        {"name": "Marca de la Curación", "source": "Eberron"},
+        {"name": "Marca de la Hospitalidad", "source": "Eberron"}
+      ]
+    },
+    {
+      "name": "Semielfo",
+      "label": "Semielfo",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Semielfo estándar", "source": "Manual del Jugador"},
+        {"name": "Herencia acuática", "source": "Costa de la Espada"},
+        {"name": "Herencia drow", "source": "Costa de la Espada"},
+        {"name": "Herencia de alto elfo", "source": "Costa de la Espada"},
+        {"name": "Herencia de elfo de los bosques", "source": "Costa de la Espada"},
+        {"name": "Marca de la Detección", "source": "Eberron"},
+        {"name": "Marca de la Tormenta", "source": "Eberron"}
+      ]
+    },
+    {
+      "name": "Semiorco",
+      "label": "Semiorco",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Semiorco estándar", "source": "Manual del Jugador"},
+        {"name": "Marca del Hallazgo", "source": "Eberron"}
+      ]
+    },
+    {
+      "name": "Tiefling",
+      "label": "Tiefling",
+      "source": "Manual del Jugador",
+      "subraces": [
+        {"name": "Linaje de Asmodeo", "source": "Manual del Jugador"},
+        {"name": "Tiefling feral", "source": "Costa de la Espada"},
+        {"name": "Tiefling alado", "source": "Costa de la Espada"},
+        {"name": "Lengua del Diablo", "source": "Costa de la Espada"},
+        {"name": "Fuego Infernal", "source": "Costa de la Espada"},
+        {"name": "Linaje de Baalzebul", "source": "Mordenkainen"},
+        {"name": "Linaje de Dispater", "source": "Mordenkainen"},
+        {"name": "Linaje de Fierna", "source": "Mordenkainen"},
+        {"name": "Linaje de Glasya", "source": "Mordenkainen"},
+        {"name": "Linaje de Levistus", "source": "Mordenkainen"},
+        {"name": "Linaje de Mammon", "source": "Mordenkainen"},
+        {"name": "Linaje de Mefistófeles", "source": "Mordenkainen"},
+        {"name": "Linaje de Zariel", "source": "Mordenkainen"}
+      ]
+    },
+    {
+      "name": "Aasimar",
+      "label": "Aasimar",
+      "source": "Volo / Mordenkainen",
+      "subraces": [
+        {"name": "Protector", "source": "Volo"},
+        {"name": "Azote", "source": "Volo"},
+        {"name": "Caído", "source": "Volo"},
+        {"name": "Aasimar revisado", "source": "Mordenkainen"}
+      ]
+    },
+    {
+      "name": "Genasi",
+      "label": "Genasi",
+      "source": "Elemental Evil / Mordenkainen",
+      "subraces": [
+        {"name": "Aire", "source": "Elemental Evil / Mordenkainen"},
+        {"name": "Agua", "source": "Elemental Evil / Mordenkainen"},
+        {"name": "Fuego", "source": "Elemental Evil / Mordenkainen"},
+        {"name": "Tierra", "source": "Elemental Evil / Mordenkainen"}
+      ]
+    },
+    {
+      "name": "Gith",
+      "label": "Gith",
+      "source": "Mordenkainen",
+      "subraces": [
+        {"name": "Githyanki", "source": "Mordenkainen"},
+        {"name": "Githzerai", "source": "Mordenkainen"}
+      ]
+    },
+    {
+      "name": "Shifter",
+      "label": "Cambiante bestial (shifter)",
+      "source": "Eberron / Mordenkainen",
+      "subraces": [
+        {"name": "Piel de bestia", "source": "Eberron"},
+        {"name": "Diente largo", "source": "Eberron"},
+        {"name": "Paso veloz", "source": "Eberron"},
+        {"name": "Cazador salvaje", "source": "Eberron"},
+        {"name": "Shifter revisado", "source": "Mordenkainen"}
+      ]
+    },
+    {"name": "Aarakocra", "label": "Aarakocra", "source": "Elemental Evil / Mordenkainen", "subraces": []},
+    {"name": "Bugbear", "label": "Bugbear", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Centauro", "label": "Centauro", "source": "Rávnica / Mordenkainen", "subraces": []},
+    {"name": "Cambiante", "label": "Cambiante (changeling)", "source": "Eberron / Mordenkainen", "subraces": []},
+    {"name": "Hada", "label": "Hada", "source": "Witchlight / Mordenkainen", "subraces": []},
+    {"name": "Firbolg", "label": "Firbolg", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Goblin", "label": "Goblin", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Goliat", "label": "Goliat", "source": "Elemental Evil / Mordenkainen", "subraces": []},
+    {"name": "Harengon", "label": "Harengon", "source": "Witchlight / Mordenkainen", "subraces": []},
+    {"name": "Hobgoblin", "label": "Hobgoblin", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Kenku", "label": "Kenku", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Kobold", "label": "Kobold", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Hombre lagarto", "label": "Hombre lagarto", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Minotauro", "label": "Minotauro", "source": "Rávnica / Mordenkainen", "subraces": []},
+    {"name": "Orco", "label": "Orco", "source": "Eberron / Mordenkainen", "subraces": []},
+    {"name": "Satiro", "label": "Sátiro", "source": "Theros / Mordenkainen", "subraces": []},
+    {"name": "Tabaxi", "label": "Tabaxi", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Tortle", "label": "Tortle", "source": "The Tortle Package / Mordenkainen", "subraces": []},
+    {"name": "Triton", "label": "Tritón", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Yuan-ti", "label": "Yuan-ti", "source": "Volo / Mordenkainen", "subraces": []},
+    {"name": "Kalashtar", "label": "Kalashtar", "source": "Eberron", "subraces": []},
+    {"name": "Forjado", "label": "Forjado (warforged)", "source": "Eberron", "subraces": []},
+    {"name": "Leonino", "label": "Leonino", "source": "Theros", "subraces": []},
+    {"name": "Loxodon", "label": "Loxodon", "source": "Rávnica", "subraces": []},
+    {"name": "Hibrido Simic", "label": "Híbrido Simic", "source": "Rávnica", "subraces": []},
+    {"name": "Vedalken", "label": "Vedalken", "source": "Rávnica", "subraces": []},
+    {"name": "Verdan", "label": "Verdan", "source": "Acquisitions Incorporated", "subraces": []},
+    {"name": "Locathah", "label": "Locathah", "source": "Locathah Rising", "subraces": []},
+    {"name": "Grung", "label": "Grung", "source": "One Grung Above", "subraces": []},
+    {"name": "Dhampir", "label": "Dhampir", "source": "Van Richten", "subraces": []},
+    {"name": "Hexblood", "label": "Hexblood", "source": "Van Richten", "subraces": []},
+    {"name": "Renacido", "label": "Renacido", "source": "Van Richten", "subraces": []},
+    {"name": "Autognomo", "label": "Autognomo", "source": "Spelljammer", "subraces": []},
+    {"name": "Giff", "label": "Giff", "source": "Spelljammer", "subraces": []},
+    {"name": "Hadozee", "label": "Hadozee", "source": "Spelljammer", "subraces": []},
+    {"name": "Plasmoide", "label": "Plasmoide", "source": "Spelljammer", "subraces": []},
+    {"name": "Thri-kreen", "label": "Thri-kreen", "source": "Spelljammer", "subraces": []},
+    {"name": "Owlin", "label": "Owlin", "source": "Strixhaven", "subraces": []},
+    {"name": "Kender", "label": "Kender", "source": "Dragonlance", "subraces": []}
+  ]
+}

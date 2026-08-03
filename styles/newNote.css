@@ -1,104 +1,463 @@
+:root {
+    color-scheme: dark;
+    --new-note-bg: var(--theme-bg, #080b10);
+    --new-note-panel: var(--theme-panel, rgba(17, 23, 32, 0.95));
+    --new-note-line: var(--theme-border-soft, rgba(91, 103, 118, 0.17));
+    --new-note-text: var(--theme-text, #f1eee7);
+    --new-note-muted: var(--theme-readable-muted, #aaa69d);
+    --new-note-purple: var(--theme-accent, #a99a78);
+}
 
-/* 
-    .selectable-char {
-        display: inline-block;
-        border: 2px solid transparent;
-        border-radius: 8px;
-        padding: 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: background-color 0.3s, border-color 0.3s;
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-width: 300px;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--new-note-text);
+    background:
+        radial-gradient(circle at 80% -8%, rgba(105, 37, 159, 0.21), transparent 30rem),
+        linear-gradient(145deg, #070710, #090815 58%, #080a13);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+.newNotePage {
+    position: relative;
+    z-index: 2;
+    width: min(1000px, 100%);
+    margin: 0 auto;
+    padding: 20px 24px 50px;
+}
+
+.newNoteBreadcrumb {
+    display: flex;
+    min-height: 42px;
+    align-items: center;
+    gap: 8px;
+    color: #746d7c;
+    font-size: 9px;
+}
+
+.newNoteBreadcrumb a {
+    color: #c172ed;
+}
+
+.newNoteBreadcrumb strong {
+    color: #aaa3b1;
+    font-weight: 500;
+}
+
+#nnForm {
+    overflow: hidden;
+    border: 1px solid var(--new-note-line);
+    border-radius: 13px;
+    background:
+        radial-gradient(circle at 95% 0%, rgba(100, 37, 145, 0.11), transparent 24rem),
+        linear-gradient(145deg, rgba(20, 18, 34, 0.95), rgba(9, 9, 18, 0.98));
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.22);
+}
+
+.newNoteHeader {
+    position: relative;
+    display: flex;
+    min-height: 128px;
+    align-items: center;
+    justify-content: space-between;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 23px 27px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.newNoteHeader::before {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(12, 10, 22, 0.98), rgba(18, 10, 29, 0.68)),
+        url("../resources/imgs/book.jpg") center 52% / cover;
+    content: "";
+    filter: hue-rotate(240deg) saturate(0.76);
+    opacity: 0.64;
+}
+
+.newNoteHeader::after {
+    position: absolute;
+    z-index: -1;
+    top: -90px;
+    right: 10%;
+    width: 280px;
+    height: 230px;
+    border-radius: 50%;
+    background: rgba(131, 43, 197, 0.25);
+    content: "";
+    filter: blur(58px);
+}
+
+.sectionKicker {
+    color: #c371f0;
+    font-size: 8px;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.newNoteHeader h1 {
+    margin: 4px 0 5px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(29px, 4vw, 42px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+}
+
+.newNoteHeader p {
+    margin: 0;
+    color: #9b94a3;
+    font-size: 11px;
+}
+
+.headerRune {
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    border: 1px solid rgba(184, 79, 250, 0.36);
+    border-radius: 11px;
+    color: #ce84f4;
+    background: rgba(91, 33, 131, 0.26);
+    font-size: 21px;
+}
+
+.formErrors {
+    display: grid;
+    gap: 4px;
+    margin: 17px 24px 0;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 95, 120, 0.26);
+    border-radius: 8px;
+    color: #ff92a2;
+    background: rgba(123, 31, 49, 0.14);
+    font-size: 9px;
+}
+
+.noteDetails {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 190px;
+    gap: 12px;
+    padding: 22px 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.noteDetails label {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.noteDetails label > span {
+    color: #8b8492;
+    font-size: 8px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+.noteDetails input {
+    width: 100%;
+    height: 41px;
+    padding: 0 12px;
+    border: 1px solid rgba(160, 139, 191, 0.17);
+    border-radius: 8px;
+    outline: 0;
+    color: #eee8f1;
+    background: rgba(10, 10, 19, 0.76);
+    font-size: 11px;
+}
+
+.noteDetails input:focus {
+    border-color: rgba(181, 77, 247, 0.58);
+    box-shadow: 0 0 0 3px rgba(181, 77, 247, 0.07);
+}
+
+.noteDetails input::placeholder {
+    color: #645e69;
+}
+
+.noteDetails input[type="date"] {
+    color-scheme: dark;
+}
+
+.characterSelection {
+    padding: 21px 25px 25px;
+}
+
+.selectionHeader {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 14px;
+}
+
+.selectionHeader h2 {
+    margin: 3px 0 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.selectionHeader > small {
+    color: #756e7d;
+    font-size: 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.selectableCharacters {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.selectableChar {
+    position: relative;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.selectableChar > input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.selectableCharContent {
+    position: relative;
+    display: flex;
+    min-height: 180px;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 11px;
+    border: 1px solid rgba(160, 139, 191, 0.15);
+    border-radius: 10px;
+    background: rgba(11, 11, 20, 0.72);
+    transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.selectableChar input:checked + .selectableCharContent {
+    border-color: rgba(184, 79, 250, 0.58);
+    background: rgba(91, 34, 131, 0.2);
+    box-shadow: inset 0 0 20px rgba(180, 76, 246, 0.05);
+    transform: translateY(-2px);
+}
+
+.selectableCharContent img,
+.selectableFallback {
+    display: grid;
+    width: 105px;
+    height: 105px;
+    place-items: center;
+    margin-bottom: 10px;
+    border: 1px solid rgba(183, 79, 246, 0.34);
+    border-radius: 50%;
+    object-fit: cover;
+    color: #d9adf0;
+    background: linear-gradient(145deg, #49245f, #15101e);
+    font-family: Georgia, serif;
+    font-size: 35px;
+}
+
+.selectableCharContent > strong {
+    overflow: hidden;
+    max-width: 100%;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.selectableCharContent > small {
+    margin-top: 3px;
+    overflow: hidden;
+    max-width: 100%;
+    color: #807987;
+    font-size: 8px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.selectedMark {
+    position: absolute;
+    z-index: 2;
+    top: 9px;
+    right: 9px;
+    display: grid;
+    width: 21px;
+    height: 21px;
+    place-items: center;
+    border: 1px solid rgba(174, 149, 202, 0.19);
+    border-radius: 50%;
+    color: transparent;
+    background: rgba(10, 10, 18, 0.7);
+    font-size: 9px;
+}
+
+.selectableChar input:checked + .selectableCharContent .selectedMark {
+    border-color: rgba(185, 80, 250, 0.58);
+    color: #ecd6f8;
+    background: #69279b;
+}
+
+.formActions {
+    display: flex;
+    min-height: 67px;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 9px;
+    padding: 13px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.055);
+    background: rgba(9, 9, 17, 0.45);
+}
+
+.formActions a,
+.formActions button {
+    display: flex;
+    min-height: 37px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 14px;
+    border-radius: 8px;
+    font-size: 9px;
+}
+
+.formActions a {
+    border: 1px solid rgba(160, 139, 191, 0.18);
+    color: #9a929f;
+    background: rgba(15, 14, 24, 0.8);
+}
+
+.formActions button {
+    gap: 9px;
+    border: 1px solid rgba(184, 79, 250, 0.5);
+    color: #efdafb;
+    background: linear-gradient(90deg, #68269c, #4e1d76);
+    cursor: pointer;
+}
+
+.formActions button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.noCharacters {
+    display: flex;
+    min-height: 180px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px dashed rgba(174, 108, 211, 0.22);
+    border-radius: 10px;
+    color: #8f8797;
+    text-align: center;
+}
+
+.noCharacters > span {
+    color: #aa62d1;
+    font-size: 34px;
+}
+
+.noCharacters p {
+    margin: 8px 0;
+    font-size: 10px;
+}
+
+.noCharacters a {
+    color: #cf87f2;
+    font-size: 9px;
+}
+
+.noteMist {
+    position: fixed;
+    z-index: 0;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+    background: url("../resources/imgs/mist.png") repeat;
+    background-size: 600px 600px;
+    animation: newNoteMist 150s linear infinite;
+}
+
+@keyframes newNoteMist {
+    to { background-position: 1000px 1000px; }
+}
+
+body.framed .newNotePage {
+    padding: 11px;
+}
+
+body.framed .newNoteBreadcrumb {
+    min-height: 32px;
+}
+
+body.framed .newNoteHeader {
+    min-height: 95px;
+    padding: 15px 18px;
+}
+
+body.framed .newNoteHeader h1 {
+    font-size: 26px;
+}
+
+body.framed .newNoteHeader p,
+body.framed .headerRune {
+    display: none;
+}
+
+@media (max-width: 820px) {
+    .selectableCharacters {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 560px) {
+    .newNotePage {
+        padding: 12px 9px 35px;
     }
 
-    .selectable-char-img {
-        width: 80px;
-        height: 80px;
-        height: auto;
-        display: block;
-        margin: 0 auto 5px;
+    .newNoteHeader {
+        padding-inline: 17px;
     }
 
-    input[type="radio"] {
+    .headerRune {
         display: none;
     }
 
-    input[type="radio"]:checked + .selectable-char-content {
-        background-color: #d0f0ff;
-        border-color: #007acc;
-        box-shadow: 0 0 10px rgba(0, 122, 204, 0.5);
+    .noteDetails,
+    .selectableCharacters {
+        grid-template-columns: 1fr;
     }
 
-    /* Para envolver el contenido que cambiará visualmente */
-    /* .selectable-char-content {
-        border: 2px solid transparent;
-        border-radius: 8px;
-        padding: 10px;
-        transition: all 0.3s ease;
-    } */
-
-    .selectable-char {
-        display: inline-block;
-        border: 2px solid transparent;
-        border-radius: 8px;
-        padding: 10px;
-        text-align: center;
-        cursor: pointer;
-        transition: background-color 0.3s, border-color 0.3s;
+    .characterSelection,
+    .noteDetails,
+    .formActions {
+        padding-inline: 15px;
     }
-
-    .selectable-char-img-wrapper {
-        /* height: 120px; */
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-        overflow: hidden;
-        margin-bottom: 5px;
-    }
-
-    .selectable-char-img {
-        height: 150px;
-        width: 150px;
-        object-fit: cover;
-    }
-
-    input[type="radio"] {
-        display: none;
-    }
-
-    input[type="radio"]:checked + .selectable-char-content {
-        background-color: #b77d3b;
-        border-color: rgb(101, 61, 20);
-        box-shadow: 0 0 10px rgba(101, 61, 20, 0.5);
-    }
-
-    .selectable-char-content {
-        border: 2px solid transparent;
-        border-radius: 8px;
-        padding: 10px;
-        transition: all 0.3s ease;
-
-    }
-
-    #nnForm {
-        max-width: 700px;
-        width: 85%;
-        margin: 30px auto;
-        background-color: #202020;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 14px 14px rgba(32,32,32,1);
-        -webkit-box-shadow: 0px 0px 14px 14px rgba(32,32,32,1);
-        -moz-box-shadow: 0px 0px 14px 14px rgba(32,32,32,1);
-    }
-
-    .charName {
-        color: #653d14;
-    }
-
-    input[type="text"], input[type="submit"] {
-        background-color: #202020;
-        border: 2px solid #101010;
-        color: #b2b2b2;
-        border-radius: 5px;
-        height: 35px;
-    }
+}

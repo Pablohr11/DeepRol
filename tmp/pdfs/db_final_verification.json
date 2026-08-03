@@ -1,0 +1,118 @@
+{
+    "rows": 477,
+    "unique_names": 477,
+    "blank_names": 0,
+    "duplicate_names": [],
+    "catalog_records_checked": 116,
+    "catalog_errors": [],
+    "backup_table": "conjuros_backup_20260725_194336",
+    "backup_rows": 410,
+    "trap_the_soul_rows": 0,
+    "permanent_image_rows": 0,
+    "levels": [
+        {
+            "level": "Truco",
+            "total": "44"
+        },
+        {
+            "level": "Nivel 1",
+            "total": "73"
+        },
+        {
+            "level": "Nivel 2",
+            "total": "73"
+        },
+        {
+            "level": "Nivel 3",
+            "total": "67"
+        },
+        {
+            "level": "Nivel 4",
+            "total": "48"
+        },
+        {
+            "level": "Nivel 5",
+            "total": "59"
+        },
+        {
+            "level": "Nivel 6",
+            "total": "46"
+        },
+        {
+            "level": "Nivel 7",
+            "total": "25"
+        },
+        {
+            "level": "Nivel 8",
+            "total": "22"
+        },
+        {
+            "level": "Nivel 9",
+            "total": "20"
+        }
+    ],
+    "core_rows": [
+        {
+            "id_spell": "8",
+            "name": "Magia druídica (Druidcraft)",
+            "level": "Truco",
+            "escuela": "Transmutacion"
+        },
+        {
+            "id_spell": "105",
+            "name": "Virote encantado (Witch Bolt)",
+            "level": "Nivel 1",
+            "escuela": "Evocacion"
+        },
+        {
+            "id_spell": "106",
+            "name": "Golpe iracundo (Wrathful Smite)",
+            "level": "Nivel 1",
+            "escuela": "Evocacion"
+        },
+        {
+            "id_spell": "173",
+            "name": "Zona de verdad (Zone of Truth)",
+            "level": "Nivel 2",
+            "escuela": "Encantamiento"
+        },
+        {
+            "id_spell": "214",
+            "name": "Revivir (Revivify)",
+            "level": "Nivel 3",
+            "escuela": "Nigromancia"
+        },
+        {
+            "id_spell": "242",
+            "name": "Adivinación (Divination)",
+            "level": "Nivel 4",
+            "escuela": "Adivinacion"
+        },
+        {
+            "id_spell": "353",
+            "name": "Palabra de retorno (Word of Recall)",
+            "level": "Nivel 6",
+            "escuela": "Conjuracion"
+        },
+        {
+            "id_spell": "368",
+            "name": "Resurrección (Resurrection)",
+            "level": "Nivel 7",
+            "escuela": "Nigromancia"
+        },
+        {
+            "id_spell": "369",
+            "name": "Invertir gravedad (Reverse Gravity)",
+            "level": "Nivel 7",
+            "escuela": "Transmutacion"
+        }
+    ],
+    "roll20_reconciliations": [
+        {
+            "id_spell": 214,
+            "name": "Revivir (Revivify)",
+            "field": "escuela",
+            "value": "Nigromancia"
+        }
+    ]
+}

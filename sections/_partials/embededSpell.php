@@ -1,58 +1,43 @@
 <?php
-
 require_once("../../classes/DbConnector.php");
 
-$db = DbConector::singleton();
+$spellId = isset($_GET["id_spell"]) ? (int) $_GET["id_spell"] : 0;
+$spellData = null;
 
-$spellId = $_GET["id_spell"];
+try {
+    if ($spellId > 0) {
+        $db = DbConector::singleton();
+        $spellResult = $db->getSpells((string) $spellId);
+        $spellData = $spellResult[0] ?? null;
+    }
+} catch (Throwable $exception) {
+    $spellData = null;
+}
 
-$spellData = $db->getSpells($spellId)[0];
-
-// var_dump($spellData);
-
-$spellSchoolPath = "../../resources/imgs/spelltypes/";
-$spellImagePath = "../../resources/imgs/spells/";
-
+$embedded = true;
+$assetPrefix = "../../";
+$previousPath = "";
 ?>
-
-<link rel="stylesheet" href="../../styles/spell.css">
-<div class="mist"></div>
-<div id="embedSpellDiv">
-    <div id="spellTitleImageContainer">
-        <?php $spellNameCut = strpos($spellData["name"], "(")-1; $cutName = substr($spellData["name"], 0, $spellNameCut) ?>
-        <div id="spellNameImageContainer">
-            <div id="spellImageContainer" style="width: 50px;height: 50px;
-            <?php if (file_exists($spellImagePath.$cutName.".png")) { ?>
-                    background-image:url('<?= $spellImagePath.$cutName?>.png')
-                <?php } else {?>
-                    background-image:url('<?= $spellImagePath?>generico.png')
-                <?php } ?>
-            ">        
-            </div>
-            <h1><?=$cutName?></h1>
-        </div>
-        <img class="spellSchoolImage" src="<?= $spellSchoolPath.$spellData["escuela"]?>.png">
-    </div>
- 
-    <span id="spellSubTitle"><?=$spellData["level"]?></span>
-    
-    <div id="spellContent">
-        <div class="tableDiv">
-            <p class="spellInfo spelltitle">Duracion</p>
-            <p class="spellInfo spelltitle">Rango</p>
-            <p class="spellInfo spelltitle">Tiempo de casteo</p>
-            <p class="spellInfo spelltitle">Concentracion</p>
-        </div>
-        <div class="tableDivBottom ">
-            <p class="spellInfo"><?=$spellData["duracion"]?></p>
-            <p class="spellInfo"><?=$spellData["rango"]?></p>
-            <p class="spellInfo"><?=$spellData["casteo"]?></p>
-            <p class="spellInfo"><?=$spellData["concentracion"]?></p>
-        </div>
-        <p class="spellInfo" id="spellDesc"><span class=" spelltitle">Descripcion</span><br> <?=$spellData["descr"]?></p>
-        <p class="spellInfo"><span class=" spelltitle">Clase</span><br> <?=$spellData["clases"]?></p>
-        <div class="bottomSpellContainer">
-            <p class="spellInfo"><span class="spelltitle">Escuela </span><br><?=$spellData["escuela"]?></p>
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <title>Detalle del conjuro</title>
+    <script src="../../scripts/theme.js"></script>
+    <link rel="stylesheet" href="../../styles/spell.css">
+    <link rel="stylesheet" href="../../styles/theme.css" data-deeprol-theme>
+</head>
+<body class="embeddedSpell">
+    <div class="mist"></div>
+    <?php if ($spellData): ?>
+        <?php include(__DIR__ . "/spellView.php"); ?>
+    <?php else: ?>
+        <main class="spellError compact">
+            <span aria-hidden="true">✧</span>
+            <h1>Conjuro no disponible</h1>
+        </main>
+    <?php endif; ?>
+</body>
+</html>

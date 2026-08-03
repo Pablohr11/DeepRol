@@ -1,136 +1,173 @@
 <?php
-
 require_once("../classes/DbConnector.php");
-//var_dump($_POST);
-$db = DbConector::singleton();
 
-$noteId = $_GET["id"];
+function e($value): string
+{
+    return htmlspecialchars((string) $value, ENT_QUOTES, "UTF-8");
+}
 
-$noteInfo = $db->getNote($noteId);
-$relatedCharName = $db->getCharName($noteInfo["RelatedChar"]);
+$userId = isset($_COOKIE["logged"]) ? (int) $_COOKIE["logged"] : 0;
+$noteId = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
+$framed = isset($_GET["framed"]) && $_GET["framed"] === "true";
+$requestedCharacterId = isset($_GET["character_id"])
+    ? max(0, (int) $_GET["character_id"])
+    : 0;
+$noteInfo = null;
+$relatedCharName = "Personaje";
 
+if ($userId <= 0) {
+    header("Location: ../login.php");
+    exit;
+}
 
-$framed = $_GET["framed"];
+try {
+    if ($noteId > 0) {
+        $db = DbConector::singleton();
+        $candidateNote = $db->getNote($noteId);
 
+        if ($candidateNote && (int) ($candidateNote["ID_User"] ?? 0) === $userId) {
+            $noteInfo = $candidateNote;
+            $relatedCharName = $db->getCharName((int) $noteInfo["RelatedChar"]);
+            if (
+                $requestedCharacterId > 0
+                && $requestedCharacterId !== (int) $noteInfo["RelatedChar"]
+            ) {
+                $requestedCharacterId = 0;
+            }
+        }
+    }
+} catch (Throwable $exception) {
+    $noteInfo = null;
+}
+
+$backToNotesUrl = "notes.php?framed="
+    . ($framed ? "true" : "false")
+    . ($requestedCharacterId > 0
+        ? "&character_id=" . $requestedCharacterId
+        : "");
 ?>
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes</title>
-    <link rel="stylesheet" href="../styles/index.css">
+    <meta name="color-scheme" content="dark">
+    <title><?= $noteInfo ? e($noteInfo["Nombre"]) : "Apunte no disponible" ?> · DeepRol</title>
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet">
+    <script src="../scripts/theme.js"></script>
     <link rel="stylesheet" href="../styles/note.css">
-    <!-- <script src="https://cdn.ckeditor.com/ckeditor5/36.0.0/classic/ckeditor.js"></script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/45.1.0/ckeditor5.umd.js"></script>
-    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/45.1.0/ckeditor5.css" /> -->
-
-    <!-- Include stylesheet -->
-    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.snow.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.core.css" /> -->
-
-    <!-- Include the Quill library -->
+    <link rel="stylesheet" href="../styles/theme.css" data-deeprol-theme>
     <script src="https://cdn.jsdelivr.net/npm/quill@2.0.3/dist/quill.js"></script>
 </head>
-<body>
-  
-  <div class="mist"></div>
-    <div id="editorContainer">
-      <div class="subDiv">
-          <h1><?=$noteInfo["Nombre"]?> - <?=$relatedCharName?></h1>
-          <div style="display: grid;align-content: center;">
-              <a href="notes.php?framed=<?=$framed?>">← VOLVER</a>
-          </div>
-        </div>
-        <div id="toolbar"></div>
-        <div id="editor">
-            <?=$noteInfo["Value"]?>
-        </div>
-        <!-- <button onclick="console.log(document.querySelector('.ql-editor').innerHTML)">Guardar</button> -->
-    </div>
+<body class="<?= $framed ? "framed" : "" ?>">
+    <div class="mist"></div>
 
-</body>
+    <?php if ($noteInfo): ?>
+        <main class="editorPage">
+            <header class="editorHeader">
+                <a class="backToNotes" href="<?= e($backToNotesUrl) ?>">← Apuntes</a>
+                <div class="editorTitle">
+                    <span class="editorKicker">Diario de <?= e($relatedCharName) ?></span>
+                    <h1><?= e($noteInfo["Nombre"]) ?></h1>
+                    <p>
+                        <time datetime="<?= e($noteInfo["Date"] ?? "") ?>"><?= e($noteInfo["Date"] ?? "") ?></time>
+                        <span>•</span>
+                        <span id="saveStatus" class="saved"><i></i> Guardado</span>
+                    </p>
+                </div>
+                <span class="editorRune" aria-hidden="true">▤</span>
+            </header>
+
+            <section id="editorContainer" aria-label="Editor del apunte">
+                <div id="editor"><?= $noteInfo["Value"] ?></div>
+            </section>
+        </main>
+    <?php else: ?>
+        <main class="noteError">
+            <span aria-hidden="true">▤</span>
+            <h1>Apunte no disponible</h1>
+            <p>No hemos podido abrir esta entrada del diario.</p>
+            <a href="<?= e($backToNotesUrl) ?>">Volver a apuntes</a>
+        </main>
+    <?php endif; ?>
+
+<?php if ($noteInfo): ?>
 <script>
+const noteId = <?= $noteId ?>;
+const saveStatus = document.getElementById("saveStatus");
 
-const Font = Quill.import('formats/font');
+if (window.Quill) {
+    const Font = Quill.import("formats/font");
+    Font.whitelist = ["sans", "serif", "cinzel", "uncial", "merriweather", "librebaskerville", "ebgaramond"];
+    Quill.register(Font, true);
 
-Font.whitelist = ['sans', 'serif', 'cinzel', 'uncial', 'merriweather', 'librebaskerville', 'ebgaramond'];
-Quill.register(Font, true);
+    const toolbarOptions = [
+        [{ header: [1, 2, 3, 4, false] }],
+        [{ size: ["small", false, "large", "huge"] }],
+        [{ font: Font.whitelist }],
+        ["bold", "italic", "underline", "strike", "blockquote"],
+        ["link", "image"],
+        [{ list: "ordered" }, { list: "bullet" }, { list: "check" }],
+        [{ script: "sub" }, { script: "super" }],
+        [{ color: [] }, { background: [] }],
+        ["clean"]
+    ];
 
-const toolbarOptions = [
-  [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-  [{ 'size': ['small', false, 'large', 'huge'] }],
-  [{ 'font': ['sans', 'serif', 'cinzel', 'uncial', 'merriweather', 'librebaskerville', 'ebgaramond'] }],
-  ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-  ['link', 'image'],
-  [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'list': 'check' }],
-  [{ 'script': 'sub' }, { 'script': 'super' }],
-  [{ 'color': [] }, { 'background': [] }],
-  ['clean']
-];
-
-const quill = new Quill('#editor', {
-  modules: {
-    toolbar: toolbarOptions
-  },
-  theme: 'snow'
-});
-
-// const fontLabels = {
-//   cinzel: 'Cinzel',
-//   uncial: 'Uncial Antiqua',
-//   merriweather: 'Merriweather',
-//   librebaskerville: 'Libre Baskerville',
-//   ebgaramond: 'EB Garamond'
-// };
-
-// document.querySelectorAll('.ql-font .ql-picker-item').forEach(el => {
-//   const val = el.getAttribute('data-value');
-//   if (fontLabels[val]) {
-//     el.innerText = fontLabels[val];
-//   }
-// });
-
-      // Crear botón personalizado
-    const customButton = document.createElement('button');
-    customButton.innerHTML = 'Guardar';
-    customButton.setAttribute('type', 'button');
-    customButton.classList.add('ql-custom-button');
-
-    // Agregar el botón al toolbar
-    const toolbar = document.querySelector('div[role=toolbar]');
-    const wrapper = document.createElement('span');
-    wrapper.classList.add('ql-formats');
-    wrapper.appendChild(customButton);
-    toolbar.appendChild(wrapper);
-
-    // Lógica del botón
-    customButton.addEventListener('click', function () {
-        saveNote();
+    const quill = new Quill("#editor", {
+        modules: { toolbar: toolbarOptions },
+        theme: "snow"
     });
 
-function saveNote() {
-  const noteId = <?=$noteId?>;
-  const value = document.querySelector('.ql-editor').innerHTML;
+    const saveButton = document.createElement("button");
+    saveButton.type = "button";
+    saveButton.className = "ql-custom-button";
+    saveButton.innerHTML = "<span>Guardar</span>";
+    saveButton.setAttribute("aria-label", "Guardar apunte");
 
-  fetch('http://localhost:8080/src/savenote.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: `noteId=${encodeURIComponent(noteId)}&value=${encodeURIComponent(value)}`
-  })
-  .then(response => {
-    if (!response.ok) throw new Error('Error en la respuesta del servidor');
-    return response.text(); // o .json() si esperas JSON
-  })
-  .then(data => {
-    console.log('Nota guardada exitosamente:', data);
-  })
-  .catch(error => {
-    console.error('Error al guardar la nota:', error);
-  });
+    const wrapper = document.createElement("span");
+    wrapper.className = "ql-formats saveFormat";
+    wrapper.appendChild(saveButton);
+    quill.getModule("toolbar").container.appendChild(wrapper);
+
+    quill.on("text-change", (delta, oldDelta, source) => {
+        if (source === "user") {
+            saveStatus.className = "pending";
+            saveStatus.innerHTML = "<i></i> Cambios sin guardar";
+        }
+    });
+
+    saveButton.addEventListener("click", async () => {
+        saveButton.disabled = true;
+        saveStatus.className = "saving";
+        saveStatus.innerHTML = "<i></i> Guardando...";
+
+        try {
+            const body = new URLSearchParams({
+                noteId: String(noteId),
+                value: quill.root.innerHTML
+            });
+            const response = await fetch("../src/saveNote.php", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body
+            });
+
+            if (!response.ok) throw new Error("No se pudo guardar");
+
+            saveStatus.className = "saved";
+            saveStatus.innerHTML = "<i></i> Guardado";
+        } catch (error) {
+            saveStatus.className = "error";
+            saveStatus.innerHTML = "<i></i> Error al guardar";
+        } finally {
+            saveButton.disabled = false;
+        }
+    });
+} else {
+    saveStatus.className = "error";
+    saveStatus.innerHTML = "<i></i> Editor no disponible";
 }
 </script>
+<?php endif; ?>
+</body>
 </html>

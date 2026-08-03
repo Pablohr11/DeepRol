@@ -1,277 +1,447 @@
+:root {
+    color-scheme: dark;
+    --spells-bg: var(--theme-bg, #080b10);
+    --spells-panel: var(--theme-panel, rgba(17, 23, 32, 0.94));
+    --spells-panel-soft: var(--theme-panel-soft, rgba(21, 28, 38, 0.84));
+    --spells-line: var(--theme-border-soft, rgba(91, 103, 118, 0.17));
+    --spells-text: var(--theme-text, #f1eee7);
+    --spells-muted: var(--theme-readable-muted, #aaa69d);
+    --spells-purple: var(--theme-accent, #a99a78);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
+    color: var(--spells-text);
+    background:
+        radial-gradient(circle at 78% 0%, rgba(93, 34, 143, 0.17), transparent 27rem),
+        linear-gradient(145deg, #070710, #090814 58%, #080a13);
 }
 
 #allSpellsContainer {
-    padding-top: 123px;
-    background: #292929
+    min-height: 100vh;
+    padding: 0 20px 48px;
+    background: transparent;
 }
 
-#allSpellsContainer h1, #allSpellsContainer h2, #allSpellsContainer h3  {
-    color: #b77d3b;
+.stickyDiv {
+    position: sticky;
+    z-index: 20;
+    top: 0;
+    width: auto;
+    margin: 0 -20px 14px;
+    padding: 18px 20px 16px;
+    border-bottom: 1px solid var(--spells-line);
+    border-radius: 0;
+    background: rgba(7, 7, 16, 0.9);
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+    backdrop-filter: blur(18px);
 }
 
-#allSpellsContainer dl dt:first-child {
-    margin-top: 0;
+.subDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 12px;
 }
 
-dt {
-    margin: 15px 0;
+.subDiv h2 {
+    margin: 0;
+    color: var(--spells-text);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
+    font-weight: 500;
 }
 
-dd {
-    margin-top: 5px;
-    margin-bottom: 5px;
+.subDiv h2::before {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 4px;
+    background: var(--spells-purple);
+    box-shadow: 0 0 13px rgba(180, 79, 255, 0.6);
+    content: "";
+    vertical-align: -2px;
 }
-.spell {
-    color: #b2b2b2;
+
+.subDiv a,
+.subDiv a:visited {
+    color: #c377f1;
+    font-size: 12px;
     text-decoration: none;
 }
 
 #filtros {
     display: grid;
-    grid-template-columns: 200px auto 200px;
-    padding: 0 10px;
+    grid-template-columns: minmax(190px, 0.85fr) minmax(380px, 2.2fr) 110px;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
 }
 
-input[type="text"], input[type="submit"] {
-    background-color:#202020;
-    border: 2px solid #101010;
-    color: #b2b2b2;
-    border-radius: 5px;
-    height: 35px;
+#filtros input[type="text"],
+#filtros input[type="submit"] {
+    height: 38px;
+    border: 1px solid var(--spells-line);
+    border-radius: 9px;
+    color: var(--spells-text);
+    background: rgba(17, 16, 29, 0.92);
 }
 
-input[type="text"]:focus {
+#filtros input[type="text"] {
+    width: 100%;
+    padding: 0 13px;
     outline: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+#filtros input[type="text"]::placeholder {
+    color: #6d6877;
+}
+
+#filtros input[type="text"]:focus {
+    border-color: rgba(180, 79, 255, 0.65);
+    box-shadow: 0 0 0 3px rgba(180, 79, 255, 0.08);
+}
+
+#filtros input[type="submit"] {
+    border-color: rgba(184, 79, 255, 0.45);
+    background: linear-gradient(90deg, #67259b, #4e1d78);
+    cursor: pointer;
+    transition: filter 160ms ease, transform 160ms ease;
+}
+
+#filtros input[type="submit"]:hover {
+    filter: brightness(1.16);
+    transform: translateY(-1px);
 }
 
 input[type="radio"] {
-    display: none;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.classesFilterDiv {
+.classesFilterDiv,
+.levelFilterDiv {
     display: flex;
-    gap: 10px;
+    min-width: 0;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0 10px;
-    margin: auto;
-    width: 95%;
-
+    gap: 6px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-.classesFilterDiv label, .classesFilterDiv button {
-    font-size: 16px;
-    flex: 1;
-    text-align: center;
-    padding: 5px 5px;
-    border: 2px solid #653d14;
-    border-radius: 5px;
+.classesFilterDiv label,
+.levelFilterDiv button {
+    flex: 0 1 auto;
+    min-width: 63px;
+    padding: 6px 9px;
+    border: 1px solid rgba(160, 133, 193, 0.22);
+    border-radius: 7px;
+    color: #a9a2b2;
+    background: rgba(22, 19, 34, 0.82);
     cursor: pointer;
-    background-color: #b77d3b;
-    color: #653d14;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    font-size: 10px;
+    text-align: center;
+    transition: border-color 160ms ease, color 160ms ease, background 160ms ease;
+}
+
+.classesFilterDiv label:hover,
+.levelFilterDiv button:hover {
+    border-color: rgba(182, 79, 255, 0.5);
+    color: #e6d2f4;
+    background: rgba(102, 39, 146, 0.2);
 }
 
 .classesFilterDiv input[type="radio"]:checked + label {
-    background-color: #653d14;
-    color: white;
-    border-color: #b77d3b;
-    color: #b77d3b;    
-}
-
-.addSpell {
-    display: inline-grid;
-    border:1px solid #b77d3b;
-    background-color:#202020;
-    color: #b77d3b;
-    text-decoration: none;
-    margin-left: 5px;
-    padding: 0 5px;
-    border-radius: 5px;
-}
-
-span.addSpell {
-    font-size: 12px;
-}
-
-input[type="submit"] {
-    cursor: pointer;
-}
-
-.stickyDiv {
-    width: calc(100% - 10px);
-    position: fixed;
-    top: 0px;
-    background-color: #202020;
-    margin: 0;
-    padding: 0 15px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.allSpellsContainer .spell.first {
-    margin-top: 200px;   
-}
-
-.span.spell.first, dl {
-    margin: 0 10px;
-}
-
-#firstSpell {
-    margin: 0 5px;
-}
-
-.subDiv {
-    display: flex;
-    justify-content: space-between;
-    color: #b77d3b;
-}
-.subDiv a {
-    text-decoration: none;
-    padding: 0 10px;
-    color: #b77d3b;
-}
-.subDiv a:visited {
-    color: #b77d3b;
-}
-
-
-.subDiv div {
-    align-content: center;
-    padding-right: 10px;
+    border-color: rgba(188, 82, 255, 0.7);
+    color: #f1dcff;
+    background: linear-gradient(90deg, rgba(104, 39, 153, 0.62), rgba(66, 28, 96, 0.68));
+    box-shadow: inset 0 0 14px rgba(187, 81, 255, 0.08);
 }
 
 .subDiv2 {
     display: grid;
-    grid-template-columns: 200px auto 200px;
-    height: 55px;
-}
-
-#volverArriba {
-    transition: 0.3s;
-    display: grid;
-    border-radius: 50px;
-    background-color: #b77d3b;
-    color: #000000;
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    align-content: center;
-    opacity: 1;
-    justify-content: center;
-    border: 2px solid #202020 ;
-}
-
-.hidden {
-    transition: 0.3s;
-    opacity: 0 !important;
-}
-
-#spellListHehe {
-    display: grid;
-    /* grid-template-columns: 33% 33% 33%; */
-    column-gap: 5px;
-    row-gap: 20px;
-    height: fit-content;
-}
-
-.displayColumns {
-    grid-template-columns: 33% 33% 33%;
-}
-
-.displayList {
-    grid-template-columns: 100%;
-}
-
-.displayColumns .dlConFilete {
-    /* border-style: hidden solid; */
-    padding: 0px 20px;
-}
-
-
-.selectedDisplay {
-    background-color: #2e2e2e;
-    border-radius: 10px;
-}
-.actualSpellList {
-    display: grid;
-}
-.displayList .actualSpellList {
-    grid-template-columns: 33% 33% 33%;
-}
-
-div#subDiv3, div#subDiv4 {
-    background: #202020;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    display: grid;
+    grid-template-columns: 190px minmax(0, 1fr) 190px;
     align-items: center;
+    min-height: 58px;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding: 9px 12px;
+    border: 1px solid var(--spells-line);
+    border-radius: 10px;
+    background: linear-gradient(145deg, rgba(19, 17, 32, 0.9), rgba(11, 10, 21, 0.94));
+}
+
+div#subDiv3,
+div#subDiv4 {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
 }
 
 div#subDiv3 {
-    padding: 0 5px 8px;
-    grid-template-columns: 60% 40%;
+    justify-content: space-between;
+    gap: 8px;
 }
 
-#subDiv3 img {
-    width: 27px;
-    padding: 5px;
+#subDiv3 > span {
+    color: #a9a2b1;
+    font-size: 10px;
+    letter-spacing: 0.07em;
 }
 
 #subDiv3 div {
     display: flex;
-    justify-content: space-between;
-    margin-right: 5px;
+    gap: 4px;
+    margin: 0;
+}
+
+#subDiv3 img {
+    width: 29px;
+    height: 29px;
+    padding: 6px;
+    border: 1px solid transparent;
+    border-radius: 7px;
+    filter: grayscale(1) brightness(1.7);
+    cursor: pointer;
+}
+
+#subDiv3 img.selectedDisplay {
+    border-color: rgba(177, 77, 242, 0.3);
+    background: rgba(98, 37, 139, 0.24);
+    filter: grayscale(0) brightness(1.2) hue-rotate(235deg);
 }
 
 div#subDiv4 {
-    padding: 0 5px 8px;
-    max-width: 210px;
-    justify-content: center;
-    align-content: center;
+    justify-content: flex-end;
 }
+
 div#subDiv4 button {
-    text-align: center;
-    padding: 7px 5px;
-    border: 2px solid #653d14;
-    border-radius: 5px;
+    width: auto;
+    min-width: 130px;
+    padding: 7px 12px;
+    border: 1px solid rgba(166, 143, 198, 0.22);
+    border-radius: 7px;
+    color: #aaa3b3;
+    background: rgba(18, 16, 29, 0.9);
     cursor: pointer;
-    background-color: #b77d3b;
-    color: #653d14;
-    width: 160px;
-    font-size: 16px;
+    font-size: 10px;
 }
 
-.levelFilterDiv {
+#spellListHehe {
+    display: grid;
+    gap: 12px;
+    height: auto;
+}
+
+#spellListHehe dl {
+    min-width: 0;
+    margin: 0;
+    padding: 15px 16px;
+    border: 1px solid var(--spells-line);
+    border-radius: 10px;
+    background:
+        radial-gradient(circle at 90% 0%, rgba(96, 37, 138, 0.09), transparent 15rem),
+        linear-gradient(145deg, rgba(18, 17, 30, 0.92), rgba(10, 10, 19, 0.96));
+}
+
+#spellListHehe dt {
+    margin: 0 0 11px;
+    padding-bottom: 9px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+#spellListHehe dt h2 {
+    margin: 0;
+    color: #c876f5;
+    font-family: Georgia, serif;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.displayColumns {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.displayList {
+    grid-template-columns: 1fr;
+}
+
+.actualSpellList {
+    display: grid;
+    gap: 3px 14px;
+}
+
+.displayList .actualSpellList {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.actualSpellList > a.spell,
+.actualSpellList > div {
+    min-width: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+}
+
+.actualSpellList > div {
     display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0 10px;
-    margin: auto;
-    width: 95%;
+    align-items: center;
 }
 
-.levelFilterDiv label, .levelFilterDiv button {
-    font-size: 16px;
+.spell {
+    display: block;
+    min-width: 0;
+    overflow: hidden;
+    padding: 7px 3px;
+    color: #bdb7c5;
+    font-size: 11px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 150ms ease, padding-left 150ms ease;
+}
+
+.spell:hover {
+    padding-left: 7px;
+    color: #e0b4fa;
+}
+
+.actualSpellList > div .spell {
     flex: 1;
-    text-align: center;
-    padding: 5px 5px;
-    border: 2px solid #653d14;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #b77d3b;
-    color: #653d14;
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
-.levelFilterDiv input[type="radio"]:checked + label {
-    background-color: #653d14;
-    color: white;
-    border-color: #b77d3b;
-    color: #b77d3b;    
+.addSpell {
+    display: inline-grid;
+    width: 23px;
+    height: 23px;
+    flex: 0 0 23px;
+    place-items: center;
+    margin-left: 5px;
+    padding: 0;
+    border: 1px solid rgba(179, 77, 246, 0.32);
+    border-radius: 6px;
+    color: #c16df0;
+    background: rgba(94, 34, 136, 0.16);
+    font-size: 11px;
+    text-decoration: none;
+}
+
+span.addSpell {
+    color: #3ad18f;
+    font-size: 10px;
+}
+
+#volverArriba {
+    position: fixed;
+    z-index: 25;
+    right: 16px;
+    bottom: 16px;
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid rgba(188, 82, 255, 0.5);
+    border-radius: 50%;
+    color: #f1d8ff;
+    background: #55217d;
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+#volverArriba:hover {
+    transform: translateY(-2px);
+}
+
+#volverArriba svg path {
+    fill: currentColor !important;
+}
+
+.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@media (max-width: 1050px) {
+    #filtros {
+        grid-template-columns: 1fr 110px;
+    }
+
+    .classesFilterDiv {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .subDiv2 {
+        grid-template-columns: 150px minmax(0, 1fr) 150px;
+    }
+
+    .displayColumns {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .displayList .actualSpellList {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    #allSpellsContainer {
+        padding-inline: 12px;
+    }
+
+    .stickyDiv {
+        margin-inline: -12px;
+        padding-inline: 12px;
+    }
+
+    #filtros {
+        grid-template-columns: 1fr;
+    }
+
+    .classesFilterDiv {
+        grid-column: auto;
+        grid-row: auto;
+        justify-content: flex-start;
+    }
+
+    #filtros input[type="submit"] {
+        width: 100%;
+    }
+
+    .subDiv2 {
+        grid-template-columns: 1fr;
+    }
+
+    div#subDiv4 {
+        justify-content: stretch;
+    }
+
+    div#subDiv4 button {
+        width: 100%;
+    }
+
+    .displayColumns,
+    .displayList,
+    .displayList .actualSpellList {
+        grid-template-columns: 1fr;
+    }
 }

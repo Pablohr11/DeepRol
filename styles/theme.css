@@ -1,0 +1,4476 @@
+:root {
+    color-scheme: dark;
+    --theme-bg: #090d11;
+    --theme-bg-deep: #06090c;
+    --theme-bg-soft: #0d1319;
+    --theme-panel: rgba(17, 24, 30, 0.94);
+    --theme-panel-soft: rgba(22, 30, 37, 0.88);
+    --theme-panel-strong: rgba(11, 17, 22, 0.98);
+    --theme-border: rgba(131, 126, 113, 0.28);
+    --theme-border-soft: rgba(131, 126, 113, 0.17);
+    --theme-text: #f1eee7;
+    --theme-readable-muted: #b2aea4;
+    --theme-muted-dim: #85877f;
+    --theme-neutral-rgb: 92, 99, 102;
+    --theme-image-saturation: 0.68;
+    --theme-display-font: Georgia, "Times New Roman", serif;
+    --theme-body-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --theme-radius-sm: 8px;
+    --theme-radius-md: 12px;
+    --theme-radius-lg: 18px;
+    --theme-shadow: 0 22px 58px rgba(0, 0, 0, 0.34);
+}
+
+:root,
+:root[data-theme="arcano"] {
+    --theme-accent: #a99a78;
+    --theme-accent-strong: #6d624c;
+    --theme-accent-pale: #d0c6ae;
+    --theme-accent-rgb: 169, 154, 120;
+    --theme-surface-rgb: 71, 64, 50;
+    --theme-image-hue: 0deg;
+    --theme-image-saturation: 0.72;
+}
+
+:root[data-theme="druida"] {
+    --theme-accent: #719078;
+    --theme-accent-strong: #435b49;
+    --theme-accent-pale: #bac9bc;
+    --theme-accent-rgb: 113, 144, 120;
+    --theme-surface-rgb: 50, 69, 56;
+    --theme-image-hue: 72deg;
+}
+
+:root[data-theme="barbaro"] {
+    --theme-accent: #a36e60;
+    --theme-accent-strong: #69443b;
+    --theme-accent-pale: #d1b5ab;
+    --theme-accent-rgb: 163, 110, 96;
+    --theme-surface-rgb: 78, 49, 43;
+    --theme-image-hue: 342deg;
+}
+
+:root[data-theme="bardo"] {
+    --theme-accent: #9a7180;
+    --theme-accent-strong: #624753;
+    --theme-accent-pale: #ccb7bf;
+    --theme-accent-rgb: 154, 113, 128;
+    --theme-surface-rgb: 73, 50, 59;
+    --theme-image-hue: 320deg;
+}
+
+:root[data-theme="brujo"] {
+    --theme-accent: #7d718a;
+    --theme-accent-strong: #4e4558;
+    --theme-accent-pale: #bbb3c4;
+    --theme-accent-rgb: 125, 113, 138;
+    --theme-surface-rgb: 58, 50, 67;
+    --theme-image-hue: 238deg;
+}
+
+:root[data-theme="clerigo"] {
+    --theme-accent: #aa9870;
+    --theme-accent-strong: #685c3e;
+    --theme-accent-pale: #d7ccb0;
+    --theme-accent-rgb: 170, 152, 112;
+    --theme-surface-rgb: 78, 68, 44;
+    --theme-image-hue: 0deg;
+}
+
+:root[data-theme="explorador"] {
+    --theme-accent: #788c68;
+    --theme-accent-strong: #4a5b3e;
+    --theme-accent-pale: #bdc9b3;
+    --theme-accent-rgb: 120, 140, 104;
+    --theme-surface-rgb: 54, 68, 47;
+    --theme-image-hue: 64deg;
+}
+
+:root[data-theme="guerrero"] {
+    --theme-accent: #718795;
+    --theme-accent-strong: #465864;
+    --theme-accent-pale: #b8c5cc;
+    --theme-accent-rgb: 113, 135, 149;
+    --theme-surface-rgb: 49, 64, 73;
+    --theme-image-hue: 184deg;
+}
+
+:root[data-theme="hechicero"] {
+    --theme-accent: #9d6772;
+    --theme-accent-strong: #64414a;
+    --theme-accent-pale: #d0afb6;
+    --theme-accent-rgb: 157, 103, 114;
+    --theme-surface-rgb: 76, 47, 55;
+    --theme-image-hue: 328deg;
+}
+
+:root[data-theme="mago"] {
+    --theme-accent: #687d9a;
+    --theme-accent-strong: #42516a;
+    --theme-accent-pale: #b4c0d2;
+    --theme-accent-rgb: 104, 125, 154;
+    --theme-surface-rgb: 47, 58, 79;
+    --theme-image-hue: 196deg;
+}
+
+:root[data-theme="monje"] {
+    --theme-accent: #9b795c;
+    --theme-accent-strong: #624c38;
+    --theme-accent-pale: #ccbba9;
+    --theme-accent-rgb: 155, 121, 92;
+    --theme-surface-rgb: 75, 56, 41;
+    --theme-image-hue: 352deg;
+}
+
+:root[data-theme="paladin"] {
+    --theme-accent: #ad9e70;
+    --theme-accent-strong: #695f40;
+    --theme-accent-pale: #d9cfad;
+    --theme-accent-rgb: 173, 158, 112;
+    --theme-surface-rgb: 78, 69, 44;
+    --theme-image-hue: 8deg;
+}
+
+:root[data-theme="picaro"] {
+    --theme-accent: #6d837c;
+    --theme-accent-strong: #465851;
+    --theme-accent-pale: #b5c4bf;
+    --theme-accent-rgb: 109, 131, 124;
+    --theme-surface-rgb: 48, 65, 60;
+    --theme-image-hue: 142deg;
+}
+
+:root[data-theme="artifice"] {
+    --theme-accent: #987158;
+    --theme-accent-strong: #604633;
+    --theme-accent-pale: #cbb6a7;
+    --theme-accent-rgb: 152, 113, 88;
+    --theme-surface-rgb: 72, 52, 39;
+    --theme-image-hue: 350deg;
+}
+
+:root[data-theme="sangre"] {
+    --theme-accent: #985d67;
+    --theme-accent-strong: #603943;
+    --theme-accent-pale: #caa9af;
+    --theme-accent-rgb: 152, 93, 103;
+    --theme-surface-rgb: 72, 42, 49;
+    --theme-image-hue: 330deg;
+}
+
+:root[data-theme] {
+    --theme-accent-wash: rgba(var(--theme-accent-rgb), 0.11);
+    --theme-accent-wash-strong: rgba(var(--theme-accent-rgb), 0.18);
+    --theme-accent-border: rgba(var(--theme-accent-rgb), 0.32);
+    --bg: var(--theme-bg);
+    --background: var(--theme-bg);
+    --surface: var(--theme-panel);
+    --surface-soft: var(--theme-panel-soft);
+    --panel: var(--theme-panel);
+    --panel-strong: var(--theme-panel-strong);
+    --line: var(--theme-border-soft);
+    --border: var(--theme-border-soft);
+    --text: var(--theme-text);
+    --purple: var(--theme-accent);
+    --purple-2: var(--theme-accent-strong);
+    --purple-soft: var(--theme-accent-strong);
+    --char-purple: var(--theme-accent);
+    --spells-purple: var(--theme-accent);
+    --spell-purple: var(--theme-accent);
+    --notes-purple: var(--theme-accent);
+    --editor-purple: var(--theme-accent);
+    --new-note-purple: var(--theme-accent);
+    --muted: var(--theme-readable-muted);
+    --char-bg: var(--theme-bg);
+    --char-panel: var(--theme-panel);
+    --char-panel-soft: var(--theme-panel-soft);
+    --char-line: var(--theme-border-soft);
+    --char-text: var(--theme-text);
+    --char-muted: var(--theme-readable-muted);
+    --spells-bg: var(--theme-bg);
+    --spells-panel: var(--theme-panel);
+    --spells-panel-soft: var(--theme-panel-soft);
+    --spells-line: var(--theme-border-soft);
+    --spells-text: var(--theme-text);
+    --spells-muted: var(--theme-readable-muted);
+    --spell-bg: var(--theme-bg);
+    --spell-panel: var(--theme-panel);
+    --spell-line: var(--theme-border-soft);
+    --spell-text: var(--theme-text);
+    --spell-muted: var(--theme-readable-muted);
+    --notes-bg: var(--theme-bg);
+    --notes-panel: var(--theme-panel);
+    --notes-line: var(--theme-border-soft);
+    --notes-text: var(--theme-text);
+    --notes-muted: var(--theme-readable-muted);
+    --editor-bg: var(--theme-bg);
+    --editor-panel: var(--theme-panel);
+    --editor-line: var(--theme-border-soft);
+    --editor-text: var(--theme-text);
+    --editor-muted: var(--theme-readable-muted);
+    --new-note-bg: var(--theme-bg);
+    --new-note-panel: var(--theme-panel);
+    --new-note-line: var(--theme-border-soft);
+    --new-note-text: var(--theme-text);
+    --new-note-muted: var(--theme-readable-muted);
+    --border-strong: rgba(var(--theme-accent-rgb), 0.46);
+    scrollbar-color: var(--theme-accent-strong) var(--theme-bg-deep);
+    text-rendering: optimizeLegibility;
+}
+
+:root[data-theme] body {
+    -webkit-font-smoothing: antialiased;
+}
+
+:root[data-theme] p {
+    line-height: 1.55;
+}
+
+:root[data-theme] small {
+    font-size: max(10.5px, 0.72em);
+    line-height: 1.4;
+}
+
+:root[data-theme] input::placeholder,
+:root[data-theme] textarea::placeholder {
+    color: var(--theme-muted-dim);
+    opacity: 1;
+}
+
+:root[data-theme] *::-webkit-scrollbar-thumb {
+    background: var(--theme-accent-strong);
+}
+
+:root[data-theme] .globalSearch:focus-within {
+    border-color: rgba(var(--theme-accent-rgb), 0.62);
+    background: rgba(var(--theme-surface-rgb), 0.2);
+    box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] .headerAction:hover,
+:root[data-theme] .headerAction:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.28);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] .headerAction i {
+    background: var(--theme-accent);
+    box-shadow: 0 0 9px var(--theme-accent);
+}
+
+:root[data-theme] .accountAvatar {
+    border-color: var(--theme-accent);
+    box-shadow:
+        inset 0 0 14px rgba(var(--theme-accent-rgb), 0.12),
+        0 0 18px rgba(var(--theme-accent-rgb), 0.2);
+}
+
+:root[data-theme] #leftBar {
+    border-color: var(--theme-border-soft);
+    background:
+        radial-gradient(circle at 20% 82%, rgba(var(--theme-accent-rgb), 0.07), transparent 30%),
+        rgba(7, 11, 16, 0.97);
+}
+
+:root[data-theme] .brandVersion,
+:root[data-theme] .navItem.active .navIcon {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .navItem:hover,
+:root[data-theme] .navItem:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.22);
+    background: rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] .navItem.active {
+    border-color: rgba(var(--theme-accent-rgb), 0.58);
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-surface-rgb), 0.48),
+        rgba(var(--theme-surface-rgb), 0.25)
+    );
+    box-shadow: inset 0 0 22px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] .navItem.active .navIcon {
+    text-shadow: 0 0 14px rgba(var(--theme-accent-rgb), 0.62);
+}
+
+:root[data-theme] #toogleSideBarButton:hover,
+:root[data-theme] #toogleSideBarButton:focus-visible,
+:root[data-theme] .diceWidget:hover,
+:root[data-theme] .diceWidget:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.58);
+}
+
+:root[data-theme] .diceWidget {
+    border-color: rgba(var(--theme-accent-rgb), 0.24);
+    background:
+        radial-gradient(circle at 50% 55%, rgba(var(--theme-accent-rgb), 0.14), transparent 45%),
+        linear-gradient(145deg, rgba(var(--theme-surface-rgb), 0.18), rgba(10, 15, 22, 0.96));
+}
+
+:root[data-theme] .d20 {
+    border-color: var(--theme-accent);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.1);
+    filter: drop-shadow(0 0 10px rgba(var(--theme-accent-rgb), 0.38));
+}
+
+:root[data-theme] :is(
+    .rune,
+    .sectionKicker,
+    .sideLabel,
+    .panelKicker,
+    .spellKicker,
+    .editorKicker,
+    .headerRune,
+    .portraitRune,
+    .backToNotes,
+    .characterBreadcrumb a,
+    .spellBreadcrumb a,
+    .newNoteBreadcrumb a
+) {
+    color: var(--theme-accent-pale) !important;
+}
+
+:root[data-theme] :is(
+    .sectionKicker,
+    .sideLabel,
+    .panelKicker,
+    .spellKicker,
+    .editorKicker
+) {
+    font-size: 10px !important;
+    letter-spacing: 0.1em;
+    line-height: 1.35;
+}
+
+:root[data-theme] :is(
+    .heroMeta,
+    .heroMeta strong,
+    .statCard small,
+    .statCard em,
+    .characterReady,
+    .characterNumber,
+    .notesCount span,
+    .noteCard time,
+    .spellFacts small,
+    .spellFacts strong,
+    .schoolBadge strong,
+    .spellFooter strong,
+    .noteDetails label > span,
+    .selectionHeader > small
+) {
+    font-size: 10.5px !important;
+    line-height: 1.4;
+}
+
+:root[data-theme] :is(
+    .sheetState,
+    .sheetState b,
+    .resourceContent small,
+    .resourceContent em,
+    .spellRow small,
+    .spellRow em,
+    .quickNotes small,
+    .emptyNotes a,
+    .nextAdventureCopy small,
+    .activityList small,
+    .activityFooter,
+    .realmPanel footer small,
+    .characterCount span,
+    .characterStatus,
+    .viewCharacter,
+    .characterInfo footer span,
+    .notesFilterDiv label,
+    .newNoteButton,
+    .charGroupedNotesHeader > strong,
+    .noteCardCopy strong,
+    .noteCardCopy small,
+    .stInfo,
+    #ppasInfo,
+    #profInfo,
+    #charSubTitle,
+    .tab,
+    .spellsInfo,
+    .spellCounter h3,
+    .spellCounter h5,
+    .spellBreadcrumb,
+    .newNoteBreadcrumb,
+    .formErrors,
+    .selectableCharContent > small,
+    .formActions a,
+    .formActions button,
+    .backToNotes,
+    .editorTitle p,
+    .ql-custom-button
+) {
+    font-size: 10.5px !important;
+    line-height: 1.45;
+}
+
+:root[data-theme] :is(
+    .heroCopy > p:last-child,
+    .charactersHero p,
+    .notesHero p,
+    .spellIdentity p,
+    .newNoteHeader p,
+    .editorTitle p,
+    .spellDescription p,
+    .ql-editor
+) {
+    color: #b8b3aa;
+    line-height: 1.65;
+}
+
+:root[data-theme] :is(
+    .panelHeader > a,
+    .resourceContent small,
+    .emptyNotes a,
+    .activityPanel > a,
+    .statCard.purple,
+    .notesCount strong
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .heroGlow {
+    background: rgba(var(--theme-accent-rgb), 0.12);
+}
+
+:root[data-theme] :is(
+    .newCharacterButton,
+    .newNoteButton,
+    .formActions button,
+    .spellFooter > a,
+    .noteError a,
+    .notesEmpty a
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.52);
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-surface-rgb), 0.94),
+        rgba(var(--theme-surface-rgb), 0.72)
+    );
+}
+
+:root[data-theme] :is(
+    .notesFilterDiv input:checked + label,
+    .classesFilterDiv input[type="radio"]:checked + label,
+    .tab:hover,
+    .tab.active
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.55);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-surface-rgb), 0.35);
+}
+
+:root[data-theme] .tabsSelector h2.selected::after {
+    background: var(--theme-accent);
+    box-shadow: 0 0 9px rgba(var(--theme-accent-rgb), 0.58);
+}
+
+:root[data-theme] .spellSpace.checked {
+    border-color: rgba(var(--theme-accent-rgb), 0.42);
+    background: linear-gradient(
+        90deg,
+        var(--theme-accent-strong),
+        rgba(var(--theme-surface-rgb), 0.92)
+    );
+}
+
+:root[data-theme] .selectableChar input:checked + .selectableCharContent {
+    background: rgba(var(--theme-surface-rgb), 0.25);
+    box-shadow: inset 0 0 20px rgba(var(--theme-accent-rgb), 0.07);
+}
+
+:root[data-theme] .selectableChar input:checked + .selectableCharContent .selectedMark {
+    border-color: rgba(var(--theme-accent-rgb), 0.62);
+    color: var(--theme-accent-pale);
+    background: var(--theme-accent-strong);
+}
+
+:root[data-theme] :is(
+    .notesSearch:focus-within,
+    .noteDetails input:focus,
+    .classesFilterDiv input[type="radio"]:checked + label,
+    .selectableChar input:checked + .selectableCharContent
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.62);
+    box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] a:focus-visible,
+:root[data-theme] button:focus-visible,
+:root[data-theme] input:focus-visible,
+:root[data-theme] textarea:focus-visible {
+    outline-color: var(--theme-accent);
+}
+
+@media (max-width: 640px) {
+    :root[data-theme] small {
+        font-size: max(11px, 0.75em);
+    }
+}
+
+/* Fondos compartidos: el matiz de la clase llega también a cada vista interior. */
+:root[data-theme] body.appRoot {
+    background:
+        radial-gradient(circle at 72% -10%, rgba(var(--theme-accent-rgb), 0.09), transparent 34%),
+        linear-gradient(135deg, var(--theme-bg-deep) 0%, var(--theme-bg-soft) 55%, var(--theme-bg) 100%);
+}
+
+:root[data-theme] body:has(.dashboardShell),
+:root[data-theme] body:has(.charactersPage),
+:root[data-theme] body:has(.characterPage),
+:root[data-theme] body:has(.spellPage),
+:root[data-theme] body:has(.notesPage),
+:root[data-theme] body:has(.editorPage),
+:root[data-theme] body:has(.newNotePage),
+:root[data-theme] body:has(.stickyDiv) {
+    background:
+        radial-gradient(circle at 76% 4%, rgba(var(--theme-accent-rgb), 0.08), transparent 25rem),
+        radial-gradient(circle at 8% 88%, rgba(var(--theme-neutral-rgb), 0.08), transparent 28rem),
+        linear-gradient(145deg, var(--theme-bg-deep), var(--theme-bg-soft) 58%, var(--theme-bg));
+}
+
+:root[data-theme] :is(
+    .charactersHero::after,
+    .notesHero::after,
+    .newNoteHeader::after,
+    .editorHeader::after,
+    .spellHero::after
+) {
+    background: rgba(var(--theme-accent-rgb), 0.13);
+}
+
+/* Landing */
+:root[data-theme] body:has(.landingMain) {
+    background:
+        radial-gradient(circle at 14% 10%, rgba(var(--theme-accent-rgb), 0.07), transparent 25rem),
+        radial-gradient(circle at 85% 18%, rgba(var(--theme-neutral-rgb), 0.1), transparent 32rem),
+        linear-gradient(135deg, var(--theme-bg-deep) 0%, var(--theme-bg-soft) 52%, var(--theme-bg) 100%);
+}
+
+:root[data-theme] body:has(.landingMain)::before {
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.24) 0 1px, transparent 1.5px),
+        radial-gradient(circle, rgba(var(--theme-accent-rgb), 0.25) 0 1px, transparent 1.5px);
+}
+
+:root[data-theme] .landingBackdrop::after {
+    background: rgba(var(--theme-accent-rgb), 0.09);
+}
+
+:root[data-theme] .landingBackdrop::before,
+:root[data-theme] .authStory::before,
+:root[data-theme] .hero::before {
+    filter: hue-rotate(var(--theme-image-hue)) saturate(var(--theme-image-saturation)) contrast(1.08);
+}
+
+:root[data-theme] .landingHeader .brand img {
+    filter: grayscale(1) brightness(2.55) drop-shadow(0 0 15px rgba(var(--theme-accent-rgb), 0.2));
+}
+
+:root[data-theme] .headerLogin strong {
+    border-color: rgba(var(--theme-accent-rgb), 0.4);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] .headerLogin:hover strong,
+:root[data-theme] .headerLogin:focus-visible strong {
+    border-color: rgba(var(--theme-accent-rgb), 0.74);
+    background: rgba(var(--theme-accent-rgb), 0.18);
+}
+
+:root[data-theme] :is(
+    .landingMain .eyebrow,
+    .landingMain .heroCopy h1 em,
+    .landingMain .cardKicker,
+    .landingMain .featureIcon.purple
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .landingMain .primaryAction {
+    border-color: var(--theme-accent);
+    background: linear-gradient(135deg, var(--theme-accent-strong), rgba(var(--theme-surface-rgb), 0.9));
+    box-shadow:
+        0 13px 35px rgba(var(--theme-accent-rgb), 0.24),
+        inset 0 1px rgba(255, 255, 255, 0.13);
+}
+
+:root[data-theme] .landingMain .primaryAction span {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .landingMain .primaryAction:hover,
+:root[data-theme] .landingMain .primaryAction:focus-visible {
+    box-shadow:
+        0 16px 42px rgba(var(--theme-accent-rgb), 0.34),
+        inset 0 1px rgba(255, 255, 255, 0.17);
+}
+
+:root[data-theme] .landingMain .secondaryAction:hover,
+:root[data-theme] .landingMain .secondaryAction:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.48);
+    background: rgba(var(--theme-surface-rgb), 0.32);
+}
+
+:root[data-theme] .landingMain .adventureCard::before {
+    background: rgba(var(--theme-accent-rgb), 0.18);
+}
+
+:root[data-theme] .landingMain .cardRune {
+    border-color: rgba(var(--theme-accent-rgb), 0.4);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.13);
+    box-shadow: 0 0 24px rgba(var(--theme-accent-rgb), 0.15);
+}
+
+:root[data-theme] .partyAvatars i {
+    background: linear-gradient(145deg, var(--theme-accent-strong), #18202a);
+}
+
+:root[data-theme] .partyAvatars i:last-child {
+    color: var(--theme-accent-pale);
+}
+
+/* Login y registro */
+:root[data-theme] body:has(.authShell) {
+    background:
+        radial-gradient(circle at 78% 0%, rgba(var(--theme-accent-rgb), 0.08), transparent 31rem),
+        radial-gradient(circle at 4% 88%, rgba(var(--theme-neutral-rgb), 0.09), transparent 28rem),
+        linear-gradient(145deg, var(--theme-bg-deep), var(--theme-bg-soft) 60%, var(--theme-bg));
+}
+
+:root[data-theme] .authBrand img {
+    filter: grayscale(1) brightness(2.7) drop-shadow(0 0 16px rgba(var(--theme-accent-rgb), 0.22));
+}
+
+:root[data-theme] .authBrand:focus-visible {
+    outline-color: var(--theme-accent);
+}
+
+:root[data-theme] .authStory::after {
+    background:
+        radial-gradient(circle at 68% 32%, rgba(var(--theme-accent-rgb), 0.09), transparent 29%),
+        linear-gradient(110deg, transparent 38%, rgba(7, 11, 16, 0.28));
+}
+
+:root[data-theme] :is(
+    .storyKicker,
+    .storyContent h1 em,
+    .authEyebrow,
+    .modeSwitch button,
+    .submitButton i
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] blockquote {
+    border-left-color: rgba(var(--theme-accent-rgb), 0.72);
+}
+
+:root[data-theme] .authPanel {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(var(--theme-accent-rgb), 0.07), transparent 21rem),
+        var(--surface);
+}
+
+:root[data-theme] .authRune {
+    border-color: rgba(var(--theme-accent-rgb), 0.42);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.13);
+    box-shadow: 0 0 28px rgba(var(--theme-accent-rgb), 0.16);
+}
+
+:root[data-theme] .fieldControl input:hover {
+    border-color: rgba(var(--theme-accent-rgb), 0.32);
+}
+
+:root[data-theme] .fieldControl input:focus {
+    border-color: rgba(var(--theme-accent-rgb), 0.66);
+    box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] #togglePassword:hover,
+:root[data-theme] #togglePassword:focus-visible,
+:root[data-theme] #togglePassword.isVisible {
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.11);
+}
+
+:root[data-theme] .submitButton {
+    border-color: var(--theme-accent);
+    background: linear-gradient(135deg, var(--theme-accent-strong), rgba(var(--theme-surface-rgb), 0.86));
+    box-shadow:
+        0 12px 30px rgba(var(--theme-accent-rgb), 0.22),
+        inset 0 1px rgba(255, 255, 255, 0.12);
+}
+
+:root[data-theme] .submitButton:hover,
+:root[data-theme] .submitButton:focus-visible {
+    box-shadow:
+        0 15px 36px rgba(var(--theme-accent-rgb), 0.32),
+        inset 0 1px rgba(255, 255, 255, 0.15);
+}
+
+:root[data-theme] .guestAccess:hover,
+:root[data-theme] .guestAccess:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.36);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.07);
+}
+
+/* Inicio */
+:root[data-theme] .rune {
+    text-shadow: 0 0 18px rgba(var(--theme-accent-rgb), 0.8);
+}
+
+:root[data-theme] :is(
+    .characterCard,
+    .resourceCard,
+    .nextAdventure,
+    .activityPanel,
+    .realmPanel
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.17);
+}
+
+:root[data-theme] .characterCard:hover,
+:root[data-theme] .characterCard:focus-visible,
+:root[data-theme] .resourceCard:hover,
+:root[data-theme] .resourceCard:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.5);
+}
+
+:root[data-theme] :is(
+    .characterCard img,
+    .avatarFallback,
+    .addCharacterIcon,
+    .resourceArrow,
+    .miniRune,
+    .activityIcon
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.38);
+}
+
+:root[data-theme] :is(
+    .avatarFallback,
+    .addCharacterIcon,
+    .resourceArrow,
+    .miniRune,
+    .activityIcon,
+    .quickNotes a::before,
+    .emptyNotes > span,
+    .activityFooter
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] :is(
+    .addCharacterIcon,
+    .resourceArrow,
+    .miniRune,
+    .activityIcon
+) {
+    background: rgba(var(--theme-accent-rgb), 0.12);
+}
+
+:root[data-theme] .avatarFallback {
+    background: linear-gradient(145deg, rgba(var(--theme-surface-rgb), 0.72), #151c25);
+}
+
+:root[data-theme] .sheetState b {
+    color: var(--theme-accent-strong);
+}
+
+:root[data-theme] .spellRow em {
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.13);
+}
+
+:root[data-theme] .nextAdventure::after {
+    background: rgba(var(--theme-accent-rgb), 0.24);
+}
+
+:root[data-theme] .primaryButton {
+    border-color: rgba(var(--theme-accent-rgb), 0.56);
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-surface-rgb), 0.9),
+        rgba(var(--theme-surface-rgb), 0.72)
+    );
+    box-shadow: inset 0 0 18px rgba(var(--theme-accent-rgb), 0.12);
+}
+
+:root[data-theme] .partyStack b {
+    border-color: rgba(var(--theme-accent-rgb), 0.42);
+}
+
+:root[data-theme] .realmPanel footer b {
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.13);
+}
+
+/* Listado de personajes */
+:root[data-theme] :is(
+    .characterCount strong,
+    .characterInfo footer span i,
+    .addIcon,
+    .emptyRune,
+    .noResults > span
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .characterSearch:focus-within {
+    border-color: rgba(var(--theme-accent-rgb), 0.6);
+    box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] .charactersGrid .characterCard:hover,
+:root[data-theme] .charactersGrid .characterCard:focus-within {
+    border-color: rgba(var(--theme-accent-rgb), 0.5);
+}
+
+:root[data-theme] .characterImage {
+    background: rgba(var(--theme-surface-rgb), 0.24);
+}
+
+:root[data-theme] .characterImage::after {
+    background: linear-gradient(0deg, rgba(var(--theme-accent-rgb), 0.09), transparent 55%);
+}
+
+:root[data-theme] .characterInfo::before,
+:root[data-theme] .accent1 {
+    --card-accent: var(--theme-accent);
+    background: var(--theme-accent);
+}
+
+:root[data-theme] .addOverlay {
+    background: linear-gradient(0deg, rgba(var(--theme-surface-rgb), 0.2), transparent);
+}
+
+:root[data-theme] .addIcon {
+    border-color: rgba(var(--theme-accent-rgb), 0.54);
+    background: rgba(var(--theme-accent-rgb), 0.2);
+    box-shadow: inset 0 0 20px rgba(var(--theme-accent-rgb), 0.12);
+}
+
+:root[data-theme] #addCharButton:hover .addIcon {
+    background: rgba(var(--theme-accent-rgb), 0.34);
+}
+
+:root[data-theme] :is(.emptyState, .noResults) {
+    border-color: rgba(var(--theme-accent-rgb), 0.24);
+}
+
+/* Detalle de personaje */
+:root[data-theme] .card {
+    border-color: rgba(var(--theme-accent-rgb), 0.22);
+    box-shadow: 0 26px 60px rgba(var(--theme-surface-rgb), 0.24);
+}
+
+:root[data-theme] .card::after {
+    background: linear-gradient(0deg, rgba(var(--theme-accent-rgb), 0.09), transparent 46%);
+}
+
+:root[data-theme] .portraitRune {
+    border-color: rgba(var(--theme-accent-rgb), 0.4);
+    background: rgba(var(--theme-surface-rgb), 0.55);
+    box-shadow: 0 0 17px rgba(var(--theme-accent-rgb), 0.62);
+}
+
+:root[data-theme] #sheetButtons button {
+    border-color: rgba(var(--theme-accent-rgb), 0.34);
+    background: rgba(var(--theme-surface-rgb), 0.25);
+}
+
+:root[data-theme] #sheetButtons button:first-child {
+    border-color: rgba(var(--theme-accent-rgb), 0.52);
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-surface-rgb), 0.9),
+        rgba(var(--theme-surface-rgb), 0.68)
+    );
+}
+
+:root[data-theme] #sheetButtons button:not(:disabled):hover {
+    border-color: rgba(var(--theme-accent-rgb), 0.72);
+}
+
+:root[data-theme] :is(
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.17);
+    box-shadow: inset 0 0 28px rgba(var(--theme-accent-rgb), 0.04);
+}
+
+:root[data-theme] :is(
+    .stValue,
+    span#Passive,
+    span#ProfBonus,
+    .armorStat div .stat,
+    .healthStat div .stat,
+    .charStat .modifier,
+    a.tab,
+    .spellCounter h5,
+    .counterButtons button
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] :is(
+    .stValue,
+    span#Passive,
+    span#ProfBonus,
+    .charStat .modifier
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.3);
+    background: rgba(var(--theme-accent-rgb), 0.15);
+}
+
+:root[data-theme] :is(.armorStat, .healthStat) {
+    border-color: rgba(var(--theme-accent-rgb), 0.28);
+    background: rgba(var(--theme-accent-rgb), 0.13);
+}
+
+:root[data-theme] .charStatContainer:hover {
+    border-color: rgba(var(--theme-accent-rgb), 0.4);
+}
+
+:root[data-theme] :is(
+    .stValue:hover,
+    .highlightable:hover,
+    .modifier:hover
+) {
+    background: rgba(var(--theme-accent-rgb), 0.2);
+}
+
+:root[data-theme] :is(#embedContainer, #embededSpellContainer) {
+    border-color: rgba(var(--theme-accent-rgb), 0.36);
+}
+
+:root[data-theme] :is(.characterError > span, .spellError > span, .noteError > span) {
+    color: var(--theme-accent);
+}
+
+:root[data-theme] .spellsInfo:hover {
+    color: var(--theme-accent-pale);
+}
+
+/* Grimorio y detalle de conjuro */
+:root[data-theme] .subDiv h2::before {
+    background: rgba(var(--theme-accent-rgb), 0.64);
+    box-shadow: 0 0 9px rgba(var(--theme-accent-rgb), 0.4);
+}
+
+:root[data-theme] :is(
+    .subDiv a,
+    .subDiv a:visited,
+    #spellListHehe dt h2,
+    .spell:hover,
+    .addSpell,
+    #volverArriba
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] #saveStatus.saving {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] #filtros input[type="text"]:focus {
+    border-color: rgba(var(--theme-accent-rgb), 0.68);
+    box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] #filtros input[type="submit"],
+:root[data-theme] #volverArriba {
+    border-color: rgba(var(--theme-accent-rgb), 0.5);
+    background: linear-gradient(
+        90deg,
+        var(--theme-accent-strong),
+        rgba(var(--theme-surface-rgb), 0.85)
+    );
+}
+
+:root[data-theme] :is(
+    .classesFilterDiv label:hover,
+    .levelFilterDiv button:hover,
+    #subDiv3 img.selectedDisplay,
+    .addSpell
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.52);
+    background: rgba(var(--theme-accent-rgb), 0.18);
+}
+
+:root[data-theme] .classesFilterDiv input[type="radio"]:checked + label {
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-surface-rgb), 0.66),
+        rgba(var(--theme-surface-rgb), 0.48)
+    );
+    box-shadow: inset 0 0 16px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] #spellListHehe dl {
+    box-shadow: inset 0 0 20px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] .spellCard {
+    border-color: rgba(var(--theme-accent-rgb), 0.18);
+    box-shadow: inset 0 0 35px rgba(var(--theme-accent-rgb), 0.05);
+}
+
+:root[data-theme] .spellArtwork {
+    border-color: rgba(var(--theme-accent-rgb), 0.42);
+    background: rgba(var(--theme-surface-rgb), 0.38);
+    box-shadow: 0 0 30px rgba(var(--theme-accent-rgb), 0.17);
+}
+
+:root[data-theme] .schoolBadge {
+    border-color: rgba(var(--theme-accent-rgb), 0.25);
+}
+
+:root[data-theme] .spellFacts > div {
+    border-color: rgba(var(--theme-accent-rgb), 0.15);
+}
+
+:root[data-theme] .spellFacts > div > span {
+    border-color: rgba(var(--theme-accent-rgb), 0.28);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.14);
+}
+
+/* Apuntes */
+:root[data-theme] :is(
+    .notesCount strong,
+    .charGroupedNotesHeader > strong,
+    .noteIcon,
+    .noteArrow,
+    .notesEmpty > span,
+    .notesNoResults > span,
+    .editorRune,
+    .noCharacters > span,
+    .noCharacters a
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .notesFilterDiv input:checked + label {
+    background: rgba(var(--theme-accent-rgb), 0.2);
+}
+
+:root[data-theme] .charGroupedNotes,
+:root[data-theme] .ql-editor,
+:root[data-theme] #nnForm {
+    box-shadow: inset 0 0 28px rgba(var(--theme-accent-rgb), 0.05);
+}
+
+:root[data-theme] :is(
+    .charListImage,
+    .notePortraitFallback,
+    .selectableCharContent img,
+    .selectableFallback
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.38);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-surface-rgb), 0.46);
+}
+
+:root[data-theme] .charGroupedNotesHeader > strong {
+    border-color: rgba(var(--theme-accent-rgb), 0.28);
+    background: rgba(var(--theme-accent-rgb), 0.14);
+}
+
+:root[data-theme] .noteCard:hover,
+:root[data-theme] .noteCard:focus-visible {
+    background: rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] .noteIcon,
+:root[data-theme] .editorRune,
+:root[data-theme] .headerRune {
+    border-color: rgba(var(--theme-accent-rgb), 0.38);
+    background: rgba(var(--theme-accent-rgb), 0.15);
+}
+
+:root[data-theme] :is(
+    .notesEmpty,
+    .notesNoResults,
+    .noCharacters
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.24);
+}
+
+:root[data-theme] .ql-snow button:hover .ql-stroke,
+:root[data-theme] .ql-snow button.ql-active .ql-stroke,
+:root[data-theme] .ql-snow .ql-picker-label:hover .ql-stroke,
+:root[data-theme] .ql-snow .ql-picker-label.ql-active .ql-stroke {
+    stroke: var(--theme-accent);
+}
+
+:root[data-theme] .ql-snow button:hover .ql-fill,
+:root[data-theme] .ql-snow button.ql-active .ql-fill {
+    fill: var(--theme-accent);
+}
+
+:root[data-theme] .ql-editor blockquote {
+    border-left-color: var(--theme-accent-strong);
+}
+
+:root[data-theme] .ql-editor a {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .ql-custom-button {
+    border-color: rgba(var(--theme-accent-rgb), 0.52) !important;
+    color: var(--theme-accent-pale) !important;
+    background: linear-gradient(
+        90deg,
+        var(--theme-accent-strong),
+        rgba(var(--theme-surface-rgb), 0.84)
+    ) !important;
+}
+
+/* Creación de personajes: hoja heredada integrada en el tema actual. */
+:root[data-theme] body:has(#bodyContainer) {
+    color: var(--theme-text);
+    background:
+        radial-gradient(circle at 76% 4%, rgba(var(--theme-accent-rgb), 0.08), transparent 25rem),
+        linear-gradient(145deg, var(--theme-bg-deep), var(--theme-bg-soft) 58%, var(--theme-bg));
+}
+
+:root[data-theme] body:has(#bodyContainer) #formContainer {
+    border: 1px solid rgba(var(--theme-accent-rgb), 0.2);
+    background: var(--theme-panel-strong);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.42);
+}
+
+:root[data-theme] body:has(#bodyContainer) :is(
+    h1,
+    h2,
+    h3,
+    h5,
+    .formInputContainer span,
+    .formLinkContainer span,
+    i
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] body:has(#bodyContainer) .formTextField::placeholder {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] body:has(#bodyContainer) :is(
+    .formLinkContainer,
+    .custom-file-upload,
+    .clase-option,
+    .raza-option
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.56);
+}
+
+:root[data-theme] body:has(#bodyContainer) :is(
+    .button,
+    #submitInput,
+    .custom-file-upload:hover
+) {
+    background: var(--theme-accent-strong);
+}
+
+:root[data-theme] body:has(#bodyContainer) .custom-file-upload {
+    color: var(--theme-accent-pale);
+    box-shadow: 0 0 10px rgba(var(--theme-accent-rgb), 0.3);
+}
+
+:root[data-theme] body:has(#bodyContainer) :is(.clase-option, .raza-option) {
+    color: #f4f0f7;
+    background: rgba(var(--theme-accent-rgb), 0.2);
+}
+
+:root[data-theme] body:has(#bodyContainer) :is(
+    .clase-option.selected,
+    .raza-option.selected
+) {
+    border-color: var(--theme-accent);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-surface-rgb), 0.72);
+}
+
+:root[data-theme] body:has(#bodyContainer) :is(
+    form input[type="text"],
+    form input[type="password"],
+    #classInfo p,
+    #razasInfo p,
+    #razasInfo li
+) {
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+:root[data-theme] body:has(#bodyContainer) :is(
+    .custom-file-upload,
+    #helper h2,
+    small
+) {
+    font-size: 11px;
+}
+
+/* Pie heredado */
+:root[data-theme] #footer {
+    background: rgba(var(--theme-surface-rgb), 0.82);
+}
+
+:root[data-theme] #footerContent {
+    color: #aaa3b2;
+}
+
+:root[data-theme] #footerSpecialSpan {
+    color: var(--theme-accent-pale);
+}
+
+/* Rutas todavía en preparación. */
+:root[data-theme] body:has(.placeholderPage) {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--theme-text);
+    background:
+        radial-gradient(circle at 72% 10%, rgba(var(--theme-accent-rgb), 0.08), transparent 28rem),
+        linear-gradient(145deg, var(--theme-bg-deep), var(--theme-bg-soft) 58%, var(--theme-bg));
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.placeholderPage {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    padding: 28px;
+}
+
+.placeholderCard {
+    display: grid;
+    width: min(100%, 560px);
+    justify-items: center;
+    padding: clamp(32px, 6vw, 58px);
+    border: 1px solid rgba(var(--theme-accent-rgb), 0.22);
+    border-radius: 16px;
+    background: var(--theme-panel);
+    box-shadow: 0 26px 75px rgba(0, 0, 0, 0.38);
+    text-align: center;
+}
+
+.placeholderRune {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    place-items: center;
+    margin-bottom: 22px;
+    border: 1px solid rgba(var(--theme-accent-rgb), 0.42);
+    border-radius: 50%;
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.14);
+    font-size: 24px;
+}
+
+.placeholderCard h1 {
+    margin: 4px 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 6vw, 50px);
+    font-weight: 500;
+}
+
+.placeholderCard > p:not(.sectionKicker) {
+    max-width: 430px;
+    margin: 0 0 24px;
+    color: #aaa3b2;
+    line-height: 1.65;
+}
+
+.placeholderCard a,
+.activeThemeSummary {
+    padding: 11px 17px;
+    border: 1px solid rgba(var(--theme-accent-rgb), 0.42);
+    border-radius: 8px;
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.12);
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* Base neutral global: grafito azulado, superficies limpias y latón mate. */
+:root[data-theme] {
+    background-color: var(--theme-bg);
+}
+
+:root[data-theme] body {
+    color: var(--theme-text);
+    background-color: var(--theme-bg);
+}
+
+:root[data-theme] #header {
+    border-bottom: 1px solid var(--theme-border-soft);
+    background: rgba(7, 11, 16, 0.88);
+}
+
+:root[data-theme] #mainContent {
+    border-color: var(--theme-border-soft);
+    background: rgba(8, 12, 18, 0.42);
+}
+
+:root[data-theme] :is(
+    .globalSearch,
+    .characterSearch,
+    .notesSearch,
+    #filtros input[type="text"],
+    .fieldControl input,
+    .noteDetails input,
+    .noteDetails textarea
+) {
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+    background: rgba(13, 19, 27, 0.86);
+}
+
+:root[data-theme] :is(
+    .globalSearch:focus-within,
+    .characterSearch:focus-within,
+    .notesSearch:focus-within
+) {
+    background: rgba(17, 24, 34, 0.94);
+}
+
+:root[data-theme] :is(
+    .statCard,
+    .panel,
+    .sidePanel,
+    .characterCard,
+    .card,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .emptyState,
+    .notesEmpty,
+    .notesNoResults,
+    .noCharacters
+) {
+    background:
+        radial-gradient(circle at 92% 0%, rgba(var(--theme-neutral-rgb), 0.08), transparent 24rem),
+        linear-gradient(145deg, rgba(18, 25, 35, 0.94), rgba(9, 14, 20, 0.98));
+}
+
+:root[data-theme] :is(
+    .statCard:hover,
+    .statCard:focus-visible,
+    .characterCard:hover,
+    .characterCard:focus-visible
+) {
+    background:
+        radial-gradient(circle at 92% 0%, rgba(var(--theme-accent-rgb), 0.08), transparent 22rem),
+        linear-gradient(145deg, rgba(22, 30, 42, 0.98), rgba(11, 16, 23, 0.99));
+}
+
+:root[data-theme] :is(
+    .authShell,
+    .authStory,
+    .adventureCard,
+    .stickyDiv,
+    .editorHeader
+) {
+    background-color: var(--theme-panel-strong);
+}
+
+:root[data-theme] .authShell {
+    border-color: var(--theme-border);
+    background: #0b1017;
+}
+
+:root[data-theme] .authStory {
+    background: #080d13;
+}
+
+:root[data-theme] .adventureCard {
+    background:
+        radial-gradient(circle at 100% 0%, rgba(var(--theme-accent-rgb), 0.07), transparent 21rem),
+        linear-gradient(145deg, rgba(18, 25, 35, 0.92), rgba(8, 13, 19, 0.97));
+}
+
+:root[data-theme] .stickyDiv {
+    background: rgba(7, 11, 16, 0.92);
+}
+
+:root[data-theme] :is(
+    .classesFilterDiv label,
+    .levelFilterDiv button,
+    div#subDiv4 button,
+    .notesFilterDiv label,
+    .tab,
+    .spellFacts > div,
+    .schoolBadge,
+    .selectableCharContent,
+    .formActions a,
+    .guestAccess
+) {
+    border-color: var(--theme-border-soft);
+    background-color: rgba(18, 25, 35, 0.78);
+}
+
+:root[data-theme] .landingBackdrop::before {
+    background:
+        linear-gradient(90deg, #070b10 0%, rgba(7, 11, 16, 0.5) 25%, rgba(8, 13, 19, 0.2) 65%, #080c12 100%),
+        linear-gradient(0deg, #070b10 0%, transparent 38%, rgba(8, 13, 19, 0.22) 100%),
+        url("../resources/imgs/full.png") center / cover;
+}
+
+:root[data-theme] .authStory::before {
+    background:
+        linear-gradient(90deg, rgba(7, 11, 16, 0.14), rgba(9, 14, 20, 0.18) 50%, rgba(8, 12, 18, 0.76) 100%),
+        linear-gradient(0deg, #080c12 0%, rgba(8, 12, 18, 0.34) 44%, rgba(7, 11, 16, 0.18) 100%),
+        url("../resources/imgs/full.png") 50% center / cover;
+}
+
+:root[data-theme] .hero::before,
+:root[data-theme] .charactersHero::before {
+    background:
+        linear-gradient(90deg, var(--theme-bg) 0%, rgba(8, 12, 18, 0.82) 38%, rgba(10, 15, 22, 0.3) 74%, var(--theme-bg) 100%),
+        linear-gradient(0deg, var(--theme-bg), transparent 78%),
+        url("../resources/imgs/cave.jpg") center 44% / cover;
+}
+
+:root[data-theme] .notesHero::before,
+:root[data-theme] .editorHeader::before,
+:root[data-theme] .newNoteHeader::before {
+    background:
+        linear-gradient(90deg, rgba(8, 12, 18, 0.97), rgba(12, 17, 24, 0.72)),
+        linear-gradient(0deg, rgba(8, 12, 18, 0.84), transparent 72%),
+        url("../resources/imgs/book.jpg") center 52% / cover;
+}
+
+:root[data-theme] .spellHero::before {
+    background-image:
+        linear-gradient(90deg, rgba(7, 11, 16, 0.97), rgba(12, 17, 24, 0.72) 56%, rgba(8, 12, 18, 0.4)),
+        linear-gradient(0deg, rgba(8, 12, 18, 0.8), transparent 70%),
+        url("../resources/imgs/spell-banners/school-banners.png");
+    filter: saturate(var(--theme-image-saturation)) contrast(1.06);
+}
+
+:root[data-theme] :is(
+    .charactersHero::before,
+    .notesHero::before,
+    .editorHeader::before,
+    .newNoteHeader::before,
+    .resourceCard.journal::before
+) {
+    filter: hue-rotate(var(--theme-image-hue)) saturate(var(--theme-image-saturation)) contrast(1.06);
+}
+
+:root[data-theme] .resourceCard::after {
+    background: linear-gradient(0deg, rgba(7, 11, 16, 0.98), rgba(8, 13, 19, 0.18) 78%);
+}
+
+:root[data-theme] :is(
+    .portraitFallback,
+    .notePortraitFallback,
+    .selectableFallback,
+    .partyAvatars i:last-child
+) {
+    color: var(--theme-accent-pale);
+    background: linear-gradient(145deg, rgba(var(--theme-surface-rgb), 0.48), #18202a);
+}
+
+:root[data-theme] .placeholderCard > p:not(.sectionKicker),
+:root[data-theme] #footerContent {
+    color: var(--theme-readable-muted);
+}
+
+/* Sistema visual editorial: archivo arcano, grafito y latón mate. */
+:root[data-theme] {
+    accent-color: var(--theme-accent);
+}
+
+:root[data-theme],
+:root[data-theme] body {
+    min-width: 320px;
+    color: var(--theme-text);
+    background-color: var(--theme-bg);
+    font-family: var(--theme-body-font);
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+:root[data-theme] body {
+    background:
+        radial-gradient(circle at 76% -8%, rgba(var(--theme-accent-rgb), 0.065), transparent 31rem),
+        radial-gradient(circle at 5% 92%, rgba(var(--theme-neutral-rgb), 0.07), transparent 30rem),
+        linear-gradient(150deg, var(--theme-bg-deep), var(--theme-bg-soft) 58%, var(--theme-bg));
+}
+
+:root[data-theme] :is(h1, h2, h3) {
+    color: var(--theme-text);
+    font-family: var(--theme-display-font);
+    text-wrap: balance;
+}
+
+:root[data-theme] :is(button, input, select, textarea) {
+    font-family: var(--theme-body-font);
+}
+
+:root[data-theme] :is(button, a, input, select, textarea, summary) {
+    transition:
+        border-color 160ms ease,
+        background-color 160ms ease,
+        color 160ms ease,
+        box-shadow 160ms ease,
+        transform 160ms ease;
+}
+
+:root[data-theme] ::selection {
+    color: var(--theme-text);
+    background: rgba(var(--theme-accent-rgb), 0.34);
+}
+
+:root[data-theme] :is(a, button, input, select, textarea, summary):focus-visible {
+    outline: 2px solid var(--theme-accent);
+    outline-offset: 2px;
+}
+
+:root[data-theme] :is(
+    .heroCopy > p,
+    .authIntro,
+    .storyContent > p,
+    .charactersHero p,
+    .notesHero p,
+    .spellIdentity p,
+    .newNoteHeader p,
+    .editorTitle p,
+    .cardSummary,
+    .catalogNotice p,
+    .sectionHeading p
+) {
+    color: var(--theme-readable-muted);
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+:root[data-theme] :is(
+    .sectionKicker,
+    .sideLabel,
+    .panelKicker,
+    .spellKicker,
+    .editorKicker,
+    .builderKicker,
+    .stepHeading > div > span,
+    .subsectionHeading > div > span
+) {
+    color: var(--theme-accent-pale) !important;
+    font-size: 11px !important;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+:root[data-theme] :is(
+    .heroMeta,
+    .statCard small,
+    .statCard em,
+    .sheetState,
+    .resourceContent small,
+    .resourceContent em,
+    .spellRow small,
+    .spellRow em,
+    .quickNotes small,
+    .activityList small,
+    .activityFooter,
+    .characterStatus,
+    .viewCharacter,
+    .notesFilterDiv label,
+    .noteCardCopy small,
+    .stInfo,
+    #ppasInfo,
+    #profInfo,
+    .tab,
+    .spellsInfo,
+    .spellBreadcrumb,
+    .newNoteBreadcrumb,
+    .formActions a,
+    .formActions button
+) {
+    font-size: 12px !important;
+    line-height: 1.45;
+}
+
+:root[data-theme] :is(
+    .panel,
+    .sidePanel,
+    .statCard,
+    .characterCard,
+    .resourceCard,
+    .compactPanel,
+    .nextAdventure,
+    .activityPanel,
+    .realmPanel,
+    .card,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .compendiumCard,
+    .catalogNotice,
+    .compendiumToolbar,
+    .sourceShelf,
+    .placeholderCard,
+    .updateFormSection
+) {
+    border-color: var(--theme-border-soft);
+    background:
+        radial-gradient(circle at 94% 0%, rgba(var(--theme-accent-rgb), 0.045), transparent 22rem),
+        linear-gradient(145deg, rgba(19, 27, 34, 0.95), rgba(10, 15, 20, 0.985));
+    box-shadow: var(--theme-shadow);
+}
+
+:root[data-theme] :is(
+    .globalSearch,
+    .characterSearch,
+    .notesSearch,
+    .searchField,
+    .compendiumToolbar label:not(.searchField) select,
+    #filtros input[type="text"],
+    .fieldControl input,
+    .noteDetails input,
+    .noteDetails textarea,
+    .updateField input,
+    .updateField select,
+    .updateField textarea,
+    .field input,
+    .field select,
+    .field textarea
+) {
+    border-color: var(--theme-border);
+    border-radius: var(--theme-radius-sm);
+    color: var(--theme-text);
+    background: rgba(11, 17, 22, 0.9);
+}
+
+:root[data-theme] :is(
+    .globalSearch,
+    .characterSearch,
+    .notesSearch,
+    .searchField,
+    .fieldControl,
+    .noteDetails label,
+    .updateField,
+    .field
+):focus-within {
+    border-color: rgba(var(--theme-accent-rgb), 0.58);
+    box-shadow: 0 0 0 3px rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] :is(
+    .primaryAction,
+    .submitButton,
+    .newCharacterButton,
+    .newNoteButton,
+    .primaryButton,
+    .formActions button,
+    .primaryUpdateButton,
+    #filtros input[type="submit"],
+    #submitInput,
+    .emptyCatalogState button,
+    .noticeAction
+) {
+    border: 1px solid rgba(var(--theme-accent-rgb), 0.56);
+    color: #f3efe6;
+    background: linear-gradient(
+        135deg,
+        var(--theme-accent-strong),
+        rgba(var(--theme-surface-rgb), 0.82)
+    );
+    box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.24),
+        inset 0 1px rgba(255, 255, 255, 0.08);
+}
+
+:root[data-theme] :is(
+    .primaryAction,
+    .submitButton,
+    .newCharacterButton,
+    .newNoteButton,
+    .primaryButton,
+    .formActions button,
+    .primaryUpdateButton,
+    #filtros input[type="submit"],
+    #submitInput,
+    .emptyCatalogState button,
+    .noticeAction
+):hover {
+    border-color: rgba(var(--theme-accent-rgb), 0.76);
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+}
+
+/* Navegación y marco de la aplicación. */
+:root[data-theme] #header {
+    border-bottom-color: var(--theme-border-soft);
+    background: rgba(8, 13, 17, 0.9);
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.16);
+    backdrop-filter: blur(18px);
+}
+
+:root[data-theme] #leftBar {
+    border-right-color: var(--theme-border-soft);
+    background:
+        radial-gradient(circle at 18% 84%, rgba(var(--theme-accent-rgb), 0.055), transparent 32%),
+        linear-gradient(180deg, #080d11, #070b0f);
+}
+
+:root[data-theme] :is(.brandVersion, .navItem.active .navIcon, .sidebarFooter a:hover) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .navItem {
+    border-radius: 9px;
+    color: #b9b6ae;
+}
+
+:root[data-theme] .navItem.active {
+    border-color: rgba(var(--theme-accent-rgb), 0.48);
+    color: var(--theme-text);
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-surface-rgb), 0.4),
+        rgba(var(--theme-surface-rgb), 0.16)
+    );
+    box-shadow: inset 2px 0 var(--theme-accent);
+}
+
+:root[data-theme] .diceWidget {
+    border-color: rgba(var(--theme-accent-rgb), 0.22);
+    background:
+        radial-gradient(circle at 50% 55%, rgba(var(--theme-accent-rgb), 0.11), transparent 45%),
+        linear-gradient(145deg, rgba(19, 27, 34, 0.92), rgba(9, 14, 19, 0.98));
+}
+
+:root[data-theme] :is(.d20, .accountAvatar) {
+    border-color: var(--theme-accent);
+    color: var(--theme-accent-pale);
+    box-shadow: 0 0 16px rgba(var(--theme-accent-rgb), 0.16);
+}
+
+/* Portada y acceso. */
+:root[data-theme] .landingHeader {
+    border-bottom-color: var(--theme-border-soft);
+    background: linear-gradient(180deg, rgba(6, 10, 13, 0.82), transparent);
+}
+
+:root[data-theme] .landingMain .heroCopy h1,
+:root[data-theme] .storyContent h1 {
+    color: var(--theme-text);
+    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+:root[data-theme] .landingMain .heroCopy h1 em,
+:root[data-theme] .storyContent h1 em {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .adventureCard,
+:root[data-theme] .authPanel {
+    border-color: rgba(var(--theme-accent-rgb), 0.2);
+    background:
+        radial-gradient(circle at 100% 0%, rgba(var(--theme-accent-rgb), 0.07), transparent 22rem),
+        linear-gradient(145deg, rgba(18, 26, 33, 0.95), rgba(8, 13, 18, 0.98));
+    box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+}
+
+:root[data-theme] :is(.cardRune, .authRune) {
+    border-color: rgba(var(--theme-accent-rgb), 0.36);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.1);
+    box-shadow: 0 0 24px rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] :is(
+    .featureIcon.purple,
+    .featureIcon.blue,
+    .featureIcon.green,
+    .featureIcon.gold
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.25);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] .modeSwitch {
+    border-bottom-color: var(--theme-border-soft);
+}
+
+:root[data-theme] .modeSwitch button.isActive {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .modeSwitch button.isActive::after {
+    background: var(--theme-accent);
+}
+
+/* Inicio y paneles de campaña. */
+:root[data-theme] .heroGlow,
+:root[data-theme] .charactersHero::after,
+:root[data-theme] .notesHero::after {
+    background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] .rune {
+    color: var(--theme-accent-pale);
+    text-shadow: 0 0 16px rgba(var(--theme-accent-rgb), 0.38);
+}
+
+:root[data-theme] :is(
+    .panelHeader > a,
+    .resourceArrow,
+    .miniRune,
+    .activityIcon,
+    .quickNotes a::before,
+    .activityFooter,
+    .realmPanel footer b
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] :is(.resourceArrow, .miniRune, .activityIcon) {
+    border-color: rgba(var(--theme-accent-rgb), 0.3);
+    background: rgba(var(--theme-accent-rgb), 0.09);
+}
+
+:root[data-theme] .characterCard:hover,
+:root[data-theme] .resourceCard:hover {
+    border-color: rgba(var(--theme-accent-rgb), 0.42);
+    box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+    transform: translateY(-2px);
+}
+
+:root[data-theme] .spellRow em,
+:root[data-theme] .realmPanel footer b {
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] .statCard.purple {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .statCard.green {
+    color: #86a08b;
+}
+
+:root[data-theme] .statCard.blue {
+    color: #8296a4;
+}
+
+:root[data-theme] .statCard.red {
+    color: #aa7871;
+}
+
+/* Personajes y ficha. */
+:root[data-theme] :is(.charactersHero, .notesHero, .newNoteHeader, .editorHeader, .spellHero) {
+    border-bottom-color: var(--theme-border-soft);
+}
+
+:root[data-theme] :is(.characterCount strong, .notesCount strong, .addIcon, .portraitRune) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .newCharacterButton,
+:root[data-theme] .newNoteButton {
+    border-radius: 9px;
+}
+
+:root[data-theme] .characterImage::after,
+:root[data-theme] .card::after {
+    background: linear-gradient(0deg, rgba(var(--theme-accent-rgb), 0.075), transparent 55%);
+}
+
+:root[data-theme] .addIcon {
+    border-color: rgba(var(--theme-accent-rgb), 0.45);
+    background: rgba(var(--theme-accent-rgb), 0.13);
+    box-shadow: none;
+}
+
+:root[data-theme] .accent1 {
+    --card-accent: var(--theme-accent);
+}
+
+:root[data-theme] .accent2 {
+    --card-accent: #788f7e;
+}
+
+:root[data-theme] .accent3 {
+    --card-accent: #748999;
+}
+
+:root[data-theme] .accent4 {
+    --card-accent: #9a6f72;
+}
+
+:root[data-theme] :is(
+    .stValue,
+    span#Passive,
+    span#ProfBonus,
+    .armorStat,
+    .healthStat,
+    .charStat .modifier
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.25);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.09);
+}
+
+:root[data-theme] .portraitRune {
+    border-color: rgba(var(--theme-accent-rgb), 0.35);
+    background: rgba(var(--theme-surface-rgb), 0.42);
+    box-shadow: 0 0 15px rgba(var(--theme-accent-rgb), 0.2);
+    text-shadow: none;
+}
+
+:root[data-theme] :is(.panelKicker, .tabsSelector h2.selected, .spellsInfo:hover) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .tabsSelector h2.selected::after {
+    background: var(--theme-accent);
+    box-shadow: none;
+}
+
+:root[data-theme] :is(#embedContainer, #embededSpellContainer, .characterUpdateDialog) {
+    border-color: rgba(var(--theme-accent-rgb), 0.32);
+    background: var(--theme-panel-strong);
+}
+
+/* Grimorio y detalle de conjuro. */
+:root[data-theme] .stickyDiv {
+    border-bottom-color: var(--theme-border-soft);
+    background: rgba(8, 13, 17, 0.93);
+}
+
+:root[data-theme] .subDiv h2::before {
+    background: var(--theme-accent);
+    box-shadow: none;
+}
+
+:root[data-theme] :is(
+    .subDiv a,
+    .subDiv a:visited,
+    #spellListHehe dt h2,
+    .addSpell,
+    #volverArriba,
+    .spellBreadcrumb a,
+    .schoolBadge strong,
+    .spellFooter strong
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] :is(
+    .classesFilterDiv label,
+    .levelFilterDiv button,
+    div#subDiv4 button,
+    .tab
+) {
+    border-color: var(--theme-border-soft);
+    color: #b9b5ad;
+    background: rgba(17, 24, 30, 0.82);
+}
+
+:root[data-theme] :is(
+    .classesFilterDiv label:hover,
+    .levelFilterDiv button:hover,
+    .classesFilterDiv input[type="radio"]:checked + label,
+    .tab:hover,
+    .tab.active
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.46);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-surface-rgb), 0.34);
+    box-shadow: none;
+}
+
+:root[data-theme] .spellArtwork {
+    border-color: rgba(var(--theme-accent-rgb), 0.32);
+    background: rgba(var(--theme-surface-rgb), 0.22);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25);
+}
+
+:root[data-theme] :is(.spellFacts > div > span, .schoolBadge, .addSpell) {
+    border-color: rgba(var(--theme-accent-rgb), 0.24);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.08);
+}
+
+/* Apuntes y editor. */
+:root[data-theme] :is(.noteIcon, .editorRune, .headerRune, .noticeIcon) {
+    border-color: rgba(var(--theme-accent-rgb), 0.3);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme] .noteCard {
+    border-color: transparent;
+}
+
+:root[data-theme] .noteCard:hover,
+:root[data-theme] .noteCard:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.16);
+    background: rgba(var(--theme-accent-rgb), 0.055);
+}
+
+:root[data-theme] .notesFilterDiv input:checked + label,
+:root[data-theme] .selectableChar input:checked + .selectableCharContent {
+    border-color: rgba(var(--theme-accent-rgb), 0.46);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-surface-rgb), 0.3);
+    box-shadow: none;
+}
+
+:root[data-theme] .ql-toolbar.ql-snow {
+    border-color: var(--theme-border-soft);
+    background: rgba(12, 18, 23, 0.96);
+}
+
+:root[data-theme] .ql-container.ql-snow {
+    border-color: var(--theme-border-soft);
+    background: rgba(16, 23, 29, 0.9);
+}
+
+:root[data-theme] .ql-editor {
+    color: var(--theme-text);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+:root[data-theme] #saveStatus.saving {
+    color: var(--theme-accent-pale);
+}
+
+/* Bestiario, linajes y clases. */
+:root[data-theme] body:has(.compendiumPage) {
+    background:
+        radial-gradient(circle at 78% -10%, rgba(var(--theme-accent-rgb), 0.06), transparent 34rem),
+        linear-gradient(155deg, var(--theme-bg-deep), var(--theme-bg-soft) 54%, var(--theme-bg));
+}
+
+:root[data-theme] .compendiumHero {
+    border-color: var(--theme-border-soft);
+    background:
+        radial-gradient(circle at 86% 34%, rgba(var(--theme-accent-rgb), 0.075), transparent 24%),
+        linear-gradient(110deg, rgba(8, 13, 17, 0.99), rgba(17, 24, 30, 0.94) 68%, rgba(var(--theme-surface-rgb), 0.22));
+    box-shadow: var(--theme-shadow);
+}
+
+:root[data-theme] .compendiumHero::before,
+:root[data-theme] .compendiumHero::after {
+    border-color: rgba(var(--theme-accent-rgb), 0.12);
+}
+
+:root[data-theme] :is(.heroBadges span, .variantChips span) {
+    border-color: rgba(var(--theme-accent-rgb), 0.2);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.055);
+}
+
+:root[data-theme] .compendiumStats {
+    border-color: var(--theme-border-soft);
+    background: var(--theme-border-soft);
+}
+
+:root[data-theme] .compendiumStats div {
+    background: rgba(9, 14, 18, 0.92);
+}
+
+:root[data-theme] :is(
+    .compendiumStats strong,
+    .catalogGlyph,
+    .cardTopline b,
+    .catalogResultBar strong,
+    .catalogResultBar button,
+    .catalogDetails summary,
+    .noticeAction,
+    .sourceGrid a b,
+    .catalogAttribution a
+) {
+    color: var(--theme-accent-pale);
+}
+
+:root[data-theme] .catalogNotice {
+    border-left-color: var(--theme-accent);
+    background: rgba(var(--theme-accent-rgb), 0.04);
+    box-shadow: none;
+}
+
+:root[data-theme] .compendiumToolbar {
+    box-shadow: none;
+}
+
+:root[data-theme] .compendiumCard:hover {
+    border-color: rgba(var(--theme-accent-rgb), 0.4);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.28);
+    transform: translateY(-2px);
+}
+
+:root[data-theme] :is(.quickStats span, .classFacts span, .abilityStrip span) {
+    border-color: var(--theme-border-soft);
+    background: rgba(11, 17, 22, 0.72);
+}
+
+:root[data-theme] .catalogDetails[open] {
+    border-color: rgba(var(--theme-accent-rgb), 0.2);
+}
+
+:root[data-theme] :is(.variantList li, .sourceGrid a, .sourceLinks a, .sourceLinks span) {
+    border-color: var(--theme-border-soft);
+    background: rgba(13, 19, 24, 0.74);
+}
+
+/* Constructor y formularios extensos. */
+:root[data-theme] body:has(.characterBuilder) {
+    background:
+        radial-gradient(circle at 74% -12%, rgba(var(--theme-accent-rgb), 0.065), transparent 34rem),
+        linear-gradient(145deg, var(--theme-bg-deep), var(--theme-bg-soft) 52%, var(--theme-bg));
+}
+
+:root[data-theme] .characterBuilder {
+    color: var(--theme-text);
+}
+
+:root[data-theme] :is(.builderHeader, .formStep, .formActions, .builderProgress) {
+    border-color: var(--theme-border-soft);
+}
+
+:root[data-theme] :is(.builderRune, .stepNumber, .calculatedCard, .uploadPreview) {
+    border-color: rgba(var(--theme-accent-rgb), 0.3);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.08);
+}
+
+:root[data-theme] :is(
+    .choicePill,
+    .selectableOption,
+    .uploadCard,
+    .weaponRow,
+    .abilityField,
+    .calculatedCard
+) {
+    border-color: var(--theme-border-soft);
+    background: rgba(14, 20, 26, 0.76);
+}
+
+:root[data-theme] :is(
+    .choicePill:has(input:checked),
+    .selectableOption:has(input:checked)
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.48);
+    background: rgba(var(--theme-surface-rgb), 0.3);
+}
+
+:root[data-theme] .creationOverlay {
+    background: rgba(5, 9, 12, 0.84);
+    backdrop-filter: blur(9px);
+}
+
+/* Estados vacíos y páginas auxiliares. */
+:root[data-theme] :is(
+    .emptyState,
+    .noResults,
+    .notesEmpty,
+    .notesNoResults,
+    .noCharacters,
+    .emptyCatalogState,
+    .characterError,
+    .spellError,
+    .noteError
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.2);
+    color: var(--theme-readable-muted);
+    background:
+        radial-gradient(circle at 50% 20%, rgba(var(--theme-accent-rgb), 0.06), transparent 20rem),
+        linear-gradient(145deg, rgba(18, 25, 32, 0.92), rgba(9, 14, 19, 0.97));
+}
+
+:root[data-theme] :is(
+    .emptyRune,
+    .noResults > span,
+    .notesEmpty > span,
+    .notesNoResults > span,
+    .emptyCatalogState > span,
+    .characterError > span,
+    .spellError > span,
+    .noteError > span
+) {
+    color: var(--theme-accent-pale);
+    text-shadow: none;
+}
+
+/* Selector de luminosidad compartido por el panel, la portada y el acceso. */
+.landingHeaderActions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.appearanceModeButton {
+    display: inline-flex;
+    min-height: 38px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 12px;
+    border: 1px solid var(--theme-border-soft);
+    border-radius: 9px;
+    color: var(--theme-readable-muted);
+    background: rgba(255, 255, 255, 0.035);
+    cursor: pointer;
+    font: inherit;
+}
+
+.appearanceModeButton:hover,
+.appearanceModeButton:focus-visible {
+    border-color: rgba(var(--theme-accent-rgb), 0.42);
+    color: var(--theme-accent-pale);
+    background: rgba(var(--theme-accent-rgb), 0.09);
+}
+
+.appearanceModeButton > span {
+    font-size: 17px;
+    line-height: 1;
+}
+
+.appearanceModeButton > strong {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.authModeButton {
+    position: absolute;
+    z-index: 6;
+    top: 28px;
+    right: 30px;
+}
+
+/* Tema claro: papel cálido, grafito y el mismo acento de clase. */
+:root[data-theme][data-color-mode="light"] {
+    color-scheme: light;
+    --theme-bg: #e9edf0;
+    --theme-bg-deep: #dce2e6;
+    --theme-bg-soft: #f3f6f7;
+    --theme-panel: #ffffff;
+    --theme-panel-soft: #f5f7f8;
+    --theme-panel-strong: #ffffff;
+    --theme-border: rgba(21, 27, 33, 0.4);
+    --theme-border-soft: rgba(21, 27, 33, 0.22);
+    --theme-text: #111418;
+    --theme-readable-muted: #3d4650;
+    --theme-muted-dim: #56616b;
+    --theme-neutral-rgb: 67, 76, 84;
+    --theme-accent-pale: var(--theme-accent-strong);
+    --theme-accent-wash: rgba(var(--theme-accent-rgb), 0.075);
+    --theme-accent-wash-strong: rgba(var(--theme-accent-rgb), 0.14);
+    --theme-accent-border: rgba(var(--theme-accent-rgb), 0.48);
+    --theme-image-saturation: 0.5;
+    --theme-shadow: 0 14px 34px rgba(24, 33, 41, 0.12);
+    scrollbar-color: var(--theme-accent) var(--theme-bg-deep);
+}
+
+:root[data-theme][data-color-mode="light"],
+:root[data-theme][data-color-mode="light"] body {
+    color: var(--theme-text);
+    background-color: var(--theme-bg);
+}
+
+:root[data-theme][data-color-mode="light"] body {
+    background:
+        radial-gradient(circle at 76% -8%, rgba(var(--theme-accent-rgb), 0.09), transparent 31rem),
+        radial-gradient(circle at 5% 92%, rgba(var(--theme-neutral-rgb), 0.08), transparent 30rem),
+        linear-gradient(150deg, var(--theme-bg-deep), var(--theme-bg-soft) 58%, var(--theme-bg));
+}
+
+:root[data-theme][data-color-mode="light"] #header {
+    border-bottom-color: var(--theme-border-soft);
+    background: rgba(250, 247, 240, 0.92);
+    box-shadow: 0 12px 34px rgba(77, 65, 44, 0.09);
+}
+
+:root[data-theme][data-color-mode="light"] #mainContent {
+    border-color: var(--theme-border-soft);
+    background: #e2dbcf;
+}
+
+:root[data-theme][data-color-mode="light"] #leftBar {
+    border-right-color: var(--theme-border-soft);
+    background:
+        radial-gradient(circle at 18% 84%, rgba(var(--theme-accent-rgb), 0.1), transparent 32%),
+        linear-gradient(180deg, #fbf8f2, #eee6da);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .landingHeader .brand img,
+    .authBrand img
+) {
+    filter: grayscale(1) brightness(0.34) drop-shadow(0 0 12px rgba(var(--theme-accent-rgb), 0.12));
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .navItem,
+    .sidebarFooter a,
+    .headerAction,
+    .accountChevron,
+    .searchIcon
+) {
+    color: #625d54;
+}
+
+:root[data-theme][data-color-mode="light"] .navItem:hover,
+:root[data-theme][data-color-mode="light"] .navItem:focus-visible {
+    color: var(--theme-text);
+    background: rgba(var(--theme-accent-rgb), 0.09);
+}
+
+:root[data-theme][data-color-mode="light"] .navItem.active {
+    color: var(--theme-text);
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-accent-rgb), 0.17),
+        rgba(var(--theme-accent-rgb), 0.06)
+    );
+}
+
+:root[data-theme][data-color-mode="light"] .headerDivider {
+    background: var(--theme-border-soft);
+}
+
+:root[data-theme][data-color-mode="light"] #accountButton:hover,
+:root[data-theme][data-color-mode="light"] #accountButton:focus-visible {
+    background: rgba(var(--theme-neutral-rgb), 0.08);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .globalSearch,
+    .characterSearch,
+    .notesSearch,
+    .searchField,
+    #filtros input[type="text"],
+    .fieldControl input,
+    .noteDetails input,
+    .noteDetails textarea,
+    .updateField input,
+    .updateField select,
+    .updateField textarea,
+    .field input,
+    .field select,
+    .field textarea
+) {
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+    background: rgba(255, 254, 250, 0.88);
+}
+
+:root[data-theme][data-color-mode="light"] .compendiumToolbar input,
+:root[data-theme][data-color-mode="light"] .compendiumToolbar select {
+    border-color: var(--theme-border);
+    color: var(--theme-text) !important;
+    background: rgba(255, 254, 250, 0.92) !important;
+    color-scheme: light;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .globalSearch:focus-within,
+    .characterSearch:focus-within,
+    .notesSearch:focus-within
+) {
+    background: #fffefa;
+}
+
+:root[data-theme][data-color-mode="light"] .globalSearch input {
+    color: var(--theme-text);
+}
+
+:root[data-theme][data-color-mode="light"] .globalSearch kbd {
+    border-color: var(--theme-border-soft);
+    color: var(--theme-muted-dim);
+    background: rgba(var(--theme-neutral-rgb), 0.06);
+}
+
+:root[data-theme][data-color-mode="light"] .globalSearchPanel {
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+    background:
+        linear-gradient(145deg, rgba(var(--theme-accent-rgb), 0.07), transparent 38%),
+        rgba(255, 254, 250, 0.99);
+    box-shadow: 0 24px 64px rgba(75, 62, 41, 0.19);
+}
+
+:root[data-theme][data-color-mode="light"] .globalSearchGroup {
+    border-bottom-color: var(--theme-border-soft);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .globalSearchStatus,
+    .globalSearchGroup h2,
+    .globalSearchResultCopy small,
+    .globalSearchResultArrow
+) {
+    color: var(--theme-readable-muted);
+}
+
+:root[data-theme][data-color-mode="light"] .globalSearchResultCopy strong,
+:root[data-theme][data-color-mode="light"] .globalSearchResult:hover,
+:root[data-theme][data-color-mode="light"] .globalSearchResult:focus-visible,
+:root[data-theme][data-color-mode="light"] .globalSearchResult.isActive {
+    color: var(--theme-text);
+}
+
+:root[data-theme][data-color-mode="light"] .globalSearchResult:hover,
+:root[data-theme][data-color-mode="light"] .globalSearchResult:focus-visible,
+:root[data-theme][data-color-mode="light"] .globalSearchResult.isActive,
+:root[data-theme][data-color-mode="light"] .globalSearchAll {
+    background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .panel,
+    .sidePanel,
+    .statCard,
+    .characterCard,
+    .compactPanel,
+    .activityPanel,
+    .card,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .compendiumCard,
+    .catalogNotice,
+    .compendiumToolbar,
+    .sourceShelf,
+    .placeholderCard,
+    .updateFormSection,
+    .adventureCard,
+    .authPanel
+) {
+    border-color: var(--theme-border-soft);
+    background:
+        radial-gradient(circle at 94% 0%, rgba(var(--theme-accent-rgb), 0.07), transparent 22rem),
+        linear-gradient(145deg, rgba(255, 254, 250, 0.98), rgba(246, 241, 232, 0.97));
+    box-shadow: var(--theme-shadow);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .statCard:hover,
+    .statCard:focus-visible,
+    .characterCard:hover,
+    .characterCard:focus-visible,
+    .compendiumCard:hover
+) {
+    background:
+        radial-gradient(circle at 92% 0%, rgba(var(--theme-accent-rgb), 0.12), transparent 22rem),
+        linear-gradient(145deg, #fffefa, #f3ede3);
+    box-shadow: 0 18px 42px rgba(75, 62, 41, 0.16);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .classesFilterDiv label,
+    .levelFilterDiv button,
+    div#subDiv4 button,
+    .notesFilterDiv label,
+    .tab,
+    .spellFacts > div,
+    .schoolBadge,
+    .selectableCharContent,
+    .formActions a,
+    .guestAccess,
+    .choicePill,
+    .selectableOption,
+    .uploadCard,
+    .weaponRow,
+    .abilityField,
+    .calculatedCard,
+    .quickStats span,
+    .classFacts span,
+    .abilityStrip span,
+    .variantList li,
+    .sourceGrid a,
+    .sourceLinks a,
+    .sourceLinks span
+) {
+    border-color: var(--theme-border-soft);
+    color: var(--theme-readable-muted);
+    background-color: rgba(247, 242, 233, 0.86);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .classesFilterDiv label:hover,
+    .levelFilterDiv button:hover,
+    .classesFilterDiv input[type="radio"]:checked + label,
+    .tab:hover,
+    .tab.active,
+    .notesFilterDiv input:checked + label,
+    .selectableChar input:checked + .selectableCharContent,
+    .choicePill:has(input:checked),
+    .selectableOption:has(input:checked)
+) {
+    color: var(--theme-accent-strong);
+    background: rgba(var(--theme-accent-rgb), 0.13);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .ql-toolbar.ql-snow,
+    .ql-container.ql-snow,
+    .stickyDiv,
+    .editorHeader
+) {
+    border-color: var(--theme-border-soft);
+    background: rgba(255, 253, 248, 0.96);
+}
+
+:root[data-theme][data-color-mode="light"] .compendiumHero {
+    border-color: var(--theme-border-soft);
+    background:
+        radial-gradient(circle at 86% 34%, rgba(var(--theme-accent-rgb), 0.12), transparent 24%),
+        linear-gradient(110deg, #fffefa, #f3ede3 68%, rgba(var(--theme-accent-rgb), 0.11));
+}
+
+:root[data-theme][data-color-mode="light"] .compendiumStats div {
+    background: rgba(255, 254, 250, 0.92);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .emptyState,
+    .noResults,
+    .notesEmpty,
+    .notesNoResults,
+    .noCharacters,
+    .emptyCatalogState,
+    .characterError,
+    .spellError,
+    .noteError
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.22);
+    color: var(--theme-readable-muted);
+    background:
+        radial-gradient(circle at 50% 20%, rgba(var(--theme-accent-rgb), 0.1), transparent 20rem),
+        linear-gradient(145deg, rgba(255, 254, 250, 0.96), rgba(244, 238, 229, 0.97)) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .creationOverlay {
+    background: rgba(224, 216, 203, 0.8);
+}
+
+:root[data-theme][data-color-mode="light"] .emptyState a {
+    border-color: rgba(var(--theme-accent-rgb), 0.5);
+    color: #fffdf8 !important;
+    background: linear-gradient(
+        135deg,
+        var(--theme-accent-strong),
+        rgba(var(--theme-surface-rgb), 0.86)
+    );
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    #embedContainer,
+    #embededSpellContainer,
+    .characterUpdateDialog
+) {
+    border-color: var(--theme-border);
+    background: var(--theme-panel-strong);
+    box-shadow: 0 24px 70px rgba(75, 62, 41, 0.22);
+}
+
+:root[data-theme][data-color-mode="light"] .landingHeader {
+    border-bottom-color: var(--theme-border-soft);
+    background: linear-gradient(180deg, rgba(250, 247, 240, 0.92), transparent);
+}
+
+:root[data-theme][data-color-mode="light"] .landingBackdrop::before {
+    background:
+        linear-gradient(90deg, rgba(246, 241, 232, 0.98) 0%, rgba(246, 241, 232, 0.68) 30%, rgba(246, 241, 232, 0.2) 68%, rgba(241, 235, 225, 0.94) 100%),
+        linear-gradient(0deg, #f3efe7 0%, transparent 44%, rgba(245, 240, 231, 0.3) 100%),
+        url("../resources/imgs/full.png") center / cover;
+}
+
+:root[data-theme][data-color-mode="light"] .authShell {
+    border-color: var(--theme-border);
+    background: #fffefa;
+    box-shadow: 0 30px 84px rgba(75, 62, 41, 0.19);
+}
+
+:root[data-theme][data-color-mode="light"] .authStory {
+    background: #eee7dc;
+}
+
+:root[data-theme][data-color-mode="light"] .authStory::before {
+    background:
+        linear-gradient(90deg, rgba(241, 235, 225, 0.28), rgba(244, 239, 230, 0.44) 52%, rgba(239, 233, 223, 0.94) 100%),
+        linear-gradient(0deg, #eee7dc 0%, rgba(238, 231, 220, 0.54) 46%, rgba(245, 240, 231, 0.24) 100%),
+        url("../resources/imgs/full.png") 50% center / cover;
+}
+
+:root[data-theme][data-color-mode="light"] .authStory::after {
+    background:
+        radial-gradient(circle at 68% 32%, rgba(var(--theme-accent-rgb), 0.12), transparent 29%),
+        linear-gradient(110deg, transparent 38%, rgba(238, 231, 220, 0.34));
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .hero::before,
+    .charactersHero::before
+) {
+    background:
+        linear-gradient(90deg, var(--theme-bg) 0%, rgba(243, 239, 231, 0.86) 38%, rgba(243, 239, 231, 0.42) 74%, var(--theme-bg) 100%),
+        linear-gradient(0deg, var(--theme-bg), transparent 78%),
+        url("../resources/imgs/cave.jpg") center 44% / cover;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .notesHero::before,
+    .editorHeader::before,
+    .newNoteHeader::before
+) {
+    background:
+        linear-gradient(90deg, rgba(246, 242, 234, 0.97), rgba(246, 242, 234, 0.72)),
+        linear-gradient(0deg, rgba(246, 242, 234, 0.86), transparent 72%),
+        url("../resources/imgs/book.jpg") center 52% / cover;
+}
+
+:root[data-theme][data-color-mode="light"] .spellHero::before {
+    background-image:
+        linear-gradient(90deg, rgba(246, 242, 234, 0.97), rgba(246, 242, 234, 0.74) 56%, rgba(246, 242, 234, 0.42)),
+        linear-gradient(0deg, rgba(246, 242, 234, 0.84), transparent 70%),
+        url("../resources/imgs/spell-banners/school-banners.png");
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .landingMain .heroCopy h1,
+    .storyContent h1
+) {
+    color: var(--theme-text);
+    text-shadow: 0 2px 22px rgba(255, 255, 255, 0.65);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .heroCopy .eyebrow,
+    .heroCopy > p:last-child,
+    .charactersHero p,
+    .notesHero p,
+    .heroMeta,
+    .statCard small,
+    .characterCard > small,
+    .sheetState,
+    .spellRow small,
+    .quickNotes a,
+    .quickNotes small,
+    .activityList small,
+    .realmPanel footer small
+) {
+    color: var(--theme-readable-muted);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .heroMeta strong,
+    .statCard strong,
+    .characterCard > strong,
+    .spellRow strong,
+    .activityList strong
+) {
+    color: var(--theme-text);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .panelHeader.compact,
+    .spellRow,
+    .quickNotes li,
+    .activityFooter,
+    #spellListHehe dt,
+    .actualSpellList > a.spell,
+    .actualSpellList > div
+) {
+    border-color: var(--theme-border-soft);
+}
+
+:root[data-theme][data-color-mode="light"] .actualSpellList .spell {
+    color: #5f5a51 !important;
+}
+
+:root[data-theme][data-color-mode="light"] .actualSpellList .spell:hover,
+:root[data-theme][data-color-mode="light"] .actualSpellList .spell:focus-visible {
+    color: var(--theme-accent-strong) !important;
+}
+
+/* Estas tarjetas conservan fotografía oscura también dentro del tema claro. */
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard,
+    .nextAdventure,
+    .realmPanel
+) {
+    color: #f5f1e9;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard h2,
+    .resourceCard strong,
+    .nextAdventure h2,
+    .nextAdventure strong,
+    .realmPanel h2,
+    .realmPanel strong
+) {
+    color: #f5f1e9;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard small,
+    .resourceCard em,
+    .nextAdventure small,
+    .nextAdventure p,
+    .realmPanel p,
+    .realmPanel footer small,
+    .realmPanel footer strong
+) {
+    color: #c9c3b8;
+}
+
+:root[data-theme][data-color-mode="light"] .appearanceModeButton {
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+    background: rgba(255, 254, 250, 0.78);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .primaryAction,
+    .submitButton,
+    .newCharacterButton,
+    .newNoteButton,
+    .primaryButton,
+    .formActions button,
+    .primaryUpdateButton,
+    #filtros input[type="submit"],
+    #submitInput,
+    .emptyCatalogState button,
+    .noticeAction
+) {
+    color: #fffdf8;
+    box-shadow:
+        0 12px 28px rgba(75, 62, 41, 0.2),
+        inset 0 1px rgba(255, 255, 255, 0.15);
+}
+
+/*
+ * Contraste reforzado del modo claro.
+ * Los estilos históricos contienen grises pensados para fondos oscuros; estas
+ * reglas consolidan texto, controles y superficies sobre papel sin afectar al
+ * acento de clase ni a las tarjetas fotográficas.
+ */
+:root[data-theme][data-color-mode="light"] :is(
+    .panel,
+    .sidePanel,
+    .statCard,
+    .characterCard,
+    .compactPanel,
+    .activityPanel,
+    .card,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .compendiumCard,
+    .catalogNotice,
+    .compendiumToolbar,
+    .sourceShelf,
+    .placeholderCard,
+    .updateFormSection,
+    .adventureCard,
+    .authPanel,
+    .notesToolbar,
+    .formStep,
+    .builderProgress,
+    .reviewCard,
+    .searchPageForm,
+    .searchGroup,
+    .searchResultCard,
+    .searchEmpty,
+    .spellProgression,
+    .spellCounter,
+    .characterUpdateDialog,
+    .characterPdfDropzone,
+    .pdfImportSummary
+) {
+    border-color: var(--theme-border-soft) !important;
+    background: #fffefa !important;
+    box-shadow: var(--theme-shadow);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+    select,
+    textarea,
+    .fieldControl,
+    .searchPageForm > div
+) {
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text) !important;
+    background-color: #fffefa !important;
+    color-scheme: light;
+}
+
+:root[data-theme][data-color-mode="light"] :is(input, textarea)::placeholder {
+    color: var(--theme-muted-dim) !important;
+    opacity: 1;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    label,
+    legend,
+    .field > span,
+    .updateField > span,
+    .noteDetails label > span,
+    .compendiumToolbar > label > span,
+    .weaponHeader span,
+    .currencyFieldset label span
+) {
+    color: #3f3a33 !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .heroCopy > p,
+    .authIntro,
+    .storyContent > p,
+    .charactersHero p,
+    .notesHero p,
+    .spellIdentity p,
+    .spellDescription,
+    .spellDescription p,
+    .newNoteHeader p,
+    .editorTitle p,
+    .cardSummary,
+    .catalogNotice p,
+    .sectionHeading p,
+    .builderHeader p,
+    .stepHeading p,
+    .subsectionHeading p,
+    .reviewCard p,
+    .searchHero p,
+    .searchGroupNotice,
+    .emptyState p,
+    .notesEmpty p,
+    .notesNoResults p,
+    .noCharacters p,
+    .characterError p,
+    .spellError p,
+    .noteError p,
+    .sheetNotice p,
+    .spellProgressionHeader p,
+    .spellSlotsEmpty p,
+    .characterJournalState p,
+    .characterUpdateHeader p,
+    .updateSectionHeading p,
+    .pdfImportSummary p
+) {
+    color: var(--theme-readable-muted) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .heroMeta,
+    .statCard small,
+    .statCard em,
+    .sheetState,
+    .resourceContent small,
+    .resourceContent em,
+    .spellRow small,
+    .quickNotes small,
+    .activityList small,
+    .activityFooter,
+    .characterStatus,
+    .viewCharacter,
+    .notesFilterDiv label,
+    .noteCardCopy small,
+    .noteCard time,
+    .stInfo,
+    #ppasInfo,
+    #profInfo,
+    #charSubTitle,
+    .tab,
+    .spellsInfo,
+    .spellBreadcrumb,
+    .newNoteBreadcrumb,
+    .characterBreadcrumb,
+    .characterReady,
+    .formActions a,
+    .formActions button,
+    .spellCounter > small,
+    .characterUpdateHeader p,
+    .updateField small,
+    .characterPdfDropzone small,
+    .selectableCharContent > small,
+    .selectionHeader > small,
+    .fieldHelp,
+    .calculatedCard small,
+    .skillField small,
+    .compendiumCard small,
+    .catalogAttribution
+) {
+    color: var(--theme-readable-muted) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .statCard strong,
+    .characterCard > strong,
+    .activityList strong,
+    .noteCardCopy strong,
+    .charGroupedNotesHeader h2,
+    .selectableCharContent > strong,
+    .searchResultCopy strong,
+    .spellCounter > header strong,
+    .characterJournalState strong,
+    .pdfImportSummary strong,
+    .calculatedCard strong,
+    .reviewCard strong
+) {
+    color: var(--theme-text) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .classesFilterDiv label,
+    .levelFilterDiv button,
+    div#subDiv4 button,
+    .notesFilterDiv label,
+    .tab,
+    .spellFacts > div,
+    .schoolBadge,
+    .selectableCharContent,
+    .formActions a,
+    .guestAccess,
+    .choicePill,
+    .selectableOption,
+    .uploadCard,
+    .weaponRow,
+    .abilityField,
+    .calculatedCard,
+    .quickStats span,
+    .classFacts span,
+    .abilityStrip span,
+    .variantList li,
+    .sourceGrid a,
+    .sourceLinks a,
+    .sourceLinks span,
+    .searchResultCard
+) {
+    border-color: var(--theme-border-soft) !important;
+    color: #3f3a33 !important;
+    background: #f4efe7 !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .classesFilterDiv label:hover,
+    .levelFilterDiv button:hover,
+    .classesFilterDiv input[type="radio"]:checked + label,
+    .tab:hover,
+    .tab.active,
+    .notesFilterDiv input:checked + label,
+    .selectableChar input:checked + .selectableCharContent,
+    .choicePill:has(input:checked),
+    .selectableOption:has(input:checked),
+    .searchResultCard:hover,
+    .searchResultCard:focus-visible
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.62) !important;
+    color: var(--theme-accent-strong) !important;
+    background: rgba(var(--theme-accent-rgb), 0.16) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .stValue,
+    span#Passive,
+    span#ProfBonus,
+    .armorStat,
+    .healthStat,
+    .charStat .modifier,
+    .spellSlotsEmpty > span,
+    .mysticArcanum,
+    .spellCounter
+) {
+    color: var(--theme-accent-strong) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .ql-toolbar.ql-snow,
+    .ql-container.ql-snow,
+    .ql-snow .ql-picker-options
+) {
+    border-color: var(--theme-border-soft) !important;
+    color: var(--theme-text) !important;
+    background: #fffefa !important;
+}
+
+:root[data-theme][data-color-mode="light"] .ql-editor,
+:root[data-theme][data-color-mode="light"] .ql-snow .ql-picker {
+    color: var(--theme-text) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .ql-snow .ql-stroke {
+    stroke: #3f3a33 !important;
+}
+
+:root[data-theme][data-color-mode="light"] .ql-snow .ql-fill,
+:root[data-theme][data-color-mode="light"] .ql-snow .ql-stroke.ql-fill {
+    fill: #3f3a33 !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .secondaryAction,
+    .secondaryButton,
+    .secondaryUpdateButton,
+    #sheetButtons button,
+    .characterUpdateTabs button,
+    .searchPageForm button,
+    .catalogResultBar button
+) {
+    border-color: var(--theme-border) !important;
+    color: #302c26 !important;
+    background: #f1ebe2 !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .primaryAction,
+    .submitButton,
+    .newCharacterButton,
+    .newNoteButton,
+    .primaryButton,
+    .formActions button,
+    .primaryUpdateButton,
+    #filtros input[type="submit"],
+    #submitInput,
+    .emptyCatalogState button,
+    .emptyState a,
+    .noticeAction
+) {
+    border-color: rgba(var(--theme-accent-rgb), 0.74) !important;
+    color: #fffefa !important;
+    background: linear-gradient(
+        135deg,
+        var(--theme-accent-strong),
+        rgb(var(--theme-surface-rgb))
+    ) !important;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.22);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .headerLogin,
+    .headerLogin span,
+    .modeSwitch,
+    .modeSwitch span,
+    .authDivider,
+    .guestNote,
+    .landingFooter,
+    .cardFooter
+) {
+    color: var(--theme-readable-muted) !important;
+}
+
+/* Las tarjetas con imagen siguen siendo oscuras y usan texto marfil. */
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard,
+    .nextAdventure,
+    .realmPanel
+) :is(h1, h2, h3, strong) {
+    color: #fffdf7 !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard,
+    .nextAdventure,
+    .realmPanel
+) :is(p, small, em, span) {
+    color: #d8d2c8 !important;
+}
+
+/* Identidad cromática de clase: visible sin convertirse en neón. */
+:root[data-theme] body {
+    background:
+        radial-gradient(circle at 76% -8%, var(--theme-accent-wash), transparent 34rem),
+        radial-gradient(circle at 5% 92%, rgba(var(--theme-neutral-rgb), 0.09), transparent 30rem),
+        linear-gradient(150deg, var(--theme-bg-deep), var(--theme-bg-soft) 58%, var(--theme-bg));
+}
+
+:root[data-theme] #header {
+    border-bottom-color: var(--theme-accent-border);
+    box-shadow:
+        inset 0 -1px var(--theme-accent-wash-strong),
+        0 12px 34px rgba(0, 0, 0, 0.16);
+}
+
+:root[data-theme] #leftBar {
+    border-right-color: var(--theme-accent-border);
+    box-shadow: inset -1px 0 var(--theme-accent-wash);
+}
+
+:root[data-theme] :is(
+    .hero,
+    .charactersHero,
+    .notesHero,
+    .newNoteHeader,
+    .editorHeader,
+    .spellHero,
+    .compendiumHero,
+    .builderHeader,
+    .searchHero
+) {
+    border-color: var(--theme-accent-border);
+    box-shadow:
+        inset 0 -2px var(--theme-accent-wash-strong),
+        var(--theme-shadow);
+}
+
+:root[data-theme] :is(
+    .panel,
+    .sidePanel,
+    .statCard,
+    .characterCard,
+    .compactPanel,
+    .activityPanel,
+    .card,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .compendiumCard,
+    .catalogNotice,
+    .compendiumToolbar,
+    .sourceShelf,
+    .placeholderCard,
+    .updateFormSection,
+    .adventureCard,
+    .authPanel,
+    .notesToolbar,
+    .formStep,
+    .builderProgress,
+    .reviewCard,
+    .searchPageForm,
+    .searchGroup,
+    .searchResultCard,
+    .searchEmpty,
+    .spellProgression,
+    .spellCounter,
+    .characterUpdateDialog,
+    .characterPdfDropzone,
+    .pdfImportSummary
+) {
+    border-color: var(--theme-accent-border) !important;
+    box-shadow:
+        inset 0 2px var(--theme-accent-wash-strong),
+        var(--theme-shadow);
+}
+
+:root[data-theme][data-color-mode="dark"] :is(
+    .panel,
+    .sidePanel,
+    .statCard,
+    .characterCard,
+    .compactPanel,
+    .activityPanel,
+    .card,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .compendiumCard,
+    .catalogNotice,
+    .compendiumToolbar,
+    .sourceShelf,
+    .placeholderCard,
+    .updateFormSection,
+    .adventureCard,
+    .authPanel,
+    .notesToolbar,
+    .formStep,
+    .builderProgress,
+    .reviewCard,
+    .searchPageForm,
+    .searchGroup,
+    .searchResultCard,
+    .searchEmpty,
+    .spellProgression,
+    .spellCounter,
+    .characterUpdateDialog,
+    .characterPdfDropzone,
+    .pdfImportSummary
+) {
+    background:
+        radial-gradient(circle at 94% 0%, var(--theme-accent-wash), transparent 23rem),
+        linear-gradient(145deg, rgba(19, 27, 34, 0.97), rgba(9, 14, 20, 0.99)) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .panel,
+    .sidePanel,
+    .statCard,
+    .characterCard,
+    .compactPanel,
+    .activityPanel,
+    .card,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .compendiumCard,
+    .catalogNotice,
+    .compendiumToolbar,
+    .sourceShelf,
+    .placeholderCard,
+    .updateFormSection,
+    .adventureCard,
+    .authPanel,
+    .notesToolbar,
+    .formStep,
+    .builderProgress,
+    .reviewCard,
+    .searchPageForm,
+    .searchGroup,
+    .searchResultCard,
+    .searchEmpty,
+    .spellProgression,
+    .spellCounter,
+    .characterUpdateDialog,
+    .characterPdfDropzone,
+    .pdfImportSummary
+) {
+    background:
+        linear-gradient(145deg, var(--theme-accent-wash), rgba(var(--theme-accent-rgb), 0.025) 34%, transparent 62%),
+        #fffefa !important;
+}
+
+:root[data-theme] .navItem.active {
+    border-color: rgba(var(--theme-accent-rgb), 0.68);
+    background: linear-gradient(
+        90deg,
+        var(--theme-accent-wash-strong),
+        rgba(var(--theme-accent-rgb), 0.055)
+    );
+    box-shadow:
+        inset 3px 0 var(--theme-accent),
+        0 8px 22px rgba(var(--theme-accent-rgb), 0.09);
+}
+
+:root[data-theme] :is(
+    .statIcon,
+    .miniRune,
+    .activityIcon,
+    .noteIcon,
+    .editorRune,
+    .headerRune,
+    .noticeIcon,
+    .catalogGlyph,
+    .builderRune,
+    .stepNumber,
+    .cardRune,
+    .authRune,
+    .addIcon
+) {
+    border-color: var(--theme-accent-border) !important;
+    color: var(--theme-accent-pale) !important;
+    background: var(--theme-accent-wash) !important;
+    box-shadow: 0 0 20px rgba(var(--theme-accent-rgb), 0.12);
+}
+
+:root[data-theme] :is(
+    .sectionKicker,
+    .sideLabel,
+    .panelKicker,
+    .spellKicker,
+    .editorKicker,
+    .builderKicker,
+    .searchKicker,
+    .cardKicker,
+    .authEyebrow,
+    .storyKicker
+) {
+    color: var(--theme-accent-pale) !important;
+}
+
+:root[data-theme] .sideLabel {
+    border-left-color: var(--theme-accent) !important;
+}
+
+:root[data-theme] :is(
+    .tabsSelector h2.selected,
+    .tab.active,
+    .modeSwitch button.isActive,
+    .catalogResultBar strong,
+    .compendiumStats strong,
+    .characterCount strong,
+    .notesCount strong,
+    .searchCount strong
+) {
+    color: var(--theme-accent-pale) !important;
+}
+
+:root[data-theme] :is(
+    .tabsSelector h2.selected::after,
+    .modeSwitch button.isActive::after,
+    .subDiv h2::before,
+    .eyebrow > span,
+    .storyKicker > span
+) {
+    background: var(--theme-accent) !important;
+    box-shadow: 0 0 14px rgba(var(--theme-accent-rgb), 0.24);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .landingBackdrop::after,
+    .heroGlow,
+    .charactersHero::after,
+    .notesHero::after,
+    .newNoteHeader::after,
+    .editorHeader::after,
+    .spellHero::after
+) {
+    background: rgba(var(--theme-accent-rgb), 0.18);
+}
+
+:root[data-theme][data-color-mode="light"] #mainContent {
+    background:
+        radial-gradient(circle at 82% 2%, var(--theme-accent-wash-strong), transparent 28rem),
+        linear-gradient(145deg, #e1d9cd, #eee8df 58%, #e5ded3);
+}
+
+:root[data-theme][data-color-mode="light"] #leftBar {
+    background:
+        radial-gradient(circle at 18% 84%, var(--theme-accent-wash-strong), transparent 34%),
+        linear-gradient(180deg, #fbf8f2, #eee6da);
+}
+
+:root[data-theme][data-color-mode="light"] .navItem.active {
+    color: var(--theme-text);
+    background: linear-gradient(
+        90deg,
+        rgba(var(--theme-accent-rgb), 0.25),
+        rgba(var(--theme-accent-rgb), 0.08)
+    );
+}
+
+@media (max-width: 620px) {
+    .landingHeaderActions {
+        gap: 7px;
+    }
+
+    .appearanceModeButton {
+        width: 38px;
+        padding: 0;
+    }
+
+    .appearanceModeButton > strong {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 560px) {
+    .authModeButton {
+        top: 22px;
+        right: 21px;
+    }
+
+    :root[data-theme] .colorModeToggle {
+        display: grid;
+        flex: 0 0 39px;
+    }
+}
+
+@media (max-width: 700px) {
+    :root[data-theme],
+    :root[data-theme] body {
+        font-size: 14px;
+    }
+
+    :root[data-theme] :is(
+        .heroCopy > p,
+        .authIntro,
+        .storyContent > p,
+        .charactersHero p,
+        .notesHero p,
+        .spellIdentity p,
+        .newNoteHeader p,
+        .editorTitle p,
+        .cardSummary,
+        .catalogNotice p,
+        .sectionHeading p
+    ) {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root[data-theme] *,
+    :root[data-theme] *::before,
+    :root[data-theme] *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/*
+ * Modo claro definitivo.
+ * Las hojas históricas conservan muchos colores y cuerpos tipográficos pensados
+ * para el tema oscuro. Esta capa final elimina esos restos, separa con claridad
+ * el lienzo de los paneles y mantiene el color de clase como borde y estado, no
+ * como velo sobre el contenido.
+ */
+:root[data-theme][data-color-mode="light"],
+:root[data-theme][data-color-mode="light"] body {
+    color: var(--theme-text);
+    background-color: var(--theme-bg);
+}
+
+:root[data-theme][data-color-mode="light"] body {
+    background:
+        radial-gradient(circle at 84% -10%, var(--theme-accent-wash-strong), transparent 31rem),
+        linear-gradient(145deg, var(--theme-bg-deep), var(--theme-bg-soft) 54%, var(--theme-bg));
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+:root[data-theme][data-color-mode="light"] body::before {
+    opacity: 0.025;
+}
+
+:root[data-theme][data-color-mode="light"] p {
+    line-height: 1.65;
+}
+
+:root[data-theme][data-color-mode="light"] small {
+    color: var(--theme-readable-muted);
+    font-size: 12px !important;
+    line-height: 1.45;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    strong,
+    dt
+) {
+    color: var(--theme-text);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    #mainContent,
+    .pageContent,
+    .dashboardPage,
+    .charactersPage,
+    .spellsPage,
+    .notesPage,
+    .newNotePage,
+    .editorPage,
+    .spellPage,
+    .characterPage,
+    .compendiumPage,
+    .characterBuilder,
+    .searchPage
+) {
+    color: var(--theme-text);
+}
+
+:root[data-theme][data-color-mode="light"] #mainContent {
+    background:
+        radial-gradient(circle at 84% 0%, var(--theme-accent-wash-strong), transparent 30rem),
+        linear-gradient(145deg, #dfe5e9, #edf1f3 58%, #e5eaed) !important;
+}
+
+:root[data-theme][data-color-mode="light"] #header {
+    border-bottom-color: var(--theme-border-soft);
+    background: rgba(255, 255, 255, 0.96) !important;
+    box-shadow:
+        inset 0 -2px rgba(var(--theme-accent-rgb), 0.14),
+        0 8px 24px rgba(24, 33, 41, 0.1);
+}
+
+:root[data-theme][data-color-mode="light"] #leftBar {
+    border-right-color: var(--theme-border-soft);
+    background:
+        linear-gradient(180deg, rgba(var(--theme-accent-rgb), 0.055), transparent 180px),
+        #f7f9fa !important;
+    box-shadow: inset -2px 0 rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .brand,
+    .navItem,
+    .sidebarFooter a,
+    .headerAction,
+    .accountName,
+    .accountRole,
+    .accountChevron,
+    .searchIcon,
+    .sidebarRoll p
+) {
+    color: var(--theme-readable-muted) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .navItem {
+    min-height: 46px;
+    border-color: transparent;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+:root[data-theme][data-color-mode="light"] .navItem:hover,
+:root[data-theme][data-color-mode="light"] .navItem:focus-visible {
+    border-color: var(--theme-border-soft);
+    color: var(--theme-text) !important;
+    background: var(--theme-accent-wash) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .navItem.active {
+    border-color: var(--theme-accent-border);
+    color: var(--theme-text) !important;
+    background:
+        linear-gradient(90deg, rgba(var(--theme-accent-rgb), 0.2), rgba(var(--theme-accent-rgb), 0.045)) !important;
+    box-shadow:
+        inset 4px 0 var(--theme-accent),
+        0 7px 18px rgba(var(--theme-accent-rgb), 0.09);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .globalSearch,
+    .globalSearchPanel,
+    .characterSearch,
+    .notesSearch,
+    .searchPageForm,
+    #filtros,
+    .compendiumToolbar
+) {
+    border-color: var(--theme-border) !important;
+    background: #ffffff !important;
+    box-shadow: 0 9px 24px rgba(24, 33, 41, 0.09);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .globalSearch input,
+    .characterSearch input,
+    .notesSearch input
+) {
+    color: var(--theme-text) !important;
+    background: transparent !important;
+    font-size: 13px;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .panel,
+    .sidePanel,
+    .statCard,
+    .characterCard,
+    .addCharacter,
+    .compactPanel,
+    .activityPanel,
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal,
+    .subDiv2,
+    #spellListHehe dl,
+    .spellCard,
+    .charGroupedNotes,
+    #nnForm,
+    .ql-container.ql-snow,
+    .compendiumCard,
+    .catalogNotice,
+    .compendiumToolbar,
+    .sourceShelf,
+    .placeholderCard,
+    .updateFormSection,
+    .adventureCard,
+    .authPanel,
+    .notesToolbar,
+    .formStep,
+    .builderProgress,
+    .reviewCard,
+    .searchPageForm,
+    .searchGroup,
+    .searchResultCard,
+    .searchEmpty,
+    .spellProgression,
+    .spellCounter,
+    .characterUpdateDialog,
+    .characterPdfDropzone,
+    .pdfImportSummary
+) {
+    border-color: var(--theme-border-soft) !important;
+    color: var(--theme-text);
+    background:
+        linear-gradient(140deg, rgba(var(--theme-accent-rgb), 0.035), transparent 34%),
+        #ffffff !important;
+    box-shadow:
+        var(--theme-shadow),
+        inset 0 2px rgba(var(--theme-accent-rgb), 0.13);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .panelHeader,
+    .charGroupedNotesHeader,
+    .noteCard,
+    .spellFacts,
+    .spellDescription,
+    .spellFooter,
+    .tabsSelector,
+    #spellListHehe dt,
+    .actualSpellList > a.spell,
+    .actualSpellList > div,
+    .quickNotes li,
+    .activityList li,
+    .catalogDetails,
+    .cardFooter,
+    .adventureCard li,
+    .characterUpdateHeader,
+    .characterUpdateTabs,
+    .characterUpdateActions,
+    #embedTopBar,
+    #embedSpellTopBar
+) {
+    border-color: var(--theme-border-soft) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .heroCopy > p,
+    .authIntro,
+    .storyContent > p,
+    .charactersHero p,
+    .notesHero p,
+    .spellIdentity p,
+    .spellDescription,
+    .spellDescription p,
+    .newNoteHeader p,
+    .editorTitle p,
+    .cardSummary,
+    .cardDescriptor,
+    .catalogNotice p,
+    .sectionHeading p,
+    .builderHeader p,
+    .stepHeading p,
+    .subsectionHeading p,
+    .reviewCard p,
+    .searchHero p,
+    .searchGroupNotice,
+    .detailList dd,
+    .movementLine,
+    .catalogAttribution,
+    .guestNote,
+    .cardFooter,
+    .characterInfo p
+) {
+    color: var(--theme-readable-muted) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .sectionKicker,
+    .sideLabel,
+    .panelKicker,
+    .spellKicker,
+    .editorKicker,
+    .builderKicker,
+    .searchKicker,
+    .cardKicker,
+    .authEyebrow,
+    .storyKicker,
+    .characterNumber,
+    .cardTopline,
+    .compendiumToolbar > label > span,
+    .spellFacts small,
+    .schoolBadge small,
+    .spellFooter small,
+    .updateSectionHeading span
+) {
+    color: var(--theme-accent-strong) !important;
+    font-size: 11px !important;
+    font-weight: 800;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .sheetState,
+    .characterStatus,
+    .viewCharacter,
+    .notesFilterDiv label,
+    .noteCardCopy strong,
+    .noteCardCopy small,
+    .noteCard time,
+    .actualSpellList .spell,
+    .spell,
+    .spellsInfo,
+    .tab,
+    .catalogResultBar,
+    .catalogResultBar button,
+    .catalogDetails summary,
+    .detailList div,
+    .variantList strong,
+    .variantList span,
+    .variantList a,
+    .variantChips span,
+    .sourceLinks a,
+    .sourceLinks > span,
+    .sourceGrid span,
+    .noVariants,
+    .movementLine,
+    .catalogAttribution,
+    .choicePill,
+    .selectableOption,
+    .fieldHelp
+) {
+    font-size: 12px !important;
+    line-height: 1.45;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+    select,
+    textarea
+) {
+    min-height: 44px;
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text) !important;
+    background: #ffffff !important;
+    font-size: 13px;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    input,
+    select,
+    textarea,
+    button,
+    a,
+    [tabindex]
+):focus-visible {
+    outline: 3px solid rgba(var(--theme-accent-rgb), 0.24) !important;
+    outline-offset: 2px;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .classesFilterDiv label,
+    .levelFilterDiv button,
+    div#subDiv4 button,
+    .notesFilterDiv label,
+    .tab,
+    .spellFacts > div,
+    .schoolBadge,
+    .selectableCharContent,
+    .formActions a,
+    .guestAccess,
+    .choicePill,
+    .selectableOption,
+    .uploadCard,
+    .weaponRow,
+    .abilityField,
+    .calculatedCard,
+    .quickStats span,
+    .classFacts span,
+    .abilityStrip span,
+    .variantList li,
+    .sourceGrid a,
+    .sourceLinks a,
+    .sourceLinks span
+) {
+    border-color: var(--theme-border-soft) !important;
+    color: var(--theme-text) !important;
+    background: #f4f7f8 !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .classesFilterDiv label,
+    .levelFilterDiv button,
+    div#subDiv4 button,
+    .notesFilterDiv label,
+    .choicePill,
+    .selectableOption,
+    .formActions a,
+    .guestAccess,
+    .spellFooter > a
+) {
+    min-height: 40px;
+    align-items: center;
+    font-size: 12px !important;
+    font-weight: 700;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .classesFilterDiv label:hover,
+    .levelFilterDiv button:hover,
+    .classesFilterDiv input[type="radio"]:checked + label,
+    .tab:hover,
+    .tab.active,
+    .notesFilterDiv input:checked + label,
+    .selectableChar input:checked + .selectableCharContent,
+    .choicePill:has(input:checked),
+    .selectableOption:has(input:checked),
+    .searchResultCard:hover,
+    .searchResultCard:focus-visible
+) {
+    border-color: var(--theme-accent-border) !important;
+    color: var(--theme-accent-strong) !important;
+    background: rgba(var(--theme-accent-rgb), 0.14) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .primaryAction,
+    .submitButton,
+    .newCharacterButton,
+    .newNoteButton,
+    .primaryButton,
+    .formActions button,
+    .primaryUpdateButton,
+    #filtros input[type="submit"],
+    #submitInput,
+    .emptyCatalogState button,
+    .emptyState a,
+    .noticeAction
+) {
+    min-height: 42px;
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 750;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .secondaryAction,
+    .secondaryButton,
+    .secondaryUpdateButton,
+    #sheetButtons button,
+    .characterUpdateTabs button,
+    .searchPageForm button,
+    .catalogResultBar button,
+    .appearanceModeButton
+) {
+    border-color: var(--theme-border) !important;
+    color: var(--theme-text) !important;
+    background: #f3f6f7 !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .ql-toolbar.ql-snow,
+    .ql-container.ql-snow,
+    .ql-snow .ql-picker-options,
+    .stickyDiv,
+    .editorHeader
+) {
+    border-color: var(--theme-border-soft) !important;
+    color: var(--theme-text) !important;
+    background: #ffffff !important;
+}
+
+:root[data-theme][data-color-mode="light"] .ql-editor {
+    min-height: 420px;
+    color: var(--theme-text) !important;
+    background: #ffffff;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+:root[data-theme][data-color-mode="light"] .ql-editor.ql-blank::before {
+    color: var(--theme-muted-dim) !important;
+}
+
+/* Portada, acceso y cabeceras ilustradas. */
+:root[data-theme][data-color-mode="light"] .landingHeader {
+    background: rgba(255, 255, 255, 0.92) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .landingBackdrop::before {
+    background:
+        linear-gradient(90deg, rgba(244, 247, 248, 0.99) 0%, rgba(244, 247, 248, 0.86) 40%, rgba(244, 247, 248, 0.28) 72%, rgba(237, 242, 244, 0.95) 100%),
+        linear-gradient(0deg, #edf2f4 0%, transparent 48%, rgba(244, 247, 248, 0.24) 100%),
+        url("../resources/imgs/full.png") center / cover;
+}
+
+:root[data-theme][data-color-mode="light"] .authShell {
+    border-color: var(--theme-border);
+    background: #ffffff;
+    box-shadow: 0 28px 72px rgba(24, 33, 41, 0.17);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .authStory,
+    .hero::before,
+    .charactersHero::before,
+    .notesHero::before,
+    .editorHeader::before,
+    .newNoteHeader::before,
+    .spellHero::before
+) {
+    filter: saturate(0.62) contrast(0.92);
+}
+
+:root[data-theme][data-color-mode="light"] .adventureCard {
+    background:
+        linear-gradient(140deg, rgba(var(--theme-accent-rgb), 0.06), transparent 38%),
+        #ffffff !important;
+}
+
+:root[data-theme][data-color-mode="light"] .adventureCard li {
+    border-top-color: var(--theme-border-soft) !important;
+}
+
+/* Listados de personajes, conjuros, apuntes y compendios. */
+:root[data-theme][data-color-mode="light"] .characterInfo {
+    background: #ffffff;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .characterInfo h2,
+    .noteCardCopy strong,
+    #spellListHehe dt h2,
+    .actualSpellList .spell,
+    .charGroupedNotesHeader h2,
+    .compendiumCard h2,
+    .variantList strong,
+    .sourceGrid strong,
+    .spellFacts strong,
+    .spellFooter strong
+) {
+    color: var(--theme-text) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .noteCard:hover,
+    .noteCard:focus-visible,
+    .spell:hover,
+    .spellsInfo:hover
+) {
+    color: var(--theme-accent-strong) !important;
+    background: var(--theme-accent-wash) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .compendiumToolbar {
+    top: 8px;
+}
+
+:root[data-theme][data-color-mode="light"] .compendiumCard {
+    min-height: 270px;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .quickStats > span,
+    .classFacts > span,
+    .abilityStrip span,
+    .variantList li,
+    .sourceGrid a
+) {
+    min-height: 48px;
+}
+
+:root[data-theme][data-color-mode="light"] .catalogDetails {
+    border-top-color: var(--theme-border-soft);
+}
+
+/* Detalle de personaje: una ficha clara, estable y cómoda de recorrer. */
+:root[data-theme][data-color-mode="light"] body:has(.characterPage) :is(
+    .mist,
+    .contenedor-linterna
+) {
+    display: none;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .card {
+    border-color: var(--theme-accent-border) !important;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at 50% 28%, rgba(var(--theme-accent-rgb), 0.28), transparent 44%),
+        linear-gradient(145deg, #26303a, #111820) !important;
+    box-shadow: 0 16px 38px rgba(24, 33, 41, 0.2);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .portraitName,
+    .fullBodyFallback
+) {
+    color: #ffffff !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .card::after {
+    background:
+        linear-gradient(0deg, rgba(10, 15, 20, 0.92), transparent 38%),
+        linear-gradient(120deg, transparent 62%, rgba(var(--theme-accent-rgb), 0.14));
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    #stContainer,
+    .coreStatsPanel,
+    #skillsDiv,
+    .characterJournal
+) {
+    border-color: var(--theme-border-soft) !important;
+    background: #ffffff !important;
+    box-shadow:
+        0 13px 30px rgba(24, 33, 41, 0.1),
+        inset 0 3px rgba(var(--theme-accent-rgb), 0.18);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .stDiv,
+    .skillDiv
+) {
+    border-bottom-color: var(--theme-border-soft);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .stValue,
+    span#Passive,
+    span#ProfBonus,
+    .charStat .modifier
+) {
+    border-color: var(--theme-accent-border);
+    color: var(--theme-accent-strong) !important;
+    background: rgba(var(--theme-accent-rgb), 0.1) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .charStatContainer,
+    #pPasContainer,
+    #profContainer,
+    #spellListContainer,
+    .spellSlotsEmpty,
+    .spellCounter,
+    .characterJournalState,
+    .updateAbility,
+    .updateModifierField,
+    .pdfImportSummary
+) {
+    border-color: var(--theme-border-soft) !important;
+    color: var(--theme-text) !important;
+    background: #f5f7f8 !important;
+    box-shadow: none;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .headerDisplay,
+    .tabsSelector,
+    .mysticArcanum
+) {
+    border-color: var(--theme-border-soft);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .headerDisplay h1,
+    .sectionTitle,
+    #stContainer h3,
+    .charStat .stat,
+    .spellProgressionHeader h3,
+    .characterJournalState strong,
+    .characterUpdateHeader h2,
+    .updateSectionHeading h3
+) {
+    color: var(--theme-text) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .characterBreadcrumb,
+    .characterBreadcrumb strong,
+    #charSubTitle,
+    .stInfo,
+    #ppasInfo,
+    #profInfo,
+    .charStat h3,
+    .tabsSelector h2,
+    .spellProgressionHeader p,
+    .spellSlotsEmpty p,
+    .characterJournalState p,
+    .updateField,
+    .updateField small,
+    .updateAbility span,
+    .characterUpdateResult
+) {
+    color: var(--theme-readable-muted) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .armorStat {
+    border-color: var(--theme-accent-border);
+    background: rgba(var(--theme-accent-rgb), 0.1);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .healthStat {
+    border-color: rgba(145, 48, 61, 0.3);
+    background: rgba(174, 65, 80, 0.08);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .armorStat div .stat {
+    color: var(--theme-accent-strong);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .healthStat div .stat {
+    color: #8f3040;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .armorStat div h3,
+    .healthStat div h3
+) {
+    color: var(--theme-readable-muted);
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage :is(
+    .spellList,
+    .characterUpdateTabs,
+    .characterUpdateActions,
+    #embedTopBar,
+    #embedSpellTopBar
+) {
+    color: var(--theme-text);
+    background: #ffffff !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .spellSpace {
+    border-color: var(--theme-border);
+    background: #ffffff;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPage .spellSpace.checked {
+    border-color: var(--theme-accent-strong);
+    background: var(--theme-accent) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterUpdateBackdrop {
+    background: rgba(31, 39, 46, 0.52);
+}
+
+:root[data-theme][data-color-mode="light"] .characterUpdateDialog {
+    background: #f3f6f7 !important;
+    box-shadow: 0 30px 80px rgba(24, 33, 41, 0.3);
+}
+
+:root[data-theme][data-color-mode="light"] .characterUpdateClose {
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+    background: #ffffff;
+}
+
+:root[data-theme][data-color-mode="light"] .characterPdfDropzone {
+    border-color: var(--theme-accent-border) !important;
+    background:
+        radial-gradient(circle at 50% 50%, var(--theme-accent-wash), transparent 18rem),
+        #ffffff !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    #embedContainer,
+    #embededSpellContainer
+) {
+    border-color: var(--theme-border);
+    background: #ffffff;
+    box-shadow: 0 24px 68px rgba(24, 33, 41, 0.28);
+}
+
+/* Los módulos fotográficos conservan texto claro sobre una base oscura. */
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard,
+    .nextAdventure,
+    .realmPanel
+) {
+    color: #ffffff;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard,
+    .nextAdventure,
+    .realmPanel
+) :is(h1, h2, h3, strong) {
+    color: #ffffff !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .resourceCard,
+    .nextAdventure,
+    .realmPanel
+) :is(p, small, em, span) {
+    color: #e2e7ea !important;
+}
+
+@media (max-width: 760px) {
+    :root[data-theme][data-color-mode="light"] body {
+        font-size: 14px;
+    }
+
+    :root[data-theme][data-color-mode="light"] :is(
+        .charactersToolbar,
+        .notesToolbar,
+        #notesFilter,
+        .spellProgressionHeader,
+        .sectionHeading
+    ) {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    :root[data-theme][data-color-mode="light"] :is(
+        .characterSearch,
+        .notesSearch,
+        .newCharacterButton,
+        .newNoteButton
+    ) {
+        width: 100%;
+        max-width: none;
+    }
+}
+
+:root[data-theme][data-color-mode="light"] .brandFull {
+    filter: grayscale(1) brightness(0.28) contrast(1.25);
+}
+
+:root[data-theme][data-color-mode="light"] .brandVersion {
+    color: var(--theme-accent-strong) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterUpdateTabs {
+    background: #eef2f4 !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterUpdateTabs button.isActive {
+    border-color: var(--theme-accent-border) !important;
+    color: var(--theme-accent-strong) !important;
+    background: rgba(var(--theme-accent-rgb), 0.16) !important;
+    box-shadow: inset 0 -2px var(--theme-accent);
+}
+
+:root[data-theme][data-color-mode="light"] .characterUpdateActions {
+    background: #ffffff !important;
+    box-shadow: 0 -8px 24px rgba(24, 33, 41, 0.08);
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .hero,
+    .charactersHero,
+    .notesHero,
+    .newNoteHeader,
+    .editorHeader
+) {
+    background: #f7f9fa !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .hero::before,
+    .charactersHero::before
+) {
+    background:
+        linear-gradient(90deg, rgba(247, 249, 250, 0.98) 0%, rgba(247, 249, 250, 0.9) 43%, rgba(247, 249, 250, 0.72) 76%, rgba(247, 249, 250, 0.96) 100%),
+        linear-gradient(0deg, #f7f9fa, transparent 76%),
+        url("../resources/imgs/cave.jpg") center 44% / cover !important;
+    opacity: 1 !important;
+    filter: saturate(0.48) contrast(0.94) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .notesHero::before,
+    .newNoteHeader::before,
+    .editorHeader::before
+) {
+    background:
+        linear-gradient(90deg, rgba(247, 249, 250, 0.98), rgba(247, 249, 250, 0.87)),
+        linear-gradient(0deg, rgba(247, 249, 250, 0.94), transparent 74%),
+        url("../resources/imgs/book.jpg") center 52% / cover !important;
+    opacity: 1 !important;
+    filter: saturate(0.42) contrast(0.92) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .charactersHero::after,
+    .notesHero::after,
+    .newNoteHeader::after,
+    .editorHeader::after
+) {
+    opacity: 0.18;
+}
+
+:root[data-theme][data-color-mode="light"] .characterImage .characterStatus {
+    border-color: rgba(86, 211, 146, 0.35) !important;
+    color: #c7f2da !important;
+    background: rgba(7, 26, 19, 0.82) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .characterImage .viewCharacter {
+    color: #ffffff !important;
+}
+
+:root[data-theme][data-color-mode="light"] .builderProgress {
+    border-color: var(--theme-border-soft) !important;
+    background: var(--theme-border-soft) !important;
+    box-shadow: 0 10px 28px rgba(24, 33, 41, 0.09);
+}
+
+:root[data-theme][data-color-mode="light"] .builderProgress button {
+    color: var(--theme-readable-muted) !important;
+    background: #f1f4f6 !important;
+}
+
+:root[data-theme][data-color-mode="light"] .builderProgress button:disabled {
+    opacity: 1;
+}
+
+:root[data-theme][data-color-mode="light"] .builderProgress button strong {
+    color: var(--theme-readable-muted) !important;
+    font-size: 12px;
+}
+
+:root[data-theme][data-color-mode="light"] .builderProgress button span {
+    border-color: var(--theme-border);
+    color: var(--theme-readable-muted);
+    background: #ffffff;
+    font-size: 11px;
+}
+
+:root[data-theme][data-color-mode="light"] .builderProgress button:is(
+    .isActive,
+    .isComplete
+) {
+    color: var(--theme-text) !important;
+    background: rgba(var(--theme-accent-rgb), 0.15) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .builderProgress button:is(
+    .isActive,
+    .isComplete
+) strong {
+    color: var(--theme-text) !important;
+}
+
+:root[data-theme][data-color-mode="light"] :is(
+    .builderForm,
+    #editorContainer
+) {
+    border-color: var(--theme-border-soft) !important;
+    color: var(--theme-text);
+    background: #ffffff !important;
+    box-shadow: 0 18px 48px rgba(24, 33, 41, 0.13);
+}
+
+:root[data-theme][data-color-mode="light"] .spellDescription > div {
+    color: var(--theme-text) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .spellFooter {
+    color: var(--theme-text);
+    background: #f3f6f7 !important;
+}
+
+:root[data-theme][data-color-mode="light"] .spellFooter > a {
+    border-color: var(--theme-accent-border) !important;
+    color: #ffffff !important;
+    background: var(--theme-accent-strong) !important;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* Los pseudo-elementos se declaran de forma explícita para máxima compatibilidad. */
+:root[data-theme][data-color-mode="light"] .hero::before,
+:root[data-theme][data-color-mode="light"] .charactersHero::before {
+    background:
+        linear-gradient(90deg, rgba(247, 249, 250, 0.98) 0%, rgba(247, 249, 250, 0.9) 43%, rgba(247, 249, 250, 0.72) 76%, rgba(247, 249, 250, 0.96) 100%),
+        linear-gradient(0deg, #f7f9fa, transparent 76%),
+        url("../resources/imgs/cave.jpg") center 44% / cover !important;
+    opacity: 1 !important;
+    filter: saturate(0.48) contrast(0.94) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .notesHero::before,
+:root[data-theme][data-color-mode="light"] .newNoteHeader::before,
+:root[data-theme][data-color-mode="light"] .editorHeader::before {
+    background:
+        linear-gradient(90deg, rgba(247, 249, 250, 0.98), rgba(247, 249, 250, 0.87)),
+        linear-gradient(0deg, rgba(247, 249, 250, 0.94), transparent 74%),
+        url("../resources/imgs/book.jpg") center 52% / cover !important;
+    opacity: 1 !important;
+    filter: saturate(0.42) contrast(0.92) !important;
+}
+
+:root[data-theme][data-color-mode="light"] .charactersHero::after,
+:root[data-theme][data-color-mode="light"] .notesHero::after,
+:root[data-theme][data-color-mode="light"] .newNoteHeader::after,
+:root[data-theme][data-color-mode="light"] .editorHeader::after {
+    opacity: 0.18;
+}
+
+:root[data-theme][data-color-mode="light"] body .charactersPage .characterCard .characterStatus {
+    border-color: rgba(86, 211, 146, 0.35) !important;
+    color: #c7f2da !important;
+    background: rgba(7, 26, 19, 0.82) !important;
+}
+
+:root[data-theme][data-color-mode="light"] body .charactersPage .characterCard .viewCharacter {
+    color: #ffffff !important;
+}
+
+@media (max-width: 700px) {
+    :root[data-theme][data-color-mode="light"] .characterPage .portraitColumn {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    :root[data-theme][data-color-mode="light"] .characterPage :is(
+        .card,
+        #sheetButtons,
+        #stContainer
+    ) {
+        width: 100%;
+    }
+}

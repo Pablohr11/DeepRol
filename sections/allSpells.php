@@ -58,8 +58,10 @@ array_shift($spellsLevels);
 // die();
 ?>
 
+<script src="../scripts/theme.js"></script>
 <link rel="stylesheet" href="../styles/allSpells.css">
 <link rel="stylesheet" href="../styles/index.css">
+<link rel="stylesheet" href="../styles/theme.css" data-deeprol-theme>
 
 <div id="allSpellsContainer">
     <div class="stickyDiv">
@@ -75,7 +77,7 @@ array_shift($spellsLevels);
             <?php if (isset($charId)) { ?>
                 <input type="hidden" name="id_char" value="<?=$charId?>">
             <?php } ?>
-            <input type="text" name="nameFilter">
+            <input type="text" id="nameFilter" name="nameFilter" placeholder="Buscar por nombre..." value="<?=isset($_GET["nameFilter"]) ? htmlspecialchars($_GET["nameFilter"], ENT_QUOTES, "UTF-8") : ""?>">
             <div class="classesFilterDiv">
                 <input type="radio" id="bardo" value="bardo" name="classFilter" <?php if($classFilter == "bardo") echo("checked") ?>>
                 <label for="bardo">Bardo</label>
@@ -223,11 +225,5 @@ array_shift($spellsLevels);
             }
         }
     })
-    window.addEventListener("load", (event) => {
-        var targetwidth = document.getElementsByClassName("classesFilterDiv")[0].getBoundingClientRect().width;
-        console.log(targetwidth);
-        document.getElementsByClassName("classesFilterDiv")[1].style.width = targetwidth ;
-
-    });
 </script>
 

@@ -1,88 +1,58 @@
 <?php
+    $isAuthenticated = isset($_COOKIE["logged"]) && (int) $_COOKIE["logged"] > 0;
+    $hasGuestAccess = isset($_COOKIE["guestAccess"]) && $_COOKIE["guestAccess"] === "1";
 
-//require_once __DIR__ . '/vendor/autoload.php';
+    if (!$isAuthenticated && isset($_GET["guest"]) && $_GET["guest"] === "1") {
+        $isSecureRequest = !empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off";
 
+        setcookie("guestAccess", "1", [
+            "path" => "/",
+            "secure" => $isSecureRequest,
+            "httponly" => true,
+            "samesite" => "Lax",
+        ]);
 
+        header("Location: index.php");
+        exit;
+    }
+
+    if (!$isAuthenticated && !$hasGuestAccess) {
+        require __DIR__ . "/sections/landing.php";
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeepRol</title>
+    <meta name="theme-color" content="#080712">
+    <title>DeepRol · Tu mesa de aventuras</title>
+    <script src="scripts/theme.js"></script>
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/leftColumn.css">
-    <link rel="stylesheet" href="styles/footer.css">
+    <link rel="stylesheet" href="styles/theme.css" data-deeprol-theme>
     <script defer src="scripts/header.js"></script>
     <script defer src="scripts/index.js"></script>
 </head>
-<body>
-    <?php 
-        include("sections/_partials/header.php")
-    ?>
-    <div id="content">
-        <div id="leftBar" class="dark open">
-            <?php 
-                include("sections/_partials/leftColumn.php")
-            ?>
-        </div>
-        <div id="mainContent" class="dark">
-            <iframe src="" frameborder="0" name="mainIframe" id="mainIframe"></iframe>            
-        </div>
+<body class="appRoot">
+    <aside id="leftBar" class="open" aria-label="Navegación principal">
+        <?php include("sections/_partials/leftColumn.php"); ?>
+    </aside>
+
+    <div id="appShell">
+        <?php include("sections/_partials/header.php"); ?>
+
+        <main id="mainContent">
+            <iframe
+                src="sections/home.php"
+                title="Contenido de DeepRol"
+                name="mainIframe"
+                id="mainIframe"
+            ></iframe>
+        </main>
     </div>
-    <div id="footer">
-        <?php 
-            include("sections/_partials/footer.php")
-        ?>
-    </div>
-
-<script defer>
-    function hideMain() {
-        var divPartidas = document.querySelector("#partidas").style.display="none";
-        var divPersonajes = document.querySelector("#personajes").style.display="none";
-        var divHabilidades = document.querySelector("#habilidades").style.display="none";
-        var divApuntes = document.querySelector("#apuntes").style.display="none";
-        // console.log(divPartidas);
-
-        // document.getElementById("Partidas").addEventListener('click', function() {
-
-        // })
-    }
-
-    function changeMain(id) {
-        // hideMain();
-
-        var partidasSRC = "sections/personajes.php";
-        var personajesSRC = "sections/personajes.php";
-        var habilidadesSRC = "sections/allSpells.php";
-        var apuntesSRC = "sections/notes.php";
-        
-        var targetContainerId = id.toLowerCase();
-        console.log(id);
-
-        switch (id) {
-            case "Partidas":
-                document.getElementById("mainIframe").src = partidasSRC;        
-                break;
-            case "Personajes":
-                document.getElementById("mainIframe").src = personajesSRC;        
-                break;
-            case "Habilidades":
-                document.getElementById("mainIframe").src = habilidadesSRC;        
-                break;
-            case "Apuntes":
-                document.getElementById("mainIframe").src = apuntesSRC;        
-                break;
-            default:
-                break;
-        }
-        // document.getElementById("mainIframe").src = personajesSRC;
-
-        console.log(document.getElementById(targetContainerId));
-        // document.getElementById(targetContainerId).style.display = "block";
-    }
-</script>
 </body>
 </html>

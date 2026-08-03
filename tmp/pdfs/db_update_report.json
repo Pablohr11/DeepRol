@@ -1,0 +1,930 @@
+{
+    "applied_at": "2026-07-25T19:43:37+02:00",
+    "backup_table": "conjuros_backup_20260725_194336",
+    "backup_rows": 410,
+    "rows_before": 410,
+    "rows_after": 478,
+    "renamed_resurrection_id": 368,
+    "core_name_repair_count": 9,
+    "deleted_count": 1,
+    "updated_count": 47,
+    "inserted_count": 69,
+    "duplicates_after": [],
+    "updated": [
+        {
+            "id_spell": 107,
+            "name_before": "Ráfaga abrasadora de Aganazzar (Aganazzar's Scorcher)",
+            "name_after": "Abrasador de Aganazzar (Aganazzar's Scorcher)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 40,
+            "name_before": "Absorber elementos (Absorb Elements)",
+            "name_after": "Absorber elementos (Absorb Elements)",
+            "fields": [
+                "descr",
+                "casteo",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 147,
+            "name_before": "Garra terrestre de Maximilian (Maximilian's Earthen Grasp)",
+            "name_after": "Agarre de tierra de Maximiliano (Maximilian's Earthen Grasp)",
+            "fields": [
+                "name",
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 127,
+            "name_before": "Vínculo con la tierra (Earthbind)",
+            "name_after": "Atar a la tierra (Earthbind)",
+            "fields": [
+                "name",
+                "descr",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 49,
+            "name_before": "Catapulta (Catapult)",
+            "name_after": "Catapulta (Catapult)",
+            "fields": [
+                "descr",
+                "duracion",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 12,
+            "name_before": "Mordida de escarcha (Frostbite)",
+            "name_after": "Congelación (Frostbite)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 5,
+            "name_before": "Controlar llamas (Control Flames)",
+            "name_after": "Controlar llamas (Control Flames)",
+            "fields": [
+                "descr",
+                "duracion",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 283,
+            "name_before": "Controlar vientos (Control Winds)",
+            "name_after": "Controlar vientos (Control Winds)",
+            "fields": [
+                "descr",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 6,
+            "name_before": "Crear hoguera (Create Bonfire)",
+            "name_after": "Crear hoguera (Create Bonfire)",
+            "fields": [
+                "descr",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 82,
+            "name_before": "Cuchillo de hielo (Ice Knife)",
+            "name_after": "Cuchillo de hielo (Ice Knife)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 345,
+            "name_before": "Protección primordial (Primordial Ward)",
+            "name_after": "Custodia primordial (Primordial Ward)",
+            "fields": [
+                "name",
+                "descr",
+                "rango"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 126,
+            "name_before": "Diablillo de polvo (Dust Devil)",
+            "name_after": "Diablo de polvo (Dust Devil)",
+            "fields": [
+                "name",
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 164,
+            "name_before": "Escribir en el cielo (Skywrite)",
+            "name_after": "Escritura celeste (Skywrite)",
+            "fields": [
+                "name",
+                "descr",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 268,
+            "name_before": "Esfera acuática (Watery Sphere)",
+            "name_after": "Esfera acuosa (Watery Sphere)",
+            "fields": [
+                "name",
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 265,
+            "name_before": "Esfera de tormenta (Storm Sphere)",
+            "name_after": "Esfera de tormenta (Storm Sphere)",
+            "fields": [
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 266,
+            "name_before": "Esfera vitriólica (Vitriolic Sphere)",
+            "name_after": "Esfera vitriólica (Vitriolic Sphere)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 194,
+            "name_before": "Flechas de fuego (Flame Arrows)",
+            "name_after": "Flechas flamígeras (Flame Arrows)",
+            "fields": [
+                "name",
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 317,
+            "name_before": "Huesos de la tierra (Bones of the Earth)",
+            "name_after": "Huesos de la tierra (Bones of the Earth)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 294,
+            "name_before": "Inmolación (Immolation)",
+            "name_after": "Inmolación (Immolation)",
+            "fields": [
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 335,
+            "name_before": "Investidura de hielo (Investiture of Ice)",
+            "name_after": "Investidura de hielo (Investiture of Ice)",
+            "fields": [
+                "descr",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 334,
+            "name_before": "Investidura de llama (Investiture of Flame)",
+            "name_after": "Investidura de llamas (Investiture of Flame)",
+            "fields": [
+                "name",
+                "descr",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 336,
+            "name_before": "Investidura de piedra (Investiture of Stone)",
+            "name_after": "Investidura de piedra (Investiture of Stone)",
+            "fields": [
+                "descr",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 337,
+            "name_before": "Investidura de viento (Investiture of Wind)",
+            "name_after": "Investidura de viento (Investiture of Wind)",
+            "fields": [
+                "descr",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 375,
+            "name_before": "Marchitamiento horrendo de Abi-Dalzim (Abi-Dalzim's Horrid Wilting)",
+            "name_after": "Marchitamiento horrible de Abi-Dalzim (Abi-Dalzim's Horrid Wilting)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 208,
+            "name_before": "Meteoritos diminutos de Melf (Melf's Minute Meteors)",
+            "name_after": "Meteoros diminutos de Melf (Melf's Minute Meteors)",
+            "fields": [
+                "name",
+                "descr",
+                "rango",
+                "clases",
+                "escuela"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 23,
+            "name_before": "Moldear tierra (Mold Earth)",
+            "name_after": "Moldear tierra (Mold Earth)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 225,
+            "name_before": "Muro de arena (Wall of Sand)",
+            "name_after": "Muro de arena (Wall of Sand)",
+            "fields": [
+                "descr",
+                "rango"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 226,
+            "name_before": "Muro de agua (Wall of Water)",
+            "name_after": "Muro de agua (Wall of Water)",
+            "fields": [
+                "descr",
+                "rango"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 222,
+            "name_before": "Ola gigante (Tidal Wave)",
+            "name_after": "Ola de marea (Tidal Wave)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 37,
+            "name_before": "Aplauso atronador (Thunderclap)",
+            "name_after": "Palmada atronadora (Thunderclap)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 244,
+            "name_before": "Ruina elemental (Elemental Bane)",
+            "name_after": "Perdición elemental (Elemental Bane)",
+            "fields": [
+                "name",
+                "descr",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 19,
+            "name_before": "Piedra mágica (Magic Stone)",
+            "name_after": "Piedra mágica (Magic Stone)",
+            "fields": [
+                "descr",
+                "casteo",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 157,
+            "name_before": "Pirotecnia (Pyrotechnics)",
+            "name_after": "Pirotecnia (Pyrotechnics)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 15,
+            "name_before": "Ráfaga (Gust)",
+            "name_after": "Ráfaga (Gust)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 64,
+            "name_before": "Temblor de tierra (Earth Tremor)",
+            "name_after": "Temblor de tierra (Earth Tremor)",
+            "fields": [
+                "descr",
+                "duracion",
+                "rango"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 190,
+            "name_before": "Tierra en erupción (Erupting Earth)",
+            "name_after": "Tierra en erupción (Erupting Earth)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 374,
+            "name_before": "Torbellino (Whirlwind)",
+            "name_after": "Torbellino (Whirlwind)",
+            "fields": [
+                "descr",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 165,
+            "name_before": "Avalancha de bolas de nieve de Snilloc (Snilloc's Snowball Swarm)",
+            "name_after": "Tormenta de bolas de nieve de Snilloc (Snilloc's Snowball Swarm)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "concentracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 30,
+            "name_before": "Moldear agua (Shape Water)",
+            "name_after": "Transformar agua (Shape Water)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 311,
+            "name_before": "Transmutar roca (Transmute Rock)",
+            "name_after": "Transmutar roca (Transmute Rock)",
+            "fields": [
+                "descr",
+                "duracion"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 297,
+            "name_before": "Maelstrom (Maelstrom)",
+            "name_after": "Vorágine (Maelstrom)",
+            "fields": [
+                "name",
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 171,
+            "name_before": "Viento protector (Warding Wind)",
+            "name_after": "Viento de salvaguardia (Warding Wind)",
+            "fields": [
+                "name",
+                "descr",
+                "rango",
+                "clases"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 46,
+            "name_before": "Vínculo bestial (Beast Bond)",
+            "name_after": "Vínculo bestial (Beast Bond)",
+            "fields": [
+                "descr"
+            ],
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 17,
+            "name_before": "Látigo eléctrico (Lightning Lure)",
+            "name_after": "Atracción del relámpago (Lightning Lure)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "rango",
+                "clases"
+            ],
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 34,
+            "name_before": "Explosión de espada (Sword Burst)",
+            "name_after": "Estallido de espadas (Sword Burst)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "rango",
+                "clases"
+            ],
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 3,
+            "name_before": "Espada atronadora (Booming Blade)",
+            "name_after": "Filo atronador (Booming Blade)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "rango",
+                "clases"
+            ],
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 13,
+            "name_before": "Espada de llama verde (Green-Flame Blade)",
+            "name_after": "Filo de llamas verdes (Green-Flame Blade)",
+            "fields": [
+                "name",
+                "descr",
+                "duracion",
+                "rango",
+                "clases"
+            ],
+            "source": "Tasha"
+        }
+    ],
+    "core_name_repairs": [
+        {
+            "id_spell": 8,
+            "name_before": "Trucos Druidaas (Druidacraft)",
+            "name_after": "Magia druídica (Druidcraft)"
+        },
+        {
+            "id_spell": 105,
+            "name_before": "Rayo de bruja",
+            "name_after": "Virote encantado (Witch Bolt)"
+        },
+        {
+            "id_spell": 106,
+            "name_before": "Golpe iracundo",
+            "name_after": "Golpe iracundo (Wrathful Smite)"
+        },
+        {
+            "id_spell": 173,
+            "name_before": "Zona de verdad",
+            "name_after": "Zona de verdad (Zone of Truth)"
+        },
+        {
+            "id_spell": 214,
+            "name_before": "",
+            "name_after": "Revivir (Revivify)"
+        },
+        {
+            "id_spell": 242,
+            "name_before": "Adivinación (Adivinacion)",
+            "name_after": "Adivinación (Divination)"
+        },
+        {
+            "id_spell": 353,
+            "name_before": "Palabra de retorno",
+            "name_after": "Palabra de retorno (Word of Recall)"
+        },
+        {
+            "id_spell": 368,
+            "name_before": "Resurrección verdadera (True Resurrection)",
+            "name_after": "Resurrección (Resurrection)"
+        },
+        {
+            "id_spell": 369,
+            "name_before": "... (continúa)",
+            "name_after": "Invertir gravedad (Reverse Gravity)"
+        }
+    ],
+    "deleted": [
+        {
+            "id_spell": 393,
+            "name": "Atrapando el alma (Trap the Soul)"
+        }
+    ],
+    "inserted": [
+        {
+            "id_spell": 411,
+            "name": "Aliento del dragón (Dragon's Breath)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 412,
+            "name": "Amanecer (Dawn)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 413,
+            "name": "Arboleda druida (Druid Grove)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 414,
+            "name": "Arma sagrada (Holy Weapon)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 415,
+            "name": "Causar miedo (Cause Fear)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 416,
+            "name": "Ceremonia (Ceremony)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 417,
+            "name": "Corona de estrellas (Crown of Stars)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 418,
+            "name": "Crear homúnculo (Create Homunculus)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 419,
+            "name": "Danza macabra (Danse Macabre)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 420,
+            "name": "Dispersión (Scatter)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 421,
+            "name": "Dragón ilusorio (Illusory Dragon)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 422,
+            "name": "Empoderar habilidades (Skill Empowerment)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 423,
+            "name": "Enemigos abundantes (Enemies Abound)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 424,
+            "name": "Enervación (Enervation)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 425,
+            "name": "Espina mental (Mind Spike)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 426,
+            "name": "Espíritu curativo (Healing Spirit)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 427,
+            "name": "Estática sináptica (Synaptic Static)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 428,
+            "name": "Fortaleza poderosa (Mighty Fortress)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 429,
+            "name": "Golpe de céfiro (Zephyr Strike)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 430,
+            "name": "Golpe de viento de acero (Steel Wind Strike)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 431,
+            "name": "Grito psíquico (Psychic Scream)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 432,
+            "name": "Guardián de la naturaleza (Guardian of Nature)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 433,
+            "name": "Encontrar corcel mayor (Find Greater Steed)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 434,
+            "name": "Hechizar monstruo (Charm Monster)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 435,
+            "name": "Hoja de sombra (Shadow Blade)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 436,
+            "name": "Infestación (Infestation)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 437,
+            "name": "Inundación de energía negativa (Negative Energy Flood)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 438,
+            "name": "Invocar demonio mayor (Summon Greater Demon)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 439,
+            "name": "Invocar demonios menores (Summon Lesser Demons)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 440,
+            "name": "Invulnerabilidad (Invulnerability)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 441,
+            "name": "Ira de la naturaleza (Wrath of Nature)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 442,
+            "name": "Jaula de alma (Soul Cage)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 443,
+            "name": "Llamada infernal (Infernal Calling)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 444,
+            "name": "Muro de luz (Wall of Light)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 445,
+            "name": "Oscuridad enloquecedora (Maddening Darkness)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 446,
+            "name": "Palabra de poder: dolor (Power Word Pain)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 447,
+            "name": "Palabra de resplandor (Word of Radiance)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 448,
+            "name": "Paso de trueno (Thunder Step)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 449,
+            "name": "Paso lejano (Far Step)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 450,
+            "name": "Polimorfar en grupo (Mass Polymorph)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 451,
+            "name": "Prisión mental (Mental Prison)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 452,
+            "name": "Resplandor enfermizo (Sickening Radiance)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 453,
+            "name": "Salvajismo primigenio (Primal Savagery)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 454,
+            "name": "Servidor minúsculo (Tiny Servant)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 455,
+            "name": "Siestecita (Catnap)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 456,
+            "name": "Sombra de Moil (Shadow of Moil)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 457,
+            "name": "Templo de los dioses (Temple of the Gods)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 458,
+            "name": "Tocar a los muertos (Toll the Dead)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 459,
+            "name": "Trampa de lazo (Snare)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 460,
+            "name": "Transferencia de vida (Life Transference)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 461,
+            "name": "Transformación de Tenser (Tenser's Transformation)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 462,
+            "name": "Virote de caos (Chaos Bolt)",
+            "source": "Xanathar"
+        },
+        {
+            "id_spell": 463,
+            "name": "Apariencia espectral de Tasha (Tasha's Otherworldly Guise)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 464,
+            "name": "Brebaje cáustico de Tasha (Tasha's Caustic Brew)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 465,
+            "name": "Fortaleza del intelecto (Intellect Fortress)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 466,
+            "name": "Fragmento mental (Mind Sliver)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 467,
+            "name": "Hoja de desastre (Blade of Disaster)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 468,
+            "name": "Invocar aberración (Summon Aberration)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 469,
+            "name": "Invocar autómata (Summon Construct)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 470,
+            "name": "Invocar bestia (Summon Beast)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 471,
+            "name": "Invocar celestial (Summon Celestial)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 472,
+            "name": "Invocar elemental (Summon Elemental)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 473,
+            "name": "Invocar engendro de las sombras (Summon Shadowspawn)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 474,
+            "name": "Invocar feérico (Summon Fey)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 475,
+            "name": "Invocar infernal (Summon Fiend)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 476,
+            "name": "Invocar muerto viviente (Summon Undead)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 477,
+            "name": "Látigo mental de Tasha (Tasha's Mind Whip)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 478,
+            "name": "Mortaja espiritual (Spirit Shroud)",
+            "source": "Tasha"
+        },
+        {
+            "id_spell": 479,
+            "name": "Sueño del velo azul (Dream of the Blue Veil)",
+            "source": "Tasha"
+        }
+    ]
+}

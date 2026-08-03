@@ -1,5 +1,11 @@
+:root {
+    --footer-accent: var(--theme-accent, #a99a78);
+    --footer-accent-strong: var(--theme-accent-strong, #6d624c);
+    --footer-accent-pale: var(--theme-accent-pale, #d0c6ae);
+}
+
 #footer {   
-    background-color: #653d14;
+    background-color: var(--footer-accent-strong);
     width: 100vw;
     height: 50px;
 }
@@ -14,5 +20,5 @@
 }
 
 #footerSpecialSpan {
-    color: #8b8b8b
+    color: var(--footer-accent-pale);
 }

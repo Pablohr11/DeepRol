@@ -1,0 +1,354 @@
+{
+  "schemaVersion": 1,
+  "subclasses": [
+    {
+      "class": "Druida",
+      "name": "Círculo del Fuego Salvaje",
+      "source": "Tasha",
+      "overview": "Este círculo une al druida con un espíritu primordial que convierte la destrucción en nueva vida. Su progresión combina conjuros siempre preparados, una criatura invocada, daño de fuego, curación, movilidad y una forma de evitar caer inconsciente.",
+      "features": [
+        {
+          "level": 2,
+          "name": "Conjuros de círculo",
+          "progressionLabel": "Conjuros de círculo: Curar heridas · Manos ardientes",
+          "summary": "El vínculo añade conjuros concretos al repertorio del druida a medida que aumenta su nivel en esta clase.",
+          "facts": [
+            {
+              "label": "Preparación",
+              "value": "Siempre preparados"
+            },
+            {
+              "label": "Límite",
+              "value": "No cuentan para el máximo diario"
+            },
+            {
+              "label": "Tipo",
+              "value": "Se consideran conjuros de druida"
+            }
+          ],
+          "details": [
+            "Los conjuros se obtienen al alcanzar el nivel de druida indicado, no por el nivel total del personaje.",
+            "No es necesario elegirlos al preparar conjuros y permanecen disponibles mientras conserves la subclase."
+          ],
+          "table": {
+            "label": "Conjuros siempre preparados",
+            "headers": [
+              "Nivel de druida",
+              "Conjuros"
+            ],
+            "rows": [
+              [
+                "2",
+                "Curar heridas · Manos ardientes"
+              ],
+              [
+                "3",
+                "Esfera de llamas · Rayo abrasador"
+              ],
+              [
+                "5",
+                "Crecimiento vegetal · Revivir"
+              ],
+              [
+                "7",
+                "Aura de vida · Escudo de fuego"
+              ],
+              [
+                "9",
+                "Curar heridas en masa · Golpe flamígero"
+              ]
+            ]
+          }
+        },
+        {
+          "level": 2,
+          "name": "Invocar espíritu del fuego salvaje",
+          "summary": "En lugar de transformarse, el druida puede gastar Forma salvaje para llamar a su espíritu vinculado y dirigirlo en combate.",
+          "facts": [
+            {
+              "label": "Coste",
+              "value": "1 acción + 1 uso de Forma salvaje"
+            },
+            {
+              "label": "Aparición",
+              "value": "Espacio visible a 30 pies"
+            },
+            {
+              "label": "Explosión inicial",
+              "value": "Radio de 10 pies · salvación de Destreza · 2d6 de fuego"
+            },
+            {
+              "label": "Duración",
+              "value": "1 hora"
+            }
+          ],
+          "details": [
+            "La explosión de aparición afecta a todas las criaturas dentro del radio salvo al druida; una salvación superada evita el daño.",
+            "El espíritu comparte la iniciativa del druida y actúa inmediatamente después de él.",
+            "Esquiva si no recibe otra orden. Darle una orden diferente exige una acción adicional del druida; si el druida está incapacitado, el espíritu decide libremente.",
+            "Desaparece al llegar a 0 PG, al volver a usar este rasgo, cuando termina la hora o si muere el druida."
+          ]
+        },
+        {
+          "level": 3,
+          "name": "Esfera de llamas · Rayo abrasador",
+          "progressionLabel": "Conjuros de círculo: Esfera de llamas · Rayo abrasador",
+          "summary": "Al llegar a nivel 3 de druida, el círculo añade estos dos conjuros de nivel 2 a los que siempre tienes preparados.",
+          "facts": [
+            {
+              "label": "Nivel de druida",
+              "value": "3"
+            },
+            {
+              "label": "Nivel de conjuro",
+              "value": "2"
+            },
+            {
+              "label": "Preparación",
+              "value": "Siempre preparados"
+            }
+          ],
+          "details": [
+            "Esfera de llamas aporta daño persistente y control de espacio.",
+            "Rayo abrasador permite concentrar varios ataques de fuego en uno o más objetivos."
+          ]
+        },
+        {
+          "level": 5,
+          "name": "Crecimiento vegetal · Revivir",
+          "progressionLabel": "Conjuros de círculo: Crecimiento vegetal · Revivir",
+          "summary": "Al llegar a nivel 5 de druida, el círculo incorpora dos conjuros de nivel 3 centrados en renovación, control y recuperación.",
+          "facts": [
+            {
+              "label": "Nivel de druida",
+              "value": "5"
+            },
+            {
+              "label": "Nivel de conjuro",
+              "value": "3"
+            },
+            {
+              "label": "Preparación",
+              "value": "Siempre preparados"
+            }
+          ],
+          "details": [
+            "Crecimiento vegetal transforma el terreno o mejora la vegetación a largo plazo.",
+            "Revivir permite devolver a la vida a una criatura fallecida recientemente si se cumplen sus requisitos."
+          ]
+        },
+        {
+          "level": 6,
+          "name": "Vínculo mejorado",
+          "summary": "La presencia del espíritu potencia una tirada de los conjuros de fuego o curación y permite lanzar a través de él.",
+          "facts": [
+            {
+              "label": "Bonificador",
+              "value": "1d8 a una tirada de daño o curación"
+            },
+            {
+              "label": "Requisito",
+              "value": "Espíritu invocado"
+            },
+            {
+              "label": "Origen alternativo",
+              "value": "Druida o espíritu"
+            }
+          ],
+          "details": [
+            "El d8 se añade a una sola tirada del conjuro que inflija daño de fuego o restaure puntos de golpe.",
+            "Un conjuro cuyo alcance no sea «personal» puede originarse desde el espacio del espíritu, aunque quien lo lanza sigue siendo el druida."
+          ]
+        },
+        {
+          "level": 7,
+          "name": "Aura de vida · Escudo de fuego",
+          "progressionLabel": "Conjuros de círculo: Aura de vida · Escudo de fuego",
+          "summary": "Al llegar a nivel 7 de druida, el círculo añade dos conjuros de nivel 4 para sostener al grupo y castigar ataques cercanos.",
+          "facts": [
+            {
+              "label": "Nivel de druida",
+              "value": "7"
+            },
+            {
+              "label": "Nivel de conjuro",
+              "value": "4"
+            },
+            {
+              "label": "Preparación",
+              "value": "Siempre preparados"
+            }
+          ],
+          "details": [
+            "Aura de vida protege a aliados cercanos de efectos necróticos y ayuda a mantenerlos en combate.",
+            "Escudo de fuego ofrece resistencia elemental y daña a quienes golpean al objetivo en cuerpo a cuerpo."
+          ]
+        },
+        {
+          "level": 9,
+          "name": "Curar heridas en masa · Golpe flamígero",
+          "progressionLabel": "Conjuros de círculo: Curar heridas en masa · Golpe flamígero",
+          "summary": "Al llegar a nivel 9 de druida, el círculo completa su lista con dos conjuros de nivel 5 de curación grupal y daño en área.",
+          "facts": [
+            {
+              "label": "Nivel de druida",
+              "value": "9"
+            },
+            {
+              "label": "Nivel de conjuro",
+              "value": "5"
+            },
+            {
+              "label": "Preparación",
+              "value": "Siempre preparados"
+            }
+          ],
+          "details": [
+            "Curar heridas en masa restaura puntos de golpe a varias criaturas a distancia.",
+            "Golpe flamígero combina daño de fuego y radiante en una columna de energía."
+          ]
+        },
+        {
+          "level": 10,
+          "name": "Llamas cauterizadoras",
+          "summary": "La muerte de una criatura cercana deja durante un minuto una llama espectral que el druida puede convertir en curación o daño.",
+          "facts": [
+            {
+              "label": "Desencadenante",
+              "value": "Muere una criatura Pequeña o mayor"
+            },
+            {
+              "label": "Alcance",
+              "value": "30 pies del druida o del espíritu"
+            },
+            {
+              "label": "Efecto",
+              "value": "2d10 + modificador de Sabiduría"
+            },
+            {
+              "label": "Usos",
+              "value": "Bonificador por competencia por descanso largo"
+            }
+          ],
+          "details": [
+            "La llama aparece en el espacio de la criatura muerta y permanece durante 1 minuto.",
+            "Cuando una criatura visible entra en ese espacio, el druida usa su reacción para extinguir la llama.",
+            "Al extinguirla, elige entre restaurar puntos de golpe a esa criatura o infligirle la misma cantidad como daño de fuego."
+          ]
+        },
+        {
+          "level": 14,
+          "name": "Renacer ardiente",
+          "summary": "El espíritu puede sacrificarse para que el druida recupere la mitad de sus puntos de golpe y vuelva a ponerse en pie.",
+          "facts": [
+            {
+              "label": "Desencadenante",
+              "value": "El druida cae a 0 PG e inconsciente"
+            },
+            {
+              "label": "Distancia máxima",
+              "value": "Espíritu a 120 pies"
+            },
+            {
+              "label": "Recuperación",
+              "value": "La mitad de los PG máximos"
+            },
+            {
+              "label": "Recarga",
+              "value": "Descanso largo"
+            }
+          ],
+          "details": [
+            "El espíritu baja inmediatamente a 0 PG y desaparece.",
+            "El druida recupera los puntos de golpe indicados y se pone en pie como parte del mismo efecto.",
+            "Solo puede activarse una vez antes de completar un descanso largo."
+          ]
+        }
+      ],
+      "companions": [
+        {
+          "name": "Espíritu del fuego salvaje",
+          "type": "Elemental Pequeño",
+          "facts": [
+            {
+              "label": "Clase de Armadura",
+              "value": "13 (armadura natural)"
+            },
+            {
+              "label": "Puntos de golpe",
+              "value": "5 + (5 × nivel de druida)"
+            },
+            {
+              "label": "Velocidad",
+              "value": "30 pies · vuelo 30 pies (levitar)"
+            },
+            {
+              "label": "Bonificador",
+              "value": "Tu bonificador por competencia (BC)"
+            }
+          ],
+          "abilities": [
+            {
+              "name": "FUE",
+              "score": "10",
+              "modifier": "+0"
+            },
+            {
+              "name": "DES",
+              "score": "14",
+              "modifier": "+2"
+            },
+            {
+              "name": "CON",
+              "score": "14",
+              "modifier": "+2"
+            },
+            {
+              "name": "INT",
+              "score": "13",
+              "modifier": "+1"
+            },
+            {
+              "name": "SAB",
+              "score": "15",
+              "modifier": "+2"
+            },
+            {
+              "name": "CAR",
+              "score": "11",
+              "modifier": "+0"
+            }
+          ],
+          "traits": [
+            {
+              "label": "Inmunidad al daño",
+              "value": "Fuego"
+            },
+            {
+              "label": "Inmunidad a estados",
+              "value": "Hechizado, asustado, agarrado, derribado y apresado"
+            },
+            {
+              "label": "Sentidos",
+              "value": "Visión en la oscuridad 60 pies · Percepción pasiva 12"
+            },
+            {
+              "label": "Idiomas",
+              "value": "Entiende los idiomas que habla el druida"
+            }
+          ],
+          "actions": [
+            {
+              "name": "Semilla de llamas",
+              "value": "Ataque a distancia con el modificador de ataque de conjuros del druida, alcance 60 pies; al impactar inflige 1d6 + BC de daño de fuego."
+            },
+            {
+              "name": "Teletransporte ardiente",
+              "value": "El espíritu y las criaturas voluntarias elegidas a 5 pies se teletransportan hasta 15 pies. Las criaturas a 5 pies del espacio abandonado hacen una salvación de Destreza contra la CD de conjuros o reciben 1d6 + BC de daño de fuego."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
